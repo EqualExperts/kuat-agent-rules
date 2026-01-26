@@ -1,0 +1,5 @@
+# Claude Code Instructions
+
+This project uses Equal Experts brand guidelines.
+
+See [AGENTS.md](./AGENTS.md) for complete agent instructions.

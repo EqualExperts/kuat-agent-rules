@@ -1,69 +1,109 @@
-# Kuat Design System Rules
+# Equal Experts Agent Rules
 
-Pure design language documentation - technology-agnostic rules for building consistent user interfaces and content.
+Design system rules and guidelines for AI agents and content creators.
+
+---
+
+## Structure
+
+```
+rules/
+├── general/                    # Universal rules for ALL platforms
+│   ├── brand.md                # Brand principles and identity
+│   ├── logo.md                 # Logo usage guidelines
+│   ├── content.md              # Writing style and tone
+│   ├── design-language.md      # General design principles
+│   ├── colours.md              # Color palette
+│   ├── typography.md           # Typography specifications
+│   ├── spacing.md              # Spacing system
+│   └── borders.md              # Border philosophy
+│
+└── types/                      # Platform-specific rules
+    ├── slides/                 # Presentation decks
+    ├── photography/            # Photography guidelines
+    ├── graphics/               # Icons, illustrations, infographics
+    ├── charts-data/            # Data visualization
+    └── web/                    # Web (marketing and product)
+        ├── marketing/          # Marketing websites and emails
+        └── product/            # Web applications
+            └── examples/       # Framework-specific code
+```
 
 ---
 
 ## Quick Navigation
 
-| Category | Description | Key Files |
+| Category | Description | Directory |
 |----------|-------------|-----------|
-| [Design](./design/) | Visual design rules | colours, typography, spacing, borders, layouts, logo |
-| [Content](./content/) | Content writing rules | voice, tone, marketing, UX writing |
-| [Components](./components/) | Component pattern rules | naming, variants, accessibility |
+| General Rules | Universal brand and design language | [general/](./general/) |
+| Type-Specific Rules | Platform-specific guidelines | [types/](./types/) |
 
 ---
 
 ## How to Use These Rules
 
-**These files contain design principles and specifications only - no code examples.**
+### For AI Agents
 
-For implementation code, see:
-- [examples/react/](../examples/react/) - React/JSX examples
-- [examples/vue/](../examples/vue/) - Vue SFC examples
-- [examples/css/](../examples/css/) - Vanilla CSS examples
+1. **Always load general rules first** - They apply to all platforms
+2. **Then load type-specific rules** - Based on what you're creating
 
----
+**Example context loading:**
 
-## Design Rules
+| Task | Load |
+|------|------|
+| Creating slides | `general/` + `types/slides/` |
+| Building web app | `general/` + `types/web/product/` |
+| Marketing website | `general/` + `types/web/marketing/` |
+| Designing icons | `general/` + `types/graphics/icons.md` |
 
-Visual design specifications for the Kuat Design System:
+### Platform Isolation
 
-- **[colours.md](./design/colours.md)** - Brand colors, semantic tokens, accessibility
-- **[typography.md](./design/typography.md)** - Fonts, type scale, hierarchy
-- **[spacing.md](./design/spacing.md)** - 8-point grid, spacing scale, patterns
-- **[borders.md](./design/borders.md)** - Border philosophy, radius, colors
-- **[logo.md](./design/logo.md)** - Logo usage, sizing, variants
-- **[layouts.md](./design/layouts.md)** - Page layouts, navigation patterns
-- **[overview.md](./design/overview.md)** - Design system principles
+Type-specific rules should NOT reference each other:
 
----
+- ✅ Slides can reference general rules
+- ✅ Web/product can reference general rules
+- ❌ Slides should NOT reference web/product rules
+- ❌ Graphics should NOT reference web examples
 
-## Content Rules
-
-Content writing guidelines for consistent voice and messaging:
-
-- **[foundations.md](./content/foundations.md)** - Universal voice and tone principles
-- **[marketing-sales.md](./content/marketing-sales.md)** - Marketing and sales content
-- **[product-ux.md](./content/product-ux.md)** - Product interface content
+This ensures slides don't need to understand Kuat-react, and infographics don't need web component patterns.
 
 ---
 
-## Component Rules
+## General Rules
 
-Component development patterns (framework-agnostic):
+Universal design language applicable to ALL platforms:
 
-- **[patterns.md](./components/patterns.md)** - Naming, variants, accessibility, testing
+- **[brand.md](./general/brand.md)** - Equal Experts brand principles
+- **[logo.md](./general/logo.md)** - Logo variants, sizing, placement
+- **[content.md](./general/content.md)** - Writing style, tone, guidelines
+- **[design-language.md](./general/design-language.md)** - Design principles
+- **[colours.md](./general/colours.md)** - Brand color palette
+- **[typography.md](./general/typography.md)** - Fonts and type scale
+- **[spacing.md](./general/spacing.md)** - Spacing system
+- **[borders.md](./general/borders.md)** - Border philosophy
 
 ---
 
-## For AI Agents
+## Type-Specific Rules
 
-**Recommended context loading:**
+Platform-specific guidelines that extend general rules:
 
-1. **Minimum context**: Load only the specific rule file needed for the task
-2. **Design tasks**: Load `rules/design/` directory
-3. **Content tasks**: Load `rules/content/` directory  
-4. **Component tasks**: Load `rules/components/` + relevant `examples/` directory
+### Slides
+- **[types/slides/](./types/slides/)** - Presentation guidelines
 
-**File size targets**: Each file is optimized to be under 200-400 lines for efficient context usage.
+### Photography
+- **[types/photography/](./types/photography/)** - Photo style guidelines
+
+### Graphics
+- **[types/graphics/](./types/graphics/)** - Icons, illustrations, infographics
+
+### Charts & Data
+- **[types/charts-data/](./types/charts-data/)** - Data visualization
+
+### Web
+- **[types/web/marketing/](./types/web/marketing/)** - Marketing websites and emails
+- **[types/web/product/](./types/web/product/)** - Web applications
+  - [design.md](./types/web/product/design.md) - Product layouts
+  - [component-decision-tree.md](./types/web/product/component-decision-tree.md) - Component selection
+  - [technical.md](./types/web/product/technical.md) - Setup and integration
+  - [examples/](./types/web/product/examples/) - React, Vue, CSS examples
