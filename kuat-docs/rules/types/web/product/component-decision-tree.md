@@ -233,6 +233,7 @@ Before shipping a component, verify:
 
 ## Related Documentation
 
+- [Accessibility](./accessibility.md) - Technical accessibility implementation
 - [Technical Guidelines](./technical.md) - Setup and integration
 - [Design Rules](./design.md) - Layout and visual design
 - [Examples](./examples/) - Framework-specific code examples

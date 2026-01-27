@@ -22,7 +22,9 @@ These rules govern the creation of web-based outputs, split into two categories:
 | Directory | Description |
 |-----------|-------------|
 | [marketing/](./marketing/) | Marketing websites and emails |
+| [marketing/scenarios/](./marketing/scenarios/) | Marketing page patterns (landing pages, pricing) |
 | [product/](./product/) | Web applications and product development |
+| [product/scenarios/](./product/scenarios/) | Product page patterns (auth, dashboards, forms) |
 
 ---
 

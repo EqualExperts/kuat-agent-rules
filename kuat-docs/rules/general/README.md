@@ -22,6 +22,7 @@ These rules define the core Equal Experts brand identity and design language. Th
 | [typography.md](./typography.md) | Font families and type specifications |
 | [spacing.md](./spacing.md) | Spacing system and principles |
 | [borders.md](./borders.md) | Border philosophy and specifications |
+| [accessibility.md](./accessibility.md) | Accessibility principles and guidelines |
 
 ---
 
@@ -37,6 +38,7 @@ These rules define the core Equal Experts brand identity and design language. Th
 - Writing content → `content.md`
 - Color decisions → `colours.md`
 - Typography → `typography.md`
+- Accessibility → `accessibility.md`
 
 **Full context:** Load all files in this directory (~800 lines).
 

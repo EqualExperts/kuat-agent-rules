@@ -18,6 +18,7 @@ The `kuat-docs/rules/general/` directory contains universal brand and design lan
 | `spacing.md` | Spacing system |
 | `borders.md` | Border philosophy |
 | `design-language.md` | General design principles |
+| `accessibility.md` | Accessibility principles and guidelines |
 
 ### 2. Then Load Platform-Specific Rules
 
@@ -32,7 +33,9 @@ Based on what you're creating, load the appropriate type-specific rules:
 | Infographics | `kuat-docs/rules/types/graphics/infographics.md` |
 | Charts/Data Viz | `kuat-docs/rules/types/charts-data/` |
 | Marketing Website | `kuat-docs/rules/types/web/marketing/` |
+| Marketing Page Scenarios | `kuat-docs/rules/types/web/marketing/scenarios/` |
 | Web Application | `kuat-docs/rules/types/web/product/` |
+| Product Page Scenarios | `kuat-docs/rules/types/web/product/scenarios/` |
 
 ### 3. Platform Isolation Rules
 
