@@ -1,10 +1,16 @@
+---
+scope: type
+platform: web_product
+prerequisites: general, general/content.md
+---
+
 # Product Content Guidelines
 
 UX writing and content guidelines for Equal Experts web applications.
 
 ---
 
-**Prerequisites:** Load [general rules](../../../general/) first, especially [content.md](../../../general/content.md)
+**Prerequisites:** Load [general rules](../../../general/) first, especially [content.md](../../../general/content.md).
 
 ---
 

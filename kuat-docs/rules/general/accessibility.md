@@ -1,8 +1,27 @@
+---
+scope: general
+---
+
 # Accessibility
 
 Foundational accessibility requirements for Equal Experts content and products. These rules ensure products and services deliver the best experience for all users.
 
 **Target: WCAG 2.2 Level AA compliance.**
+
+---
+
+## Quick reference
+
+- **Standard:** WCAG 2.2 Level AA (legal baseline for many contexts).
+- **Contrast:** Body text 4.5:1, large text/UI 3:1; never rely on colour alone for meaning.
+- **Typography:** Min body 11pt (14px), line height 1.5; use relative units; support 200% zoom.
+- **Motion:** Provide reduced-motion alternative; no auto-play without user control.
+- **Images:** Meaningful images need alt text; decorative images need empty or role="presentation".
+- **Links/buttons:** Descriptive labels; visible focus; keyboard operable.
+- **Content:** Plain language; logical structure (headings, lists); person-first language.
+- **Testing:** Use contrast checkers and automated a11y tools; test with keyboard and screen reader.
+
+*Full detail follows.*
 
 ---
 

@@ -4,9 +4,9 @@ Guidelines for Equal Experts photography style and image usage.
 
 ---
 
-**Status:** Placeholder - details to be defined
+**Status:** Placeholder (skeleton). Load only when the task is explicitly photography/photo style; otherwise prefer [general rules](../../general/). For which general files to load with photography, see [LOADING.md](../../LOADING.md) (task: photography).
 
-**Prerequisites:** Load [general rules](../../general/) first
+**Prerequisites:** Load [general rules](../../general/) first (at least brand; expand to full general if needed).
 
 ---
 
@@ -55,16 +55,7 @@ Equal Experts has a signature black and white photography style:
 
 ---
 
-## To Be Defined
-
-- Black and white processing specifications
-- Image composition guidelines
-- Resolution and format requirements
-- Client image permissions and usage
-- Work example presentation guidelines
-- Stock photography guidelines (if applicable)
-- Image cropping and framing rules
-- Metadata and attribution requirements
+Further guidance (processing specs, composition, resolution, permissions, metadata) to be added as needed.
 
 ---
 

@@ -28,37 +28,9 @@ These rules define the core Equal Experts brand identity and design language. Th
 
 ## How to Use
 
-### For AI Agents
+**Load order and task → files:** See the canonical index [../LOADING.md](../LOADING.md). Always load general rules first; then load the type-specific path for your task (slides, web_product, icons, etc.).
 
-**Always load these files** when working on any Equal Experts creative output.
-
-**Minimum context:** Load the specific file(s) relevant to your task:
-- Brand questions → `brand.md`
-- Logo placement → `logo.md`
-- Writing content → `content.md`
-- Color decisions → `colours.md`
-- Typography → `typography.md`
-- Accessibility → `accessibility.md`
-
-**Full context:** Load all files in this directory (~800 lines).
-
-### For Humans
-
-Read these files to understand the core brand and design language before creating any Equal Experts materials.
-
----
-
-## Platform-Specific Rules
-
-After loading general rules, load the appropriate type-specific rules:
-
-| Platform | Directory |
-|----------|-----------|
-| Slides | [types/slides/](../types/slides/) |
-| Photography | [types/photography/](../types/photography/) |
-| Graphics (icons, illustrations, infographics) | [types/graphics/](../types/graphics/) |
-| Charts and data visualization | [types/charts-data/](../types/charts-data/) |
-| Web (marketing and product) | [types/web/](../types/web/) |
+**For humans:** Read these files to understand the core brand and design language before creating any Equal Experts materials.
 
 ---
 

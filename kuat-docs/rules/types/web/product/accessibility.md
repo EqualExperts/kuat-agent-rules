@@ -1,10 +1,31 @@
+---
+scope: type
+platform: web_product
+prerequisites: general/accessibility.md
+---
+
 # Technical Accessibility
 
 Implementation rules for WCAG 2.2 AA compliance in web applications.
 
 ---
 
-**Prerequisites:** Load [general accessibility rules](../../../general/accessibility.md) first
+**Prerequisites:** Load [general accessibility rules](../../../general/accessibility.md) first.
+
+---
+
+## Quick reference
+
+- **Semantic HTML:** Use `<button>`, `<a href>`, `<input>`, headings, lists, tables; avoid div/span for interactive or structural meaning.
+- **Keyboard:** All interactive elements focusable; logical focus order; visible focus (e.g. ring tokens); no traps; Escape closes modals.
+- **Focus:** Modals trap focus, return focus on close, initial focus on first interactive element or title.
+- **ARIA:** Use only when native HTML is insufficient; prefer native over ARIA.
+- **Landmarks:** Use `<main>`, `<nav>`, `<header>`, `<footer>`; one `<main>` per page.
+- **Forms:** Visible labels, required/error states, clear error messages, no time limits unless necessary.
+- **Touch:** Minimum 44×44px touch targets; support viewport zoom.
+- **Motion:** Respect `prefers-reduced-motion`; provide static alternative.
+
+*Full detail follows.*
 
 ---
 

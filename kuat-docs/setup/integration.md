@@ -45,58 +45,16 @@ EE Blue (#0066CC), Lexend font, 4px spacing unit, 6px radius for buttons, WCAG A
 
 ---
 
-## Directory Structure
+## Rules and loading
 
-```
-rules/
-├── general/                    # Universal rules for ALL platforms
-│   ├── brand.md                # Brand principles
-│   ├── logo.md                 # Logo guidelines
-│   ├── content.md              # Writing style
-│   ├── design-language.md      # Design principles
-│   ├── colours.md              # Color palette
-│   ├── typography.md           # Typography
-│   ├── spacing.md              # Spacing system
-│   └── borders.md              # Border philosophy
-│
-└── types/                      # Platform-specific rules
-    ├── slides/                 # Presentations
-    ├── photography/            # Photography
-    ├── graphics/               # Icons, illustrations, infographics
-    ├── charts-data/            # Data visualization
-    └── web/                    # Websites and applications
-        ├── marketing/          # Marketing websites
-        └── product/            # Web applications
-            ├── design.md
-            ├── component-decision-tree.md
-            ├── technical.md
-            └── examples/       # React, Vue, CSS examples
-```
+**Canonical loading index:** [kuat-docs/rules/LOADING.md](../kuat-docs/rules/LOADING.md)
 
----
+Use the loading index for:
+- Task → required general and type-specific paths
+- Optional paths (scenarios, examples) and when to include them
+- Context size reference (minimal, standard, full)
 
-## Context Loading Strategies
-
-### By Platform Type
-
-| Task | Load General | Load Type-Specific |
-|------|--------------|-------------------|
-| Slides | brand, logo, colours, typography, content | types/slides/ |
-| Photography | brand | types/photography/ |
-| Icons | brand, colours | types/graphics/icons.md |
-| Infographics | brand, colours, typography | types/graphics/infographics.md |
-| Charts | colours, typography | types/charts-data/ |
-| Marketing website | brand, logo, colours, typography, content | types/web/marketing/ |
-| Web application | all general rules | types/web/product/ |
-
-### By Context Size
-
-| Level | What | Size |
-|-------|------|------|
-| Minimal | Single general rule file | ~100 lines |
-| Standard | `rules/general/` directory | ~800 lines |
-| Full (web product) | `rules/general/` + `rules/types/web/product/` | ~2000 lines |
-| Full (web product + examples) | Above + `rules/types/web/product/examples/` | ~3500 lines |
+Directory layout: `rules/general/` (universal) and `rules/types/` (platform-specific). See [rules/README.md](../kuat-docs/rules/README.md) for structure.
 
 ---
 

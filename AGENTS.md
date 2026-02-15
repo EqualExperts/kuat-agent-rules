@@ -2,42 +2,16 @@
 
 This repository contains brand guidelines and design system rules for creating Equal Experts branded content.
 
-## How to Use This Repository
+## Load Order and Task → Files
 
-### 1. Always Load General Rules First
+**For load order and task → rules mapping, see the canonical index:** [kuat-docs/rules/LOADING.md](./kuat-docs/rules/LOADING.md)
 
-The `kuat-docs/rules/general/` directory contains universal brand and design language that applies to ALL platforms:
+That index defines:
+- Which general rule files to load (or "all general")
+- Which type-specific paths to load per task (slides, web_product, web_marketing, icons, etc.)
+- Optional paths (scenarios, framework examples) and when to include them
 
-| File | Description |
-|------|-------------|
-| `brand.md` | Brand principles and identity |
-| `logo.md` | Logo variants, sizing, placement |
-| `content.md` | Writing style, tone, guidelines |
-| `colours.md` | Brand color palette |
-| `typography.md` | Fonts and type scale |
-| `spacing.md` | Spacing system |
-| `borders.md` | Border philosophy |
-| `design-language.md` | General design principles |
-| `accessibility.md` | Accessibility principles and guidelines |
-
-### 2. Then Load Platform-Specific Rules
-
-Based on what you're creating, load the appropriate type-specific rules:
-
-| Task | Load From |
-|------|-----------|
-| Slides/Presentations | `kuat-docs/rules/types/slides/` |
-| Photography | `kuat-docs/rules/types/photography/` |
-| Icons | `kuat-docs/rules/types/graphics/icons.md` |
-| Illustrations | `kuat-docs/rules/types/graphics/illustrations.md` |
-| Infographics | `kuat-docs/rules/types/graphics/infographics.md` |
-| Charts/Data Viz | `kuat-docs/rules/types/charts-data/` |
-| Marketing Website | `kuat-docs/rules/types/web/marketing/` |
-| Marketing Page Scenarios | `kuat-docs/rules/types/web/marketing/scenarios/` |
-| Web Application | `kuat-docs/rules/types/web/product/` |
-| Product Page Scenarios | `kuat-docs/rules/types/web/product/scenarios/` |
-
-### 3. Platform Isolation Rules
+### Platform isolation
 
 **Important:** Type-specific rules should NOT reference each other.
 
@@ -76,19 +50,7 @@ WCAG AA minimum contrast (4.5:1 for text, 3:1 for large text/graphics).
 
 ---
 
-## Context Loading Examples
-
-**Minimal (~100 lines):**
-Load only the specific general rule file needed.
-
-**Standard (~800 lines):**
-Load entire `kuat-docs/rules/general/` directory.
-
-**Full Web Product (~2000 lines):**
-Load `kuat-docs/rules/general/` + `kuat-docs/rules/types/web/product/`.
-
-**Full with Examples (~3500 lines):**
-Above + `kuat-docs/rules/types/web/product/examples/`.
+For context size (minimal, standard, full, full+examples), see [LOADING.md](./kuat-docs/rules/LOADING.md#context-size-reference).
 
 ---
 

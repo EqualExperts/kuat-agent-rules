@@ -1,10 +1,16 @@
+---
+scope: type
+platform: web_product
+prerequisites: general
+---
+
 # Component Decision Tree
 
 Component selection and development patterns for Equal Experts web applications.
 
 ---
 
-**Prerequisites:** Load [general rules](../../../general/) first
+**Prerequisites:** Load [general rules](../../../general/) first.
 
 ---
 

@@ -4,106 +4,75 @@ Design system rules and guidelines for AI agents and content creators.
 
 ---
 
+## Loading index (canonical)
+
+**Task → files and load order:** [LOADING.md](./LOADING.md)
+
+The loading index is the single source of truth for:
+- Which general rule files to load
+- Which type-specific paths to load per task (slides, web_product, web_marketing, icons, etc.)
+- Optional paths (scenarios, examples) and when to include them
+
+---
+
 ## Structure
 
 ```
 rules/
-├── general/                    # Universal rules for ALL platforms
-│   ├── brand.md                # Brand principles and identity
-│   ├── logo.md                 # Logo usage guidelines
-│   ├── content.md              # Writing style and tone
-│   ├── design-language.md      # General design principles
-│   ├── colours.md              # Color palette
-│   ├── typography.md           # Typography specifications
-│   ├── spacing.md              # Spacing system
-│   └── borders.md              # Border philosophy
+├── LOADING.md                 # Canonical task → rules index (start here for agents)
+├── general/                   # Universal rules for ALL platforms
+│   ├── brand.md
+│   ├── logo.md
+│   ├── content.md
+│   ├── design-language.md
+│   ├── colours.md
+│   ├── typography.md
+│   ├── spacing.md
+│   ├── borders.md
+│   └── accessibility.md
 │
-└── types/                      # Platform-specific rules
-    ├── slides/                 # Presentation decks
-    ├── photography/            # Photography guidelines
-    ├── graphics/               # Icons, illustrations, infographics
-    ├── charts-data/            # Data visualization
-    └── web/                    # Web (marketing and product)
-        ├── marketing/          # Marketing websites and emails
-        └── product/            # Web applications
-            └── examples/       # Framework-specific code
+└── types/                     # Platform-specific rules
+    ├── slides/
+    ├── photography/
+    ├── graphics/               # icons.md, illustrations.md, infographics.md
+    ├── charts-data/
+    └── web/
+        ├── marketing/
+        └── product/            # design, component-decision-tree, technical, examples
 ```
 
 ---
 
-## Quick Navigation
+## Quick reference
 
-| Category | Description | Directory |
-|----------|-------------|-----------|
-| General Rules | Universal brand and design language | [general/](./general/) |
-| Type-Specific Rules | Platform-specific guidelines | [types/](./types/) |
+| Category | Directory |
+|----------|-----------|
+| General rules | [general/](./general/) |
+| Type-specific rules | [types/](./types/) |
 
----
-
-## How to Use These Rules
-
-### For AI Agents
-
-1. **Always load general rules first** - They apply to all platforms
-2. **Then load type-specific rules** - Based on what you're creating
-
-**Example context loading:**
-
-| Task | Load |
-|------|------|
-| Creating slides | `general/` + `types/slides/` |
-| Building web app | `general/` + `types/web/product/` |
-| Marketing website | `general/` + `types/web/marketing/` |
-| Designing icons | `general/` + `types/graphics/icons.md` |
-
-### Platform Isolation
-
-Type-specific rules should NOT reference each other:
-
-- ✅ Slides can reference general rules
-- ✅ Web/product can reference general rules
-- ❌ Slides should NOT reference web/product rules
-- ❌ Graphics should NOT reference web examples
-
-This ensures slides don't need to understand Kuat-react, and infographics don't need web component patterns.
+**Platform isolation:** Types do not reference each other; all types may reference general rules.
 
 ---
 
-## General Rules
+## General rules
 
-Universal design language applicable to ALL platforms:
-
-- **[brand.md](./general/brand.md)** - Equal Experts brand principles
-- **[logo.md](./general/logo.md)** - Logo variants, sizing, placement
-- **[content.md](./general/content.md)** - Writing style, tone, guidelines
-- **[design-language.md](./general/design-language.md)** - Design principles
-- **[colours.md](./general/colours.md)** - Brand color palette
-- **[typography.md](./general/typography.md)** - Fonts and type scale
-- **[spacing.md](./general/spacing.md)** - Spacing system
-- **[borders.md](./general/borders.md)** - Border philosophy
+- [general/brand.md](./general/brand.md) - Brand principles
+- [general/logo.md](./general/logo.md) - Logo usage
+- [general/content.md](./general/content.md) - Writing style
+- [general/design-language.md](./general/design-language.md) - Design principles
+- [general/colours.md](./general/colours.md) - Color palette
+- [general/typography.md](./general/typography.md) - Typography
+- [general/spacing.md](./general/spacing.md) - Spacing
+- [general/borders.md](./general/borders.md) - Borders
+- [general/accessibility.md](./general/accessibility.md) - Accessibility
 
 ---
 
-## Type-Specific Rules
+## Type-specific rules
 
-Platform-specific guidelines that extend general rules:
-
-### Slides
-- **[types/slides/](./types/slides/)** - Presentation guidelines
-
-### Photography
-- **[types/photography/](./types/photography/)** - Photo style guidelines
-
-### Graphics
-- **[types/graphics/](./types/graphics/)** - Icons, illustrations, infographics
-
-### Charts & Data
-- **[types/charts-data/](./types/charts-data/)** - Data visualization
-
-### Web
-- **[types/web/marketing/](./types/web/marketing/)** - Marketing websites and emails
-- **[types/web/product/](./types/web/product/)** - Web applications
-  - [design.md](./types/web/product/design.md) - Product layouts
-  - [component-decision-tree.md](./types/web/product/component-decision-tree.md) - Component selection
-  - [technical.md](./types/web/product/technical.md) - Setup and integration
-  - [examples/](./types/web/product/examples/) - React, Vue, CSS examples
+- [types/slides/](./types/slides/) - Presentations
+- [types/photography/](./types/photography/) - Photography
+- [types/graphics/](./types/graphics/) - Icons, illustrations, infographics
+- [types/charts-data/](./types/charts-data/) - Data visualization
+- [types/web/marketing/](./types/web/marketing/) - Marketing websites and emails
+- [types/web/product/](./types/web/product/) - Web applications (design, component-decision-tree, technical, examples)

@@ -1,10 +1,16 @@
+---
+scope: type
+platform: web_product
+prerequisites: general
+---
+
 # Product Design Rules
 
 Design guidelines for Equal Experts web applications and product interfaces.
 
 ---
 
-**Prerequisites:** Load [general rules](../../../general/) first
+**Prerequisites:** Load [general rules](../../../general/) first.
 
 ---
 

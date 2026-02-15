@@ -8,6 +8,8 @@ How to test that your Kuat Design System documentation integration is working co
 
 After integrating the design rules into your environment, use these tests to verify the agent/tool correctly understands and applies the rules.
 
+**Rule loading:** For which files to load per task (e.g. web product, slides, marketing), see the canonical index [rules/LOADING.md](../rules/LOADING.md). Load general rules first, then the type-specific path for your task.
+
 ---
 
 ## Quick Verification
@@ -239,7 +241,7 @@ Example: "Email address is invalid. Check for typos and try again."
 **Cause:** Old or incomplete rules loaded
 
 **Fix:**
-- Verify latest `rules/design/colours.md` is loaded
+- Verify latest `rules/general/colours.md` is loaded (see [LOADING.md](../rules/LOADING.md))
 - Check for cached/stale context
 
 ### Agent uses wrong spacing values
@@ -247,7 +249,7 @@ Example: "Email address is invalid. Check for typos and try again."
 **Cause:** May be using generic Tailwind knowledge
 
 **Fix:**
-- Ensure `rules/design/spacing.md` is loaded
+- Ensure `rules/general/spacing.md` is loaded
 - Add explicit instruction to follow Kuat patterns
 
 ### Agent doesn't know component patterns
@@ -255,8 +257,8 @@ Example: "Email address is invalid. Check for typos and try again."
 **Cause:** Component rules not loaded
 
 **Fix:**
-- Add `rules/components/patterns.md` to context
-- Add `examples/{framework}/components.md` for code
+- Load `rules/types/web/product/component-decision-tree.md` and `rules/types/web/product/technical.md`
+- Add `rules/types/web/product/examples/{framework}/components.md` for code (see LOADING.md optional paths)
 
 ### Agent ignores border radius rules
 
@@ -264,7 +266,7 @@ Example: "Email address is invalid. Check for typos and try again."
 
 **Fix:**
 - Explicitly mention border radius rules in prompt
-- Load `rules/design/borders.md`
+- Load `rules/general/borders.md`
 
 ---
 

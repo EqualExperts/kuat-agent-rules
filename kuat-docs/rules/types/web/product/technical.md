@@ -1,10 +1,28 @@
+---
+scope: type
+platform: web_product
+prerequisites: general
+---
+
 # Technical Guidelines
 
 Technical setup and integration guide for Equal Experts web applications using the Kuat Design System.
 
 ---
 
-**Prerequisites:** Load [general rules](../../../general/) first
+**Prerequisites:** Load [general rules](../../../general/) first.
+
+---
+
+## Quick reference
+
+- **Stack:** Application → Kuat Blocks → Kuat custom components → shadcn components → kuat-core (tokens, theme).
+- **Priority:** Prefer Kuat Blocks, then Kuat components, then shadcn; custom build only when none fit.
+- **Setup:** Install `@equal-experts/kuat-core`; preset Tailwind; import `kuat-core/variables.css`; init shadcn (Slate, CSS vars); add components as needed.
+- **Theming:** CSS variables from kuat-core; dark mode via class or media; persist preference in localStorage if needed.
+- **Tokens:** Use Tailwind utilities and CSS variables from design tokens; avoid hardcoded colours/spacing.
+
+*Full detail follows.*
 
 ---
 

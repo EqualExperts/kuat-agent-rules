@@ -4,9 +4,9 @@ Guidelines for Equal Experts charts and data visualization.
 
 ---
 
-**Status:** Placeholder - details to be defined
+**Status:** Placeholder (skeleton). Load only when the task is explicitly charts/data visualization; otherwise prefer [general rules](../../general/). For which general files to load with charts, see [LOADING.md](../../LOADING.md) (task: charts_data). This README includes minimal actionable guidance (colour, type, chart types).
 
-**Prerequisites:** Load [general rules](../../general/) first
+**Prerequisites:** Load [general rules](../../general/) first (at least colours, typography; see LOADING.md).
 
 ---
 
@@ -74,15 +74,7 @@ Use the brand color palette for data visualization:
 
 ---
 
-## To Be Defined
-
-- Specific chart templates
-- Grid line and axis styling
-- Legend placement guidelines
-- Data label positioning
-- Animation guidelines (for interactive charts)
-- Export formats and sizes
-- Tool-specific guidelines (if applicable)
+Further guidance (templates, grid/axis styling, legend placement, export formats) to be added as needed.
 
 ---
 

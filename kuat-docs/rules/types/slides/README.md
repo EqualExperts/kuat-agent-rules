@@ -4,9 +4,9 @@ Guidelines for creating Equal Experts presentation decks and slides.
 
 ---
 
-**Status:** Placeholder - details to be defined
+**Status:** Placeholder (skeleton). Load only when the task is explicitly slides/presentations; otherwise prefer [general rules](../../general/). For which general files to load with slides, see [LOADING.md](../../LOADING.md) (task: slides).
 
-**Prerequisites:** Load [general rules](../../general/) first
+**Prerequisites:** Load [general rules](../../general/) first (at least brand, logo, colours, typography, content for slides).
 
 ---
 
@@ -59,14 +59,7 @@ These rules govern the creation of presentation slides for Equal Experts, includ
 
 ---
 
-## To Be Defined
-
-- Slide templates and layouts
-- Animation guidelines
-- Image placement rules
-- Chart and data visualization (reference charts-data/)
-- Master slide specifications
-- Export formats
+Further guidance (templates, animation, master slides, export formats) to be added as needed.
 
 ---
 
