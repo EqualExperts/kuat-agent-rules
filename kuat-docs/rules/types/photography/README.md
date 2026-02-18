@@ -1,10 +1,12 @@
 # Photography Rules
 
-Guidelines for Equal Experts photography style and image usage.
+Guidelines for Equal Experts photography style and image usage. Use these rules when generating, selecting, or reviewing imagery for EE content.
 
 ---
 
-**Status:** Placeholder (skeleton). Load only when the task is explicitly photography/photo style; otherwise prefer [general rules](../../general/). For which general files to load with photography, see [LOADING.md](../../LOADING.md) (task: photography).
+**Status:** Full rule set (replaces placeholder).
+
+**Load order:** For task type **photography**, load [general rules](../../general/) first, then all files in `types/photography/`. See [LOADING.md](../../LOADING.md).
 
 **Prerequisites:** Load [general rules](../../general/) first (at least brand; expand to full general if needed).
 
@@ -12,54 +14,31 @@ Guidelines for Equal Experts photography style and image usage.
 
 ## Overview
 
-These rules govern the use of photography in Equal Experts materials, including the signature black and white style, client images, and work examples.
+Equal Experts photography is **professional, people-focused and authentic**. These rules apply to documents, presentations, websites, social media, videos, blogs, case studies, and print.
 
 ---
 
-## Key Principles
+## Rule files (load in order)
 
-1. **Authentic** - Real people, real situations
-2. **Professional** - High quality, well-composed images
-3. **Consistent** - Unified visual style across all materials
-4. **Respectful** - Appropriate permissions and releases
-
----
-
-## Black and White Style
-
-Equal Experts has a signature black and white photography style:
-
-- High contrast
-- Strong tonal range
-- Professional processing
-- Consistent look across images
+| File | Content |
+|------|---------|
+| [principles.md](./principles.md) | Core principles: authenticity, people-focused, diversity as quality criterion |
+| [diversity-inclusion.md](./diversity-inclusion.md) | Diversity & inclusion in photography: demographics, roles, set-level evaluation, authentic vs performative, checklist |
+| [style-and-sources.md](./style-and-sources.md) | Monochrome treatment, image source priority, EE People imagery, stock photography (allowed/prohibited) |
+| [quality-validation.md](./quality-validation.md) | Technical quality, accessibility (alt text), validation checklist, quick reference, resources |
 
 ---
 
-## Image Categories
+## Quick reference
 
-### Team Photography
-- Candid and natural poses
-- Professional settings
-- Consistent lighting and processing
-
-### Client Work Examples
-- Screenshots and product images
-- Anonymized where required
-- Professional presentation
-
-### Event Photography
-- Conference and meetup photos
-- Candid moments
-- Professional quality
+- **Style:** Monochrome (black and white) unless exception (logos, graphics, video, brand collaborations).
+- **Sources (priority):** 1) EE People Library, 2) Approved EE Stock Library, 3) Marketing-approved new stock.
+- **Content:** Authentic moments; people-focused; diverse representation across the full set; no AI-generated imagery.
+- **Accessibility:** Descriptive alt text for meaningful images; `alt=""` for decorative.
 
 ---
 
-Further guidance (processing specs, composition, resolution, permissions, metadata) to be added as needed.
+## Related documentation
 
----
-
-## Related Documentation
-
-- [General Rules](../../general/) - Brand guidelines
-- [Graphics](../graphics/) - For illustrations as alternative to photography
+- [General rules](../../general/) — Brand, accessibility, content
+- [LOADING.md](../../LOADING.md) — Task → rules index

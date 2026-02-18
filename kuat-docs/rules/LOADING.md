@@ -39,7 +39,7 @@
 | Task type | Required general | Required type-specific | Notes |
 |-----------|------------------|------------------------|--------|
 | **slides** | All general (or: brand, logo, colours, typography, content) | `types/slides/` | Placeholder/skeleton; prefer general if slides content is minimal. |
-| **photography** | brand (or all general) | `types/photography/` | Placeholder/skeleton; prefer general if photography content is minimal. |
+| **photography** | brand (or all general) | `types/photography/` | Full rule set: principles, diversity-inclusion, style-and-sources, quality-validation. |
 | **icons** | brand, colours (or all general) | `types/graphics/icons.md` | Single file. |
 | **illustrations** | brand, colours, typography (or all general) | `types/graphics/illustrations.md` | Single file. |
 | **infographics** | brand, colours, typography, spacing (or all general) | `types/graphics/infographics.md` | Single file. |
