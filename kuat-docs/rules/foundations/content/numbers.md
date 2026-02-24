@@ -27,7 +27,7 @@ Guidance for dates, times, currency, and other numbers in Equal Experts content.
 
 - Be consistent within a document: either 24-hour (14:30) or 12-hour with am/pm (2:30 pm)
 - Specify time zone when the reader needs to act or compare across regions (e.g. "2:30 pm GMT")
-- Use "noon" and "midnight" where they're clearer than 12:00
+- Use "midday" and "midnight" where they're clearer than 12:00
 
 ---
 
