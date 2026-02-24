@@ -1,7 +1,7 @@
 ---
 scope: type
 platform: web_product
-prerequisites: general/accessibility.md
+prerequisites: foundations/accessibility.md
 ---
 
 # Technical Accessibility
@@ -10,7 +10,7 @@ Implementation rules for WCAG 2.2 AA compliance in web applications.
 
 ---
 
-**Prerequisites:** Load [general accessibility rules](../../../general/accessibility.md) first.
+**Prerequisites:** Load [foundations accessibility](../../../foundations/accessibility.md) first.
 
 ---
 
@@ -396,7 +396,7 @@ Kuat components automatically respect `prefers-reduced-motion`. When building cu
 
 ## Related Documentation
 
-- [General Accessibility](../../../general/accessibility.md) - Principles and guidelines
+- [Foundations Accessibility](../../../foundations/accessibility.md) - Principles and guidelines
 - [Component Decision Tree](./component-decision-tree.md) - Component selection and patterns
 - [Product Design](./design.md) - Layout patterns
 - [Product Scenarios](./scenarios/) - Applied patterns for specific page types

@@ -2,7 +2,7 @@
 
 Vanilla CSS examples for using Kuat Design System typography.
 
-**Rules:** See [general/typography.md](../../../../general/typography.md)
+**Rules:** See [foundations/design/typography.md](../../../../foundations/design/typography.md)
 
 ---
 

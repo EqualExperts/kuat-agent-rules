@@ -243,7 +243,7 @@ Marketing pages use full-width sections with contained content.
 
 ## Accessibility
 
-**Base requirements:** See [general accessibility](../../../../general/accessibility.md)
+**Base requirements:** See [foundations accessibility](../../../../foundations/accessibility.md)
 
 **Scenario-specific:**
 
@@ -364,5 +364,5 @@ Marketing pages use full-width sections with contained content.
 ## Related Documentation
 
 - [Marketing Website](../website.md) - Marketing website guidelines
-- [General Accessibility](../../../../general/accessibility.md) - Accessibility principles
-- [Logo Usage](../../../../general/logo.md) - Logo placement and variants
+- [Foundations Accessibility](../../../../foundations/accessibility.md) - Accessibility principles
+- [Logo Usage](../../../../foundations/logo.md) - Logo placement and variants

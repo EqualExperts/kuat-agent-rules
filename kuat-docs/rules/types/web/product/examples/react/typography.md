@@ -2,7 +2,7 @@
 
 Code examples for using Kuat Design System typography in React.
 
-**Rules:** See [general/typography.md](../../../../general/typography.md)
+**Rules:** See [foundations/design/typography.md](../../../../foundations/design/typography.md)
 
 ---
 

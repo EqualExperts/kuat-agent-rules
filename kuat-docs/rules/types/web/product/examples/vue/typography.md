@@ -2,7 +2,7 @@
 
 Code examples for using Kuat Design System typography in Vue.
 
-**Rules:** See [general/typography.md](../../../../general/typography.md)
+**Rules:** See [foundations/design/typography.md](../../../../foundations/design/typography.md)
 
 ---
 

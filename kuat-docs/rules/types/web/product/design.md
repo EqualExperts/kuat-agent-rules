@@ -10,7 +10,7 @@ Design guidelines for Equal Experts web applications and product interfaces.
 
 ---
 
-**Prerequisites:** Load [general rules](../../../general/) first.
+**Prerequisites:** Load [foundations](../../../foundations/) first.
 
 ---
 
@@ -118,7 +118,7 @@ For dark navigation (horizontal or sidebar):
 
 **Never use full-color logo on dark backgrounds.**
 
-See [general/logo.md](../../../general/logo.md) for logo guidelines.
+See [foundations/logo.md](../../../foundations/logo.md) for logo guidelines.
 
 ---
 
@@ -153,8 +153,8 @@ See [general/logo.md](../../../general/logo.md) for logo guidelines.
 ### Cards and Panels
 
 - Use `bg-card` token for card backgrounds
-- Follow [general/borders.md](../../../general/borders.md) for border styling
-- Follow [general/spacing.md](../../../general/spacing.md) for padding
+- Follow [foundations/design/borders.md](../../../foundations/design/borders.md) for border styling
+- Follow [foundations/design/spacing.md](../../../foundations/design/spacing.md) for padding
 
 ---
 
@@ -180,7 +180,7 @@ See [general/logo.md](../../../general/logo.md) for logo guidelines.
 
 ## Related Documentation
 
-- [General Rules](../../../general/) - Brand and design language
+- [Foundations](../../../foundations/) - Brand and design language
 - [Accessibility](./accessibility.md) - Technical accessibility implementation
 - [Component Decision Tree](./component-decision-tree.md) - Component selection
 - [Technical Guidelines](./technical.md) - Implementation details

@@ -15,4 +15,4 @@ Applied layout and design patterns for marketing website page types.
 ## Related Documentation
 
 - [Marketing Website](../website.md) - Marketing website guidelines
-- [General Accessibility](../../../../general/accessibility.md) - Accessibility principles
+- [Foundations Accessibility](../../../../foundations/accessibility.md) - Accessibility principles

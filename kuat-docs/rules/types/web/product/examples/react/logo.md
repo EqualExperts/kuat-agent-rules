@@ -2,7 +2,7 @@
 
 Code examples for using the Equal Experts logo in React.
 
-**Rules:** See [general/logo.md](../../../../general/logo.md)
+**Rules:** See [foundations/logo.md](../../../../foundations/logo.md)
 
 ---
 

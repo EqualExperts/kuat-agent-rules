@@ -1,6 +1,6 @@
-# Content Guidelines
+# Voice and Tone
 
-Universal content principles for Equal Experts. This document applies to ALL content - read this first before any specialized guide.
+Universal voice and tone for Equal Experts content. Applies to all platforms and media. Read this before any platform-specific content guide.
 
 ---
 
@@ -10,7 +10,7 @@ These guidelines ensure consistent voice and tone across all Equal Experts commu
 
 ---
 
-## 30-Second Quick Reference
+## Quick Reference
 
 **Always:**
 - Be clear and direct
@@ -250,13 +250,14 @@ Apply quality tests:
 
 For platform-specific content guidance:
 
-- **Web Marketing** - See [types/web/marketing/](../types/web/marketing/)
-- **Web Product** - See [types/web/product/](../types/web/product/)
-- **Slides** - See [types/slides/](../types/slides/)
+- **Web Marketing** - See [types/web/marketing/](../../types/web/marketing/)
+- **Web Product** - See [types/web/product/](../../types/web/product/)
+- **Slides** - See [types/slides/](../../types/slides/)
 
 ---
 
 ## Related Documentation
 
-- [Brand Guidelines](./brand.md) - Brand voice and values
-- [Design Language](./design-language.md) - Visual design principles
+- [Brand Guidelines](../brand.md) - Brand voice and values
+- [Writing style](./writing-style.md) - Active voice, plain language, conventions
+- [Design](../design/README.md) - Visual design principles

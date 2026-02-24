@@ -6,7 +6,7 @@ Guidelines for Equal Experts icon usage and style.
 
 **Status:** Placeholder - details to be defined
 
-**Prerequisites:** Load [general rules](../../general/) first
+**Prerequisites:** Load [foundations](../../foundations/) first
 
 ---
 
@@ -48,4 +48,4 @@ These rules govern the use and creation of icons in Equal Experts materials.
 ## Related Documentation
 
 - [Graphics Overview](./README.md)
-- [Colours](../../general/colours.md) - Icon colors
+- [Colours](../../foundations/design/colours.md) - Icon colors

@@ -6,46 +6,59 @@
 
 ## Load order
 
-1. **Always load general rules first** (see [General](#general-rules) below).
+1. **Always load foundations first** (see [Foundations](#foundations) below).
 2. **Then load type-specific rules** for the task (see [Task → rules](#task--rules)).
 3. **Optionally** add scenarios or examples when relevant (see [Optional paths](#optional-paths)).
 
-**Platform isolation:** Type-specific rules must not reference other types. General rules are shared; types only reference general.
+**Platform isolation:** Type-specific rules must not reference other types. Foundations are shared; types only reference foundations.
 
 ---
 
-## General rules
+## Foundations
 
-**Path:** `general/`
+**Path:** `foundations/`
 
+**Shared (top level):**
 | File | Description |
 |------|-------------|
-| `general/brand.md` | Brand principles and identity |
-| `general/logo.md` | Logo variants, sizing, placement |
-| `general/content.md` | Writing style, tone, guidelines |
-| `general/colours.md` | Brand color palette |
-| `general/typography.md` | Fonts and type scale |
-| `general/spacing.md` | Spacing system |
-| `general/borders.md` | Border philosophy |
-| `general/design-language.md` | General design principles |
-| `general/accessibility.md` | Accessibility principles and guidelines |
+| `foundations/brand.md` | Brand principles and identity |
+| `foundations/logo.md` | Logo variants, sizing, placement |
+| `foundations/accessibility.md` | Accessibility principles and guidelines |
 
-**When to load:** For minimal context, load only the general file(s) relevant to the task. For standard or full context, load all files in `general/` (~800 lines).
+**Design** (`foundations/design/`):
+| File | Description |
+|------|-------------|
+| `foundations/design/design-language.md` | Design principles |
+| `foundations/design/colours.md` | Brand color palette |
+| `foundations/design/typography.md` | Fonts and type scale |
+| `foundations/design/spacing.md` | Spacing system |
+| `foundations/design/borders.md` | Border philosophy |
+
+**Content** (`foundations/content/`):
+| File | Description |
+|------|-------------|
+| `foundations/content/voice-and-tone.md` | Voice, tone, audience, quality checklist |
+| `foundations/content/writing-style.md` | Active voice, plain language, conciseness |
+| `foundations/content/formatting.md` | Capitalisation, headings, links, lists |
+| `foundations/content/numbers.md` | Dates, times, currency, units |
+| `foundations/content/punctuation.md` | Punctuation conventions |
+
+**When to load:** For minimal context, load only the foundation file(s) relevant to the task. For standard or full context, load all of `foundations/` (shared + design + content as needed, ~800+ lines).
 
 ---
 
 ## Task → rules
 
-| Task type | Required general | Required type-specific | Notes |
-|-----------|------------------|------------------------|--------|
-| **slides** | All general (or: brand, logo, colours, typography, content) | `types/slides/` | Placeholder/skeleton; prefer general if slides content is minimal. |
-| **photography** | brand (or all general) | `types/photography/` | Full rule set: principles, diversity-inclusion, style-and-sources, quality-validation. |
-| **icons** | brand, colours (or all general) | `types/graphics/icons.md` | Single file. |
-| **illustrations** | brand, colours, typography (or all general) | `types/graphics/illustrations.md` | Single file. |
-| **infographics** | brand, colours, typography, spacing (or all general) | `types/graphics/infographics.md` | Single file. |
-| **charts_data** | colours, typography (or all general) | `types/charts-data/` | Placeholder/skeleton; has minimal chart-type guidance. |
-| **web_marketing** | All general | `types/web/marketing/` | Include scenarios when designing specific marketing page types. |
-| **web_product** | All general | `types/web/product/` | Include scenarios for docs, forms, dashboards, auth; include examples when implementing in React/Vue/CSS. |
+| Task type | Required foundations | Required type-specific | Notes |
+|-----------|----------------------|------------------------|--------|
+| **slides** | All foundations (or: brand, logo, design, content) | `types/slides/` | Placeholder/skeleton; prefer foundations if slides content is minimal. |
+| **photography** | brand (or all foundations) | `types/photography/` | Full rule set: principles, diversity-inclusion, style-and-sources, quality-validation. |
+| **icons** | brand, design/colours (or all foundations) | `types/graphics/icons.md` | Single file. |
+| **illustrations** | brand, design/colours, design/typography (or all foundations) | `types/graphics/illustrations.md` | Single file. |
+| **infographics** | brand, design/colours, design/typography, design/spacing (or all foundations) | `types/graphics/infographics.md` | Single file. |
+| **charts_data** | design/colours, design/typography (or all foundations) | `types/charts-data/` | Placeholder/skeleton; has minimal chart-type guidance. |
+| **web_marketing** | All foundations | `types/web/marketing/` | Include scenarios when designing specific marketing page types; content in `types/web/marketing/content/`. |
+| **web_product** | All foundations | `types/web/product/` | Include scenarios for docs, forms, dashboards, auth; content in `types/web/product/content/`; include examples when implementing in React/Vue/CSS. |
 
 ---
 
@@ -54,7 +67,9 @@
 | Path | When to include |
 |------|------------------|
 | `types/web/marketing/scenarios/` | Task involves specific marketing page types (see scenarios README). |
+| `types/web/marketing/content/` | Task involves marketing copy, blog, or SEO. |
 | `types/web/product/scenarios/` | Task involves documentation pages, forms, dashboards, or authentication flows. |
+| `types/web/product/content/` | Task involves product UX writing (actions, errors, forms, etc.). |
 | `types/web/product/examples/` | Implementing web product UI in React, Vue, or vanilla CSS; use the relevant framework subfolder. |
 
 ---
@@ -63,9 +78,9 @@
 
 | Level | What to load | Approx. size |
 |-------|----------------|--------------|
-| Minimal | Single general file (e.g. `general/colours.md`) | ~100 lines |
-| Standard | All `general/` | ~800 lines |
-| Full (web product) | `general/` + `types/web/product/` | ~2000 lines |
+| Minimal | Single foundation file (e.g. `foundations/design/colours.md`) | ~100 lines |
+| Standard | All `foundations/` | ~800 lines |
+| Full (web product) | `foundations/` + `types/web/product/` | ~2000 lines |
 | Full (web product + examples) | Above + `types/web/product/examples/` | ~3500 lines |
 
 ---

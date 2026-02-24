@@ -15,7 +15,7 @@ Guides for integrating Equal Experts brand guidelines into your tools, IDEs, and
 
 ## Quick Start
 
-1. **Read general rules:** Start with `rules/general/` for brand and design language
+1. **Read foundations:** Start with `rules/foundations/` for brand and design language
 2. **Choose your platform:** Load relevant `rules/types/{platform}/` for platform-specific rules
 3. **Integrate:** Follow [integration.md](./integration.md) for your environment
 4. **Verify:** Test with [verification.md](./verification.md)
@@ -25,19 +25,19 @@ Guides for integrating Equal Experts brand guidelines into your tools, IDEs, and
 ## What to Load
 
 **For any Equal Experts content:**
-- Load relevant files from `rules/general/`
+- Load relevant files from `rules/foundations/`
 - ~800 lines total for all general rules
 
 **For web applications:**
-- Load `rules/general/` + `rules/types/web/product/`
+- Load `rules/foundations/` + `rules/types/web/product/`
 - ~2000 lines total
 
 **For web applications with examples:**
-- Load `rules/general/` + `rules/types/web/product/` (including `examples/`)
+- Load `rules/foundations/` + `rules/types/web/product/` (including `examples/`)
 - ~3500 lines total
 
 **For slides, graphics, or other platforms:**
-- Load `rules/general/` + `rules/types/{platform}/`
+- Load `rules/foundations/` + `rules/types/{platform}/`
 - Size varies by platform
 
 ---

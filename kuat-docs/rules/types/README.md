@@ -6,7 +6,7 @@ Platform-specific guidelines that extend the general rules for specific output t
 
 ## Overview
 
-These rules provide platform-specific guidance. **Always load [general rules](../general/) first**, then load the appropriate type-specific rules.
+These rules provide platform-specific guidance. **Always load [foundations](../foundations/) first**, then load the appropriate type-specific rules.
 
 ---
 
@@ -69,4 +69,4 @@ types/
 
 ## Related Documentation
 
-- [General Rules](../general/) - Universal brand and design language
+- [Foundations](../foundations/) - Universal brand and design language

@@ -241,7 +241,7 @@ Example: "Email address is invalid. Check for typos and try again."
 **Cause:** Old or incomplete rules loaded
 
 **Fix:**
-- Verify latest `rules/general/colours.md` is loaded (see [LOADING.md](../rules/LOADING.md))
+- Verify latest `rules/foundations/design/colours.md` is loaded (see [LOADING.md](../rules/LOADING.md))
 - Check for cached/stale context
 
 ### Agent uses wrong spacing values
@@ -249,7 +249,7 @@ Example: "Email address is invalid. Check for typos and try again."
 **Cause:** May be using generic Tailwind knowledge
 
 **Fix:**
-- Ensure `rules/general/spacing.md` is loaded
+- Ensure `rules/foundations/design/spacing.md` is loaded
 - Add explicit instruction to follow Kuat patterns
 
 ### Agent doesn't know component patterns
@@ -266,7 +266,7 @@ Example: "Email address is invalid. Check for typos and try again."
 
 **Fix:**
 - Explicitly mention border radius rules in prompt
-- Load `rules/general/borders.md`
+- Load `rules/foundations/design/borders.md`
 
 ---
 

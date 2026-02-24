@@ -4,9 +4,9 @@ Guidelines for Equal Experts charts and data visualization.
 
 ---
 
-**Status:** Placeholder (skeleton). Load only when the task is explicitly charts/data visualization; otherwise prefer [general rules](../../general/). For which general files to load with charts, see [LOADING.md](../../LOADING.md) (task: charts_data). This README includes minimal actionable guidance (colour, type, chart types).
+**Status:** Placeholder (skeleton). Load only when the task is explicitly charts/data visualization; otherwise prefer [foundations](../../foundations/). For which foundation files to load with charts, see [LOADING.md](../../LOADING.md) (task: charts_data). This README includes minimal actionable guidance (colour, type, chart types).
 
-**Prerequisites:** Load [general rules](../../general/) first (at least colours, typography; see LOADING.md).
+**Prerequisites:** Load [foundations](../../foundations/) first (at least design/colours, design/typography; see LOADING.md).
 
 ---
 
@@ -80,7 +80,7 @@ Further guidance (templates, grid/axis styling, legend placement, export formats
 
 ## Related Documentation
 
-- [General Rules](../../general/) - Brand and design language
-- [Colours](../../general/colours.md) - Color palette
-- [Typography](../../general/typography.md)
+- [Foundations](../../foundations/) - Brand and design language
+- [Colours](../../foundations/design/colours.md) - Color palette
+- [Typography](../../foundations/design/typography.md)
 - [Graphics/Infographics](../graphics/infographics.md) - For infographic-style data visualization

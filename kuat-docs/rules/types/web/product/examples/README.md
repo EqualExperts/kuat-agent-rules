@@ -49,7 +49,7 @@ examples/{framework}/
 
 For the design specifications these examples implement:
 
-- [General Rules](../../../../general/) - Brand and design language
+- [Foundations](../../../../foundations/) - Brand and design language
 - [Product Design](../design.md) - Product layout rules
 - [Component Decision Tree](../component-decision-tree.md) - Component patterns
 - [Technical Guidelines](../technical.md) - Setup and integration

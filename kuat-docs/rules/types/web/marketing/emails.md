@@ -6,7 +6,7 @@ Guidelines for Equal Experts marketing emails and campaigns.
 
 **Status:** Placeholder - details to be defined
 
-**Prerequisites:** Load [general rules](../../../general/) first
+**Prerequisites:** Load [foundations](../../../foundations/) first
 
 ---
 
@@ -52,7 +52,7 @@ Marketing emails are external communications designed to engage, inform, and con
 
 ## Content Guidelines
 
-Follow [general/content.md](../../../general/content.md) for writing style.
+Follow [foundations/content/](../../../foundations/content/) for writing style.
 
 ### Subject Lines
 - Keep under 50 characters for mobile
@@ -69,6 +69,6 @@ Follow [general/content.md](../../../general/content.md) for writing style.
 
 ## Related Documentation
 
-- [General Rules](../../../general/) - Brand and design language
+- [Foundations](../../../foundations/) - Brand and design language
 - [Marketing Website](./website.md) - Website guidelines
-- [Content Guidelines](../../../general/content.md) - Writing style
+- [Content](../../../foundations/content/) - Writing style

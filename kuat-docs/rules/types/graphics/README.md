@@ -6,7 +6,7 @@ Guidelines for Equal Experts graphic elements including icons, illustrations, an
 
 **Status:** Placeholder - details to be defined
 
-**Prerequisites:** Load [general rules](../../general/) first
+**Prerequisites:** Load [foundations](../../foundations/) first
 
 ---
 
@@ -37,7 +37,7 @@ These rules govern the creation and use of graphic elements in Equal Experts mat
 
 ## Color Usage
 
-- Use brand color palette from [general/colours.md](../../general/colours.md)
+- Use brand color palette from [foundations/design/colours.md](../../foundations/design/colours.md)
 - Ensure sufficient contrast
 - Don't rely on color alone to convey meaning
 
@@ -46,12 +46,12 @@ These rules govern the creation and use of graphic elements in Equal Experts mat
 ## Typography in Graphics
 
 - Use Lexend font
-- Follow type scale from [general/typography.md](../../general/typography.md)
+- Follow type scale from [foundations/design/typography.md](../../foundations/design/typography.md)
 - Ensure text is readable at intended size
 
 ---
 
 ## Related Documentation
 
-- [General Rules](../../general/) - Brand and design language
+- [Foundations](../../foundations/) - Brand and design language
 - [Charts & Data](../charts-data/) - For data-focused graphics

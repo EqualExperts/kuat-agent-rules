@@ -7,16 +7,16 @@ This repository contains brand guidelines and design system rules for creating E
 **For load order and task → rules mapping, see the canonical index:** [kuat-docs/rules/LOADING.md](./kuat-docs/rules/LOADING.md)
 
 That index defines:
-- Which general rule files to load (or "all general")
+- Which foundation rule files to load (or "all foundations")
 - Which type-specific paths to load per task (slides, web_product, web_marketing, icons, etc.)
-- Optional paths (scenarios, framework examples) and when to include them
+- Optional paths (scenarios, content subdirs, framework examples) and when to include them
 
 ### Platform isolation
 
 **Important:** Type-specific rules should NOT reference each other.
 
-- ✅ Slides can reference general rules
-- ✅ Web/product can reference general rules
+- ✅ Slides can reference foundations
+- ✅ Web/product can reference foundations
 - ❌ Slides should NOT need web/product rules
 - ❌ Graphics should NOT need web examples
 

@@ -6,7 +6,7 @@ Guidelines for Equal Experts transactional and product-related emails.
 
 **Status:** Placeholder - details to be defined
 
-**Prerequisites:** Load [general rules](../../../general/) first
+**Prerequisites:** Load [foundations](../../../foundations/) first
 
 ---
 
@@ -36,7 +36,7 @@ Product emails are transactional communications sent from web applications, incl
 
 ## Content Guidelines
 
-Follow [general/content.md](../../../general/content.md) and [product/content.md](./content.md) for writing style.
+Follow [foundations/content/](../../../foundations/content/) and [product content](./content/product-content.md) for writing style.
 
 ### Subject Lines
 - Be specific about the content
@@ -66,6 +66,6 @@ Follow [general/content.md](../../../general/content.md) and [product/content.md
 
 ## Related Documentation
 
-- [General Rules](../../../general/) - Brand and design language
-- [Product Content](./content.md) - UX writing guidelines
+- [Foundations](../../../foundations/) - Brand and design language
+- [Product Content](./content/product-content.md) - UX writing guidelines
 - [Marketing Emails](../marketing/emails.md) - Marketing email guidelines

@@ -53,11 +53,11 @@ Scenarios build on foundational documentation:
 │  (authentication, dashboards, etc.)     │
 ├─────────────────────────────────────────┤
 │  References:                            │
-│  ├── rules/general/*                    │
+│  ├── rules/foundations/*                │
 │  ├── rules/types/web/product/design.md  │
 │  ├── rules/types/web/product/           │
 │  │   accessibility.md                   │
-│  └── rules/general/accessibility.md     │
+│  └── rules/foundations/accessibility.md│
 └─────────────────────────────────────────┘
 ```
 
@@ -78,5 +78,5 @@ When building a specific page type:
 
 - [Product Design](../design.md) - Layout patterns
 - [Product Accessibility](../accessibility.md) - Technical implementation
-- [General Accessibility](../../../../general/accessibility.md) - Principles
-- [General Design](../../../../general/) - Brand design rules
+- [Foundations Accessibility](../../../../foundations/accessibility.md) - Principles
+- [Foundations](../../../../foundations/) - Brand design rules

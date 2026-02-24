@@ -2,7 +2,7 @@
 
 Equal Experts photography style is **professional, people-focused and authentic**. These principles apply to all content and marketing materials: documents, presentations, websites, social media, videos, blogs, case studies, and print.
 
-**Prerequisites:** Load [general rules](../../general/) first (at least [brand](../../general/brand.md); see [LOADING.md](../../LOADING.md) for task: photography).
+**Prerequisites:** Load [foundations](../../foundations/) first (at least [brand](../../foundations/brand.md); see [LOADING.md](../../LOADING.md) for task: photography).
 
 ---
 

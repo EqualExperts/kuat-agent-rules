@@ -4,7 +4,7 @@ Guidelines for Equal Experts marketing websites and landing pages.
 
 ---
 
-**Prerequisites:** Load [general rules](../../../general/) first
+**Prerequisites:** Load [foundations](../../../foundations/) first
 
 ---
 
@@ -74,7 +74,7 @@ Use marketing layout when:
 | Header | Full-color | 120-150px |
 | Footer | Full-color | 100-120px |
 
-See [general/logo.md](../../../general/logo.md) for logo guidelines.
+See [foundations/logo.md](../../../foundations/logo.md) for logo guidelines.
 
 ---
 
@@ -90,7 +90,7 @@ See [general/logo.md](../../../general/logo.md) for logo guidelines.
 
 ## Content Guidelines
 
-Follow [general/content.md](../../../general/content.md) for writing style.
+Follow [foundations/content/](../../../foundations/content/) for writing style.
 
 ### Marketing Content Should:
 
@@ -162,8 +162,8 @@ Follow [general/content.md](../../../general/content.md) for writing style.
 
 ## Related Documentation
 
-- [General Rules](../../../general/) - Brand and design language
-- [General Accessibility](../../../general/accessibility.md) - Accessibility principles
+- [Foundations](../../../foundations/) - Brand and design language
+- [Foundations Accessibility](../../../foundations/accessibility.md) - Accessibility principles
 - [Web Foundations](../README.md) - Common web principles
 - [Marketing Emails](./emails.md) - Email guidelines
 - [Marketing Scenarios](./scenarios/) - Patterns for marketing pages

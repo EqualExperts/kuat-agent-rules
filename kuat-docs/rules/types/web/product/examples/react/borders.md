@@ -2,7 +2,7 @@
 
 Code examples for using Kuat Design System borders in React.
 
-**Rules:** See [general/borders.md](../../../../general/borders.md)
+**Rules:** See [foundations/design/borders.md](../../../../foundations/design/borders.md)
 
 ---
 

@@ -52,7 +52,7 @@ Support different contexts - light/dark, print/digital, large/small formats.
 | Typography | Fonts, sizes, weights, hierarchy | [typography.md](./typography.md) |
 | Spacing | Padding, margin, gaps, relationships | [spacing.md](./spacing.md) |
 | Borders | Widths, styles, radius, colors | [borders.md](./borders.md) |
-| Logo | Usage, sizing, variants, placement | [logo.md](./logo.md) |
+| Logo | Usage, sizing, variants, placement | [logo.md](../logo.md) |
 
 ---
 
@@ -97,20 +97,20 @@ After understanding these general principles, load the appropriate type-specific
 
 | Platform | Directory | Description |
 |----------|-----------|-------------|
-| Web | [types/web/](../types/web/) | Websites and web applications |
-| Slides | [types/slides/](../types/slides/) | Presentations |
-| Photography | [types/photography/](../types/photography/) | Photo guidelines |
-| Graphics | [types/graphics/](../types/graphics/) | Icons, illustrations, infographics |
-| Charts/Data | [types/charts-data/](../types/charts-data/) | Data visualization |
+| Web | [types/web/](../../types/web/) | Websites and web applications |
+| Slides | [types/slides/](../../types/slides/) | Presentations |
+| Photography | [types/photography/](../../types/photography/) | Photo guidelines |
+| Graphics | [types/graphics/](../../types/graphics/) | Icons, illustrations, infographics |
+| Charts/Data | [types/charts-data/](../../types/charts-data/) | Data visualization |
 
 ---
 
 ## Related Documentation
 
-- [Brand Guidelines](./brand.md) - Brand principles and identity
-- [Logo](./logo.md) - Logo usage guidelines
+- [Brand Guidelines](../brand.md) - Brand principles and identity
+- [Logo](../logo.md) - Logo usage guidelines
 - [Colours](./colours.md) - Brand colors
 - [Typography](./typography.md) - Fonts and type scale
 - [Spacing](./spacing.md) - Spacing system
 - [Borders](./borders.md) - Border philosophy
-- [Content Guidelines](./content.md) - Writing style
+- [Content](../content/README.md) - Writing style and usage

@@ -7,7 +7,7 @@ Brand guidelines and design system documentation for AI agents and content creat
 This repository provides comprehensive rules for creating Equal Experts branded content across all platforms - from slides and graphics to web applications.
 
 **Architecture:**
-- **General Rules** - Universal brand and design language for ALL platforms
+- **Foundations** - Universal brand, design, and content rules for ALL platforms
 - **Type-Specific Rules** - Platform-specific guidelines (web, slides, graphics, etc.)
 
 ---
@@ -16,38 +16,33 @@ This repository provides comprehensive rules for creating Equal Experts branded 
 
 ### For AI Agents
 
-**Minimum context:** Load relevant files from [rules/general/](./rules/general/)
+**Minimum context:** Load relevant files from [rules/foundations/](./rules/foundations/)
 
 **For specific platforms:**
-1. Load general rules first
+1. Load foundations first
 2. Then load type-specific rules
 
-| Task | Load General | Load Type-Specific |
-|------|--------------|-------------------|
-| Creating slides | brand, logo, colours, typography | [types/slides/](./rules/types/slides/) |
-| Marketing website | brand, logo, colours, typography, content | [types/web/marketing/](./rules/types/web/marketing/) |
-| Web application | all general rules | [types/web/product/](./rules/types/web/product/) |
-| Infographic | brand, logo, colours, typography | [types/graphics/infographics.md](./rules/types/graphics/infographics.md) |
+| Task | Load Foundations | Load Type-Specific |
+|------|------------------|-------------------|
+| Creating slides | brand, logo, design, content | [types/slides/](./rules/types/slides/) |
+| Marketing website | brand, logo, design, content | [types/web/marketing/](./rules/types/web/marketing/) |
+| Web application | all foundations | [types/web/product/](./rules/types/web/product/) |
+| Infographic | brand, design | [types/graphics/infographics.md](./rules/types/graphics/infographics.md) |
 | Photography | brand | [types/photography/](./rules/types/photography/) |
 
 ---
 
 ## Documentation Structure
 
-### General Rules (All Platforms)
+### Foundations (All Platforms)
 
-Universal brand and design language:
+Universal brand, design, and content:
 
-| File | Description |
+| Path | Description |
 |------|-------------|
-| [rules/general/brand.md](./rules/general/brand.md) | Equal Experts brand principles |
-| [rules/general/logo.md](./rules/general/logo.md) | Logo variants, sizing, placement |
-| [rules/general/content.md](./rules/general/content.md) | Writing style, tone, guidelines |
-| [rules/general/design-language.md](./rules/general/design-language.md) | Design principles |
-| [rules/general/colours.md](./rules/general/colours.md) | Brand color palette |
-| [rules/general/typography.md](./rules/general/typography.md) | Fonts and type scale |
-| [rules/general/spacing.md](./rules/general/spacing.md) | Spacing system |
-| [rules/general/borders.md](./rules/general/borders.md) | Border philosophy |
+| [rules/foundations/](./rules/foundations/) | Brand, logo, accessibility; design/ and content/ subdirs |
+| [rules/foundations/design/](./rules/foundations/design/) | Design language, colours, typography, spacing, borders |
+| [rules/foundations/content/](./rules/foundations/content/) | Voice and tone, writing style, formatting, numbers, punctuation |
 
 ### Type-Specific Rules
 
@@ -100,7 +95,7 @@ You MUST reference these guidelines when:
 3. Follow existing patterns; do not invent new ones
 
 **Documentation index:**
-- `rules/general/` - Universal brand and design rules
+- `rules/foundations/` - Universal brand, design, and content rules
 - `rules/types/slides/` - Presentation guidelines
 - `rules/types/photography/` - Photo guidelines
 - `rules/types/graphics/` - Icons, illustrations, infographics
@@ -118,9 +113,9 @@ You MUST reference these guidelines when:
 
 | Level | What | Size |
 |-------|------|------|
-| Minimal | Single general rule file | ~100 lines |
-| Standard | `rules/general/` directory | ~800 lines |
-| Full (web) | `rules/general/` + `rules/types/web/product/` | ~2000 lines |
+| Minimal | Single foundation rule file | ~100 lines |
+| Standard | `rules/foundations/` directory | ~800 lines |
+| Full (web) | `rules/foundations/` + `rules/types/web/product/` | ~2000 lines |
 
 ---
 

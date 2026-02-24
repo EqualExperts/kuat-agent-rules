@@ -29,11 +29,11 @@ You MUST reference these guidelines when:
 3. Follow existing patterns; do not invent new ones
 
 **Documentation index:**
-- `rules/general/brand.md` - Brand principles
-- `rules/general/logo.md` - Logo usage
-- `rules/general/colours.md` - Color palette
-- `rules/general/typography.md` - Fonts and type scale
-- `rules/general/content.md` - Writing guidelines
+- `rules/foundations/brand.md` - Brand principles
+- `rules/foundations/logo.md` - Logo usage
+- `rules/foundations/design/colours.md` - Color palette
+- `rules/foundations/design/typography.md` - Fonts and type scale
+- `rules/foundations/content/` - Writing and style guidelines
 - `rules/types/web/product/` - Web application rules
 - `rules/types/web/marketing/` - Marketing website rules
 - `rules/types/slides/` - Presentation guidelines
@@ -54,7 +54,7 @@ Use the loading index for:
 - Optional paths (scenarios, examples) and when to include them
 - Context size reference (minimal, standard, full)
 
-Directory layout: `rules/general/` (universal) and `rules/types/` (platform-specific). See [rules/README.md](../kuat-docs/rules/README.md) for structure.
+Directory layout: `rules/foundations/` (universal) and `rules/types/` (platform-specific). See [rules/README.md](../kuat-docs/rules/README.md) for structure.
 
 ---
 
@@ -98,7 +98,7 @@ Then update your rules to reference local files:
 
 When creating Equal Experts content, reference the rules in `kuat-docs/rules/`.
 
-- General rules: `kuat-docs/rules/general/`
+- Foundations: `kuat-docs/rules/foundations/`
 - Platform-specific: `kuat-docs/rules/types/{platform}/`
 ```
 
@@ -109,9 +109,9 @@ When creating Equal Experts content, reference the rules in `kuat-docs/rules/`.
 Test your setup with these prompts:
 
 - "Create a slide deck" → Agent should reference general rules + slides rules
-- "What color for the primary button?" → Agent should check general/colours.md
+- "What color for the primary button?" → Agent should check foundations/design/colours.md
 - "Build a web application header" → Agent should check types/web/product/design.md
-- "Write marketing copy" → Agent should check general/content.md + types/web/marketing/
+- "Write marketing copy" → Agent should check foundations/content/ + types/web/marketing/content/
 
 See [verification.md](./verification.md) for comprehensive tests.
 

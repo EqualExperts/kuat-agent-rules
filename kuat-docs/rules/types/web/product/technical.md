@@ -10,7 +10,7 @@ Technical setup and integration guide for Equal Experts web applications using t
 
 ---
 
-**Prerequisites:** Load [general rules](../../../general/) first.
+**Prerequisites:** Load [foundations](../../../foundations/) first.
 
 ---
 

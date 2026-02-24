@@ -4,9 +4,9 @@ Guidelines for creating Equal Experts presentation decks and slides.
 
 ---
 
-**Status:** Placeholder (skeleton). Load only when the task is explicitly slides/presentations; otherwise prefer [general rules](../../general/). For which general files to load with slides, see [LOADING.md](../../LOADING.md) (task: slides).
+**Status:** Placeholder (skeleton). Load only when the task is explicitly slides/presentations; otherwise prefer [foundations](../../foundations/). For which foundation files to load with slides, see [LOADING.md](../../LOADING.md) (task: slides).
 
-**Prerequisites:** Load [general rules](../../general/) first (at least brand, logo, colours, typography, content for slides).
+**Prerequisites:** Load [foundations](../../foundations/) first (at least brand, logo, design, content for slides).
 
 ---
 
@@ -30,7 +30,7 @@ These rules govern the creation of presentation slides for Equal Experts, includ
 - Place logo in header or footer area
 - Use appropriate variant for slide background
 - Minimum size: 100px width
-- See [general/logo.md](../../general/logo.md) for variant selection
+- See [foundations/logo.md](../../foundations/logo.md) for variant selection
 
 ---
 
@@ -38,7 +38,7 @@ These rules govern the creation of presentation slides for Equal Experts, includ
 
 - Use Lexend for all text
 - Minimum font size: 18px for body text, 14px for footnotes
-- See [general/typography.md](../../general/typography.md) for type scale
+- See [foundations/design/typography.md](../../foundations/design/typography.md) for type scale
 
 ---
 
@@ -46,13 +46,13 @@ These rules govern the creation of presentation slides for Equal Experts, includ
 
 - Use brand color palette
 - Ensure text has sufficient contrast against backgrounds
-- See [general/colours.md](../../general/colours.md) for palette
+- See [foundations/design/colours.md](../../foundations/design/colours.md) for palette
 
 ---
 
 ## Content Guidelines
 
-- Follow [general/content.md](../../general/content.md) for writing style
+- Follow [foundations/content/](../../foundations/content/) for writing style
 - One idea per slide
 - Use bullet points sparingly
 - Include speaker notes for complex slides
@@ -65,6 +65,6 @@ Further guidance (templates, animation, master slides, export formats) to be add
 
 ## Related Documentation
 
-- [General Rules](../../general/) - Brand and design language
+- [Foundations](../../foundations/) - Brand and design language
 - [Graphics](../graphics/) - Icons and illustrations for slides
 - [Charts & Data](../charts-data/) - Data visualization

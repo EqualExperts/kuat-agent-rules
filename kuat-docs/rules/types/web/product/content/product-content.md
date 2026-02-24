@@ -1,7 +1,7 @@
 ---
 scope: type
 platform: web_product
-prerequisites: general, general/content.md
+prerequisites: foundations, foundations/content/voice-and-tone.md
 ---
 
 # Product Content Guidelines
@@ -10,7 +10,7 @@ UX writing and content guidelines for Equal Experts web applications.
 
 ---
 
-**Prerequisites:** Load [general rules](../../../general/) first, especially [content.md](../../../general/content.md).
+**Prerequisites:** Load [foundations](../../../../foundations/) first, especially [voice and tone](../../../../foundations/content/voice-and-tone.md).
 
 ---
 
@@ -87,126 +87,6 @@ Before writing, know:
 
 ---
 
-## Content Patterns
-
-### Actions (Buttons and Links)
-
-**Do:**
-- Use verb-driven labels
-- Be specific about what happens
-- Keep labels short (1-3 words ideal)
-- Use sentence case
-
-**Don't:**
-- Use vague labels like "OK" or "Submit"
-- Make labels overly long
-- Use ALL CAPS
-- Include instructions in button labels
-
-**Good examples:**
-- [Save and close]
-- [Delete expense]
-- [Send invoice now]
-- [Connect bank]
-
-**Bad examples:**
-- [OK] (ambiguous)
-- [SUBMIT FORM NOW] (shouty, vague)
-- [Click here to continue] (generic)
-
-### Confirmations
-
-**Use for:**
-- Destructive actions (delete, remove)
-- Actions that can't be undone
-- Actions with significant consequences
-
-**Don't use for:**
-- Actions easily undone
-- Low-stakes decisions
-- Frequent actions
-
-**Good confirmation:**
-```
-Delete client account?
-
-This will permanently delete [Client Name] and all associated:
-- Invoices (12)
-- Payments (8)
-- Transaction history
-
-You can't undo this action.
-
-[Delete permanently]  [Cancel]
-```
-
-### Empty States
-
-**Do:**
-- Explain why the state is empty
-- Provide clear next action
-- Use positive, encouraging tone
-
-**Good example:**
-```
-No invoices yet
-
-Create your first invoice to get paid faster.
-It takes less than 2 minutes.
-
-[Create invoice]
-```
-
-### Errors
-
-**Error formula:**
-1. What went wrong (specific)
-2. Why it happened (if helpful)
-3. How to fix it (actionable)
-
-**Do:**
-- Be specific about the problem
-- Use plain language
-- Provide actionable next steps
-- Take responsibility ("We couldn't save...")
-
-**Don't:**
-- Blame the user
-- Use technical jargon or error codes
-- Be vague
-- Leave user without next step
-
-**Good error:**
-```
-Can't save invoice
-
-The customer email "john@example,com" has a comma instead of a period.
-
-Fix the email address and try again.
-```
-
-### Form Fields
-
-**Do:**
-- Always use a label (not just placeholder)
-- Keep labels short and clear
-- Use sentence case
-- Position labels above fields
-
-**Don't:**
-- Use placeholder as only label
-- Make labels overly long
-- Hide labels on focus
-
-### Mobile
-
-- Cut content by 50% compared to desktop
-- Front-load important information
-- Use progressive disclosure
-- Test on actual devices
-
----
-
 ## Common Mistakes
 
 | Mistake | Bad | Good |
@@ -248,6 +128,11 @@ Fix the email address and try again.
 
 ## Related Documentation
 
-- [General Content Guidelines](../../../general/content.md) - Universal principles
-- [Design Rules](./design.md) - Visual design guidelines
-- [Component Decision Tree](./component-decision-tree.md) - Component development
+- [Foundations content](../../../../foundations/content/README.md) - Voice, tone, style
+- [Actions](./actions.md) - Buttons and links
+- [Confirmations](./confirmations.md) - Confirmation dialogs
+- [Empty states](./empty-states.md) - Empty state copy
+- [Errors](./errors.md) - Error messages
+- [Forms](./forms.md) - Form content
+- [Design](../design.md) - Visual design guidelines
+- [Component Decision Tree](../component-decision-tree.md) - Component development

@@ -6,7 +6,7 @@ Guidelines for Equal Experts illustration style and usage.
 
 **Status:** Placeholder - details to be defined
 
-**Prerequisites:** Load [general rules](../../general/) first
+**Prerequisites:** Load [foundations](../../foundations/) first
 
 ---
 
@@ -50,4 +50,4 @@ These rules govern the creation and use of illustrations in Equal Experts materi
 ## Related Documentation
 
 - [Graphics Overview](./README.md)
-- [Colours](../../general/colours.md) - Color palette
+- [Colours](../../foundations/design/colours.md) - Color palette

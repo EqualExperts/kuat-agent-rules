@@ -148,4 +148,4 @@ All logos are available in the [Equal Experts brand-assets repository](https://g
 ## Related Documentation
 
 - [Brand Guidelines](./brand.md) - Brand principles
-- [Colours](./colours.md) - Brand color palette
+- [Colours](./design/colours.md) - Brand color palette

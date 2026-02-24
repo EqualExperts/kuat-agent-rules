@@ -6,9 +6,9 @@ Guidelines for Equal Experts photography style and image usage. Use these rules 
 
 **Status:** Full rule set (replaces placeholder).
 
-**Load order:** For task type **photography**, load [general rules](../../general/) first, then all files in `types/photography/`. See [LOADING.md](../../LOADING.md).
+**Load order:** For task type **photography**, load [foundations](../../foundations/) first, then all files in `types/photography/`. See [LOADING.md](../../LOADING.md).
 
-**Prerequisites:** Load [general rules](../../general/) first (at least brand; expand to full general if needed).
+**Prerequisites:** Load [foundations](../../foundations/) first (at least brand; expand to full foundations if needed).
 
 ---
 
@@ -40,5 +40,5 @@ Equal Experts photography is **professional, people-focused and authentic**. The
 
 ## Related documentation
 
-- [General rules](../../general/) — Brand, accessibility, content
+- [Foundations](../../foundations/) — Brand, accessibility, content
 - [LOADING.md](../../LOADING.md) — Task → rules index

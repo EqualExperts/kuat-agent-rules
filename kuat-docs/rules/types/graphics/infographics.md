@@ -6,7 +6,7 @@ Guidelines for Equal Experts infographics and information design.
 
 **Status:** Placeholder - details to be defined
 
-**Prerequisites:** Load [general rules](../../general/) first
+**Prerequisites:** Load [foundations](../../foundations/) first
 
 ---
 
@@ -69,5 +69,5 @@ These rules govern the creation of infographics - visual representations of info
 
 - [Graphics Overview](./README.md)
 - [Charts & Data](../charts-data/) - For data-heavy visualizations
-- [Typography](../../general/typography.md)
-- [Colours](../../general/colours.md)
+- [Typography](../../foundations/design/typography.md)
+- [Colours](../../foundations/design/colours.md)

@@ -94,6 +94,6 @@ When representing Equal Experts:
 ## Related Documentation
 
 - [Logo Usage](./logo.md) - Logo variants, sizing, placement
-- [Colours](./colours.md) - Brand color palette
-- [Typography](./typography.md) - Brand fonts
-- [Content Guidelines](./content.md) - Writing style and tone
+- [Colours](./design/colours.md) - Brand color palette
+- [Typography](./design/typography.md) - Brand fonts
+- [Content](./content/README.md) - Writing style and tone

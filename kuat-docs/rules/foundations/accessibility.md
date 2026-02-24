@@ -438,7 +438,7 @@ Always spell out abbreviations on first use:
 
 ## Related Documentation
 
-- [Colours](./colours.md) - Brand colour palette and contrast
-- [Typography](./typography.md) - Font families and type scale
-- [Content](./content.md) - Writing style and tone
+- [Colours](./design/colours.md) - Brand colour palette and contrast
+- [Typography](./design/typography.md) - Font families and type scale
+- [Content](./content/README.md) - Writing style and tone
 - [Web Technical Accessibility](../types/web/product/accessibility.md) - Implementation details

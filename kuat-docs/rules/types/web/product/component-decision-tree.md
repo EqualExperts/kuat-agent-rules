@@ -10,7 +10,7 @@ Component selection and development patterns for Equal Experts web applications.
 
 ---
 
-**Prerequisites:** Load [general rules](../../../general/) first.
+**Prerequisites:** Load [foundations](../../../foundations/) first.
 
 ---
 

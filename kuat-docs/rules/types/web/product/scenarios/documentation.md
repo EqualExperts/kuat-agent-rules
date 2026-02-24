@@ -190,7 +190,7 @@ Docs / Components / Button / Variants
 
 ## Accessibility
 
-**Base requirements:** See [general accessibility](../../../../general/accessibility.md) and [web accessibility](../accessibility.md)
+**Base requirements:** See [foundations accessibility](../../../../foundations/accessibility.md) and [web accessibility](../accessibility.md)
 
 **Scenario-specific:**
 
@@ -329,5 +329,5 @@ Docs / Components / Button / Variants
 ## Related Documentation
 
 - [Product Design](../design.md) - Sidebar and Split layouts
-- [General Accessibility](../../../../general/accessibility.md) - Structure and headings
-- [General Typography](../../../../general/typography.md) - Type scale and hierarchy
+- [Foundations Accessibility](../../../../foundations/accessibility.md) - Structure and headings
+- [Foundations Typography](../../../../foundations/design/typography.md) - Type scale and hierarchy

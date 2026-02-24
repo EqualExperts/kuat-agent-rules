@@ -9,9 +9,9 @@ Design system rules and guidelines for AI agents and content creators.
 **Task → files and load order:** [LOADING.md](./LOADING.md)
 
 The loading index is the single source of truth for:
-- Which general rule files to load
+- Which foundation rule files to load
 - Which type-specific paths to load per task (slides, web_product, web_marketing, icons, etc.)
-- Optional paths (scenarios, examples) and when to include them
+- Optional paths (scenarios, content subdirs, examples) and when to include them
 
 ---
 
@@ -20,25 +20,34 @@ The loading index is the single source of truth for:
 ```
 rules/
 ├── LOADING.md                 # Canonical task → rules index (start here for agents)
-├── general/                   # Universal rules for ALL platforms
+├── foundations/                # Universal rules for ALL platforms
 │   ├── brand.md
 │   ├── logo.md
-│   ├── content.md
-│   ├── design-language.md
-│   ├── colours.md
-│   ├── typography.md
-│   ├── spacing.md
-│   ├── borders.md
-│   └── accessibility.md
+│   ├── accessibility.md
+│   ├── README.md
+│   ├── design/                 # Design language, colours, typography, spacing, borders
+│   │   ├── README.md
+│   │   ├── design-language.md
+│   │   ├── colours.md
+│   │   ├── typography.md
+│   │   ├── spacing.md
+│   │   └── borders.md
+│   └── content/                # Voice, tone, writing style, formatting, numbers, punctuation
+│       ├── README.md
+│       ├── voice-and-tone.md
+│       ├── writing-style.md
+│       ├── formatting.md
+│       ├── numbers.md
+│       └── punctuation.md
 │
-└── types/                     # Platform-specific rules
+└── types/                      # Platform-specific rules
     ├── slides/
     ├── photography/
     ├── graphics/               # icons.md, illustrations.md, infographics.md
     ├── charts-data/
     └── web/
-        ├── marketing/
-        └── product/            # design, component-decision-tree, technical, examples
+        ├── marketing/          # website, emails, scenarios, content/
+        └── product/            # design, content/, scenarios, examples
 ```
 
 ---
@@ -47,24 +56,20 @@ rules/
 
 | Category | Directory |
 |----------|-----------|
-| General rules | [general/](./general/) |
+| Foundations | [foundations/](./foundations/) |
 | Type-specific rules | [types/](./types/) |
 
-**Platform isolation:** Types do not reference each other; all types may reference general rules.
+**Platform isolation:** Types do not reference each other; all types may reference foundations.
 
 ---
 
-## General rules
+## Foundations
 
-- [general/brand.md](./general/brand.md) - Brand principles
-- [general/logo.md](./general/logo.md) - Logo usage
-- [general/content.md](./general/content.md) - Writing style
-- [general/design-language.md](./general/design-language.md) - Design principles
-- [general/colours.md](./general/colours.md) - Color palette
-- [general/typography.md](./general/typography.md) - Typography
-- [general/spacing.md](./general/spacing.md) - Spacing
-- [general/borders.md](./general/borders.md) - Borders
-- [general/accessibility.md](./general/accessibility.md) - Accessibility
+- [foundations/brand.md](./foundations/brand.md) - Brand principles
+- [foundations/logo.md](./foundations/logo.md) - Logo usage
+- [foundations/accessibility.md](./foundations/accessibility.md) - Accessibility
+- [foundations/design/](./foundations/design/README.md) - Design language, colours, typography, spacing, borders
+- [foundations/content/](./foundations/content/README.md) - Voice, tone, writing style, formatting, numbers, punctuation
 
 ---
 
@@ -75,4 +80,4 @@ rules/
 - [types/graphics/](./types/graphics/) - Icons, illustrations, infographics
 - [types/charts-data/](./types/charts-data/) - Data visualization
 - [types/web/marketing/](./types/web/marketing/) - Marketing websites and emails
-- [types/web/product/](./types/web/product/) - Web applications (design, component-decision-tree, technical, examples)
+- [types/web/product/](./types/web/product/) - Web applications (design, content, scenarios, examples)

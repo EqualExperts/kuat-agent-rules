@@ -4,7 +4,7 @@ Guidelines for Equal Experts web presence, including marketing websites and prod
 
 ---
 
-**Prerequisites:** Load [general rules](../../general/) first
+**Prerequisites:** Load [foundations](../../foundations/) first
 
 ---
 
@@ -106,6 +106,6 @@ Web implementations use semantic color tokens:
 
 ## Related Documentation
 
-- [General Rules](../../general/) - Brand and design language
+- [Foundations](../../foundations/) - Brand and design language
 - [Marketing](./marketing/) - Marketing-specific rules
 - [Product](./product/) - Product-specific rules

@@ -2,7 +2,7 @@
 
 Vanilla CSS examples for using Kuat Design System spacing.
 
-**Rules:** See [general/spacing.md](../../../../general/spacing.md)
+**Rules:** See [foundations/design/spacing.md](../../../../foundations/design/spacing.md)
 
 ---
 

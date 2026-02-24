@@ -166,7 +166,7 @@ We'll send your receipt to this address.
 
 ## Accessibility
 
-**Base requirements:** See [general accessibility](../../../../general/accessibility.md) and [web accessibility](../accessibility.md)
+**Base requirements:** See [foundations accessibility](../../../../foundations/accessibility.md) and [web accessibility](../accessibility.md)
 
 **Scenario-specific:**
 

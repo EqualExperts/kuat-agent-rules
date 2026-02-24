@@ -2,7 +2,7 @@
 
 Code examples for using Kuat Design System colors in Vue.
 
-**Rules:** See [general/colours.md](../../../../general/colours.md)
+**Rules:** See [foundations/design/colours.md](../../../../foundations/design/colours.md)
 
 ---
 

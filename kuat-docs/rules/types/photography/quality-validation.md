@@ -2,7 +2,7 @@
 
 Technical quality standards, accessibility requirements for images, and the pre-publish validation checklist.
 
-**See also:** [general/accessibility.md](../../general/accessibility.md) for full accessibility guidance. [principles.md](./principles.md), [diversity-inclusion.md](./diversity-inclusion.md), [style-and-sources.md](./style-and-sources.md).
+**See also:** [foundations/accessibility.md](../../foundations/accessibility.md) for full accessibility guidance. [principles.md](./principles.md), [diversity-inclusion.md](./diversity-inclusion.md), [style-and-sources.md](./style-and-sources.md).
 
 ---
 
