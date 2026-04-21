@@ -13,6 +13,28 @@ That index defines:
 
 **Role-based prompting:** For task types that have a role card (e.g. infographic, icon), see [kuat-docs/rules/roles/](./kuat-docs/rules/roles/) and the task → role mapping in [LOADING.md](./kuat-docs/rules/LOADING.md).
 
+## Upstream vs Local Ownership (Consumption Contract)
+
+When this repository is consumed by implementation repositories (for example `kuat-mono`), use this ownership split:
+
+- **Upstream (`kuat-agent-rules`) owns:** brand, foundations, content style, structure/pattern guidance, and task-to-context loading taxonomy.
+- **Local implementation repos own:** component architecture, package APIs, testing strategy, Storybook conventions, and contributor workflow.
+
+### Cross-repo load order
+
+1. Load upstream rules from this repository first.
+2. Load local implementation overlay rules from the consumer repository second.
+
+### Conflict resolution
+
+- If guidance conflicts on **design/structure/content intent**, upstream wins.
+- If guidance conflicts on **implementation/API/testing/build behavior**, local implementation repo wins.
+- If implementation behavior is still unclear, trust runtime evidence in this order: tests, Storybook behavior, package exports, source code.
+
+### External skills and tool guidance
+
+External guidance (including shadcn-related skills/docs) is complementary. It may inform implementation details but must not override this ownership and precedence contract.
+
 ### Platform isolation
 
 **Important:** Type-specific rules should NOT reference each other.

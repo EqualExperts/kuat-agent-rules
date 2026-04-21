@@ -1,7 +1,7 @@
 ---
 scope: type
 platform: web_product
-prerequisites: general
+prerequisites: foundations
 ---
 
 # Technical Guidelines

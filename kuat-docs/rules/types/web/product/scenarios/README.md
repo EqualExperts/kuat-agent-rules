@@ -2,7 +2,7 @@
 
 Applied layout and design patterns for web application page types.
 
-Each scenario combines the foundational rules from general rules and web product rules into actionable guidance for building complete pages.
+Each scenario combines foundational rules and web product rules into actionable guidance for building complete pages.
 
 ---
 
@@ -69,8 +69,8 @@ When building a specific page type:
 
 1. Load the relevant scenario file
 2. Follow the recommended base layout from product design rules
-3. Reference accessibility requirements from general and web accessibility docs
-4. Use design tokens from general colours and typography
+3. Reference accessibility requirements from foundations and web accessibility docs
+4. Use design tokens from foundations colours and typography
 
 ---
 

@@ -1,6 +1,6 @@
 # Type-Specific Rules
 
-Platform-specific guidelines that extend the general rules for specific output types.
+Platform-specific guidelines that extend the foundations for specific output types.
 
 ---
 
@@ -24,9 +24,9 @@ These rules provide platform-specific guidance. **Always load [foundations](../f
 
 ## How to Use
 
-**Load order and task → files:** See the canonical index [../LOADING.md](../LOADING.md). Load general rules first, then the type-specific path for your task.
+**Load order and task → files:** See the canonical index [../LOADING.md](../LOADING.md). Load foundations first, then the type-specific path for your task.
 
-**Isolation:** Type-specific rules do not reference each other; they may reference general rules only.
+**Isolation:** Type-specific rules do not reference each other; they may reference foundations only.
 
 ---
 

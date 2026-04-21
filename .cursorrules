@@ -1,5 +1,7 @@
 # Cursor Rules
 
-This project uses Equal Experts brand guidelines.
+This repository is the upstream canonical source for Equal Experts brand/design/system-structure rules.
 
-See [AGENTS.md](./AGENTS.md) for complete agent instructions.
+For consumer repositories: load these upstream rules first, then local implementation overlays.
+
+See [AGENTS.md](./AGENTS.md) and [kuat-docs/rules/LOADING.md](./kuat-docs/rules/LOADING.md) for full ownership and conflict-resolution contract.

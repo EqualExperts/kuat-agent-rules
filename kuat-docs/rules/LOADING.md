@@ -13,6 +13,18 @@
 
 **Platform isolation:** Type-specific rules must not reference other types. Foundations are shared; types only reference foundations.
 
+## Cross-repo consumption contract
+
+When these rules are used from a consumer implementation repo (for example `kuat-mono`):
+
+1. Load upstream rules from `kuat-agent-rules` first.
+2. Load local implementation overlay rules second.
+
+Conflict policy:
+- Design/structure/content guidance -> upstream rules are canonical.
+- Implementation/API/testing/build guidance -> local implementation repo is canonical.
+- If implementation behavior remains ambiguous, trust runtime evidence in this order: tests, Storybook, package exports, source code.
+
 ---
 
 ## Foundations
