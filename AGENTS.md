@@ -11,6 +11,8 @@ That index defines:
 - Which type-specific paths to load per task (slides, web_product, web_marketing, icons, etc.)
 - Optional paths (scenarios, content subdirs, framework examples) and when to include them
 
+**Role-based prompting:** For task types that have a role card (e.g. infographic, icon), see [kuat-docs/rules/roles/](./kuat-docs/rules/roles/) and the task → role mapping in [LOADING.md](./kuat-docs/rules/LOADING.md).
+
 ### Platform isolation
 
 **Important:** Type-specific rules should NOT reference each other.

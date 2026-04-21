@@ -6,7 +6,9 @@ Guidelines for Equal Experts infographics and information design.
 
 **Status:** Placeholder - details to be defined
 
-**Prerequisites:** Load [foundations](../../foundations/) first
+**Required role:** [Technical Illustrator](../../roles/technical-illustrator.md) — use as first instruction block when assembling the prompt for this task type.
+
+**Prerequisites:** Load [foundations](../../foundations/) first (then the role card if not already injected; see [LOADING.md](../../LOADING.md)).
 
 ---
 
@@ -62,6 +64,16 @@ These rules govern the creation of infographics - visual representations of info
 - Size and format specifications
 - Animation guidelines (for digital infographics)
 - Print vs digital considerations
+
+---
+
+## Prompt assembly
+
+When building a prompt for infographic creation:
+1. Inject the [Technical Illustrator](../../roles/technical-illustrator.md) role card first (or as the first instruction block).
+2. Load required foundations (brand, design/colours, design/typography, design/spacing).
+3. Load this file (infographics.md) for domain guidelines.
+4. Attach or reference the three required style reference files.
 
 ---
 

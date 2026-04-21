@@ -20,7 +20,8 @@ This repository provides comprehensive rules for creating Equal Experts branded 
 
 **For specific platforms:**
 1. Load foundations first
-2. Then load type-specific rules
+2. For task types that have a role card (e.g. infographic, icon), load the role card first or as the first instruction block — see [rules/roles/README.md](./rules/roles/README.md) and [rules/LOADING.md](./rules/LOADING.md)
+3. Then load type-specific rules
 
 | Task | Load Foundations | Load Type-Specific |
 |------|------------------|-------------------|
@@ -33,6 +34,14 @@ This repository provides comprehensive rules for creating Equal Experts branded 
 ---
 
 ## Documentation Structure
+
+### Role Cards
+
+Reusable role personas and task → role mapping:
+
+| Path | Description |
+|------|-------------|
+| [rules/roles/](./rules/roles/) | Role cards (Technical Illustrator, Icon Designer); dispatcher and decision rubric in [roles/README.md](./rules/roles/README.md) |
 
 ### Foundations (All Platforms)
 

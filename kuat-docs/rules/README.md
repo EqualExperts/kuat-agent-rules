@@ -20,6 +20,10 @@ The loading index is the single source of truth for:
 ```
 rules/
 ├── LOADING.md                 # Canonical task → rules index (start here for agents)
+├── roles/                     # Reusable role cards and task → role mapping
+│   ├── README.md              # Role cards list and dispatcher
+│   ├── technical-illustrator.md
+│   └── icon-designer.md
 ├── foundations/                # Universal rules for ALL platforms
 │   ├── brand.md
 │   ├── logo.md
@@ -56,6 +60,7 @@ rules/
 
 | Category | Directory |
 |----------|-----------|
+| Role cards | [roles/](./roles/) |
 | Foundations | [foundations/](./foundations/) |
 | Type-specific rules | [types/](./types/) |
 

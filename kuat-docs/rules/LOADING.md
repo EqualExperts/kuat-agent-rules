@@ -7,8 +7,9 @@
 ## Load order
 
 1. **Always load foundations first** (see [Foundations](#foundations) below).
-2. **Then load type-specific rules** for the task (see [Task → rules](#task--rules)).
-3. **Optionally** add scenarios or examples when relevant (see [Optional paths](#optional-paths)).
+2. **When a role card exists for the task,** load it next (or as the first instruction block). See [Role cards](#role-cards) and [roles/README.md](./roles/README.md).
+3. **Then load type-specific rules** for the task (see [Task → rules](#task--rules)).
+4. **Optionally** add scenarios or examples when relevant (see [Optional paths](#optional-paths)).
 
 **Platform isolation:** Type-specific rules must not reference other types. Foundations are shared; types only reference foundations.
 
@@ -44,6 +45,19 @@
 | `foundations/content/punctuation.md` | Punctuation conventions |
 
 **When to load:** For minimal context, load only the foundation file(s) relevant to the task. For standard or full context, load all of `foundations/` (shared + design + content as needed, ~800+ lines).
+
+---
+
+## Role cards
+
+**Path:** `roles/`
+
+For task types that have a role card, load it after foundations (or inject as the first instruction block). Task → role mapping and decision rubric: [roles/README.md](./roles/README.md).
+
+| Task type | Role card |
+|-----------|-----------|
+| infographics | [roles/technical-illustrator.md](./roles/technical-illustrator.md) |
+| icons | [roles/icon-designer.md](./roles/icon-designer.md) |
 
 ---
 

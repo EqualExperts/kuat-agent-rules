@@ -6,7 +6,9 @@ Guidelines for Equal Experts icon usage and style.
 
 **Status:** Placeholder - details to be defined
 
-**Prerequisites:** Load [foundations](../../foundations/) first
+**Required role:** [Icon Designer](../../roles/icon-designer.md) — use as first instruction block when assembling the prompt for this task type.
+
+**Prerequisites:** Load [foundations](../../foundations/) first (then the role card if not already injected; see [LOADING.md](../../LOADING.md)).
 
 ---
 
