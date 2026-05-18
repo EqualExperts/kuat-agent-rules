@@ -22,8 +22,8 @@ Code examples for implementing the Kuat Design System in web applications.
 - You need syntax reference for a framework
 
 **Don't load when:**
-- You only need design decisions (use general rules instead)
-- You're doing design reviews
+- You only need design decisions (use foundations and product design rules instead)
+- **Intent is review** — use [kuat-review](../../../../skills/kuat-review/SKILL.md) and [review-checklist.md](../review-checklist.md)
 - Context is limited
 
 ---

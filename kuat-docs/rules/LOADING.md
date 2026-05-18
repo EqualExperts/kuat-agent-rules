@@ -4,12 +4,24 @@
 
 ---
 
+## Intent (review | create)
+
+Determine intent before loading type rules. If unclear, ask: *Are you reviewing existing work or creating something new?*
+
+| Intent | Load first | Then |
+|--------|------------|------|
+| **review** | Skill [kuat-review](../../skills/kuat-review/SKILL.md) — run [ensure-rules](../../skills/scripts/ensure-rules.sh) | foundations → [roles/brand-reviewer.md](./roles/brand-reviewer.md) → type rules (see [Review load notes](#review-load-notes)) |
+| **create** | Skill [kuat-create](../../skills/kuat-create/SKILL.md) — run [ensure-rules](../../skills/scripts/ensure-rules.sh) | foundations → create role card if any → type rules → scenarios/examples as needed |
+
+---
+
 ## Load order
 
-1. **Always load foundations first** (see [Foundations](#foundations) below).
-2. **When a role card exists for the task,** load it next (or as the first instruction block). See [Role cards](#role-cards) and [roles/README.md](./roles/README.md).
-3. **Then load type-specific rules** for the task (see [Task → rules](#task--rules)).
-4. **Optionally** add scenarios or examples when relevant (see [Optional paths](#optional-paths)).
+1. **Determine intent** (review | create) and load the matching [skill](../../skills/) (`kuat-review` or `kuat-create`); resolve rules via [skills/shared/resolve-rules.md](../../skills/shared/resolve-rules.md).
+2. **Always load foundations** (see [Foundations](#foundations) below).
+3. **Load the role card** for the intent: [brand-reviewer](./roles/brand-reviewer.md) for review; task-specific role for create when listed in [Role cards](#role-cards).
+4. **Then load type-specific rules** for the task (see [Task → rules](#task--rules)).
+5. **Optionally** add scenarios or examples when relevant (see [Optional paths](#optional-paths)).
 
 **Platform isolation:** Type-specific rules must not reference other types. Foundations are shared; types only reference foundations.
 
@@ -64,10 +76,14 @@ Conflict policy:
 
 **Path:** `roles/`
 
-For task types that have a role card, load it after foundations (or inject as the first instruction block). Task → role mapping and decision rubric: [roles/README.md](./roles/README.md).
+Load after foundations (or inject as the first instruction block). Task → role mapping: [roles/README.md](./roles/README.md).
 
-| Task type | Role card |
-|-----------|-----------|
+| Intent | Role card |
+|--------|-----------|
+| **review** (all task types) | [roles/brand-reviewer.md](./roles/brand-reviewer.md) |
+
+| Task type (create) | Role card |
+|--------------------|-----------|
 | infographics | [roles/technical-illustrator.md](./roles/technical-illustrator.md) |
 | icons | [roles/icon-designer.md](./roles/icon-designer.md) |
 
@@ -88,6 +104,18 @@ For task types that have a role card, load it after foundations (or inject as th
 
 ---
 
+## Review load notes
+
+When intent is **review**, use these load deltas (in addition to skill [kuat-review](../../skills/kuat-review/SKILL.md)):
+
+| Task type | Load | Skip |
+|-----------|------|------|
+| **slides** | All `types/slides/` core files + [checklist.md](./types/slides/checklist.md); scenario if deck type known | — |
+| **web_product** | [design.md](./types/web/product/design.md), [accessibility.md](./types/web/product/accessibility.md), [component-decision-tree.md](./types/web/product/component-decision-tree.md), [review-context.md](./types/web/product/review-context.md), [review-checklist.md](./types/web/product/review-checklist.md); relevant scenario if flow type known | `types/web/product/examples/` |
+| **Others** | Foundations + type README + any validation checklist (e.g. photography `quality-validation.md`) | Implementation examples unless reviewing code |
+
+---
+
 ## Optional paths
 
 | Path | When to include |
@@ -99,7 +127,7 @@ For task types that have a role card, load it after foundations (or inject as th
 | `types/web/marketing/content/` | Task involves marketing copy, blog, or SEO. |
 | `types/web/product/scenarios/` | Task involves documentation pages, forms, dashboards, or authentication flows. |
 | `types/web/product/content/` | Task involves product UX writing (actions, errors, forms, etc.). |
-| `types/web/product/examples/` | Implementing web product UI in React, Vue, or vanilla CSS; use the relevant framework subfolder. |
+| `types/web/product/examples/` | **Create only:** implementing web product UI in React, Vue, or vanilla CSS. **Do not load for review.** |
 
 ---
 
@@ -116,6 +144,8 @@ For task types that have a role card, load it after foundations (or inject as th
 
 ## Related
 
+- [skills/](../../skills/) – Review and create skills (orchestration)
+- [workflows/](./workflows/) – Pointer to skills (legacy path)
 - [rules/README.md](./README.md) – Structure and overview
 - [AGENTS.md](../../AGENTS.md) – Agent entry point and behaviour guidelines
 - [setup/integration.md](../../setup/integration.md) – IDE integration

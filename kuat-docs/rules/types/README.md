@@ -24,7 +24,7 @@ These rules provide platform-specific guidance. **Always load [foundations](../f
 
 ## How to Use
 
-**Load order and task → files:** See the canonical index [../LOADING.md](../LOADING.md). Load foundations first, then the type-specific path for your task.
+**Load order and task → files:** See the canonical index [../LOADING.md](../LOADING.md). Determine **intent** (review | create) and load the matching [skill](../../../skills/) first, then foundations, then the type-specific path for your task.
 
 **Isolation:** Type-specific rules do not reference each other; they may reference foundations only.
 

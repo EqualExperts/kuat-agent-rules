@@ -1,0 +1,24 @@
+{
+  "version": "1.0.0",
+  "builtAt": "2026-05-18T11:13:08.901Z",
+  "rules": {
+    "repo": "equalexperts/kuat-agent-docs",
+    "loadingPath": "kuat-docs/rules/LOADING.md",
+    "builtAtRef": "2db943c5c5b3762c385b533c77eddb2e873b3627"
+  },
+  "skills": {
+    "kuat-review": {
+      "file": "kuat-review/SKILL.md",
+      "sha256": "eaa5924d23095ee76e6d172836f6200a137126aaf02ccb9ed189ad0b42a188e3"
+    },
+    "kuat-create": {
+      "file": "kuat-create/SKILL.md",
+      "sha256": "44e97b25168c811ecc9594fe6bc47729e038c51885b1cd162f8ecd52e4f48487"
+    }
+  },
+  "ensureRulesScript": "scripts/ensure-rules.sh",
+  "usage": {
+    "uploadOnlyTools": "Upload dist/kuat-review/SKILL.md and/or dist/kuat-create/SKILL.md (self-contained).",
+    "filesystemTools": "Symlink dist/kuat-review or source skills/kuat-review; run dist/scripts/ensure-rules.sh."
+  }
+}

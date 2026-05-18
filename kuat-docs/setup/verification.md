@@ -8,7 +8,19 @@ How to test that your Kuat Design System documentation integration is working co
 
 After integrating the design rules into your environment, use these tests to verify the agent/tool correctly understands and applies the rules.
 
-**Rule loading:** For which files to load per task (e.g. web product, slides, marketing), see the canonical index [rules/LOADING.md](../rules/LOADING.md). Load general rules first, then the type-specific path for your task.
+**Skills setup and step-by-step tests:** [skills/INSTALL.md](../skills/INSTALL.md)
+
+**Rule loading:** For which files to load per task and intent (review | create), see [rules/LOADING.md](../rules/LOADING.md). Load the matching [skill](../skills/) first, run [ensure-rules.sh](../skills/scripts/ensure-rules.sh), then foundations and type-specific rules.
+
+---
+
+## Intent verification (review vs create)
+
+| Prompt | Expected agent behaviour |
+|--------|-------------------------|
+| "Review this slide deck for brand compliance" | Uses `kuat-review` skill; asks for artifacts, review depth, output format (and scenario/audience/delivery for slides) **before** listing violations |
+| "Review this checkout feature" | Uses review skill; asks depth, artifacts, **user story**, **research/insights**, output format in one grouped message; does not invent user needs |
+| "Create a slide deck for a client pitch" | Uses `kuat-create` skill; asks scenario, audience, delivery mode; does not start generating without pre-flight |
 
 ---
 

@@ -4,7 +4,7 @@ Brand guidelines and design system documentation for AI agents and content creat
 
 ## Overview
 
-This repository provides comprehensive rules for creating Equal Experts branded content across all platforms - from slides and graphics to web applications.
+This repository provides comprehensive rules for **creating and reviewing** Equal Experts branded content across all platforms - from slides and graphics to web applications.
 
 **Architecture:**
 - **Foundations** - Universal brand, design, and content rules for ALL platforms
@@ -19,13 +19,19 @@ This repository provides comprehensive rules for creating Equal Experts branded 
 **Minimum context:** Load relevant files from [rules/foundations/](./rules/foundations/)
 
 **For specific platforms:**
-1. Load foundations first
-2. For task types that have a role card (e.g. infographic, icon), load the role card first or as the first instruction block — see [rules/roles/README.md](./rules/roles/README.md) and [rules/LOADING.md](./rules/LOADING.md)
-3. Then load type-specific rules
+1. Determine **intent** (review | create) — load [skills/](./skills/) (`kuat-review` or `kuat-create`); run [ensure-rules.sh](./skills/scripts/ensure-rules.sh)
+2. Load foundations from resolved `RULES_DIR`
+3. Load role card: [brand-reviewer](./rules/roles/brand-reviewer.md) for review; task role for create — see [rules/roles/README.md](./rules/roles/README.md)
+4. Load type-specific rules — see [rules/LOADING.md](./rules/LOADING.md)
+
+| Intent | Skill | Role (typical) |
+|--------|-------|----------------|
+| Review | [kuat-review](./skills/kuat-review/SKILL.md) | [brand-reviewer](./rules/roles/brand-reviewer.md) |
+| Create | [kuat-create](./skills/kuat-create/SKILL.md) | Task-specific (e.g. icon, infographic) |
 
 | Task | Load Foundations | Load Type-Specific |
 |------|------------------|-------------------|
-| Creating slides | brand, logo, design, content | [types/slides/](./rules/types/slides/) |
+| Slides | brand, logo, design, content | [types/slides/](./rules/types/slides/) |
 | Marketing website | brand, logo, design, content | [types/web/marketing/](./rules/types/web/marketing/) |
 | Web application | all foundations | [types/web/product/](./rules/types/web/product/) |
 | Infographic | brand, design | [types/graphics/infographics.md](./rules/types/graphics/infographics.md) |
@@ -35,13 +41,21 @@ This repository provides comprehensive rules for creating Equal Experts branded 
 
 ## Documentation Structure
 
+### Skills (repo root)
+
+Review and create procedures (tool-agnostic; load by intent):
+
+| Path | Description |
+|------|-------------|
+| [skills/](./skills/) | [INSTALL.md](./skills/INSTALL.md) (setup + tests), [kuat-review](./skills/kuat-review/SKILL.md), [kuat-create](./skills/kuat-create/SKILL.md) |
+
 ### Role Cards
 
 Reusable role personas and task → role mapping:
 
 | Path | Description |
 |------|-------------|
-| [rules/roles/](./rules/roles/) | Role cards (Technical Illustrator, Icon Designer); dispatcher and decision rubric in [roles/README.md](./rules/roles/README.md) |
+| [rules/roles/](./rules/roles/) | Brand Reviewer (review), Technical Illustrator, Icon Designer; see [roles/README.md](./rules/roles/README.md) |
 
 ### Foundations (All Platforms)
 
@@ -89,19 +103,21 @@ Copy this snippet into your `.cursorrules`, `CLAUDE.md`, or similar agent config
 This project follows Equal Experts brand guidelines.
 
 **What it provides:**
-Brand identity, design language, and platform-specific rules for creating consistent, branded content.
+Brand identity, design language, and platform-specific rules for creating and reviewing consistent, branded content.
 
 **When to use it:**
 You MUST reference these guidelines when:
-- Creating any Equal Experts branded content
+- Creating or reviewing Equal Experts branded content
 - Making design decisions (colors, typography, spacing)
 - Writing content (marketing or product)
 - Building web applications
 
 **How to use it:**
-1. Check general rules first for brand and design language
-2. Load platform-specific rules for your output type
-3. Follow existing patterns; do not invent new ones
+1. Determine intent (review | create); load skills/kuat-review or kuat-create
+2. Run skills/scripts/ensure-rules.sh; load foundations from RULES_DIR
+3. Load platform-specific rules for your output type
+4. On review: run skill intake before findings
+5. Follow existing patterns; do not invent new ones
 
 **Documentation index:**
 - `rules/foundations/` - Universal brand, design, and content rules

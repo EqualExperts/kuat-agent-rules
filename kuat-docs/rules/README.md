@@ -8,6 +8,8 @@ Design system rules and guidelines for AI agents and content creators.
 
 **Task → files and load order:** [LOADING.md](./LOADING.md)
 
+**Skills** for review/create sessions live at [../../skills/](../../skills/). This directory holds compliance standards only.
+
 The loading index is the single source of truth for:
 - Which foundation rule files to load
 - Which type-specific paths to load per task (slides, web_product, web_marketing, icons, etc.)
@@ -22,6 +24,7 @@ rules/
 ├── LOADING.md                 # Canonical task → rules index (start here for agents)
 ├── roles/                     # Reusable role cards and task → role mapping
 │   ├── README.md              # Role cards list and dispatcher
+│   ├── brand-reviewer.md
 │   ├── technical-illustrator.md
 │   └── icon-designer.md
 ├── foundations/                # Universal rules for ALL platforms
@@ -44,6 +47,8 @@ rules/
 │       ├── numbers.md
 │       └── punctuation.md
 │
+├── workflows/                  # Pointer to skills/ (legacy path)
+│   └── README.md
 └── types/                      # Platform-specific rules
     ├── slides/
     ├── photography/
@@ -60,6 +65,7 @@ rules/
 
 | Category | Directory |
 |----------|-----------|
+| Skills (repo root) | [../../skills/](../../skills/) — review vs create orchestration |
 | Role cards | [roles/](./roles/) |
 | Foundations | [foundations/](./foundations/) |
 | Type-specific rules | [types/](./types/) |

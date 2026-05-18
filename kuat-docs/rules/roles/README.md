@@ -6,16 +6,22 @@ Reusable role personas and default output specs for Equal Experts prompting scen
 
 ## Role cards
 
-| Role | File | Task types |
-|------|------|------------|
-| Technical Illustrator | [technical-illustrator.md](./technical-illustrator.md) | infographics |
-| Icon Designer | [icon-designer.md](./icon-designer.md) | icons |
+| Role | File | When |
+|------|------|------|
+| Brand Reviewer | [brand-reviewer.md](./brand-reviewer.md) | **Intent = review** (all task types) |
+| Technical Illustrator | [technical-illustrator.md](./technical-illustrator.md) | **Create:** infographics |
+| Icon Designer | [icon-designer.md](./icon-designer.md) | **Create:** icons |
 
 ---
 
-## Task type → role (dispatcher)
+## Intent → role (dispatcher)
 
-Use this table to choose which role card to load for a given task type.
+| Intent | Role card |
+|--------|-----------|
+| **review** | [brand-reviewer.md](./brand-reviewer.md) — always, for any task type |
+| **create** | Task-specific role below, when applicable |
+
+## Task type → role (create)
 
 | Task type / scenario | Role card | Signals |
 |---------------------|-----------|---------|
@@ -31,10 +37,10 @@ Use this table to choose which role card to load for a given task type.
 
 ## How to use
 
-1. Determine the task type (e.g. infographic, icon) using the rubric above.
-2. Load the role card for that task type first (or inject it as the first instruction block when assembling the prompt).
-3. Load required foundations per [LOADING.md](../LOADING.md).
-4. Load the type-specific rules for the task (e.g. `types/graphics/infographics.md`).
+1. Determine **intent** (review | create) and **task type**.
+2. Load the matching skill ([kuat-review](../../../skills/kuat-review/SKILL.md) or [kuat-create](../../../skills/kuat-create/SKILL.md)).
+3. Load the role card: **brand-reviewer** for review; task-specific role for create when listed above.
+4. Load required foundations and type-specific rules per [LOADING.md](../LOADING.md).
 
 Type-specific files link to their required role in the header (e.g. **Required role:** [Technical Illustrator](./technical-illustrator.md)).
 

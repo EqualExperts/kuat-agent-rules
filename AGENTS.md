@@ -1,6 +1,6 @@
 # Equal Experts Brand Guidelines - Agent Instructions
 
-This repository contains brand guidelines and design system rules for creating Equal Experts branded content.
+This repository contains brand guidelines and design system rules for **creating and reviewing** Equal Experts branded content.
 
 ## Load Order and Task → Files
 
@@ -11,7 +11,11 @@ That index defines:
 - Which type-specific paths to load per task (slides, web_product, web_marketing, icons, etc.)
 - Optional paths (scenarios, content subdirs, framework examples) and when to include them
 
-**Role-based prompting:** For task types that have a role card (e.g. infographic, icon), see [kuat-docs/rules/roles/](./kuat-docs/rules/roles/) and the task → role mapping in [LOADING.md](./kuat-docs/rules/LOADING.md).
+**Intent (review | create):** Determine intent first. Use skills [kuat-review](./skills/kuat-review/SKILL.md) or [kuat-create](./skills/kuat-create/SKILL.md); resolve rules per [skills/shared/resolve-rules.md](./skills/shared/resolve-rules.md). See [LOADING.md](./kuat-docs/rules/LOADING.md#intent-review--create).
+
+**Three layers:** `skills/` — session procedure; `kuat-docs/rules/` — compliance standards; consumer repo — implementation overlay.
+
+**Role-based prompting:** For **review**, load [brand-reviewer](./kuat-docs/rules/roles/brand-reviewer.md). For **create**, use task-specific role cards (e.g. infographic, icon) — see [kuat-docs/rules/roles/](./kuat-docs/rules/roles/) and [LOADING.md](./kuat-docs/rules/LOADING.md).
 
 ## Upstream vs Local Ownership (Consumption Contract)
 
@@ -82,10 +86,23 @@ For context size (minimal, standard, full, full+examples), see [LOADING.md](./ku
 
 When working on Equal Experts content:
 
-1. **Check documentation first** before making design decisions
-2. **Follow existing patterns** - do not invent new ones
-3. **Use semantic tokens** - `bg-primary` not `#0066CC`
-4. **Ask if unclear** - request clarification rather than guessing
+1. **Determine intent** — review vs create; if unclear, ask
+2. **Check documentation first** before making design decisions
+3. **Follow existing patterns** - do not invent new ones
+4. **Use semantic tokens** - `bg-primary` not `#0066CC`
+5. **Ask if unclear** - request clarification rather than guessing
+
+### Review
+
+- Use skill [kuat-review](./skills/kuat-review/SKILL.md); run [ensure-rules.sh](./skills/scripts/ensure-rules.sh) when possible
+- Intake **before** findings (artifacts, review depth, output format; product context for web at `product_ux`/`full`)
+- Agree output format with the user; use **Open questions** when context is thin — do not invent user stories or research
+- Cite rule files for every violation
+
+### Create
+
+- Use skill [kuat-create](./skills/kuat-create/SKILL.md) and type-specific "Before you create" pre-flight
+- Use checklists before delivery (e.g. slides checklist)
 
 ---
 

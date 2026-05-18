@@ -6,13 +6,28 @@ Guidelines for Equal Experts presentation decks and slides. Use these rules when
 
 **Status:** Full rule set (replaces placeholder).
 
+**Intent:** Use skill [kuat-review](../../../../skills/kuat-review/SKILL.md) or [kuat-create](../../../../skills/kuat-create/SKILL.md) first.
+
 **Load order:** For task type **slides**, load [foundations](../../foundations/) first, then all core files in `types/slides/`. Add a scenario file when the deck type is known. See [LOADING.md](../../LOADING.md).
 
 **Prerequisites:** Load [foundations](../../foundations/) first (at least brand, logo, design, content). If a foundation rule and a slides rule conflict, the foundation wins — raise the conflict in output rather than silently override.
 
 ---
 
-## Decision tree — before you generate
+## Before you review
+
+1. **Artifacts** — Deck file, export PDF, screenshots, or Figma link; confirm which slides are in scope.
+2. **Review depth** — Per [kuat-review](../../../../skills/kuat-review/SKILL.md): `brand_compliance` (visual/brand only) vs `product_ux`/`full` (also narrative, density, voice fit).
+3. **Scenario** — Sales & marketing, knowledge sharing, case study, or reporting ([scenarios/](./scenarios/)).
+4. **Audience** — External (masterbrand-strict) vs internal (masterbrand-lite).
+5. **Delivery mode** — Live-presented (sparse) vs read-ahead (denser); needed to judge density fairly.
+6. **Output format** — Per review workflow (full report, checklist only, etc.).
+
+**Rubric:** [checklist.md](./checklist.md). Run every item you can verify from supplied artifacts.
+
+---
+
+## Before you create
 
 1. **Which scenario?** Sales & marketing, knowledge sharing, case study, or reporting. Each has different content density, formality, and slide budget — see [scenarios/](./scenarios/).
 2. **Which audience?** External (client, prospect, conference) → masterbrand-strict. Internal (network, community of practice) → masterbrand-lite, more latitude on tone but same visual rules.
@@ -31,7 +46,7 @@ Guidelines for Equal Experts presentation decks and slides. Use these rules when
 | [content.md](./content.md) | Density, hierarchy, voice |
 | [imagery-and-diagrams.md](./imagery-and-diagrams.md) | Photography placement, diagrams, icons |
 | [data.md](./data.md) | Charts, tables, impact metrics |
-| [checklist.md](./checklist.md) | Pre-delivery checklist |
+| [checklist.md](./checklist.md) | Pre-delivery and review checklist |
 
 **Optional — when deck type is known:**
 
@@ -59,4 +74,5 @@ Guidelines for Equal Experts presentation decks and slides. Use these rules when
 ## Related documentation
 
 - [Foundations](../../foundations/) — Brand, design, content, accessibility
+- [skills/](../../../../skills/) — Review and create skills
 - [LOADING.md](../../LOADING.md) — Optional paths: `types/slides/scenarios/`, `types/photography/`, `types/charts-data/`

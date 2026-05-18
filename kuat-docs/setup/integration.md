@@ -14,19 +14,22 @@ Most developers already have `.cursorrules`, `CLAUDE.md`, or similar agent confi
 This project follows Equal Experts brand guidelines.
 
 **What it provides:**
-Brand identity, design language, and platform-specific rules for creating consistent, branded content.
+Brand identity, design language, and platform-specific rules for creating and reviewing consistent, branded content.
 
 **When to use it:**
 You MUST reference these guidelines when:
-- Creating any Equal Experts branded content
+- Creating or reviewing Equal Experts branded content
 - Making design decisions (colors, typography, spacing)
 - Writing content (marketing or product)
-- Building web applications
+- Building or auditing web applications
 
 **How to use it:**
-1. Check general rules first for brand and design language
-2. Load platform-specific rules for your output type
-3. Follow existing patterns; do not invent new ones
+1. Determine intent: review or create
+2. Install skills from `skills/` (see skills/install/cursor.md)
+3. Run `skills/scripts/ensure-rules.sh`; load foundations from RULES_DIR
+4. Use skill kuat-review or kuat-create
+5. On review: run intake before findings; ask for user story/research on web features at product_ux depth
+6. Follow existing patterns; do not invent new ones
 
 **Documentation index:**
 - `rules/foundations/brand.md` - Brand principles
@@ -44,6 +47,12 @@ EE Blue (#0066CC), Lexend font, 4px spacing unit, 6px radius for buttons, WCAG A
 ```
 
 ---
+
+## Skills and rules
+
+**Skills (review/create):** [skills/INSTALL.md](../skills/INSTALL.md) — full setup and testing guide. Per-tool detail: [skills/install/](../skills/install/). Bundled uploads: [skills/dist/](../skills/dist/) after `npm run bundle:skills`.
+
+**Keep rules fresh:** `KUAT_RULES_UPDATE=1 ./skills/scripts/ensure-rules.sh`
 
 ## Rules and loading
 
@@ -108,7 +117,9 @@ When creating Equal Experts content, reference the rules in `kuat-docs/rules/`.
 
 Test your setup with these prompts:
 
-- "Create a slide deck" → Agent should reference general rules + slides rules
+- "Create a slide deck" → Agent uses kuat-create skill + foundations + slides rules; asks scenario/audience/delivery
+- "Review this slide deck" → Agent uses kuat-review skill; asks artifacts, depth, output format before findings
+- "Review this checkout feature" → Agent asks depth, artifacts, user story, research, output format (grouped)
 - "What color for the primary button?" → Agent should check foundations/design/colours.md
 - "Build a web application header" → Agent should check types/web/product/design.md
 - "Write marketing copy" → Agent should check foundations/content/ + types/web/marketing/content/

@@ -1,0 +1,9 @@
+{
+  "name": "kuat-agent-docs",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Equal Experts brand rules and agent skills",
+  "scripts": {
+    "bundle:skills": "node skills/scripts/bundle-skills.mjs"
+  }
+}

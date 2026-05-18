@@ -12,6 +12,25 @@ Design guidelines for Equal Experts web applications and product interfaces.
 
 **Prerequisites:** Load [foundations](../../../foundations/) first.
 
+**Intent:** Use skill [kuat-review](../../../../skills/kuat-review/SKILL.md) or [kuat-create](../../../../skills/kuat-create/SKILL.md) first.
+
+---
+
+## Before you review
+
+1. Run [kuat-review](../../../../skills/kuat-review/SKILL.md) intake (depth, artifacts, output format).
+2. Gather product context per [review-context.md](./review-context.md) when depth is `product_ux` or `full`.
+3. Apply [review-checklist.md](./review-checklist.md).
+4. **Do not load** [examples/](./examples/) for review-only tasks.
+
+---
+
+## Before you create
+
+1. Run [kuat-create](../../../../skills/kuat-create/SKILL.md).
+2. Load this file, relevant [scenarios/](./scenarios/), and [content/](./content/) as needed.
+3. Load [examples/](./examples/) when implementing UI in React, Vue, or CSS.
+
 ---
 
 ## Overview
