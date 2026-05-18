@@ -35,7 +35,19 @@ These rules provide platform-specific guidance. **Always load [foundations](../f
 ```
 types/
 ├── slides/
-│   └── README.md           # Slide deck guidelines
+│   ├── README.md                  # Index, decision tree, load order
+│   ├── brand-compliance.md
+│   ├── styling.md
+│   ├── layouts.md
+│   ├── content.md
+│   ├── imagery-and-diagrams.md
+│   ├── data.md
+│   ├── checklist.md
+│   └── scenarios/
+│       ├── sales-marketing.md
+│       ├── knowledge-sharing.md
+│       ├── case-studies.md
+│       └── reporting.md
 │
 ├── photography/
 │   └── README.md           # Photography guidelines

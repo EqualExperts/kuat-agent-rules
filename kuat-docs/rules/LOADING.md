@@ -77,7 +77,7 @@ For task types that have a role card, load it after foundations (or inject as th
 
 | Task type | Required foundations | Required type-specific | Notes |
 |-----------|----------------------|------------------------|--------|
-| **slides** | All foundations (or: brand, logo, design, content) | `types/slides/` | Placeholder/skeleton; prefer foundations if slides content is minimal. |
+| **slides** | All foundations (or: brand, logo, design, content) | `types/slides/` | Full rule set: brand-compliance, styling, layouts, content, imagery-and-diagrams, data, checklist; scenarios when deck type is known. |
 | **photography** | brand (or all foundations) | `types/photography/` | Full rule set: principles, diversity-inclusion, style-and-sources, quality-validation. |
 | **icons** | brand, design/colours (or all foundations) | `types/graphics/icons.md` | Single file. |
 | **illustrations** | brand, design/colours, design/typography (or all foundations) | `types/graphics/illustrations.md` | Single file. |
@@ -92,6 +92,9 @@ For task types that have a role card, load it after foundations (or inject as th
 
 | Path | When to include |
 |------|------------------|
+| `types/slides/scenarios/` | Deck type known (sales, knowledge sharing, case study, reporting). |
+| `types/photography/` | Selecting or reviewing slide photography beyond placement rules. |
+| `types/charts-data/` | Building or restyling complex charts for slides. |
 | `types/web/marketing/scenarios/` | Task involves specific marketing page types (see scenarios README). |
 | `types/web/marketing/content/` | Task involves marketing copy, blog, or SEO. |
 | `types/web/product/scenarios/` | Task involves documentation pages, forms, dashboards, or authentication flows. |
