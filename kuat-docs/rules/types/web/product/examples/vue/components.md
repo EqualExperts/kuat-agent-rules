@@ -1,12 +1,19 @@
+---
+status: deprecated
+superseded-by: shadcn:button, kuat:button-group
+---
+
 # Vue Component Examples
+
+> **Deprecated:** Use component IDs and package/overlay guides ([component-registry.md](../../component-registry.md), [DEPRECATIONS.md](../../DEPRECATIONS.md)).
 
 Code examples for building components with the Kuat Design System in Vue.
 
-**Rules:** See [component-decision-tree.md](../component-decision-tree.md)
+**Rules:** See [component-decision-tree.md](../../component-decision-tree.md)
 
 ---
 
-## Button Component Structure
+## Button Component Structure (deprecated — see `shadcn:button` guide)
 
 ```vue
 <script setup lang="ts">

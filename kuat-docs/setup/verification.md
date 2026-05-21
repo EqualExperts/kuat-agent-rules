@@ -395,6 +395,38 @@ pnpm dev
 
 ---
 
+#### Package rules resolution (when `agent-docs/` ships in kuat-react)
+
+**Setup:** Project with `@equal-experts/kuat-react` installed, no `.kuat-rules-path`.
+
+**Command:** `./skills/scripts/ensure-rules.sh`
+
+**Expected output includes:**
+- `RULES_SOURCE=package`
+- `RULES_DIR=.../node_modules/@equal-experts/kuat-react/agent-docs/rules`
+- `PACKAGE_VERSION=` (semver)
+
+**Verification:**
+- [ ] Resolves package without git clone
+- [ ] Does not require `KUAT_RULES_PATH` for basic web product work
+
+---
+
+#### Component ID resolution
+
+**Prompt:** "Review form submit and cancel buttons per Kuat rules."
+
+**Expected:**
+- Cites `shadcn:button` and loads component guide from package or overlay when available
+- References [forms scenario](../rules/types/web/product/scenarios/forms.md) for placement
+- Does not rely solely on deprecated [examples/components.md](../rules/types/web/product/examples/react/components.md)
+
+**Verification:**
+- [ ] Uses component-registry / manifest pattern
+- [ ] Separates scenario layout rules from component variant rules
+
+---
+
 #### Decision Priority Test
 
 **Prompt:** "I need a search form with a text input and submit button. What should I use?"

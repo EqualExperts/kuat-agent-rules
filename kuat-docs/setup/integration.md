@@ -50,20 +50,17 @@ EE Blue (#0066CC), Lexend font, 4px spacing unit, 6px radius for buttons, WCAG A
 
 ## Skills and rules
 
-**Skills (review/create):** [skills/INSTALL.md](../skills/INSTALL.md) — full setup and testing guide. Per-tool detail: [skills/install/](../skills/install/). Bundled uploads: [skills/dist/](../skills/dist/) after `npm run bundle:skills`.
+**Skills (review/create):** [skills/INSTALL.md](../skills/INSTALL.md) — full setup and testing guide. Per-tool detail: [skills/install/](../skills/install/) (including [Figma Make](../skills/install/figma-make.md)). Bundled uploads: [skills/dist/](../skills/dist/) after `npm run bundle:skills`.
 
 **Keep rules fresh:** `KUAT_RULES_UPDATE=1 ./skills/scripts/ensure-rules.sh`
 
 ## Rules and loading
 
-**Canonical loading index:** [kuat-docs/rules/LOADING.md](../kuat-docs/rules/LOADING.md)
+**Architecture (three entry points):** [consumption-architecture.md](./consumption-architecture.md)
 
-Use the loading index for:
-- Task → required general and type-specific paths
-- Optional paths (scenarios, examples) and when to include them
-- Context size reference (minimal, standard, full)
+**Canonical loading index:** [kuat-docs/rules/LOADING.md](../kuat-docs/rules/LOADING.md) (org/git). npm consumers use bundled `LOADING-consumer.md` in `@equal-experts/kuat-react`.
 
-Directory layout: `rules/foundations/` (universal) and `rules/types/` (platform-specific). See [rules/README.md](../kuat-docs/rules/README.md) for structure.
+Use the loading index for task → files, optional paths, and context sizes. Structure: [rules/README.md](../kuat-docs/rules/README.md).
 
 ---
 

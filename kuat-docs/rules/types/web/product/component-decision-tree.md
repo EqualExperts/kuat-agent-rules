@@ -70,6 +70,24 @@ Build from scratch only when:
 
 ---
 
+## Per-component guides
+
+Usage, variants, API, and accessibility for each primitive are **not** duplicated in this upstream file. Resolve by stable ID:
+
+| ID | Guide location |
+|----|----------------|
+| `shadcn:button` | Package or overlay `components/button.md` |
+| `kuat:button-group` | `components/button-group.md` |
+| `kuat:kuat-header` | `components/kuat-header.md` |
+
+1. Look up IDs in [component-registry.md](./component-registry.md).
+2. Resolve path via `COMPONENT_MANIFEST` (`ensure-rules.sh` output) or `{RULES_ROOT}/agent-docs/components.manifest.json`.
+3. Load only the component docs referenced by the current task or artifact.
+
+Architecture: [consumption-architecture.md](../../../../setup/consumption-architecture.md).
+
+---
+
 ## Component Naming Conventions
 
 ### Components

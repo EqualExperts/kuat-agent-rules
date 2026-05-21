@@ -7,7 +7,7 @@ export KUAT_RULES_PATH=/absolute/path/to/kuat-agent-docs
 /path/to/kuat-agent-docs/skills/scripts/ensure-rules.sh
 ```
 
-Or add `.kuat-rules-path` in your project root.
+Or add `.kuat-rules-path` in your project root. App/npm entry: [consumption-architecture.md](../../kuat-docs/setup/consumption-architecture.md).
 
 ## 2. Install skills
 

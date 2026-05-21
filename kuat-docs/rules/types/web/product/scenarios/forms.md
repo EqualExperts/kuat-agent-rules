@@ -235,6 +235,8 @@ Best for: Related fields (names, addresses)
 
 ### Button Placement
 
+**Component guide:** `shadcn:button` — load `components/button.md` from package `agent-docs/` or `KUAT_RULES_OVERLAY_PATH` when implementing or reviewing button behaviour (see [component-registry.md](../component-registry.md)).
+
 **Single Form:**
 
 | Position | Button | Variant |

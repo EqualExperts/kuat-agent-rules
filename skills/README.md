@@ -72,6 +72,7 @@ Agents without shell access must read `LOADING.md` from a known path and cite `R
 | Cursor | [install/cursor.md](./install/cursor.md) |
 | Claude Code | [install/claude-code.md](./install/claude-code.md) |
 | Claude Projects | [install/claude-projects.md](./install/claude-projects.md) |
+| Figma Make | [install/figma-make.md](./install/figma-make.md) |
 | Codex | [install/codex.md](./install/codex.md) |
 
 ---

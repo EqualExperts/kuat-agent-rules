@@ -9,6 +9,7 @@ This repository provides comprehensive rules for **creating and reviewing** Equa
 **Architecture:**
 - **Foundations** - Universal brand, design, and content rules for ALL platforms
 - **Type-Specific Rules** - Platform-specific guidelines (web, slides, graphics, etc.)
+- **Consumption** - [setup/consumption-architecture.md](./setup/consumption-architecture.md) (three entry points: org / library / npm)
 
 ---
 

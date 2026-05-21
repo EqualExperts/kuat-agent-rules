@@ -1,5 +1,20 @@
 # Skills scripts
 
+## bundle-skills.mjs
+
+Produces self-contained `skills/dist/` artifacts for upload-only UIs (Claude Projects, etc.).
+
+```bash
+npm run bundle:skills
+# or: node skills/scripts/bundle-skills.mjs
+```
+
+- Inlines `{{include:...}}` from source `SKILL.md` files
+- Writes `dist/manifest.json` with `rules.builtAtRef`
+- Copies `ensure-rules.sh` to `dist/scripts/`
+
+Edit **source** under `skills/kuat-review/` and `skills/kuat-create/`; regenerate `dist/` before upload.
+
 ## ensure-rules.sh
 
 Resolves the Equal Experts rules repository and prints paths for agents and humans.

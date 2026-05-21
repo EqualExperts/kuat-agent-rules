@@ -1,37 +1,51 @@
 #!/usr/bin/env bash
-# Resolve Equal Experts rules repo root and verify freshness.
+# Resolve Equal Experts rules root and verify freshness.
 # Usage: ./skills/scripts/ensure-rules.sh
-# Output (stdout): RULES_ROOT=... RULES_DIR=... RULES_REF=...
+# Output (stdout): RULES_ROOT, RULES_DIR, RULES_REF, RULES_SOURCE, optional OVERLAY_*, PACKAGE_VERSION
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILLS_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 DEFAULT_RULES_ROOT="$(cd "${SKILLS_DIR}/.." && pwd)"
 
-loading_path() {
+RULES_SOURCE="git"
+PACKAGE_VERSION=""
+
+git_loading_path() {
   local root="$1"
   [[ -f "${root}/kuat-docs/rules/LOADING.md" ]]
 }
 
-canonical_root() {
+package_agent_docs_path() {
+  local pkg_root="$1"
+  [[ -f "${pkg_root}/agent-docs/rules/LOADING-consumer.md" ]] || \
+    [[ -f "${pkg_root}/agent-docs/manifest.json" ]]
+}
+
+canonical_path() {
   cd "$1" && pwd
 }
 
-resolve_rules_root() {
+resolve_git_rules_root() {
   local candidate="" line="" git_root=""
 
-  if loading_path "${DEFAULT_RULES_ROOT}"; then
-    canonical_root "${DEFAULT_RULES_ROOT}"
+  if git_loading_path "${DEFAULT_RULES_ROOT}"; then
+    canonical_path "${DEFAULT_RULES_ROOT}"
     return 0
   fi
 
   if [[ -n "${KUAT_RULES_PATH:-}" ]]; then
     candidate="${KUAT_RULES_PATH}"
-    if loading_path "${candidate}"; then
-      canonical_root "${candidate}"
+    if git_loading_path "${candidate}"; then
+      canonical_path "${candidate}"
       return 0
     fi
-    echo "ensure-rules: KUAT_RULES_PATH is set but kuat-docs/rules/LOADING.md not found: ${candidate}" >&2
+    if package_agent_docs_path "${candidate}"; then
+      canonical_path "${candidate}"
+      RULES_SOURCE="package"
+      return 0
+    fi
+    echo "ensure-rules: KUAT_RULES_PATH set but no LOADING.md or package agent-docs found: ${candidate}" >&2
     return 1
   fi
 
@@ -45,8 +59,13 @@ resolve_rules_root() {
         else
           candidate="${line}"
         fi
-        if loading_path "${candidate}"; then
-          canonical_root "${candidate}"
+        if git_loading_path "${candidate}"; then
+          canonical_path "${candidate}"
+          return 0
+        fi
+        if package_agent_docs_path "${candidate}"; then
+          canonical_path "${candidate}"
+          RULES_SOURCE="package"
           return 0
         fi
       fi
@@ -58,21 +77,70 @@ resolve_rules_root() {
     for base in "${PWD}" "${git_root}"; do
       [[ -n "${base}" && -d "${base}" ]] || continue
       candidate="${base}/${rel}"
-      if loading_path "${candidate}"; then
-        canonical_root "${candidate}"
+      if git_loading_path "${candidate}"; then
+        canonical_path "${candidate}"
         return 0
       fi
     done
   done
 
-  echo "ensure-rules: could not resolve rules repo. Set KUAT_RULES_PATH or add .kuat-rules-path. See skills/README.md" >&2
+  if git_loading_path "${SKILLS_DIR}/.."; then
+    canonical_path "$(cd "${SKILLS_DIR}/.." && pwd)"
+    return 0
+  fi
+
   return 1
 }
 
-RULES_ROOT="$(resolve_rules_root)"
-RULES_DIR="${RULES_ROOT}/kuat-docs/rules"
+resolve_package_rules_root() {
+  local dir="${PWD}" pkg="" nm=""
+  while [[ "${dir}" != "/" ]]; do
+    nm="${dir}/node_modules"
+    if [[ -d "${nm}" ]]; then
+      for pkg in "@equal-experts/kuat-react" "@equal-experts/kuat-vue" "@equal-experts/kuat-core"; do
+        if package_agent_docs_path "${nm}/${pkg}"; then
+          canonical_path "${nm}/${pkg}"
+          RULES_SOURCE="package"
+          return 0
+        fi
+      done
+    fi
+    dir="$(dirname "${dir}")"
+  done
+  return 1
+}
 
-if [[ -d "${RULES_ROOT}/.git" ]]; then
+RULES_ROOT=""
+if RULES_ROOT="$(resolve_git_rules_root 2>/dev/null)"; then
+  :
+elif RULES_ROOT="$(resolve_package_rules_root 2>/dev/null)"; then
+  :
+else
+  echo "ensure-rules: could not resolve rules. Set KUAT_RULES_PATH, add .kuat-rules-path, or install @equal-experts/kuat-react. See skills/README.md" >&2
+  exit 1
+fi
+
+if [[ "${RULES_SOURCE}" == "package" ]]; then
+  RULES_DIR="${RULES_ROOT}/agent-docs/rules"
+else
+  RULES_DIR="${RULES_ROOT}/kuat-docs/rules"
+fi
+
+if [[ "${RULES_SOURCE}" == "package" ]]; then
+  manifest="${RULES_ROOT}/agent-docs/manifest.json"
+  if [[ -f "${manifest}" ]] && command -v node >/dev/null 2>&1; then
+    RULES_REF="$(node -e "
+      const m = require(process.argv[1]);
+      console.log(m.rules?.snapshotRef || m.rules?.builtAtRef || 'unknown');
+    " "${manifest}" 2>/dev/null || echo "unknown")"
+    PACKAGE_VERSION="$(node -e "
+      const m = require(process.argv[1]);
+      console.log(m.packageVersion || m.version || '');
+    " "${manifest}" 2>/dev/null || true)"
+  else
+    RULES_REF="package-bundle"
+  fi
+elif [[ -d "${RULES_ROOT}/.git" ]]; then
   git -C "${RULES_ROOT}" fetch --quiet 2>/dev/null || true
 
   if [[ -n "${KUAT_RULES_REF:-}" ]]; then
@@ -112,3 +180,22 @@ fi
 echo "RULES_ROOT=${RULES_ROOT}"
 echo "RULES_DIR=${RULES_DIR}"
 echo "RULES_REF=${RULES_REF}"
+echo "RULES_SOURCE=${RULES_SOURCE}"
+
+if [[ -n "${PACKAGE_VERSION}" ]]; then
+  echo "PACKAGE_VERSION=${PACKAGE_VERSION}"
+fi
+
+if [[ -n "${KUAT_RULES_OVERLAY_PATH:-}" ]]; then
+  overlay="${KUAT_RULES_OVERLAY_PATH}"
+  if [[ -d "${overlay}" ]]; then
+    echo "OVERLAY_DIR=${overlay}"
+    if [[ -f "${overlay}/components.manifest.json" ]]; then
+      echo "COMPONENT_MANIFEST=${overlay}/components.manifest.json"
+    elif [[ -f "${overlay}/agent-docs/components.manifest.json" ]]; then
+      echo "COMPONENT_MANIFEST=${overlay}/agent-docs/components.manifest.json"
+    fi
+  else
+    echo "ensure-rules: warning: KUAT_RULES_OVERLAY_PATH is not a directory: ${overlay}" >&2
+  fi
+fi

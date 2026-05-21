@@ -17,18 +17,19 @@ When shell is available, run the ensure-rules script from the skills pack:
 /path/to/skills/scripts/ensure-rules.sh
 ```
 
-Use printed `RULES_ROOT`, `RULES_DIR`, and `RULES_REF`.
+Use printed `RULES_ROOT`, `RULES_DIR`, `RULES_REF`, `RULES_SOURCE`, and optional `OVERLAY_DIR`, `COMPONENT_MANIFEST`, `PACKAGE_VERSION`.
 
 {{include:skills/shared/consumption-contract.md}}
 
 ## Step 1 — Load rules index
 
-Read `{RULES_DIR}/LOADING.md`. Confirm **task type** and load:
+Read `{RULES_DIR}/LOADING.md` when `RULES_SOURCE=git`, or `{RULES_DIR}/LOADING-consumer.md` when `RULES_SOURCE=package`. Confirm **task type** and load:
 
 1. Foundations (per LOADING row)
 2. Create role card if any (e.g. `{RULES_DIR}/roles/technical-illustrator.md` for infographics)
 3. Type-specific rules and optional scenarios
-4. `{RULES_DIR}/types/web/product/examples/` **only** when implementing code in React, Vue, or CSS
+4. Component guides from package/overlay when building UI primitives (prefer over deprecated [examples](../../kuat-docs/rules/types/web/product/examples/))
+5. `{RULES_DIR}/types/web/product/examples/` **only** for token/layout syntax when overlay docs are unavailable
 
 ## Step 2 — Pre-flight
 

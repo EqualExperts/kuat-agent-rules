@@ -17,9 +17,10 @@ Code examples for implementing the Kuat Design System in web applications.
 ## When to Use
 
 **Load these examples when:**
-- You need code to implement design rules
-- You're generating components in a specific framework
+- You need code to implement design rules (tokens, layout, spacing)
 - You need syntax reference for a framework
+
+**Canonical component API and usage:** package `agent-docs/components/` or overlay — see [component-registry.md](../component-registry.md). [components.md](./react/components.md) files are [deprecated](../DEPRECATIONS.md).
 
 **Don't load when:**
 - You only need design decisions (use foundations and product design rules instead)

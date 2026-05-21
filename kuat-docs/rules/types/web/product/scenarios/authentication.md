@@ -221,6 +221,8 @@ Follow the standard validation pattern:
 
 ### Button Placement
 
+**Component guide:** `shadcn:button` — see [component-registry.md](../component-registry.md); load `components/button.md` from package or overlay.
+
 | Button | Position | Variant |
 |--------|----------|---------|
 | Primary (Submit) | Full width | `variant="default"` |

@@ -33,6 +33,7 @@ See [accessibility.md](./accessibility.md) for full requirements.
 
 - [ ] Product layout uses dark navigation pattern where applicable ([design.md](./design.md))
 - [ ] Components sourced per [component-decision-tree.md](./component-decision-tree.md)
+- [ ] Primitives match component guides for cited IDs (`shadcn:button`, `kuat:*`) from package `agent-docs/` or overlay
 - [ ] No inline styles for themeable properties — use design tokens
 
 ---
