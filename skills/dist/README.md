@@ -15,4 +15,4 @@ node skills/scripts/bundle-skills.mjs
 
 Rules standards remain in `kuat-docs/rules/` — not embedded in bundles.
 
-Built against rules ref: `f991487dc397501af683f5a3e28997c51bc96148`
+Built against rules ref: `3d4e1c1e537059df150e7451c068c23f3b9016ec`

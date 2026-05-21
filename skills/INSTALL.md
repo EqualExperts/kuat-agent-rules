@@ -41,7 +41,7 @@ You → AI tool (skill) → loads rules → produces review report or new conten
 
 **Rule of thumb**
 
-- **Filesystem access** to the repo → install **source** skills (`skills/kuat-review/`).
+- **Filesystem access** to the repo → install the **bundled** skill folders (`skills/dist/kuat-review/`, `skills/dist/kuat-create/`). They are self-contained — `{{include:…}}` template tags in source `SKILL.md` files are **not** expanded by AI tools at runtime, so the `dist/` versions load reliably. Source folders are intended for **maintainers** regenerating bundles.
 - **Upload-only** (no folders) → install **bundled** skills (`skills/dist/kuat-review/SKILL.md`).
 
 ---
@@ -105,12 +105,14 @@ KUAT_RULES_UPDATE=1 ./skills/scripts/ensure-rules.sh
 
 ### Cursor
 
-1. Symlink both skills (personal = all projects):
+1. Symlink both skills from `dist/` (personal = all projects):
 
    ```bash
-   ln -sf "$(pwd)/skills/kuat-review" ~/.cursor/skills/kuat-review
-   ln -sf "$(pwd)/skills/kuat-create" ~/.cursor/skills/kuat-create
+   ln -sf "$(pwd)/skills/dist/kuat-review" ~/.cursor/skills/kuat-review
+   ln -sf "$(pwd)/skills/dist/kuat-create" ~/.cursor/skills/kuat-create
    ```
+
+   `dist/` is preferred because Cursor does not expand the `{{include:…}}` template tags that live in the source `SKILL.md` files. Run `npm run bundle:skills` from the repo root whenever you edit source skills (or symlink to source while authoring and re-link back to `dist/` before use).
 
    For **project-only** install, use `.cursor/skills/` inside your project instead of `~/.cursor/skills/`.
 

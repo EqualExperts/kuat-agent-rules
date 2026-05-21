@@ -57,6 +57,7 @@ Ask the user to choose (do not assume `brand_compliance` for "review this featur
 | 4 | Scenario (if known) |
 | 5 | Audience / constraints |
 | 6 | Output format — see **Reference: Report formats** below |
+| 7 | Trello card (optional) — URL or ID for extra context; see **Optional integrations** |
 
 ### Type-specific context
 
@@ -79,13 +80,29 @@ Apply type checklists when present:
 
 Cite `{RULES_DIR}/...` path and section for every violation. Flag rule vs user-request conflicts in output.
 
+Do **not** produce a 1-shot review. Interrogate the artifacts from at least two product-team role perspectives (e.g. designer, engineer, content designer, accessibility specialist, product manager) and reconcile findings before writing the report. Use the role lens that best matches the task type.
+
 ## Step 4 — Deliver
 
 Use the agreed output format. For `full_report`, follow **Reference: Report formats** below. Include `RULES_REF` in References.
 
+If the chosen format calls for a file (rather than inline conversation), write it to `kuat review/<scope>-<YYYY-MM-DD>.md` (or `.html`) under the workspace root. Create the directory if it does not exist. Inline formats (e.g. `executive_summary`, `inline_annotations`) stay in the thread unless the user asks for a file.
+
 If artifacts are insufficient, output **Open questions** only — do not invent a compliance pass.
 
 {{include:skills/kuat-review/references/report-formats.md}}
+
+## Optional integrations
+
+### Trello card
+
+When the user supplied a Trello card in intake (item 7) or links the review to a card later:
+
+1. **Read context** — use the Trello MCP. Read the tool schema first, then call `get_card` with `includeDetails: true` for the linked card. Treat the card as additional input, not a substitute for the user's stated scope.
+2. **Post progress and findings** — after delivering the report, call `trello_add_comment` (schema first) with a short summary: overall status, top critical/major counts, report path under `kuat review/` (if a file was written), and any open questions.
+3. **Auth** — prefer `TRELLO_API_KEY` and `TRELLO_TOKEN` from the environment when the tool supports it. Never paste secrets into the card or report.
+
+If no card is supplied, skip this section entirely — do not invent a card or comment.
 
 ## Do not
 

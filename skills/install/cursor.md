@@ -19,14 +19,25 @@ See [consumption-architecture.md](../../kuat-docs/setup/consumption-architecture
 
 ## 2. Install skills
 
-**Recommended (editable, shared files work):** symlink **source** folders:
+**Recommended:** symlink the **bundled** skill folders from `skills/dist/`. They are self-contained — `{{include:…}}` partials are expanded into each SKILL.md, so Cursor loads the full skill content without needing to follow relative includes:
+
+```bash
+ln -sf /path/to/kuat-agent-docs/skills/dist/kuat-review ~/.cursor/skills/kuat-review
+ln -sf /path/to/kuat-agent-docs/skills/dist/kuat-create ~/.cursor/skills/kuat-create
+```
+
+Regenerate `dist/` after editing source skills:
+
+```bash
+npm run bundle:skills
+```
+
+**Maintainers / hot-reload edits:** symlink the **source** folders instead. Source `SKILL.md` files contain unresolved `{{include:…}}` template tags that Cursor does not expand at runtime, so prefer this only while authoring — re-run `npm run bundle:skills` and switch back to the `dist/` symlink before relying on the skill in real reviews.
 
 ```bash
 ln -sf /path/to/kuat-agent-docs/skills/kuat-review ~/.cursor/skills/kuat-review
 ln -sf /path/to/kuat-agent-docs/skills/kuat-create ~/.cursor/skills/kuat-create
 ```
-
-**Alternative:** symlink bundled single-file skills from `skills/dist/` (fully self-contained).
 
 After extracting skills to a separate repo, symlink from that repo instead.
 
