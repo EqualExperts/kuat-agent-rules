@@ -51,3 +51,4 @@ Expected: grouped intake before findings; citations to uploaded rule files.
 
 - [../README.md](../README.md)
 - [../dist/README.md](../dist/README.md)
+- [figma-make.md](./figma-make.md) — same upload-only pattern for Figma Make custom skills

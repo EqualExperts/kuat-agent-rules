@@ -236,8 +236,8 @@ node skills/scripts/bundle-skills.mjs
 
 | Artifact | Use |
 |----------|-----|
-| [kuat-review/SKILL.md](./kuat-review/SKILL.md) | Upload to Claude Projects / single-file tools |
-| [kuat-create/SKILL.md](./kuat-create/SKILL.md) | Upload to Claude Projects / single-file tools |
+| [kuat-review/SKILL.md](./kuat-review/SKILL.md) | Upload to Claude Projects, Figma Make, other single-file tools |
+| [kuat-create/SKILL.md](./kuat-create/SKILL.md) | Upload to Claude Projects, Figma Make, other single-file tools |
 | [manifest.json](./manifest.json) | Version and rules ref for installers |
 | [scripts/ensure-rules.sh](./scripts/ensure-rules.sh) | Keep rules fresh (filesystem tools) |
 

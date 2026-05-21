@@ -7,6 +7,8 @@ export KUAT_RULES_PATH=/absolute/path/to/kuat-agent-docs
 kuat-agent-docs/skills/scripts/ensure-rules.sh
 ```
 
+Expect `RULES_SOURCE=git` or `package` when using npm — see [consumption-architecture.md](../../kuat-docs/setup/consumption-architecture.md).
+
 ## 2. Install skills
 
 Symlink **source** skill folders (or `dist/` for single-file bundles):

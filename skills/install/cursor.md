@@ -9,7 +9,13 @@ export KUAT_RULES_PATH=/absolute/path/to/kuat-agent-docs
 ./skills/scripts/ensure-rules.sh
 ```
 
-For a consumer repo, add `.kuat-rules-path` in the project root with one line pointing at the rules clone.
+| Context | Rules |
+|---------|--------|
+| Org / full taxonomy | `.kuat-rules-path` → `kuat-agent-docs` clone |
+| `kuat-mono` contributor | `.kuat-rules-path` + `KUAT_RULES_OVERLAY_PATH` → mono `kuat-docs/` |
+| App (npm) | `node_modules/@equal-experts/kuat-react/agent-docs/AGENTS.md` (no clone once package ships `agent-docs/`) |
+
+See [consumption-architecture.md](../../kuat-docs/setup/consumption-architecture.md).
 
 ## 2. Install skills
 
@@ -33,8 +39,8 @@ Add to `.cursorrules` or `CLAUDE.md` in consumer projects:
 
 - Review: use skill `kuat-review`
 - Create: use skill `kuat-create`
-- Rules: KUAT_RULES_PATH or .kuat-rules-path → kuat-agent-docs
-- Run KUAT_RULES_UPDATE=1 .../skills/scripts/ensure-rules.sh before brand work
+- Rules: ensure-rules.sh → RULES_SOURCE=git or package
+- App: point at kuat-react agent-docs/AGENTS.md when using npm only
 ```
 
 ## 4. Verify

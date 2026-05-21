@@ -1,12 +1,19 @@
+---
+status: deprecated
+superseded-by: shadcn:button, kuat:button-group
+---
+
 # React Component Examples
+
+> **Deprecated:** Full component implementations here drift from the library. Use component IDs and package/overlay guides ([component-registry.md](../../component-registry.md), [DEPRECATIONS.md](../../DEPRECATIONS.md)). Below is retained only as a minimal composition reference.
 
 Code examples for building components with the Kuat Design System in React.
 
-**Rules:** See [component-decision-tree.md](../component-decision-tree.md)
+**Rules:** See [component-decision-tree.md](../../component-decision-tree.md)
 
 ---
 
-## Button Component Structure
+## Button Component Structure (deprecated — see `shadcn:button` guide)
 
 ```tsx
 import * as React from "react"

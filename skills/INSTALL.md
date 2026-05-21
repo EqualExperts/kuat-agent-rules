@@ -36,6 +36,7 @@ You → AI tool (skill) → loads rules → produces review report or new conten
 | **Claude Code** | `CLAUDE.md` + repo path, or symlink | [Claude Code](#claude-code) |
 | **Claude Projects** | Upload **bundled** `dist/*.SKILL.md` + rules files | [Claude Projects](#claude-projects) |
 | **Codex** | Symlink source or `dist/` | [Codex](#codex) |
+| **Figma Make** | Upload bundled `dist/*.SKILL.md` as custom skills; rules via Guidelines / connectors | [Figma Make](#figma-make) |
 | **Other / API** | Upload `skills/dist/kuat-review/SKILL.md` or `kuat-create/SKILL.md` | [Upload-only tools](#upload-only-tools) |
 
 **Rule of thumb**
@@ -56,6 +57,18 @@ You → AI tool (skill) → loads rules → produces review report or new conten
    ```
 
 3. **Node.js** (optional) — only needed if you will regenerate bundles (`npm run bundle:skills`). Not required for normal use.
+
+---
+
+## Entry by context
+
+| Context | Rules entry | Skills |
+|---------|-------------|--------|
+| **Org / all platforms** | Clone `kuat-agent-docs` → `kuat-docs/rules/LOADING.md` | Symlink `skills/` from clone |
+| **Library (`kuat-mono`)** | `.kuat-rules-path` → agent-docs clone; `KUAT_RULES_OVERLAY_PATH` → mono `kuat-docs/` | Symlink skills from agent-docs clone |
+| **App (npm only)** | `node_modules/@equal-experts/kuat-react/agent-docs/AGENTS.md` after install | Symlink skills; `ensure-rules.sh` → `RULES_SOURCE=package` |
+
+Architecture: [kuat-docs/setup/consumption-architecture.md](../kuat-docs/setup/consumption-architecture.md).
 
 ---
 
@@ -174,12 +187,36 @@ The legacy `agent-rules-design-review` Codex skill delegates to `kuat-review`.
 
 More detail: [install/codex.md](./install/codex.md)
 
+### Figma Make
+
+Figma Make only accepts **one Markdown file per custom skill** (no `shared/` or `scripts/` folders). Use **bundled** skills.
+
+1. Regenerate bundles:
+
+   ```bash
+   npm run bundle:skills
+   ```
+
+2. In Figma Make: prompt box → **Skills** → **Create skill** → **Import from computer**:
+   - `skills/dist/kuat-create/SKILL.md` (primary — building UI in Make)
+   - `skills/dist/kuat-review/SKILL.md` (optional — auditing output)
+
+3. Add brand **standards** via Make **Guidelines.md** and/or [connectors](https://help.figma.com/hc/en-us/articles/35440096186007) — rules are not loaded from a local repo path.
+
+4. Invoke with slash commands, e.g. `/kuat-create` or `/kuat-review`.
+
+**Limits:** Custom skills work on the default model and Claude Opus 4.7 only; only the first skill mentioned in a prompt is used; share skills by export/import per teammate.
+
+More detail: [install/figma-make.md](./install/figma-make.md)
+
 ### Upload-only tools
+
+Applies to **Claude Projects**, **Figma Make**, and any tool that accepts a single skill file (no `shared/` folder).
 
 1. Run `npm run bundle:skills` in the repo.
 2. Upload **`skills/dist/kuat-review/SKILL.md`** and/or **`skills/dist/kuat-create/SKILL.md`** — each file is self-contained (shared content is inlined).
-3. Provide rules separately (upload `kuat-docs/rules/` subset or connect a knowledge source).
-4. Tell the tool: *“Follow the kuat-review skill; rules are in LOADING.md.”*
+3. Provide rules separately (upload `kuat-docs/rules/` subset, project knowledge, Make **Guidelines**, or connectors).
+4. Tell the tool: *“Follow the kuat-review skill; rules are in LOADING.md.”* In Figma Make, use `/kuat-review` or `/kuat-create` slash commands.
 
 ---
 
@@ -274,20 +311,24 @@ More tests (web product, tokens, components): [kuat-docs/setup/verification.md](
 
 ---
 
-## Working from kuat-mono (or another consumer repo)
+## Working from kuat-mono (library contributors)
 
-1. Clone or submodule **kuat-agent-docs** next to your app repo.
-2. Create `.kuat-rules-path` in the consumer repo root:
+1. Clone or submodule **kuat-agent-docs** (e.g. `external/kuat-agent-docs`).
+2. `.kuat-rules-path` in mono root → absolute path to that clone.
+3. `export KUAT_RULES_OVERLAY_PATH=/path/to/kuat-mono/kuat-docs`
+4. Symlink skills from the agent-docs clone (see [Cursor](#cursor)).
+5. Run [kuat-mono implementation plan](../kuat-docs/setup/kuat-mono-implementation-plan.md) on branch `feat/multi-entry-rules-architecture`.
 
-   ```text
-   /absolute/path/to/kuat-agent-docs
-   ```
+Load order: upstream git first, overlay second — [consumption-contract.md](./shared/consumption-contract.md).
 
-3. Install skills via Cursor/Codex symlinks (paths point at the rules repo’s `skills/` folder).
-4. Optional: set `KUAT_RULES_OVERLAY_PATH` to your consumer’s local overlay rules.
-5. Run tests B–E from a chat opened **in the consumer repo**.
+## Working from an application (npm consumers)
 
-Load order: upstream rules first, local overlay second — see [shared/consumption-contract.md](./shared/consumption-contract.md).
+1. `pnpm add @equal-experts/kuat-core @equal-experts/kuat-react` (no agent-docs git clone required once packages ship `agent-docs/`).
+2. Symlink `kuat-review` / `kuat-create` from a local `kuat-agent-docs` clone (skills are not in the npm package).
+3. Point `.cursorrules` at `node_modules/@equal-experts/kuat-react/agent-docs/AGENTS.md`.
+4. Run `./skills/scripts/ensure-rules.sh` — expect `RULES_SOURCE=package`.
+
+Override bundled rules: `KUAT_RULES_PATH=/path/to/kuat-agent-docs` for latest upstream or non-web tasks.
 
 ---
 
@@ -297,7 +338,7 @@ Load order: upstream rules first, local overlay second — see [shared/consumpti
 |--------|------------|
 | **Rules updated** (pull on `kuat-agent-docs`) | `KUAT_RULES_UPDATE=1 ./skills/scripts/ensure-rules.sh` |
 | **Source skills edited** | Reinstall not needed for symlinks; restart chat |
-| **Upload tools** (Claude Projects) | `npm run bundle:skills`, re-upload `dist/*.SKILL.md`, refresh rules uploads |
+| **Upload tools** (Claude Projects, Figma Make) | `npm run bundle:skills`, re-import `dist/*.SKILL.md`, refresh Guidelines / project knowledge |
 | **Check bundle vs rules version** | Compare `RULES_REF` from script to `skills/dist/manifest.json` → `rules.builtAtRef` |
 
 ---
@@ -308,7 +349,9 @@ Load order: upstream rules first, local overlay second — see [shared/consumpti
 |---------|--------------|-----|
 | Agent ignores intake | Skill not loaded; old chat | New chat; confirm symlink or upload; mention `kuat-review` in prompt |
 | “Cannot find LOADING.md” | Rules path not set | `KUAT_RULES_PATH` or `.kuat-rules-path`; run `ensure-rules.sh` |
-| Broken shared links in Claude | Uploaded source skill, not `dist/` | Upload `skills/dist/kuat-review/SKILL.md` instead |
+| Broken shared links in Claude / Make | Uploaded source skill, not `dist/` | Upload `skills/dist/kuat-review/SKILL.md` instead |
+| Make ignores brand rules | Only skill uploaded, no Guidelines | Add `kuat-docs/rules` excerpts to Make Guidelines or use connectors |
+| `/kuat-review` not found | Skill not imported or wrong name | Re-import `dist/kuat-review/SKILL.md`; check skill name in Manage skills |
 | Stale brand guidance | Agent using memory | Ask it to read `{RULES_DIR}/foundations/design/colours.md`; cite `RULES_REF` |
 | Two different review styles | Mixed old workflow docs | Use skills only; ignore deprecated `kuat-docs/rules/workflows/` stub |
 | `bundle:skills` fails | Wrong directory | Run from repo root; need Node for `npm run` |
@@ -329,4 +372,4 @@ Load order: upstream rules first, local overlay second — see [shared/consumpti
 
 ## Feedback
 
-If a test passes in Cursor but fails in Claude Projects, note which path you used (source vs `dist/`) and which files were uploaded — that usually explains the difference.
+If a test passes in Cursor but fails in Claude Projects or Figma Make, note whether you used **source** vs **`dist/`** bundles and whether **rules** were in Guidelines/connectors — upload-only tools need both bundled skills and separate standards.

@@ -72,6 +72,8 @@ rules/
 
 **Platform isolation:** Types do not reference each other; all types may reference foundations.
 
+**Consumption:** [setup/consumption-architecture.md](../setup/consumption-architecture.md) · [setup/ownership-matrix.md](../setup/ownership-matrix.md)
+
 ---
 
 ## Foundations
@@ -91,4 +93,4 @@ rules/
 - [types/graphics/](./types/graphics/) - Icons, illustrations, infographics
 - [types/charts-data/](./types/charts-data/) - Data visualization
 - [types/web/marketing/](./types/web/marketing/) - Marketing websites and emails
-- [types/web/product/](./types/web/product/) - Web applications (design, content, scenarios, examples)
+- [types/web/product/](./types/web/product/) - Web applications (design, content, scenarios, [component-registry](./types/web/product/component-registry.md))

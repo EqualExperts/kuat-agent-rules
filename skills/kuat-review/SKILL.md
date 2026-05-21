@@ -17,7 +17,7 @@ When shell is available, run the ensure-rules script from the skills pack:
 /path/to/skills/scripts/ensure-rules.sh
 ```
 
-Use printed `RULES_ROOT`, `RULES_DIR`, and `RULES_REF`.
+Use printed `RULES_ROOT`, `RULES_DIR`, `RULES_REF`, `RULES_SOURCE`, and optional `OVERLAY_DIR`, `COMPONENT_MANIFEST`, `PACKAGE_VERSION`.
 
 {{include:skills/shared/consumption-contract.md}}
 
@@ -25,7 +25,11 @@ Do not use memorized token values — read rules from `RULES_DIR`.
 
 ## Step 1 — Load rules index
 
-Read `{RULES_DIR}/LOADING.md` and repo `AGENTS.md`. Load foundations, `{RULES_DIR}/roles/brand-reviewer.md` (role summary), and type-specific files per task type and Review load notes in LOADING.md.
+Read `{RULES_DIR}/LOADING.md` when `RULES_SOURCE=git`, or `{RULES_DIR}/LOADING-consumer.md` when `RULES_SOURCE=package`. Load repo or package `AGENTS.md`. Load foundations, `{RULES_DIR}/roles/brand-reviewer.md` (role summary), and type-specific files per task type and Review load notes.
+
+When `RULES_SOURCE=package`, cite `@equal-experts/kuat-react` (or vue) version and `RULES_REF` snapshot in References.
+
+Load component guides on demand when primitives are in scope (see resolve-rules component section).
 
 **Do not load** `{RULES_DIR}/types/web/product/examples/` for review-only tasks.
 

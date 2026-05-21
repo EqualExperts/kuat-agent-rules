@@ -5,7 +5,7 @@ description: Review EE-branded work against kuat-agent-docs rules. Use when audi
 
 # Equal Experts brand review
 
-You are a **Design Consultant** for Equal Experts. Audit existing work against EE brand, design, content, and (when scoped) product UX rules. Produce actionable findings — do not redesign unless asked.
+You are a **Brand Reviewer** for Equal Experts. Audit existing work against EE brand, design, content, and (when scoped) product UX rules. Produce actionable findings — do not redesign unless asked.
 
 ## Step 0 — Resolve rules (mandatory)
 
@@ -25,47 +25,67 @@ Every Equal Experts brand skill **must** resolve and verify the rules location b
 
 | Variable | Meaning |
 |----------|---------|
-| `RULES_ROOT` | Root of the rules repository (contains `kuat-docs/rules/LOADING.md`) |
-| `RULES_DIR` | `{RULES_ROOT}/kuat-docs/rules` |
-| `RULES_REF` | Git commit SHA or tag in use (cite in review References) |
+| `RULES_ROOT` | Git repo root or npm package root (`@equal-experts/kuat-react`) |
+| `RULES_DIR` | `{RULES_ROOT}/kuat-docs/rules` (git) or `{RULES_ROOT}/agent-docs/rules` (package) |
+| `RULES_REF` | Git SHA, or `manifest.json` `rules.snapshotRef` for packages |
+| `RULES_SOURCE` | `git` or `package` |
+| `PACKAGE_VERSION` | Installed package version when `RULES_SOURCE=package` |
+| `OVERLAY_DIR` | Set when `KUAT_RULES_OVERLAY_PATH` is valid |
+| `COMPONENT_MANIFEST` | Path to `components.manifest.json` when present |
 
 ---
 
 ## Resolution order
 
-Try in order; stop at the first valid path (directory contains `kuat-docs/rules/LOADING.md`):
+Run [ensure-rules.sh](../scripts/ensure-rules.sh) when shell is available. Otherwise try in order:
 
-1. **`KUAT_RULES_PATH`** — environment variable (absolute path to rules repo root)
-2. **`.kuat-rules-path`** — file in current working directory, then git repository root; single line, absolute or relative path
-3. **Common sibling paths** from cwd: `kuat-agent-docs`, `vendor/kuat-agent-docs`, `../kuat-agent-docs`
-4. **Skills co-located with rules** — if this skill lives in `kuat-agent-docs/skills/`, use parent of `skills/` as `RULES_ROOT`
+1. **`KUAT_RULES_PATH`** — git repo (`kuat-docs/rules/LOADING.md`) or package root (`agent-docs/`)
+2. **`.kuat-rules-path`** — in cwd or git root
+3. **npm package** — walk up from cwd: `node_modules/@equal-experts/kuat-{react,vue,core}` with `agent-docs/rules/LOADING-consumer.md`
+4. **Sibling git paths:** `kuat-agent-docs`, `vendor/kuat-agent-docs`, `../kuat-agent-docs`
+5. **Skills co-located** — parent of `skills/` in `kuat-agent-docs`
 
 If none resolve, stop and direct the user to [skills/README.md](set KUAT_RULES_PATH or .kuat-rules-path — see skills README).
+
+### Loading index by source
+
+| `RULES_SOURCE` | Load |
+|----------------|------|
+| `git` | `{RULES_DIR}/LOADING.md` (full taxonomy) |
+| `package` | `{RULES_DIR}/LOADING-consumer.md` (bundled web + foundations) |
 
 ---
 
 ## Freshness
 
-Before a review or create session:
-
-| Method | Action |
-|--------|--------|
-| **Shell available** | Run `skills/scripts/ensure-rules.sh` from any cwd (script locates itself). Use printed `RULES_ROOT` and `RULES_REF`. |
-| **No shell** | Read `{RULES_DIR}/LOADING.md` directly if path is known; note ref from `.git/HEAD` if visible; ask user to run ensure-rules if unsure |
-| **Pin** | Set `KUAT_RULES_REF` to a tag or SHA; script validates or checks out when `KUAT_RULES_UPDATE=1` |
-
-Set `KUAT_RULES_UPDATE=1` to allow `git pull` when the rules checkout is behind its upstream.
+| `RULES_SOURCE` | Action |
+|----------------|--------|
+| `git` | `KUAT_RULES_REF` pin; `KUAT_RULES_UPDATE=1` to pull/checkout |
+| `package` | Rules pinned to installed version; override with `KUAT_RULES_PATH` to git clone for latest upstream |
 
 ---
 
-## Local overlay (consumer repos)
+## Local overlay (library / mono)
 
-After upstream rules are resolved, load a **local implementation overlay** second when present:
+After rules are resolved, load overlay second when `KUAT_RULES_OVERLAY_PATH` is set:
 
-- Env: `KUAT_RULES_OVERLAY_PATH` — path to consumer repo overlay rules
-- Common: `kuat-mono` or project-specific `.cursor/rules/` overlay
+- Typical: `kuat-mono/kuat-docs` for contributors
+- Resolve component IDs via `COMPONENT_MANIFEST` → `components/{slug}.md`
 
-See **Shared: consumption contract** (included above). On conflict: design/content intent → upstream rules; implementation/API/testing → local overlay.
+On conflict: design/content intent → upstream or bundled snapshot; implementation/API → overlay or package component docs.
+
+See **Shared: consumption contract** (included above) and [kuat-docs/setup/consumption-architecture.md](../../kuat-docs/setup/consumption-architecture.md).
+
+---
+
+## Component docs on demand
+
+When a scenario or artifact references a component ID (e.g. `shadcn:button`):
+
+1. Read [component-registry.md](../../kuat-docs/rules/types/web/product/component-registry.md) for slug mapping.
+2. Load doc from `{RULES_ROOT}/agent-docs/components/{slug}.md` or `{OVERLAY_DIR}/components/{slug}.md`.
+
+Do not load the full component catalog unless multiple primitives are in scope.
 
 ---
 
@@ -74,6 +94,7 @@ See **Shared: consumption contract** (included above). On conflict: design/conte
 - [consumption-contract.md](./consumption-contract.md)
 - [../scripts/README.md](skills/scripts/README.md in rules repo)
 - [../../kuat-docs/rules/LOADING.md]({RULES_DIR}/LOADING.md)
+- [../../kuat-docs/setup/consumption-architecture.md](../../kuat-docs/setup/consumption-architecture.md)
 
 <!-- end include: skills/shared/resolve-rules.md -->
 
@@ -85,7 +106,7 @@ When shell is available, run the ensure-rules script from the skills pack:
 /path/to/skills/scripts/ensure-rules.sh
 ```
 
-Use printed `RULES_ROOT`, `RULES_DIR`, and `RULES_REF`.
+Use printed `RULES_ROOT`, `RULES_DIR`, `RULES_REF`, `RULES_SOURCE`, and optional `OVERLAY_DIR`, `COMPONENT_MANIFEST`, `PACKAGE_VERSION`.
 
 
 
@@ -95,20 +116,34 @@ Use printed `RULES_ROOT`, `RULES_DIR`, and `RULES_REF`.
 
 ## Rules consumption contract
 
-When skills are used from a consumer implementation repository (for example `kuat-mono`):
+When skills are used from a consumer implementation repository (for example `kuat-mono`) or an application with only npm packages installed:
 
 ## Load order
 
-1. Resolve upstream rules (`RULES_DIR`) — see [resolve-rules.md](above: Shared — Resolve rules)
-2. Load local implementation overlay when `KUAT_RULES_OVERLAY_PATH` is set or documented in the consumer repo
-3. Run the skill procedure (review or create)
+1. Resolve rules (`RULES_DIR`) — see [resolve-rules.md](above: Shared — Resolve rules); run [ensure-rules.sh](../scripts/ensure-rules.sh)
+2. Load matching index: `LOADING.md` (git) or `LOADING-consumer.md` (package)
+3. Load foundations → role → type rules per task
+4. Load local implementation overlay when `KUAT_RULES_OVERLAY_PATH` is set
+5. Load component guides on demand via `COMPONENT_MANIFEST` when IDs are in scope
+6. Run the skill procedure (review or create)
+
+## Sources
+
+| Source | `RULES_SOURCE` | Typical entry |
+|--------|----------------|---------------|
+| `kuat-agent-docs` git clone | `git` | Org, slides, marketing, full taxonomy |
+| `@equal-experts/kuat-react` / `kuat-vue` | `package` | App developers; version-pinned snapshot |
+| `kuat-mono` overlay | (with git upstream) | Library contributors |
+
+Bundled package rules are canonical for **design intent at that package version**. Use `KUAT_RULES_PATH` to override with latest upstream git.
 
 ## Conflict policy
 
 | Topic | Canonical source |
 |-------|------------------|
-| Design, structure, content intent | Upstream rules (`kuat-agent-docs`) |
-| Implementation, API, testing, build | Local consumer repo |
+| Design, structure, content intent | Upstream rules or bundled snapshot at installed version |
+| Per-component usage, API, a11y behaviour | Package `agent-docs/components/` or overlay |
+| Implementation, testing, build | Local consumer repo / `kuat-mono` |
 | Ambiguous implementation behaviour | Runtime evidence: tests → Storybook → package exports → source |
 
 ## Platform isolation
@@ -119,6 +154,8 @@ Load only the task type's rules from `types/` plus `foundations/`. Do not mix sl
 
 - [../../AGENTS.md]({RULES_ROOT}/AGENTS.md)
 - [../../kuat-docs/rules/LOADING.md]({RULES_DIR}/LOADING.md)
+- [../../kuat-docs/setup/consumption-architecture.md](../../kuat-docs/setup/consumption-architecture.md)
+- [../../kuat-docs/setup/ownership-matrix.md](../../kuat-docs/setup/ownership-matrix.md)
 
 <!-- end include: skills/shared/consumption-contract.md -->
 
@@ -128,7 +165,11 @@ Do not use memorized token values — read rules from `RULES_DIR`.
 
 ## Step 1 — Load rules index
 
-Read `{RULES_DIR}/LOADING.md` and repo `AGENTS.md`. Load foundations, `{RULES_DIR}/roles/brand-reviewer.md` (role summary), and type-specific files per task type and Review load notes in LOADING.md.
+Read `{RULES_DIR}/LOADING.md` when `RULES_SOURCE=git`, or `{RULES_DIR}/LOADING-consumer.md` when `RULES_SOURCE=package`. Load repo or package `AGENTS.md`. Load foundations, `{RULES_DIR}/roles/brand-reviewer.md` (role summary), and type-specific files per task type and Review load notes.
+
+When `RULES_SOURCE=package`, cite `@equal-experts/kuat-react` (or vue) version and `RULES_REF` snapshot in References.
+
+Load component guides on demand when primitives are in scope (see resolve-rules component section).
 
 **Do not load** `{RULES_DIR}/types/web/product/examples/` for review-only tasks.
 
@@ -236,4 +277,4 @@ Ask the user to select one format before producing findings. Default to `full_re
 - Rules standards: `{RULES_DIR}` — [kuat-agent-docs](https://github.com/equalexperts/kuat-agent-docs)
 - Bundle manifest: compare `RULES_REF` to `dist/manifest.json` → `rules.builtAtRef`
 
-<!-- kuat-skill-bundle: kuat-review v1.0.0 rules-ref:2db943c5c5b3 built:2026-05-18 -->
+<!-- kuat-skill-bundle: kuat-review v1.0.0 rules-ref:f991487dc397 built:2026-05-21 -->

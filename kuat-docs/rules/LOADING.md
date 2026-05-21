@@ -25,17 +25,31 @@ Determine intent before loading type rules. If unclear, ask: *Are you reviewing 
 
 **Platform isolation:** Type-specific rules must not reference other types. Foundations are shared; types only reference foundations.
 
+## Entry points
+
+| Entry | Audience | Start | Index file |
+|-------|----------|-------|------------|
+| **Org** | Brand, slides, all platforms | [AGENTS.md](../../AGENTS.md) | This file (`LOADING.md`) |
+| **Library** | `kuat-mono` contributors | Mono `AGENTS.md` | This file + mono `kuat-docs/LOADING.md` overlay |
+| **App** | npm consumers | `node_modules/@equal-experts/kuat-react/agent-docs/AGENTS.md` | `agent-docs/rules/LOADING-consumer.md` (generated on publish) |
+
+Full architecture: [setup/consumption-architecture.md](../setup/consumption-architecture.md).
+
+Run [ensure-rules.sh](../../skills/scripts/ensure-rules.sh) — emits `RULES_SOURCE=git|package` and optional `OVERLAY_DIR`.
+
 ## Cross-repo consumption contract
 
-When these rules are used from a consumer implementation repo (for example `kuat-mono`):
+When these rules are used from a consumer implementation repo (for example `kuat-mono`) or via npm packages:
 
-1. Load upstream rules from `kuat-agent-rules` first.
-2. Load local implementation overlay rules second.
+1. Resolve rules: git `kuat-agent-docs` or bundled `agent-docs` in `@equal-experts/kuat-react` / `kuat-vue`.
+2. Load local implementation overlay second when `KUAT_RULES_OVERLAY_PATH` is set.
 
 Conflict policy:
-- Design/structure/content guidance -> upstream rules are canonical.
-- Implementation/API/testing/build guidance -> local implementation repo is canonical.
+- Design/structure/content guidance -> upstream rules or bundled snapshot at package version.
+- Implementation/API/testing/build -> local implementation repo or package component docs.
 - If implementation behavior remains ambiguous, trust runtime evidence in this order: tests, Storybook, package exports, source code.
+
+Ownership: [setup/ownership-matrix.md](../setup/ownership-matrix.md).
 
 ---
 
@@ -127,7 +141,8 @@ When intent is **review**, use these load deltas (in addition to skill [kuat-rev
 | `types/web/marketing/content/` | Task involves marketing copy, blog, or SEO. |
 | `types/web/product/scenarios/` | Task involves documentation pages, forms, dashboards, or authentication flows. |
 | `types/web/product/content/` | Task involves product UX writing (actions, errors, forms, etc.). |
-| `types/web/product/examples/` | **Create only:** implementing web product UI in React, Vue, or vanilla CSS. **Do not load for review.** |
+| `types/web/product/examples/` | **Create only:** implementing web product UI in React, Vue, or vanilla CSS. **Do not load for review.** Prefer component IDs + package/overlay docs (see [DEPRECATIONS.md](./types/web/product/DEPRECATIONS.md)). |
+| Component guides (`components/{slug}.md`) | Artifact or scenario cites a component ID ([component-registry.md](./types/web/product/component-registry.md)). Resolve via `COMPONENT_MANIFEST` from package `agent-docs/` or `KUAT_RULES_OVERLAY_PATH`. Load on demand, not the full catalog. |
 
 ---
 

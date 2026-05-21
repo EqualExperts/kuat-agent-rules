@@ -13,7 +13,9 @@ That index defines:
 
 **Intent (review | create):** Determine intent first. Use skills [kuat-review](./skills/kuat-review/SKILL.md) or [kuat-create](./skills/kuat-create/SKILL.md); resolve rules per [skills/shared/resolve-rules.md](./skills/shared/resolve-rules.md). See [LOADING.md](./kuat-docs/rules/LOADING.md#intent-review--create).
 
-**Three layers:** `skills/` — session procedure; `kuat-docs/rules/` — compliance standards; consumer repo — implementation overlay.
+**Three layers:** `skills/` — session procedure; `kuat-docs/rules/` — compliance standards; consumer repo or npm package — implementation overlay / component docs.
+
+**Three entry points:** Org (this repo, full [LOADING.md](./kuat-docs/rules/LOADING.md)); library (`kuat-mono` git + overlay); app (`@equal-experts/kuat-react` bundled `agent-docs`). See [consumption-architecture.md](./kuat-docs/setup/consumption-architecture.md).
 
 **Role-based prompting:** For **review**, load [brand-reviewer](./kuat-docs/rules/roles/brand-reviewer.md). For **create**, use task-specific role cards (e.g. infographic, icon) — see [kuat-docs/rules/roles/](./kuat-docs/rules/roles/) and [LOADING.md](./kuat-docs/rules/LOADING.md).
 
@@ -21,7 +23,7 @@ That index defines:
 
 When this repository is consumed by implementation repositories (for example `kuat-mono`), use this ownership split:
 
-- **Upstream (`kuat-agent-rules`) owns:** brand, foundations, content style, structure/pattern guidance, and task-to-context loading taxonomy.
+- **Upstream (`kuat-agent-docs`) owns:** brand, foundations, content style, structure/pattern guidance, and task-to-context loading taxonomy.
 - **Local implementation repos own:** component architecture, package APIs, testing strategy, Storybook conventions, and contributor workflow.
 
 ### Cross-repo load order
@@ -109,3 +111,5 @@ When working on Equal Experts content:
 ## Full Documentation
 
 See [kuat-docs/README.md](./kuat-docs/README.md) for complete documentation index.
+
+**Consumption architecture:** [kuat-docs/setup/consumption-architecture.md](./kuat-docs/setup/consumption-architecture.md) · **Ownership:** [ownership-matrix.md](./kuat-docs/setup/ownership-matrix.md)

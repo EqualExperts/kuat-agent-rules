@@ -21,8 +21,18 @@ Technical setup and integration guide for Equal Experts web applications using t
 - **Setup:** Install `@equal-experts/kuat-core`; preset Tailwind; import `kuat-core/variables.css`; init shadcn (Slate, CSS vars); add components as needed.
 - **Theming:** CSS variables from kuat-core; dark mode via class or media; persist preference in localStorage if needed.
 - **Tokens:** Use Tailwind utilities and CSS variables from design tokens; avoid hardcoded colours/spacing.
+- **Rules (app consumers):** Agent rules are bundled in `@equal-experts/kuat-react` / `kuat-vue` at `agent-docs/` — version matches the installed package. See [consumption-architecture.md](../../../../setup/consumption-architecture.md).
+- **Component usage:** Resolve IDs via [component-registry.md](./component-registry.md); canonical guides in package or overlay `components/`.
 
 *Full detail follows.*
+
+---
+
+## Consumer setup (applications)
+
+For step-by-step install in a new app, prefer the **package README** (`@equal-experts/kuat-react`) and bundled `agent-docs/AGENTS.md` after install. This file summarises the stack; duplicate setup prose is intentionally reduced.
+
+Override bundled rules with a `kuat-agent-docs` git clone only when you need slides, marketing, or bleeding-edge upstream guidance (`KUAT_RULES_PATH`).
 
 ---
 
@@ -473,4 +483,6 @@ function setTheme(theme: 'light' | 'dark' | 'system') {
 
 - [Design Rules](./design.md) - Layout and visual design
 - [Component Decision Tree](./component-decision-tree.md) - Component selection
-- [Examples](./examples/) - Framework-specific code examples
+- [Component registry](./component-registry.md) - Stable IDs → package/overlay guides
+- [consumption-architecture.md](../../../../setup/consumption-architecture.md) - Entry points and npm bundling
+- [Examples](./examples/) - Illustrative patterns only ([DEPRECATIONS.md](./DEPRECATIONS.md))
