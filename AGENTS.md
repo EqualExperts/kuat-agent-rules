@@ -2,22 +2,17 @@
 
 This repository contains brand guidelines and design system rules for **creating and reviewing** Equal Experts branded content.
 
-## Load Order and Task → Files
+## Reference and skills
 
-**For load order and task → rules mapping, see the canonical index:** [kuat-docs/rules/LOADING.md](./kuat-docs/rules/LOADING.md)
+**Standards live in the passive reference library at [reference/](./reference/README.md)** — brand, design language, content, accessibility, and per-medium reference (slides, web-product, web-marketing, imagery, charts-data). Reference states the **WHAT**; it contains no loading taxonomy and no verbs. Every old `kuat-docs/rules/...` path maps to its new home in [reference/MIGRATION-MAP.md](./reference/MIGRATION-MAP.md).
 
-That index defines:
-- Which foundation rule files to load (or "all foundations")
-- Which type-specific paths to load per task (slides, web_product, web_marketing, icons, etc.)
-- Optional paths (scenarios, content subdirs, framework examples) and when to include them
+> **Migration note (Phase 1 done):** The global `LOADING.md` task→files taxonomy is retired; loading is becoming **per-skill** in Phase 2. Procedure extracted from the old tree (role cards, checklists, "before you create/review") is staged in the repo-root `_to-skills/` holding area. Legacy skills [kuat-review](./skills/kuat-review/SKILL.md) / [kuat-create](./skills/kuat-create/SKILL.md) keep working until Phase 5 (they are rewired to `reference/` in Phase 2).
 
-**Intent (review | create):** Determine intent first. Use skills [kuat-review](./skills/kuat-review/SKILL.md) or [kuat-create](./skills/kuat-create/SKILL.md); resolve rules per [skills/shared/resolve-rules.md](./skills/shared/resolve-rules.md). See [LOADING.md](./kuat-docs/rules/LOADING.md#intent-review--create).
+**Intent (review | create):** Determine intent first; use skill [kuat-review](./skills/kuat-review/SKILL.md) or [kuat-create](./skills/kuat-create/SKILL.md); resolve rules per [skills/shared/resolve-rules.md](./skills/shared/resolve-rules.md).
 
-**Three layers:** `skills/` — session procedure; `kuat-docs/rules/` — compliance standards; consumer repo or npm package — implementation overlay / component docs.
+**Three layers:** `skills/` — session procedure; `reference/` — compliance standards (the WHAT); consumer repo or npm package — implementation overlay / component docs.
 
-**Three entry points:** Org (this repo, full [LOADING.md](./kuat-docs/rules/LOADING.md)); library (`kuat-mono` git + overlay); app (`@equal-experts/kuat-react` bundled `agent-docs`). See [consumption-architecture.md](./kuat-docs/setup/consumption-architecture.md).
-
-**Role-based prompting:** For **review**, load [brand-reviewer](./kuat-docs/rules/roles/brand-reviewer.md). For **create**, use task-specific role cards (e.g. infographic, icon) — see [kuat-docs/rules/roles/](./kuat-docs/rules/roles/) and [LOADING.md](./kuat-docs/rules/LOADING.md).
+**Three entry points:** Org (this repo, [reference/](./reference/README.md)); library (`kuat-mono` git + overlay); app (`@equal-experts/kuat-react` bundled `agent-docs`). See [consumption-architecture.md](./kuat-docs/setup/consumption-architecture.md).
 
 ## Upstream vs Local Ownership (Consumption Contract)
 
@@ -80,10 +75,6 @@ WCAG AA minimum contrast (4.5:1 for text, 3:1 for large text/graphics).
 
 ---
 
-For context size (minimal, standard, full, full+examples), see [LOADING.md](./kuat-docs/rules/LOADING.md#context-size-reference).
-
----
-
 ## Behavior Guidelines
 
 When working on Equal Experts content:
@@ -113,3 +104,27 @@ When working on Equal Experts content:
 See [kuat-docs/README.md](./kuat-docs/README.md) for complete documentation index.
 
 **Consumption architecture:** [kuat-docs/setup/consumption-architecture.md](./kuat-docs/setup/consumption-architecture.md) · **Ownership:** [ownership-matrix.md](./kuat-docs/setup/ownership-matrix.md)
+
+---
+
+## Design-system migration (active)
+
+We are migrating from the old `rules/` + intent-skills architecture to **reference guidelines + activity skills + an Enterprise plugin**. Plans live in `docs/migration/`. Run a phase with `/kuat-phase <n>`.
+
+### Core principles (apply throughout)
+
+- **Reference is passive (the WHAT).** A file belongs in `reference/` only if it states what is true about EE. Anything that says *how to do a job* — verbs, role cards, checklists, "before you create/review", loading tables — is procedure and lives in a **skill**, not in reference. (The "passive test".)
+- **Media types own their patterns.** `reference/media-types/<medium>/` (slides, web-product, web-marketing, imagery, charts-data); each holds a `patterns/` subfolder describing how we do specific things in that medium. "Patterns" is **not** a top-level concept and is not technical detail.
+- **Skills use progressive disclosure.** Each `SKILL.md` stays short and **links** to the reference slices it needs — never inlines reference content, never relies on a global loading taxonomy.
+- **Don't break current users.** Legacy `skills/kuat-create` and `skills/kuat-review` keep working until Phase 5.
+
+### Conventions
+
+- One branch + PR per phase: `migration/phase-<n>-<slug>`.
+- Keep a dated decision log in `docs/migration/LOG.md`; record deviations and checkpoint decisions.
+- End every phase by filling `docs/migration/report-phase-<n>.md` from the template and outputting it.
+- Preserve git history on moves (`git mv`). Plan mode before edits; stop and ask on ambiguous high-impact decisions.
+
+### Distribution model (context)
+
+Pinned semver + **beta/stable channels** + pre-registration via managed settings. A plugin release is how fresh reference reaches consultants. Bump `version` in **`plugin.json` only** (never also in the marketplace entry). See `docs/migration/phase-3-plugin-packaging.md`.
