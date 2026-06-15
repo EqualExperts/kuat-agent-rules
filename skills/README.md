@@ -1,6 +1,6 @@
 # Equal Experts brand skills
 
-Tool-agnostic agent skills for **reviewing** and **creating** EE-branded work. Skills handle session orchestration (intake, output format, load procedure). Brand and design **standards** live in [`kuat-docs/rules/`](../kuat-docs/rules/).
+Tool-agnostic agent skills for **reviewing** and **creating** EE-branded work. Skills handle session orchestration (intake, output format, load procedure). Brand and design **standards** live in the passive [`reference/`](../reference/README.md) library.
 
 This directory is staged in `kuat-agent-docs` for testing; it may be extracted to a standalone `kuat-agent-skills` repository later. Skill IDs and install paths will stay the same.
 
@@ -11,6 +11,18 @@ This directory is staged in `kuat-agent-docs` for testing; it may be extracted t
 **Human setup and testing:** [INSTALL.md](./INSTALL.md)
 
 ## Skills
+
+**Activity skills (preferred)** — pick by job; each loads the `reference/` slices it needs:
+
+| Skill | Source | Use when |
+|-------|--------|----------|
+| **create-web-app** | [create-web-app/](./create-web-app/) | Building product UI (forms, dashboards, app screens) |
+| **review-web-app** | [review-web-app/](./review-web-app/) | Auditing product UI |
+| **create-imagery** | [create-imagery/](./create-imagery/) | Icons, infographics, illustrations, photography selection |
+| **create-presentation** | [create-presentation/](./create-presentation/) | Building EE slide decks |
+| **review-presentation** | [review-presentation/](./review-presentation/) | Auditing EE slide decks |
+
+**Legacy intent skills** (rewired onto `reference/`; kept until Phase 5; the only ones bundled to `dist/`):
 
 | Skill | Source (edit) | Bundled (upload) | Use when |
 |-------|---------------|------------------|----------|
@@ -40,7 +52,7 @@ Output: [`dist/`](./dist/) — `manifest.json` records `rules.builtAtRef` for fr
 
 ### 1. Install rules {#install-rules}
 
-You need a checkout of this repo (or `kuat-agent-docs`) with `kuat-docs/rules/LOADING.md`.
+You need a checkout of this repo (or `kuat-agent-docs`) with the `reference/` library.
 
 ```bash
 git clone https://github.com/equalexperts/kuat-agent-docs.git
@@ -63,7 +75,7 @@ Before each review or create session, skills require fresh rules:
 KUAT_RULES_UPDATE=1 ./skills/scripts/ensure-rules.sh
 ```
 
-Agents without shell access must read `LOADING.md` from a known path and cite `RULES_REF` in output, or ask the user to run the script.
+Agents without shell access must read the reference index (`reference/README.md`) from a known path and cite `RULES_REF` in output, or ask the user to run the script.
 
 ### 3. Install skills in your AI tool
 
@@ -81,7 +93,7 @@ Agents without shell access must read `LOADING.md` from a known path and cite `R
 
 | Variable | Purpose |
 |----------|---------|
-| `KUAT_RULES_PATH` | Absolute path to rules repo root (contains `kuat-docs/rules/LOADING.md`) |
+| `KUAT_RULES_PATH` | Absolute path to rules repo root (contains the `reference/` library) |
 | `KUAT_RULES_OVERLAY_PATH` | Optional local implementation overlay (consumer repo) |
 | `KUAT_RULES_REF` | Pin rules to git tag or SHA |
 | `KUAT_RULES_UPDATE` | Set to `1` to `git pull` or checkout pinned ref when stale |
@@ -94,7 +106,7 @@ Resolution order: [shared/resolve-rules.md](./shared/resolve-rules.md).
 
 1. Load the skill matching intent (`kuat-review` or `kuat-create`) — use **`dist/`** bundles when relative includes are unavailable.
 2. Run [shared/resolve-rules.md](./shared/resolve-rules.md) (or inlined copy in bundle) — execute `ensure-rules.sh` when possible.
-3. Read `{RULES_DIR}/LOADING.md` and load files per task type.
+3. Start from `{RULES_DIR}/README.md`; load the `reference/` slices the active skill points to (loading is per-skill).
 4. Compare `RULES_REF` to `dist/manifest.json` → `rules.builtAtRef` when rules may be stale.
 5. Follow skill-specific intake before producing output.
 
@@ -104,6 +116,6 @@ See [AGENTS.md](./AGENTS.md).
 
 ## Related
 
-- [kuat-docs/rules/LOADING.md](../kuat-docs/rules/LOADING.md) — Task → rule files
+- [reference library](../reference/README.md) — Compliance standards (the WHAT)
 - [AGENTS.md](../AGENTS.md) — Repo entry point
 - [kuat-docs/setup/integration.md](../kuat-docs/setup/integration.md) — IDE integration

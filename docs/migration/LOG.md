@@ -4,6 +4,28 @@ Dated record of checkpoint decisions and non-obvious deviations, per phase. Newe
 
 ---
 
+## Phase 2 — Activity Skills
+
+**Branch:** `migration/phase-2-activity-skills` · **Started:** 2026-06-15
+
+### Checkpoint decisions (resolved at start, with Ed)
+
+- **A — `_shared/` location.** New activity-skill shared assets go in `skills/_shared/` (plan literal). The legacy `skills/shared/` (resolve-rules, consumption-contract) is **rewired in place**, not renamed — the `_` prefix on the new folder signals "not itself a skill" to skill loaders.
+- **B — Phase 2 scope: rewire legacy too.** Chosen over the narrower "new skills only" reading of `phase-2-activity-skills.md`. The legacy machinery (`kuat-create`, `kuat-review`, `shared/resolve-rules.md`, `shared/consumption-contract.md`, `scripts/ensure-rules.sh`, `scripts/bundle-skills.mjs`) is repointed from the retired `kuat-docs/rules` + `LOADING.md` onto `reference/`, and the redirect **tombstones are deleted**. This matches the Phase-1 report's "Phase 2 (this repo)" follow-up and the tombstones' own text ("removed in Phase 2"). Legacy skills are **rewired, not deleted** — they stay until Phase 5 per the guardrail.
+- **C — Imagery stays merged.** One `create-imagery` skill (create + light review) covering icons / illustrations / infographics / photography; both create role cards and the photography quality-validation checklist fold in. 5 skills total; no separate `review-imagery`.
+- **D — Eval rigor: representative live + fixtures.** All briefs + checklist rubrics authored as durable fixtures (the regression net). Live-generated & scored: `create-web-app` (mandated reference brief) + one brief per other skill. Remaining briefs are the regression net, not all live-run this phase.
+- **E — `technical.md` dropped now.** Chosen over leaving it staged or drafting turnkey mono content. `_to-skills/web-product/technical.md` is `git rm`'d this phase so `_to-skills/` empties fully. **Recovery pointer for the downstream kuat-mono PR:** `_to-skills/web-product/technical.md` @ `f0338ff` (last revision on `main`). kuat-mono should port it into `agent-docs/setup/`.
+- **F — `examples/` unchanged.** Kept at `reference/media-types/web-product/examples/` (illustrative tokens/layout, not canonical API). Relocation to kuat-mono remains a deferred Phase-1 follow-up.
+
+### Deviations & non-obvious decisions (appended as they occur)
+
+- **2026-06-15 — Five skills built; imagery merged.** `create-web-app` (built & eval-validated first as the template), `review-web-app`, `create-imagery` (icons/illustrations/infographics/photography + light review), `create-presentation`, `review-presentation`. Shared assets in `skills/_shared/` (`report-formats.md` `git mv`'d from `kuat-review/references/`; new `intake.md`, `review-common.md`, `version-stamp.md`, `README.md`). Skills link `reference/` via repo-relative `../../reference/...`; no inlined reference, no `LOADING.md` reliance.
+- **2026-06-15 — Legacy rewired, not just path-patched.** `kuat-create`/`kuat-review` Step 1/2 loading now points at `reference/media-types/...` and at the new activity skills for the procedural bits (roles → `create-imagery`; checklists/review-context → the review skills). `resolve-rules.md` + `consumption-contract.md` repointed (`RULES_DIR=…/reference`, per-skill loading, `reference/README.md` index). `ensure-rules.sh` root-detects on `reference/README.md` (helper renamed `git_loading_path`→`git_rules_path`); git `RULES_DIR=…/reference`. `bundle-skills.mjs` rewrites `../../reference/` → `{RULES_DIR}/` and `manifest.rules.loadingPath=reference/README.md`. Verified: `ensure-rules.sh` prints `RULES_DIR=…/reference`; `bundle-skills.mjs` regenerates `dist/` clean with no stale refs.
+- **2026-06-15 — Tombstones + `kuat-docs/rules/` removed.** `LOADING.md` + `README.md` `git rm`'d; the empty `kuat-docs/rules/` directory removed. Consistent with the tombstones' own text ("removed in Phase 2"). `kuat-docs/setup/` and `kuat-docs/README.md` are untouched (separate dir).
+- **2026-06-15 — `technical.md` dropped (decision E).** `git rm`'d with the rest of `_to-skills/`. Recovery pointer: `_to-skills/web-product/technical.md` @ `f0338ff`. Acceptance "`_to-skills/` empty" is **fully met** (dir removed entirely), trading the plan's "leave until mono lands" for git-history recovery.
+- **2026-06-15 — Central docs updated; long install/setup docs deferred.** Updated the in-scope entry/orientation docs: `AGENTS.md` (migration note → Phase 2 done + activity-skill list), `skills/AGENTS.md` and `skills/README.md` (standards → `reference/`, added the 5 activity skills to discovery, per-skill loading), `skills/scripts/README.md` (example path), `reference/README.md` + `reference/MIGRATION-MAP.md` (Phase-2 final-home table + follow-ups). **Deferred (flagged in report):** `skills/INSTALL.md`, `skills/install/*`, `kuat-docs/setup/*`, `kuat-docs/README.md` still cite old `kuat-docs/rules/…` setup paths. These are human setup/architecture docs (not skill-runtime), and a mechanical sweep is unsafe because the old `foundations/` split into four dirs — left as a turnkey doc-sweep follow-up using `MIGRATION-MAP.md`.
+- **2026-06-15 — Minor (bundler):** bundled `dist/*/SKILL.md` now contains informational `../<activity-skill>/SKILL.md` links that don't resolve in single-file upload contexts. Cosmetic; packaging is Phase 3. Noted as a follow-up (bundler could flatten activity-skill links to plain text).
+
 ## Phase 1 — Reference Refactor
 
 **Branch:** `migration/phase-1-reference-refactor` · **Started:** 2026-06-12

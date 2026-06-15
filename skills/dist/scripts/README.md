@@ -34,7 +34,7 @@ KUAT_RULES_REF=main KUAT_RULES_UPDATE=1 ./skills/scripts/ensure-rules.sh
 
 ```
 RULES_ROOT=/path/to/kuat-agent-docs
-RULES_DIR=/path/to/kuat-agent-docs/kuat-docs/rules
+RULES_DIR=/path/to/kuat-agent-docs/reference
 RULES_REF=abc1234...
 ```
 

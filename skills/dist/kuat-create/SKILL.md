@@ -26,7 +26,7 @@ Every Equal Experts brand skill **must** resolve and verify the rules location b
 | Variable | Meaning |
 |----------|---------|
 | `RULES_ROOT` | Git repo root or npm package root (`@equal-experts/kuat-react`) |
-| `RULES_DIR` | `{RULES_ROOT}/kuat-docs/rules` (git) or `{RULES_ROOT}/agent-docs/rules` (package) |
+| `RULES_DIR` | `{RULES_ROOT}/reference` (git) or `{RULES_ROOT}/agent-docs/rules` (package) |
 | `RULES_REF` | Git SHA, or `manifest.json` `rules.snapshotRef` for packages |
 | `RULES_SOURCE` | `git` or `package` |
 | `PACKAGE_VERSION` | Installed package version when `RULES_SOURCE=package` |
@@ -39,7 +39,7 @@ Every Equal Experts brand skill **must** resolve and verify the rules location b
 
 Run [ensure-rules.sh](../scripts/ensure-rules.sh) when shell is available. Otherwise try in order:
 
-1. **`KUAT_RULES_PATH`** — git repo (`kuat-docs/rules/LOADING.md`) or package root (`agent-docs/`)
+1. **`KUAT_RULES_PATH`** — git repo (`reference/README.md`) or package root (`agent-docs/`)
 2. **`.kuat-rules-path`** — in cwd or git root
 3. **npm package** — walk up from cwd: `node_modules/@equal-experts/kuat-{react,vue,core}` with `agent-docs/rules/LOADING-consumer.md`
 4. **Sibling git paths:** `kuat-agent-docs`, `vendor/kuat-agent-docs`, `../kuat-agent-docs`
@@ -49,10 +49,12 @@ If none resolve, stop and direct the user to [skills/README.md](set KUAT_RULES_P
 
 ### Loading index by source
 
-| `RULES_SOURCE` | Load |
-|----------------|------|
-| `git` | `{RULES_DIR}/LOADING.md` (full taxonomy) |
-| `package` | `{RULES_DIR}/LOADING-consumer.md` (bundled web + foundations) |
+Loading is **per-skill** (each skill names the `reference/` slices it needs); there is no global loading taxonomy.
+
+| `RULES_SOURCE` | Start from | Then |
+|----------------|------------|------|
+| `git` | `{RULES_DIR}/README.md` (passive structure index) | Load the slices the active skill points to |
+| `package` | `{RULES_DIR}/LOADING-consumer.md` (bundled web + foundations) | Per the consumer snapshot |
 
 ---
 
@@ -82,7 +84,7 @@ See **Shared: consumption contract** (included above) and [kuat-docs/setup/consu
 
 When a scenario or artifact references a component ID (e.g. `shadcn:button`):
 
-1. Read [component-registry.md](../../kuat-docs/rules/types/web/product/component-registry.md) for slug mapping.
+1. Read [component-registry.md]({RULES_DIR}/media-types/web-product/component-registry.md) for slug mapping.
 2. Load doc from `{RULES_ROOT}/agent-docs/components/{slug}.md` or `{OVERLAY_DIR}/components/{slug}.md`.
 
 Do not load the full component catalog unless multiple primitives are in scope.
@@ -93,7 +95,7 @@ Do not load the full component catalog unless multiple primitives are in scope.
 
 - [consumption-contract.md](./consumption-contract.md)
 - [../scripts/README.md](skills/scripts/README.md in rules repo)
-- [../../kuat-docs/rules/LOADING.md]({RULES_DIR}/LOADING.md)
+- [reference library]({RULES_DIR}/README.md)
 - [../../kuat-docs/setup/consumption-architecture.md](../../kuat-docs/setup/consumption-architecture.md)
 
 <!-- end include: skills/shared/resolve-rules.md -->
@@ -121,8 +123,8 @@ When skills are used from a consumer implementation repository (for example `kua
 ## Load order
 
 1. Resolve rules (`RULES_DIR`) — see [resolve-rules.md](above: Shared — Resolve rules); run [ensure-rules.sh](../scripts/ensure-rules.sh)
-2. Load matching index: `LOADING.md` (git) or `LOADING-consumer.md` (package)
-3. Load foundations → role → type rules per task
+2. Start from the index: `reference/README.md` (git) or `LOADING-consumer.md` (package); loading is per-skill
+3. Load the `reference/` slices the active skill points to (foundations → medium → pattern)
 4. Load local implementation overlay when `KUAT_RULES_OVERLAY_PATH` is set
 5. Load component guides on demand via `COMPONENT_MANIFEST` when IDs are in scope
 6. Run the skill procedure (review or create)
@@ -148,12 +150,12 @@ Bundled package rules are canonical for **design intent at that package version*
 
 ## Platform isolation
 
-Load only the task type's rules from `types/` plus `foundations/`. Do not mix slides rules with web product rules in one session.
+Load only the active medium's rules from `reference/media-types/<medium>/` plus the shared foundations (`brand/`, `design-language/`, `content/`, `accessibility/`). Do not mix slides rules with web-product rules in one session.
 
 ## Related
 
 - [../../AGENTS.md]({RULES_ROOT}/AGENTS.md)
-- [../../kuat-docs/rules/LOADING.md]({RULES_DIR}/LOADING.md)
+- [reference library]({RULES_DIR}/README.md)
 - [../../kuat-docs/setup/consumption-architecture.md](../../kuat-docs/setup/consumption-architecture.md)
 - [../../kuat-docs/setup/ownership-matrix.md](../../kuat-docs/setup/ownership-matrix.md)
 
@@ -163,24 +165,24 @@ Load only the task type's rules from `types/` plus `foundations/`. Do not mix sl
 
 ## Step 1 — Load rules index
 
-Read `{RULES_DIR}/LOADING.md` when `RULES_SOURCE=git`, or `{RULES_DIR}/LOADING-consumer.md` when `RULES_SOURCE=package`. Confirm **task type** and load:
+Loading is **per-skill** now — prefer the matching **activity skill** for the task (see Related). If loading reference directly: start from `{RULES_DIR}/README.md` (git: `reference/`; package snapshot: `{RULES_DIR}/LOADING-consumer.md`), confirm **task type**, and load:
 
-1. Foundations (per LOADING row)
-2. Create role card if any (e.g. `{RULES_DIR}/roles/technical-illustrator.md` for infographics)
-3. Type-specific rules and optional scenarios
-4. Component guides from package/overlay when building UI primitives (prefer over deprecated [examples](../../kuat-docs/rules/types/web/product/examples/))
-5. `{RULES_DIR}/types/web/product/examples/` **only** for token/layout syntax when overlay docs are unavailable
+1. Foundations — `{RULES_DIR}/brand/`, `{RULES_DIR}/design-language/`, `{RULES_DIR}/content/`, `{RULES_DIR}/accessibility/` (only the slices the task needs)
+2. The medium's rules — `{RULES_DIR}/media-types/<medium>/` (+ its `patterns/` when the scenario is known)
+3. For infographics/icons, adopt the role framing carried by [create-imagery](../create-imagery/SKILL.md)
+4. Component guides from package/overlay when building UI primitives (prefer over the illustrative `{RULES_DIR}/media-types/web-product/examples/`)
+5. `{RULES_DIR}/media-types/web-product/examples/` **only** for token/layout syntax when overlay docs are unavailable
 
 ## Step 2 — Pre-flight
 
-Run type-specific **Before you create** guidance:
+Run type-specific **Before you create** guidance (now carried by the activity skills):
 
 | Task type | Guidance |
 |-----------|----------|
-| **slides** | `{RULES_DIR}/types/slides/README.md` |
-| **web_product** | `{RULES_DIR}/types/web/product/design.md` |
-| **icons / infographics** | Role card + `{RULES_DIR}/types/graphics/` |
-| **web_marketing** | `{RULES_DIR}/types/web/marketing/` + scenario when known |
+| **slides** | [create-presentation](../create-presentation/SKILL.md); rules in `{RULES_DIR}/media-types/slides/` |
+| **web_product** | [create-web-app](../create-web-app/SKILL.md); rules in `{RULES_DIR}/media-types/web-product/design.md` |
+| **icons / infographics** | [create-imagery](../create-imagery/SKILL.md); rules in `{RULES_DIR}/media-types/imagery/patterns/graphics/` |
+| **web_marketing** | `{RULES_DIR}/media-types/web-marketing/` + pattern when known |
 
 If deliverable format is ambiguous, ask once: Figma, code, copy doc, deck file, etc.
 
@@ -193,7 +195,7 @@ If deliverable format is ambiguous, ask once: Figma, code, copy doc, deck file, 
 
 ## Step 4 — Deliver
 
-Run the type checklist before handoff (e.g. `{RULES_DIR}/types/slides/checklist.md`).
+Run the activity skill's delivery checklist before handoff (e.g. the slides checklist in [create-presentation](../create-presentation/SKILL.md)).
 
 ## Related skills
 
@@ -201,4 +203,4 @@ Run the type checklist before handoff (e.g. `{RULES_DIR}/types/slides/checklist.
 - Rules standards: `{RULES_DIR}` — [kuat-agent-docs](https://github.com/equalexperts/kuat-agent-docs)
 - Bundle manifest: compare `RULES_REF` to `dist/manifest.json` → `rules.builtAtRef`
 
-<!-- kuat-skill-bundle: kuat-create v1.0.0 rules-ref:f991487dc397 built:2026-05-21 -->
+<!-- kuat-skill-bundle: kuat-create v1.0.0 rules-ref:94e618d682c4 built:2026-06-15 -->

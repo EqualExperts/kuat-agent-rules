@@ -13,6 +13,6 @@ node skills/scripts/bundle-skills.mjs
 | [manifest.json](./manifest.json) | Version and rules ref for installers |
 | [scripts/ensure-rules.sh](./scripts/ensure-rules.sh) | Keep rules fresh (filesystem tools) |
 
-Rules standards remain in `kuat-docs/rules/` — not embedded in bundles.
+Rules standards remain in the `reference/` library — not embedded in bundles.
 
-Built against rules ref: `f991487dc397501af683f5a3e28997c51bc96148`
+Built against rules ref: `94e618d682c4f663f0fd45b4d72121306a05bf4e`

@@ -25,13 +25,13 @@ Do not use memorized token values — read rules from `RULES_DIR`.
 
 ## Step 1 — Load rules index
 
-Read `{RULES_DIR}/LOADING.md` when `RULES_SOURCE=git`, or `{RULES_DIR}/LOADING-consumer.md` when `RULES_SOURCE=package`. Load repo or package `AGENTS.md`. Load foundations, `{RULES_DIR}/roles/brand-reviewer.md` (role summary), and type-specific files per task type and Review load notes.
+Loading is **per-skill** now — prefer the matching **activity skill** ([review-web-app](../review-web-app/SKILL.md), [review-presentation](../review-presentation/SKILL.md), or [create-imagery](../create-imagery/SKILL.md) for imagery checks). If loading reference directly: start from `{RULES_DIR}/README.md` (git: `reference/`; package: `{RULES_DIR}/LOADING-consumer.md`), load repo or package `AGENTS.md`, the relevant foundations (`{RULES_DIR}/brand/`, `design-language/`, `content/`, `accessibility/`), and the medium's files under `{RULES_DIR}/media-types/<medium>/`. (The Brand-Reviewer framing is in this skill's header above.)
 
 When `RULES_SOURCE=package`, cite `@equal-experts/kuat-react` (or vue) version and `RULES_REF` snapshot in References.
 
 Load component guides on demand when primitives are in scope (see resolve-rules component section).
 
-**Do not load** `{RULES_DIR}/types/web/product/examples/` for review-only tasks.
+**Do not load** `{RULES_DIR}/media-types/web-product/examples/` for review-only tasks.
 
 ## Step 2 — Ask before reviewing (required)
 
@@ -56,14 +56,14 @@ Ask the user to choose (do not assume `brand_compliance` for "review this featur
 | 3 | Artifacts (files, URLs, Figma, screenshots) |
 | 4 | Scenario (if known) |
 | 5 | Audience / constraints |
-| 6 | Output format — see **Reference: Report formats** below |
+| 6 | Output format — see the **Report formats** section below |
 
 ### Type-specific context
 
 | Task type | Load and ask per |
 |-----------|------------------|
-| **web_product** | `{RULES_DIR}/types/web/product/review-context.md` — **required** at `product_ux` or `full` (user story, research, constraints) |
-| **slides** | `{RULES_DIR}/types/slides/README.md` — "Before you review" (scenario, audience, delivery mode) |
+| **web_product** | Review context (user story, research, constraints) — **required** at `product_ux` or `full`; carried by [review-web-app](../review-web-app/SKILL.md) |
+| **slides** | "Before you review" (scenario, audience, delivery mode) — carried by [review-presentation](../review-presentation/SKILL.md) |
 
 Never invent user stories or research conclusions.
 
@@ -71,21 +71,21 @@ If context is missing at `product_ux`/`full`, ask first; if the user proceeds, m
 
 ## Step 3 — Review
 
-Apply type checklists when present:
+Apply the medium checklist, now carried by the activity skills:
 
-- Slides: `{RULES_DIR}/types/slides/checklist.md`
-- Web product: `{RULES_DIR}/types/web/product/review-checklist.md`
-- Photography: `{RULES_DIR}/types/photography/quality-validation.md`
+- Slides: checklist in [review-presentation](../review-presentation/SKILL.md)
+- Web product: checklist in [review-web-app](../review-web-app/SKILL.md) (+ shared [review-common](../_shared/review-common.md))
+- Photography / imagery: quality check in [create-imagery](../create-imagery/SKILL.md)
 
-Cite `{RULES_DIR}/...` path and section for every violation. Flag rule vs user-request conflicts in output.
+Cite the `{RULES_DIR}/...` path and section for every violation. Flag rule vs user-request conflicts in output.
 
 ## Step 4 — Deliver
 
-Use the agreed output format. For `full_report`, follow **Reference: Report formats** below. Include `RULES_REF` in References.
+Use the agreed output format. For `full_report`, follow the **Report formats** section below. Include `RULES_REF` in References.
 
 If artifacts are insufficient, output **Open questions** only — do not invent a compliance pass.
 
-{{include:skills/kuat-review/references/report-formats.md}}
+{{include:skills/_shared/report-formats.md}}
 
 ## Do not
 
@@ -95,5 +95,6 @@ If artifacts are insufficient, output **Open questions** only — do not invent 
 
 ## Related
 
+- Activity skills (preferred): [review-web-app](../review-web-app/SKILL.md), [review-presentation](../review-presentation/SKILL.md)
 - Companion skill: `kuat-create` (source: `skills/kuat-create/`)
 - Install and bundle: `skills/README.md`

@@ -6,7 +6,7 @@ Claude Projects use uploaded knowledge files rather than filesystem skills. Use 
 
 Add **kuat-agent-docs** rules to project knowledge (not embedded in skill bundles):
 
-- Minimum: `kuat-docs/rules/LOADING.md` plus foundations/types for your work
+- Minimum: `reference/README.md` plus the relevant foundations and media-type files for your work
 - Better: periodic re-upload when `dist/manifest.json` → `rules.builtAtRef` changes
 
 Run locally and paste into project instructions when you update rules:
@@ -35,7 +35,7 @@ Optional: upload `skills/dist/manifest.json` so the project knows which rules re
 For Equal Experts brand review → follow the uploaded kuat-review skill (dist bundle).
 For create work → follow the uploaded kuat-create skill (dist bundle).
 
-Rules standards live in uploaded kuat-docs/rules (LOADING.md first).
+Rules standards live in the uploaded reference/ library (README.md first; loading is per-skill).
 Confirm RULES_REF matches manifest rules.builtAtRef when provided.
 
 Do not invent user stories or research on web reviews at product_ux/full depth.

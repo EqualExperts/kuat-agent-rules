@@ -1,19 +1,19 @@
 {
   "version": "1.0.0",
-  "builtAt": "2026-05-21T10:59:11.972Z",
+  "builtAt": "2026-06-15T10:01:16.882Z",
   "rules": {
     "repo": "equalexperts/kuat-agent-docs",
-    "loadingPath": "kuat-docs/rules/LOADING.md",
-    "builtAtRef": "f991487dc397501af683f5a3e28997c51bc96148"
+    "loadingPath": "reference/README.md",
+    "builtAtRef": "94e618d682c4f663f0fd45b4d72121306a05bf4e"
   },
   "skills": {
     "kuat-review": {
       "file": "kuat-review/SKILL.md",
-      "sha256": "377e1bac84676c163712d302ecd6f5c2e3920e646d4437b5b67284b6dc5d04a3"
+      "sha256": "995522923185ebddfb60aa63825be178b514822fdc719723b09a4b5654b13dc6"
     },
     "kuat-create": {
       "file": "kuat-create/SKILL.md",
-      "sha256": "8c224036d9a5218dc301e623f1040767a351c76b8c3fbbd3f49f43d8ffccdfea"
+      "sha256": "93ef62ae1341f237dedffa14cacfcb44f45fb0feec7d028c8d453317df11dc39"
     }
   },
   "ensureRulesScript": "scripts/ensure-rules.sh",

@@ -57,10 +57,8 @@ function rewriteBundledMarkdown(body, skillId) {
   let out = body;
 
   // Repo-relative doc links → runtime placeholders
-  out = out.replace(
-    /\]\(\.\.\/\.\.\/kuat-docs\/rules\/LOADING\.md\)/g,
-    "]({RULES_DIR}/LOADING.md)"
-  );
+  // Phase 2: reference library links resolve against {RULES_DIR} at runtime.
+  out = out.replace(/\]\(\.\.\/\.\.\/reference\//g, "]({RULES_DIR}/");
   out = out.replace(
     /\]\(\.\.\/\.\.\/AGENTS\.md\)/g,
     "]({RULES_ROOT}/AGENTS.md)"
@@ -78,19 +76,8 @@ function rewriteBundledMarkdown(body, skillId) {
     "](skills/scripts/README.md in rules repo)"
   );
 
-  // Source-only cross-skill links
-  out = out.replace(
-    /\[references\/report-formats\.md\]\(\.\/references\/report-formats\.md\)/g,
-    "Report formats (included below)"
-  );
-  out = out.replace(
-    /follow \[references\/report-formats\.md\]\(\.\/references\/report-formats\.md\)/gi,
-    "follow **Reference: Report formats** below"
-  );
-  out = out.replace(
-    /see \[references\/report-formats\.md\]\(\.\/references\/report-formats\.md\)/gi,
-    "see **Reference: Report formats** below"
-  );
+  // report-formats now ships as a shared include (skills/_shared/report-formats.md),
+  // expanded inline below; the skill body references it as a plain section.
   const relatedMarker = "\n## Related\n";
   const relatedIdx = out.lastIndexOf(relatedMarker);
   if (relatedIdx !== -1) {
@@ -208,7 +195,7 @@ function main() {
     builtAt: new Date().toISOString(),
     rules: {
       repo: "equalexperts/kuat-agent-docs",
-      loadingPath: "kuat-docs/rules/LOADING.md",
+      loadingPath: "reference/README.md",
       builtAtRef: rulesRef,
     },
     skills: Object.fromEntries(
@@ -241,7 +228,7 @@ node skills/scripts/bundle-skills.mjs
 | [manifest.json](./manifest.json) | Version and rules ref for installers |
 | [scripts/ensure-rules.sh](./scripts/ensure-rules.sh) | Keep rules fresh (filesystem tools) |
 
-Rules standards remain in \`kuat-docs/rules/\` — not embedded in bundles.
+Rules standards remain in the \`reference/\` library — not embedded in bundles.
 
 Built against rules ref: \`${rulesRef}\`
 `

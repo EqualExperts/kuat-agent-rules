@@ -10,7 +10,7 @@ Two things work together:
 
 | Piece | What it is | Where it lives |
 |-------|------------|----------------|
-| **Rules** | Brand and design **standards** (colours, slides layouts, web product patterns, checklists) | `kuat-docs/rules/` in [kuat-agent-docs](https://github.com/equalexperts/kuat-agent-docs) |
+| **Rules** | Brand and design **standards** (colours, slides layouts, web product patterns) | the `reference/` library in [kuat-agent-docs](https://github.com/equalexperts/kuat-agent-docs) |
 | **Skills** | **How the agent runs a session** (ask for context first, review depth, report format, which rules to load) | `skills/kuat-review`, `skills/kuat-create` |
 
 The skills do **not** replace the rules. They tell the agent to load rules fresh and follow a consistent review or create workflow.
@@ -64,7 +64,7 @@ You → AI tool (skill) → loads rules → produces review report or new conten
 
 | Context | Rules entry | Skills |
 |---------|-------------|--------|
-| **Org / all platforms** | Clone `kuat-agent-docs` → `kuat-docs/rules/LOADING.md` | Symlink `skills/` from clone |
+| **Org / all platforms** | Clone `kuat-agent-docs` → `reference/` | Symlink `skills/` from clone |
 | **Library (`kuat-mono`)** | `.kuat-rules-path` → agent-docs clone; `KUAT_RULES_OVERLAY_PATH` → mono `kuat-docs/` | Symlink skills from agent-docs clone |
 | **App (npm only)** | `node_modules/@equal-experts/kuat-react/agent-docs/AGENTS.md` after install | Symlink skills; `ensure-rules.sh` → `RULES_SOURCE=package` |
 
@@ -84,7 +84,7 @@ From the repo root (or any machine where skills will run):
 
 ```text
 RULES_ROOT=/path/to/kuat-agent-docs
-RULES_DIR=/path/to/kuat-agent-docs/kuat-docs/rules
+RULES_DIR=/path/to/kuat-agent-docs/reference
 RULES_REF=abc1234...
 ```
 
@@ -158,8 +158,8 @@ Claude Projects cannot read `../shared/` from a folder tree. Use **bundled** ski
    |------|----------|
    | `skills/dist/kuat-review/SKILL.md` | For review work |
    | `skills/dist/kuat-create/SKILL.md` | For create work |
-   | `kuat-docs/rules/LOADING.md` | Yes — rules index |
-   | Relevant `kuat-docs/rules/...` files | At least foundations + your task type (e.g. `types/slides/`) |
+   | `reference/README.md` | Yes — reference index |
+   | Relevant `reference/...` files | At least foundations + your task type (e.g. `media-types/slides/`) |
    | `skills/dist/manifest.json` | Optional — records which rules version the bundle was built against |
 
 3. Add **Project instructions**:
@@ -167,7 +167,7 @@ Claude Projects cannot read `../shared/` from a folder tree. Use **bundled** ski
    ```text
    For brand review, follow the uploaded kuat-review skill document.
    For create work, follow the uploaded kuat-create skill document.
-   Load rules from uploaded kuat-docs/rules starting with LOADING.md.
+   Load rules from the uploaded reference/ library starting with README.md (loading is per-skill).
    On web feature reviews, ask for user story and research before UX findings.
    ```
 
@@ -215,8 +215,8 @@ Applies to **Claude Projects**, **Figma Make**, and any tool that accepts a sing
 
 1. Run `npm run bundle:skills` in the repo.
 2. Upload **`skills/dist/kuat-review/SKILL.md`** and/or **`skills/dist/kuat-create/SKILL.md`** — each file is self-contained (shared content is inlined).
-3. Provide rules separately (upload `kuat-docs/rules/` subset, project knowledge, Make **Guidelines**, or connectors).
-4. Tell the tool: *“Follow the kuat-review skill; rules are in LOADING.md.”* In Figma Make, use `/kuat-review` or `/kuat-create` slash commands.
+3. Provide rules separately (upload a `reference/` subset, project knowledge, Make **Guidelines**, or connectors).
+4. Tell the tool: *“Follow the kuat-review skill; rules are in the reference/ library (start at README.md).”* In Figma Make, use `/kuat-review` or `/kuat-create` slash commands.
 
 ---
 
@@ -232,7 +232,7 @@ Use a **new chat** after installing. Old chats may not load new skills.
 Run the kuat ensure-rules script or tell me RULES_DIR and RULES_REF for this repo.
 ```
 
-**Pass if:** The agent reports a valid `RULES_DIR` ending in `kuat-docs/rules` and a git SHA (or explains how to set `KUAT_RULES_PATH`).
+**Pass if:** The agent reports a valid `RULES_DIR` ending in `reference` and a git SHA (or explains how to set `KUAT_RULES_PATH`).
 
 ---
 
@@ -348,12 +348,12 @@ Override bundled rules: `KUAT_RULES_PATH=/path/to/kuat-agent-docs` for latest up
 | Problem | Likely cause | Fix |
 |---------|--------------|-----|
 | Agent ignores intake | Skill not loaded; old chat | New chat; confirm symlink or upload; mention `kuat-review` in prompt |
-| “Cannot find LOADING.md” | Rules path not set | `KUAT_RULES_PATH` or `.kuat-rules-path`; run `ensure-rules.sh` |
+| “Cannot resolve reference/ library” | Rules path not set | `KUAT_RULES_PATH` or `.kuat-rules-path`; run `ensure-rules.sh` |
 | Broken shared links in Claude / Make | Uploaded source skill, not `dist/` | Upload `skills/dist/kuat-review/SKILL.md` instead |
-| Make ignores brand rules | Only skill uploaded, no Guidelines | Add `kuat-docs/rules` excerpts to Make Guidelines or use connectors |
+| Make ignores brand rules | Only skill uploaded, no Guidelines | Add `reference/` excerpts to Make Guidelines or use connectors |
 | `/kuat-review` not found | Skill not imported or wrong name | Re-import `dist/kuat-review/SKILL.md`; check skill name in Manage skills |
-| Stale brand guidance | Agent using memory | Ask it to read `{RULES_DIR}/foundations/design/colours.md`; cite `RULES_REF` |
-| Two different review styles | Mixed old workflow docs | Use skills only; ignore deprecated `kuat-docs/rules/workflows/` stub |
+| Stale brand guidance | Agent using memory | Ask it to read `{RULES_DIR}/design-language/colours.md`; cite `RULES_REF` |
+| Two different review styles | Mixed old workflow docs | Use skills only; ignore any old workflow docs |
 | `bundle:skills` fails | Wrong directory | Run from repo root; need Node for `npm run` |
 
 ---
@@ -366,7 +366,7 @@ Override bundled rules: `KUAT_RULES_PATH=/path/to/kuat-agent-docs` for latest up
 | [AGENTS.md](./AGENTS.md) | Short pointer for agents |
 | [install/](./install/) | Per-tool detail |
 | [kuat-docs/setup/integration.md](../kuat-docs/setup/integration.md) | Snippet for `.cursorrules` / `CLAUDE.md` |
-| [kuat-docs/rules/LOADING.md](../kuat-docs/rules/LOADING.md) | Which rule files apply per task |
+| [reference library](../reference/README.md) | Compliance standards (the WHAT) |
 
 ---
 

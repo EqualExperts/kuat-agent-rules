@@ -6,9 +6,11 @@ This repository contains brand guidelines and design system rules for **creating
 
 **Standards live in the passive reference library at [reference/](./reference/README.md)** — brand, design language, content, accessibility, and per-medium reference (slides, web-product, web-marketing, imagery, charts-data). Reference states the **WHAT**; it contains no loading taxonomy and no verbs. Every old `kuat-docs/rules/...` path maps to its new home in [reference/MIGRATION-MAP.md](./reference/MIGRATION-MAP.md).
 
-> **Migration note (Phase 1 done):** The global `LOADING.md` task→files taxonomy is retired; loading is becoming **per-skill** in Phase 2. Procedure extracted from the old tree (role cards, checklists, "before you create/review") is staged in the repo-root `_to-skills/` holding area. Legacy skills [kuat-review](./skills/kuat-review/SKILL.md) / [kuat-create](./skills/kuat-create/SKILL.md) keep working until Phase 5 (they are rewired to `reference/` in Phase 2).
+> **Migration note (Phase 2 done):** The global `LOADING.md` task→files taxonomy is retired and loading is now **per-skill** — each skill names the `reference/` slices it needs. Procedure from the old tree (role cards, checklists, "before you create/review") now lives in the **activity skills**; the `_to-skills/` holding area and the `kuat-docs/rules/` redirect tombstones have been removed. Legacy [kuat-review](./skills/kuat-review/SKILL.md) / [kuat-create](./skills/kuat-create/SKILL.md) are rewired onto `reference/` and keep working until Phase 5.
 
-**Intent (review | create):** Determine intent first; use skill [kuat-review](./skills/kuat-review/SKILL.md) or [kuat-create](./skills/kuat-create/SKILL.md); resolve rules per [skills/shared/resolve-rules.md](./skills/shared/resolve-rules.md).
+**Activity skills (preferred):** pick by job — [create-web-app](./skills/create-web-app/SKILL.md) / [review-web-app](./skills/review-web-app/SKILL.md), [create-imagery](./skills/create-imagery/SKILL.md), [create-presentation](./skills/create-presentation/SKILL.md) / [review-presentation](./skills/review-presentation/SKILL.md). Each carries its own intake + loads the `reference/` slices it needs.
+
+**Intent (legacy review | create):** Determine intent first; use skill [kuat-review](./skills/kuat-review/SKILL.md) or [kuat-create](./skills/kuat-create/SKILL.md); resolve rules per [skills/shared/resolve-rules.md](./skills/shared/resolve-rules.md).
 
 **Three layers:** `skills/` — session procedure; `reference/` — compliance standards (the WHAT); consumer repo or npm package — implementation overlay / component docs.
 

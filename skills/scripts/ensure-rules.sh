@@ -11,9 +11,10 @@ DEFAULT_RULES_ROOT="$(cd "${SKILLS_DIR}/.." && pwd)"
 RULES_SOURCE="git"
 PACKAGE_VERSION=""
 
-git_loading_path() {
+git_rules_path() {
   local root="$1"
-  [[ -f "${root}/kuat-docs/rules/LOADING.md" ]]
+  # Phase 2: the passive reference library is the git rules root marker.
+  [[ -f "${root}/reference/README.md" ]]
 }
 
 package_agent_docs_path() {
@@ -29,14 +30,14 @@ canonical_path() {
 resolve_git_rules_root() {
   local candidate="" line="" git_root=""
 
-  if git_loading_path "${DEFAULT_RULES_ROOT}"; then
+  if git_rules_path "${DEFAULT_RULES_ROOT}"; then
     canonical_path "${DEFAULT_RULES_ROOT}"
     return 0
   fi
 
   if [[ -n "${KUAT_RULES_PATH:-}" ]]; then
     candidate="${KUAT_RULES_PATH}"
-    if git_loading_path "${candidate}"; then
+    if git_rules_path "${candidate}"; then
       canonical_path "${candidate}"
       return 0
     fi
@@ -45,7 +46,7 @@ resolve_git_rules_root() {
       RULES_SOURCE="package"
       return 0
     fi
-    echo "ensure-rules: KUAT_RULES_PATH set but no LOADING.md or package agent-docs found: ${candidate}" >&2
+    echo "ensure-rules: KUAT_RULES_PATH set but no reference/ library or package agent-docs found: ${candidate}" >&2
     return 1
   fi
 
@@ -59,7 +60,7 @@ resolve_git_rules_root() {
         else
           candidate="${line}"
         fi
-        if git_loading_path "${candidate}"; then
+        if git_rules_path "${candidate}"; then
           canonical_path "${candidate}"
           return 0
         fi
@@ -77,14 +78,14 @@ resolve_git_rules_root() {
     for base in "${PWD}" "${git_root}"; do
       [[ -n "${base}" && -d "${base}" ]] || continue
       candidate="${base}/${rel}"
-      if git_loading_path "${candidate}"; then
+      if git_rules_path "${candidate}"; then
         canonical_path "${candidate}"
         return 0
       fi
     done
   done
 
-  if git_loading_path "${SKILLS_DIR}/.."; then
+  if git_rules_path "${SKILLS_DIR}/.."; then
     canonical_path "$(cd "${SKILLS_DIR}/.." && pwd)"
     return 0
   fi
@@ -123,7 +124,7 @@ fi
 if [[ "${RULES_SOURCE}" == "package" ]]; then
   RULES_DIR="${RULES_ROOT}/agent-docs/rules"
 else
-  RULES_DIR="${RULES_ROOT}/kuat-docs/rules"
+  RULES_DIR="${RULES_ROOT}/reference"
 fi
 
 if [[ "${RULES_SOURCE}" == "package" ]]; then
