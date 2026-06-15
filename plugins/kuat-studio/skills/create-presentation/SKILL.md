@@ -13,7 +13,7 @@ Run the grouped intake ([skills/_shared/intake.md](${CLAUDE_PLUGIN_ROOT}/skills/
 
 1. **Scenario?** Sales & marketing, knowledge sharing, case study, or reporting — each has different density, formality, and slide budget.
 2. **Audience?** External (client/prospect/conference → masterbrand-strict) vs internal (network/CoP → masterbrand-lite tone, same visual rules).
-3. **Delivery mode?** Presented live (sparse, large type, presenter carries the narrative) vs read-ahead (denser, each slide self-contained). Ask if unclear — the same content needs different slides for each.
+3. **Delivery mode?** How will it mostly be consumed — *presented live* (sparse; presenter carries the narrative) or *read without a presenter* (read-ahead, left-behind, or forwarded; each slide self-contained)? **Default to "read without a presenter"** — most EE decks are left behind or forwarded — and aim for *self-contained but lean* density: stands alone if forwarded, but not a wall of text (see [reference/media-types/slides/content.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/slides/content.md) → Density by delivery mode). Go sparser only when it's genuinely presented-live and won't be forwarded. Ask if unclear.
 4. **Layout per slide?** Pick from the catalogue; don't invent layouts.
 
 ## Step 2 — Load the standards you need

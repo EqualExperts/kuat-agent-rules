@@ -14,7 +14,7 @@ Run the grouped intake and choose a **review depth** ([skills/_shared/intake.md]
 - **Artifacts** — deck file, PDF export, screenshots, or Figma link; which slides are in scope.
 - **Scenario** — sales & marketing, knowledge sharing, case study, or reporting.
 - **Audience** — external (masterbrand-strict) vs internal (masterbrand-lite).
-- **Delivery mode** — live-presented (sparse) vs read-ahead (denser); needed to judge density fairly.
+- **Delivery mode** — presented live (sparse) vs read without a presenter (read-ahead/left-behind/forwarded; self-contained but lean). **Default to the latter for EE decks**; needed to judge density fairly.
 
 `brand_compliance` covers visual/brand only; `product_ux`/`full` also covers narrative, density, and voice fit.
 
@@ -43,6 +43,7 @@ Run every item you can verify from the supplied artifacts; cite the `reference/.
 | Co-brand | Client logo not equal weight to EE on the cover (endorsement pattern) |
 | Charts | One chart per slide; title states the conclusion |
 | Case studies | Named client; claims defensible; approval noted if external |
+| Density vs mode | Matches the delivery mode: self-contained but lean for read/left-behind/forwarded (stands alone, not a wall of text); sparse only if genuinely presented-live |
 | Voice | Active voice; no hedge chains; jargon reduced |
 
 ## Step 4 — Deliver
