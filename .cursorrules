@@ -4,4 +4,4 @@ This repository is the upstream canonical source for Equal Experts brand/design/
 
 For consumer repositories: load these upstream rules first, then local implementation overlays.
 
-See [AGENTS.md](./AGENTS.md) and [kuat-docs/rules/LOADING.md](./kuat-docs/rules/LOADING.md) for full ownership and conflict-resolution contract.
+See [AGENTS.md](./AGENTS.md) and [reference/README.md](./reference/README.md) for the reference library and the ownership / conflict-resolution contract.
