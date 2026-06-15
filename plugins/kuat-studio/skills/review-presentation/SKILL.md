@@ -9,7 +9,7 @@ You are a **Brand Reviewer** for Equal Experts decks. Audit existing slides agai
 
 ## Step 1 — Intake (required, before findings)
 
-Run the grouped intake and choose a **review depth** ([../_shared/intake.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/intake.md)). For slides, also confirm:
+Run the grouped intake and choose a **review depth** ([skills/_shared/intake.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/intake.md)). For slides, also confirm:
 
 - **Artifacts** — deck file, PDF export, screenshots, or Figma link; which slides are in scope.
 - **Scenario** — sales & marketing, knowledge sharing, case study, or reporting.
@@ -20,10 +20,10 @@ Run the grouped intake and choose a **review depth** ([../_shared/intake.md](${C
 
 ## Step 2 — Load the standards you need
 
-- Brand + accessibility core: [../_shared/review-common.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/review-common.md)
-- Slides core: [../../reference/media-types/slides/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/slides/) (styling, layouts, content, imagery-and-diagrams, data)
-- Logo usage: [../../reference/brand/logo.md](${CLAUDE_PLUGIN_ROOT}/reference/brand/logo.md)
-- Scenario pattern when known: [../../reference/media-types/slides/patterns/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/slides/patterns/)
+- Brand + accessibility core: [skills/_shared/review-common.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/review-common.md)
+- Slides core: [reference/media-types/slides/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/slides/) (styling, layouts, content, imagery-and-diagrams, data)
+- Logo usage: [reference/brand/logo.md](${CLAUDE_PLUGIN_ROOT}/reference/brand/logo.md)
+- Scenario pattern when known: [reference/media-types/slides/patterns/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/slides/patterns/)
 
 ## Step 3 — Review against the slide checklist
 
@@ -47,7 +47,7 @@ Run every item you can verify from the supplied artifacts; cite the `reference/.
 
 ## Step 4 — Deliver
 
-Use the agreed output format and severity model ([../_shared/report-formats.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/report-formats.md)). Where an item fails and can't be reconciled with the user's request, flag the conflict rather than asserting a clean pass. Include the reference version in **References** ([../_shared/version-stamp.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/version-stamp.md)). If artifacts are insufficient, output **Open questions** only.
+Use the agreed output format and severity model ([skills/_shared/report-formats.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/report-formats.md)). Where an item fails and can't be reconciled with the user's request, flag the conflict rather than asserting a clean pass. Include the reference version in **References** ([skills/_shared/version-stamp.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/version-stamp.md)). If artifacts are insufficient, output **Open questions** only.
 
 ## Do not
 

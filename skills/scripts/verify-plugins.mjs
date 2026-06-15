@@ -119,10 +119,16 @@ function verifyPlugin(name) {
   for (const s of skillNames) {
     const payload = fs.readFileSync(path.join(skillsDir, s, "SKILL.md"), "utf8");
     const source = fs.readFileSync(path.join(SKILLS_DIR, s, "SKILL.md"), "utf8");
+    const skillAlt = skillNames.join("|");
     const norm = (x) => x
+      // reverse target rewrites
       .replace(/\$\{CLAUDE_PLUGIN_ROOT\}\/reference\//g, "../../reference/")
       .replace(/\$\{CLAUDE_PLUGIN_ROOT\}\/skills\/_shared\//g, "../_shared/")
-      .replace(/\$\{CLAUDE_PLUGIN_ROOT\}\/skills\//g, "../");
+      .replace(/\$\{CLAUDE_PLUGIN_ROOT\}\/skills\//g, "../")
+      // reverse label de-path rewrites
+      .replace(/\[reference\//g, "[../../reference/")
+      .replace(/\[skills\/_shared\//g, "[../_shared/")
+      .replace(new RegExp(`\\[skills\\/(${skillAlt})\\/`, "g"), "[../$1/");
     if (norm(payload) !== source) { fail(`${s}/SKILL.md drifts from source beyond link rewrite`); drift++; }
   }
   if (!drift) ok(`${skillNames.length} skills identical to source modulo link rewrite`);

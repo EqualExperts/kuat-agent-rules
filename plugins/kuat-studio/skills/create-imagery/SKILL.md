@@ -9,7 +9,7 @@ Produce on-brand Equal Experts visual assets, then run the light quality check b
 
 ## Step 1 — Intake
 
-Run the grouped intake ([../_shared/intake.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/intake.md)) and confirm:
+Run the grouped intake ([skills/_shared/intake.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/intake.md)) and confirm:
 
 - **Which job** — icon / infographic / illustration / photography selection.
 - **Deliverable** — format, size, vector vs raster, quantity (single vs set).
@@ -31,13 +31,13 @@ If a required reference or spec is missing, **ask and stop** before generating.
 
 ## Step 3 — Load the standards you need
 
-- Brand identity & logo: [../../reference/brand/](${CLAUDE_PLUGIN_ROOT}/reference/brand/) (brand, logo)
-- Colour / typography / spacing: [../../reference/design-language/](${CLAUDE_PLUGIN_ROOT}/reference/design-language/)
-- Accessibility (contrast, alt text): [../../reference/accessibility/accessibility.md](${CLAUDE_PLUGIN_ROOT}/reference/accessibility/accessibility.md)
-- **Icons:** [../../reference/media-types/imagery/patterns/graphics/icons.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/imagery/patterns/graphics/icons.md)
-- **Infographics:** [../../reference/media-types/imagery/patterns/graphics/infographics.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/imagery/patterns/graphics/infographics.md)
-- **Illustrations:** [../../reference/media-types/imagery/patterns/graphics/illustrations.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/imagery/patterns/graphics/illustrations.md)
-- **Photography:** [../../reference/media-types/imagery/patterns/photography/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/imagery/patterns/photography/) (principles, diversity-inclusion, style-and-sources)
+- Brand identity & logo: [reference/brand/](${CLAUDE_PLUGIN_ROOT}/reference/brand/) (brand, logo)
+- Colour / typography / spacing: [reference/design-language/](${CLAUDE_PLUGIN_ROOT}/reference/design-language/)
+- Accessibility (contrast, alt text): [reference/accessibility/accessibility.md](${CLAUDE_PLUGIN_ROOT}/reference/accessibility/accessibility.md)
+- **Icons:** [reference/media-types/imagery/patterns/graphics/icons.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/imagery/patterns/graphics/icons.md)
+- **Infographics:** [reference/media-types/imagery/patterns/graphics/infographics.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/imagery/patterns/graphics/infographics.md)
+- **Illustrations:** [reference/media-types/imagery/patterns/graphics/illustrations.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/imagery/patterns/graphics/illustrations.md)
+- **Photography:** [reference/media-types/imagery/patterns/photography/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/imagery/patterns/photography/) (principles, diversity-inclusion, style-and-sources)
 
 ## Step 4 — Create / select
 
@@ -57,7 +57,7 @@ Run this gate on every imagery deliverable (full photography rubric folds the EE
 
 **Diversity & inclusion (photography sets)** — assess across the **full set**, not each image alone: varied ethnicity, age, gender; women and non-binary people in technical/leadership contexts; authentic, not staged for representation.
 
-- [ ] Version stamp applied — see [../_shared/version-stamp.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/version-stamp.md)
+- [ ] Version stamp applied — see [skills/_shared/version-stamp.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/version-stamp.md)
 
 ## Conflict & ambiguity
 
