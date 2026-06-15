@@ -1,0 +1,21 @@
+{
+  "_comment": "EE engineering-group managed settings. Deploy to the engineering group IN ADDITION to org-wide.json (or merged into one file for that group). Enables kuat-build (stable) — the dev bundle that reads @equal-experts/kuat-* component docs live in a real project. Keeps kuat-studio enabled too.",
+  "extraKnownMarketplaces": {
+    "kuat": {
+      "source": {
+        "source": "github",
+        "repo": "EqualExperts/kuat-marketplace"
+      }
+    }
+  },
+  "strictKnownMarketplaces": [
+    {
+      "source": "github",
+      "repo": "EqualExperts/kuat-marketplace"
+    }
+  ],
+  "enabledPlugins": {
+    "kuat-studio@kuat": true,
+    "kuat-build@kuat": true
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "_comment": "Phase-4 pilot cohort managed settings. Deploy to the pilot group only. Enables the BETA channel of both plugins so the cohort tracks the beta ref. Stable entries stay available; the cohort runs beta to surface issues before promotion. Replace the PLACEHOLDER repo before deploying.",
+  "extraKnownMarketplaces": {
+    "kuat": {
+      "source": {
+        "source": "github",
+        "repo": "EqualExperts/kuat-marketplace"
+      }
+    }
+  },
+  "strictKnownMarketplaces": [
+    {
+      "source": "github",
+      "repo": "EqualExperts/kuat-marketplace"
+    }
+  ],
+  "enabledPlugins": {
+    "kuat-build-beta@kuat": true,
+    "kuat-studio-beta@kuat": true
+  }
+}

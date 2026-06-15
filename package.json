@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "Equal Experts brand rules and agent skills",
   "scripts": {
-    "bundle:skills": "node skills/scripts/bundle-skills.mjs"
+    "bundle:skills": "node skills/scripts/bundle-skills.mjs",
+    "build:plugins": "node skills/scripts/build-plugin.mjs"
   }
 }
