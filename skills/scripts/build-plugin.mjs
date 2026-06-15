@@ -105,6 +105,11 @@ function rewriteSkillLinks(content) {
   // ../<other-skill>/ -> ${CLAUDE_PLUGIN_ROOT}/skills/<other-skill>/   (cross-skill "Related" links)
   const skillAlt = ALL_SKILLS.join("|");
   out = out.replace(new RegExp(`\\]\\(\\.\\./(${skillAlt})/`, "g"), (_m, s) => `](${PLUGIN_ROOT}/skills/${s}/`);
+  // De-path the visible link LABELS too, so an agent reading the SKILL.md doesn't
+  // treat a stale ../../ escape path as the location (targets are already rewritten above).
+  out = out.replace(/\[\.\.\/\.\.\/(reference\/)/g, "[$1");
+  out = out.replace(/\[\.\.\/_shared\//g, "[skills/_shared/");
+  out = out.replace(new RegExp(`\\[\\.\\./(${skillAlt})/`, "g"), (_m, s) => `[skills/${s}/`);
   return out;
 }
 

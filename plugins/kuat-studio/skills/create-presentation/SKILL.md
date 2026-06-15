@@ -9,20 +9,20 @@ Build on-brand Equal Experts decks: one idea per slide, B&W photography, restrai
 
 ## Step 1 — Intake & "before you create"
 
-Run the grouped intake ([../_shared/intake.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/intake.md)), then settle the four slide-specific questions:
+Run the grouped intake ([skills/_shared/intake.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/intake.md)), then settle the four slide-specific questions:
 
 1. **Scenario?** Sales & marketing, knowledge sharing, case study, or reporting — each has different density, formality, and slide budget.
 2. **Audience?** External (client/prospect/conference → masterbrand-strict) vs internal (network/CoP → masterbrand-lite tone, same visual rules).
-3. **Delivery mode?** Presented live (sparse, large type, presenter carries the narrative) vs read-ahead (denser, each slide self-contained). Ask if unclear — the same content needs different slides for each.
+3. **Delivery mode?** How will it mostly be consumed — *presented live* (sparse; presenter carries the narrative) or *read without a presenter* (read-ahead, left-behind, or forwarded; each slide self-contained)? **Default to "read without a presenter"** — most EE decks are left behind or forwarded — and aim for *self-contained but lean* density: stands alone if forwarded, but not a wall of text (see [reference/media-types/slides/content.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/slides/content.md) → Density by delivery mode). Go sparser only when it's genuinely presented-live and won't be forwarded. Ask if unclear.
 4. **Layout per slide?** Pick from the catalogue; don't invent layouts.
 
 ## Step 2 — Load the standards you need
 
-- Brand & voice: [../../reference/brand/](${CLAUDE_PLUGIN_ROOT}/reference/brand/) (brand, logo, voice-and-tone)
-- Design language: [../../reference/design-language/](${CLAUDE_PLUGIN_ROOT}/reference/design-language/)
-- Content style: [../../reference/content/](${CLAUDE_PLUGIN_ROOT}/reference/content/)
-- Slides core: [../../reference/media-types/slides/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/slides/) — `styling.md`, `layouts.md`, `content.md`, `imagery-and-diagrams.md`, `data.md`
-- Scenario pattern (when deck type known): [../../reference/media-types/slides/patterns/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/slides/patterns/) — `sales-marketing`, `knowledge-sharing`, `case-studies`, `reporting`
+- Brand & voice: [reference/brand/](${CLAUDE_PLUGIN_ROOT}/reference/brand/) (brand, logo, voice-and-tone)
+- Design language: [reference/design-language/](${CLAUDE_PLUGIN_ROOT}/reference/design-language/)
+- Content style: [reference/content/](${CLAUDE_PLUGIN_ROOT}/reference/content/)
+- Slides core: [reference/media-types/slides/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/slides/) — `styling.md`, `layouts.md`, `content.md`, `imagery-and-diagrams.md`, `data.md`
+- Scenario pattern (when deck type known): [reference/media-types/slides/patterns/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/slides/patterns/) — `sales-marketing`, `knowledge-sharing`, `case-studies`, `reporting`
 
 ## Step 3 — Brand compliance while building
 
@@ -53,7 +53,7 @@ Run the grouped intake ([../_shared/intake.md](${CLAUDE_PLUGIN_ROOT}/skills/_sha
 - [ ] Closing slide: named contact, photograph, email, phone, social row
 - [ ] Sub-brand / co-brand follows the endorsement pattern, not equal weight
 - [ ] Voice active, claims unhedged, jargon stripped
-- [ ] Version stamp applied — see [../_shared/version-stamp.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/version-stamp.md)
+- [ ] Version stamp applied — see [skills/_shared/version-stamp.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/version-stamp.md)
 
 ## Conflict & ambiguity
 

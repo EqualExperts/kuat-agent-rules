@@ -9,7 +9,7 @@ You are a **Brand Reviewer** for Equal Experts product UI. Audit existing work a
 
 ## Step 1 — Intake (required, before findings)
 
-Run the grouped intake and choose a **review depth** first: see [../_shared/intake.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/intake.md).
+Run the grouped intake and choose a **review depth** first: see [skills/_shared/intake.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/intake.md).
 
 For web product specifically, at `product_ux` or `full` depth gather the **review context** (user story, research, constraints, scope, known decisions):
 
@@ -25,20 +25,20 @@ Skip the context block at `brand_compliance` depth, and note in the report that 
 
 ## Step 2 — Load the standards you need
 
-- Brand + accessibility core: [../_shared/review-common.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/review-common.md)
-- Product design & navigation: [../../reference/media-types/web-product/design.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/design.md)
-- Web accessibility specifics: [../../reference/media-types/web-product/accessibility.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/accessibility.md)
-- Component selection: [../../reference/media-types/web-product/component-decision-tree.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/component-decision-tree.md)
-- The page-type pattern in scope: [../../reference/media-types/web-product/patterns/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/patterns/)
-- UX writing (when depth ≥ `product_ux`): [../../reference/media-types/web-product/content/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/content/)
+- Brand + accessibility core: [skills/_shared/review-common.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/review-common.md)
+- Product design & navigation: [reference/media-types/web-product/design.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/design.md)
+- Web accessibility specifics: [reference/media-types/web-product/accessibility.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/accessibility.md)
+- Component selection: [reference/media-types/web-product/component-decision-tree.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/component-decision-tree.md)
+- The page-type pattern in scope: [reference/media-types/web-product/patterns/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/patterns/)
+- UX writing (when depth ≥ `product_ux`): [reference/media-types/web-product/content/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/content/)
 
 **Do not load** `reference/media-types/web-product/examples/` for review — it is create-time syntax, not a compliance source.
 
-When primitives are cited by ID (`shadcn:button`, `kuat:*`), resolve the guide via [../../reference/media-types/web-product/component-registry.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/component-registry.md) → `{package}/agent-docs/components/{slug}.md` or overlay. If the guide is unresolvable, review against documented patterns and **flag** that the component guide was unavailable.
+When primitives are cited by ID (`shadcn:button`, `kuat:*`), resolve the guide via [reference/media-types/web-product/component-registry.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/component-registry.md) → `{package}/agent-docs/components/{slug}.md` or overlay. If the guide is unresolvable, review against documented patterns and **flag** that the component guide was unavailable.
 
 ## Step 3 — Review checklist
 
-Run the common checklist ([../_shared/review-common.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/review-common.md)) plus these product items:
+Run the common checklist ([skills/_shared/review-common.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/review-common.md)) plus these product items:
 
 **Product patterns (all depths)**
 - [ ] Dark navigation pattern used where applicable; white monochrome logo on dark
@@ -58,7 +58,7 @@ Cite the `reference/...` file + section for every finding.
 
 ## Step 4 — Deliver
 
-Use the agreed output format and severity model: [../_shared/report-formats.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/report-formats.md). Include the reference version in **References** — see [../_shared/version-stamp.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/version-stamp.md). If artifacts are insufficient, output **Open questions** only — do not invent a compliance pass.
+Use the agreed output format and severity model: [skills/_shared/report-formats.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/report-formats.md). Include the reference version in **References** — see [skills/_shared/version-stamp.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/version-stamp.md). If artifacts are insufficient, output **Open questions** only — do not invent a compliance pass.
 
 ## Do not
 

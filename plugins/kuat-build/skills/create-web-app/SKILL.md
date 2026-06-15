@@ -11,7 +11,7 @@ This skill **links** to the passive reference library; load only the slices you 
 
 ## Step 1 — Intake
 
-Run the grouped intake first: see [../_shared/intake.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/intake.md). For web product, confirm at least:
+Run the grouped intake first: see [skills/_shared/intake.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/intake.md). For web product, confirm at least:
 
 - **Scenario / page type** — form, dashboard, documentation, auth flow, table, settings, etc.
 - **Framework + deliverable** — React, Vue, or plain HTML/CSS? Code, Figma, or a spec?
@@ -26,22 +26,22 @@ Load progressively — start with foundations, add the medium + pattern slices t
 
 | Need | Load |
 |------|------|
-| Colour / type / spacing / radius tokens | [../../reference/design-language/](${CLAUDE_PLUGIN_ROOT}/reference/design-language/) (colours, typography, spacing, borders) |
-| Accessibility requirements | [../../reference/accessibility/accessibility.md](${CLAUDE_PLUGIN_ROOT}/reference/accessibility/accessibility.md) + [../../reference/media-types/web-product/accessibility.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/accessibility.md) |
-| Layout & navigation (dark nav patterns, logo placement) | [../../reference/media-types/web-product/design.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/design.md) |
-| Component selection priority | [../../reference/media-types/web-product/component-decision-tree.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/component-decision-tree.md) |
-| UX writing (actions, errors, empty states, forms, confirmations) | [../../reference/media-types/web-product/content/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/content/) + [../../reference/content/](${CLAUDE_PLUGIN_ROOT}/reference/content/) |
-| The specific page type | [../../reference/media-types/web-product/patterns/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/patterns/) — `authentication`, `dashboards`, `documentation`, `forms` |
-| Logo usage | [../../reference/brand/logo.md](${CLAUDE_PLUGIN_ROOT}/reference/brand/logo.md) |
-| Transactional email UI | [../../reference/media-types/web-product/emails.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/emails.md) |
+| Colour / type / spacing / radius tokens | [reference/design-language/](${CLAUDE_PLUGIN_ROOT}/reference/design-language/) (colours, typography, spacing, borders) |
+| Accessibility requirements | [reference/accessibility/accessibility.md](${CLAUDE_PLUGIN_ROOT}/reference/accessibility/accessibility.md) + [reference/media-types/web-product/accessibility.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/accessibility.md) |
+| Layout & navigation (dark nav patterns, logo placement) | [reference/media-types/web-product/design.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/design.md) |
+| Component selection priority | [reference/media-types/web-product/component-decision-tree.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/component-decision-tree.md) |
+| UX writing (actions, errors, empty states, forms, confirmations) | [reference/media-types/web-product/content/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/content/) + [reference/content/](${CLAUDE_PLUGIN_ROOT}/reference/content/) |
+| The specific page type | [reference/media-types/web-product/patterns/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/patterns/) — `authentication`, `dashboards`, `documentation`, `forms` |
+| Logo usage | [reference/brand/logo.md](${CLAUDE_PLUGIN_ROOT}/reference/brand/logo.md) |
+| Transactional email UI | [reference/media-types/web-product/emails.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/emails.md) |
 
-**Token/layout syntax (illustrative only):** [../../reference/media-types/web-product/examples/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/examples/) shows React/Vue/CSS token usage. Treat it as syntax reference, **not** canonical component API — prefer component guides (Step 3).
+**Token/layout syntax (illustrative only):** [reference/media-types/web-product/examples/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/examples/) shows React/Vue/CSS token usage. Treat it as syntax reference, **not** canonical component API — prefer component guides (Step 3).
 
 ## Step 3 — Resolve components (Kuat-first, graceful fallback)
 
 Follow the decision tree: **Kuat Blocks → Kuat Components → shadcn (themed via kuat-core) → custom build**.
 
-Per-component API/usage/a11y is **not** in this repo — it ships with the implementation. Resolve by stable ID via [../../reference/media-types/web-product/component-registry.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/component-registry.md):
+Per-component API/usage/a11y is **not** in this repo — it ships with the implementation. Resolve by stable ID via [reference/media-types/web-product/component-registry.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/component-registry.md):
 
 1. Map the need to an ID (e.g. `shadcn:button`, `kuat:button-group`, `kuat:kuat-header`).
 2. Read the guide at `{package}/agent-docs/components/{slug}.md` (installed package) or `{OVERLAY_DIR}/components/{slug}.md` (contributor overlay), resolved via `components.manifest.json`. The slug drops the namespace (`shadcn:button` → `button`).
@@ -49,7 +49,7 @@ Per-component API/usage/a11y is **not** in this repo — it ships with the imple
 
 **Graceful fallback — when a component or its guide is missing:**
 
-- Build from the documented pattern in [../../reference/media-types/web-product/patterns/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/patterns/) + token syntax in `examples/`, using semantic tokens.
+- Build from the documented pattern in [reference/media-types/web-product/patterns/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/patterns/) + token syntax in `examples/`, using semantic tokens.
 - **Flag the gap** explicitly in your output: name the component ID you wanted, note it wasn't resolvable, and that you fell back to documented patterns — so it can be added to the library later.
 - Never silently invent a component API or hardcode values to paper over a missing guide.
 
@@ -70,7 +70,7 @@ Per-component API/usage/a11y is **not** in this repo — it ships with the imple
 - [ ] WCAG AA contrast (4.5:1 text, 3:1 large/UI)
 - [ ] UX copy supports the task (actions, errors, empty states) — not marketing tone
 - [ ] Scoped states (empty/loading/error) handled when in scope
-- [ ] Version stamp applied — see [../_shared/version-stamp.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/version-stamp.md)
+- [ ] Version stamp applied — see [skills/_shared/version-stamp.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/version-stamp.md)
 
 ## Conflict & ambiguity
 
