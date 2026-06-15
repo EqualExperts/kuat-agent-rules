@@ -4,6 +4,33 @@ Dated record of checkpoint decisions and non-obvious deviations, per phase. Newe
 
 ---
 
+## Phase 3 — Plugin Packaging & Marketplace
+
+**Branch:** `migration/phase-3-plugin-packaging` · **Started:** 2026-06-15
+
+### Checkpoint decisions (resolved at start, with Ed)
+
+- **A — Plugin names (the plan's required "resolve at start" decision).** `kuat-build` (dev bundle: `create-web-app` + `review-web-app`, for engineers in Claude Code where a project + `node_modules` + shell exist) and `kuat-studio` (knowledge bundle: `create-presentation` + `review-presentation` + `create-imagery`, broad consultant audience). Kept the working names as the real ones — clear and already used throughout.
+- **B — Distribution within this repo.** Assembled plugin payloads are committed to `plugins/<name>/`; the marketplace `source` is a **git-subdir** into `EqualExperts/kuat-agent-rules` at `plugins/<name>`. The `marketplace.json` + managed-settings live in a **separate** marketplace repo, so they are **staged** under `marketplace/` here for hand-off (marketplace repo coords are a placeholder for Ed to confirm). Guardrail: work only within this repo.
+- **C — Link rewrite at BUILD time, not in source.** Source skills keep `../../reference/...` + `../_shared/...` so the repo dev path and the Phase-2 evals still resolve; `build-plugin.mjs` rewrites them to `${CLAUDE_PLUGIN_ROOT}/...` in the assembled payload. Mirrors the existing `bundle-skills.mjs` build-time-rewrite precedent. (Docs confirm installed plugins are cached and cannot use `../`; `${CLAUDE_PLUGIN_ROOT}` is valid in SKILL.md bodies.)
+- **D — Full `reference/` snapshot in both plugins** (472K each). Guarantees every skill link + reference-internal link resolves in the payload; platform isolation stays enforced at the skill level (each skill names its slices), so shipping the full passive library is fine. Avoids per-bundle trimming bugs.
+- **E — Retire-for-plugin = exclude, not quarantine.** `ensure-rules.sh`, `resolve-rules.md`, `consumption-contract.md`, `bundle-skills.mjs`, and `kuat-docs/setup/` stay in place — the legacy `kuat-create`/`kuat-review` skills still use them until Phase 5. The new plugins simply don't include or reference them. No `legacy/` move this phase.
+
+### Schema basis (confirmed against live Claude Code docs, 2026-06-13)
+
+- Skills auto-discover from a plugin's `skills/` dir; `${CLAUDE_PLUGIN_ROOT}` resolves bundled files at runtime inside SKILL.md bodies.
+- Channels = distinct `version` strings per entry/ref (same string on two refs → `/plugin update` skips). Audience targeting = different `managed-settings.json` per group (no in-file targeting key).
+- Managed keys: `extraKnownMarketplaces`, `strictKnownMarketplaces` (managed-only), `enabledPlugins` (`plugin@marketplace`→bool).
+
+### Deviations & non-obvious decisions (appended as they occur)
+
+- **2026-06-15 — Two plugins built + verified.** `skills/scripts/build-plugin.mjs` (+ `npm run build:plugins`) assembles `plugins/kuat-build/` (create/review-web-app) and `plugins/kuat-studio/` (presentation×2 + imagery), each with skill subset + `_shared` + full `reference/` snapshot + `commands/` + `plugin.json` + stamped `manifest.json` + `CHANGELOG.md`. Build-time link rewrite verified: kuat-build 42 / kuat-studio 43 `${CLAUDE_PLUGIN_ROOT}` links resolve; 0 residual `../` escapes; skills byte-identical to source modulo rewrite.
+- **2026-06-15 — `MIGRATION-MAP.md` excluded from the reference snapshot.** It's a migration artifact full of old-path/`kuat-docs`/`_to-skills` references — not consultant brand reference. Excluding it left a dangling `reference/README.md → ./MIGRATION-MAP.md` link, so `build-plugin.mjs` neutralises links to both `kuat-docs` **and** `MIGRATION-MAP` (strip to plain text). Packaged `reference/` = 88 files, 0 broken, 0 `kuat-docs` links.
+- **2026-06-15 — Channels via distinct refs, not entry versions.** `marketplace.json` has 4 entries (kuat-build/kuat-studio × stable/beta); stable→ref `stable`, beta→ref `beta`; **no `version` on entries** (per the plan rule + the docs gotcha). Version comes from each ref's `plugin.json` — release process must carry a higher pre-release on the `beta` ref so `/plugin update` fires. Documented in `marketplace/README.md`.
+- **2026-06-15 — Verifier committed.** `skills/scripts/verify-plugins.mjs` does the packaged-form checks (JSON validity, escape-link scan, `${CLAUDE_PLUGIN_ROOT}` resolution, reference-snapshot integrity, source/payload equivalence, marketplace entry sanity). Reusable as a CI gate.
+- **2026-06-15 — Cosmetic (deferred):** in the Step-2 tables of create/review-web-app, the link *text* still reads `../../reference/...` while the *target* is correctly rewritten to `${CLAUDE_PLUGIN_ROOT}/...`. Functionally fine (the model follows the target); flagged as a polish follow-up (rewrite bare-path link text too).
+- **2026-06-15 — Retire-for-plugin = exclude (decision E) confirmed in practice.** `ensure-rules.sh`, `resolve-rules.md`, `consumption-contract.md`, `bundle-skills.mjs`, `kuat-docs/setup/` are NOT in either plugin payload and are untouched in the repo (legacy `kuat-create`/`kuat-review` still use them until Phase 5). No `legacy/` move.
+
 ## Phase 2 — Activity Skills
 
 **Branch:** `migration/phase-2-activity-skills` · **Started:** 2026-06-15

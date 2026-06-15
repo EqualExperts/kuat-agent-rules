@@ -1,0 +1,157 @@
+#!/usr/bin/env node
+/**
+ * Packaged-form verification for the Phase-3 plugin payloads under plugins/.
+ *
+ * Checks, per plugin:
+ *  1. JSON validity (plugin.json, manifest.json) + required fields.
+ *  2. No residual escape links in payload skills (../../, ../_shared, ../<skill>).
+ *  3. Every ${CLAUDE_PLUGIN_ROOT}/... link in payload skills resolves to a real
+ *     bundled file (simulate CLAUDE_PLUGIN_ROOT = plugins/<name>).
+ *  4. reference/ snapshot: no internal broken links, no kuat-docs links.
+ *  5. Payload skill body == source skill body modulo the link rewrite
+ *     (proves the packaged skill behaves identically to the Phase-2-validated source).
+ *
+ * Also validates marketplace/ JSON. Exit 1 on any failure.
+ *
+ * Usage: node skills/scripts/verify-plugins.mjs
+ */
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const SKILLS_DIR = path.resolve(__dirname, "..");
+const REPO_ROOT = path.resolve(SKILLS_DIR, "..");
+const PLUGINS_DIR = path.join(REPO_ROOT, "plugins");
+const MARKET_DIR = path.join(REPO_ROOT, "marketplace");
+const PLUGIN_ROOT_TOKEN = "${CLAUDE_PLUGIN_ROOT}";
+
+let failures = 0;
+const fail = (m) => { console.log(`  FAIL: ${m}`); failures++; };
+const ok = (m) => console.log(`  ok: ${m}`);
+
+function mdFiles(dir) {
+  const out = [];
+  const walk = (d) => {
+    for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+      const p = path.join(d, e.name);
+      if (e.isDirectory()) walk(p);
+      else if (e.name.endsWith(".md")) out.push(p);
+    }
+  };
+  if (fs.existsSync(dir)) walk(dir);
+  return out;
+}
+
+function linkTargets(body) {
+  const targets = [];
+  const re = /\]\(([^)]+)\)/g;
+  let m;
+  while ((m = re.exec(body))) targets.push(m[1]);
+  return targets;
+}
+
+function validJson(p, requiredKeys = []) {
+  try {
+    const obj = JSON.parse(fs.readFileSync(p, "utf8"));
+    for (const k of requiredKeys) {
+      if (!(k in obj)) { fail(`${path.relative(REPO_ROOT, p)} missing key '${k}'`); return null; }
+    }
+    return obj;
+  } catch (e) {
+    fail(`${path.relative(REPO_ROOT, p)} invalid JSON: ${e.message}`);
+    return null;
+  }
+}
+
+function verifyPlugin(name) {
+  console.log(`\n[${name}]`);
+  const root = path.join(PLUGINS_DIR, name);
+  const skillsDir = path.join(root, "skills");
+
+  // 1. manifests
+  validJson(path.join(root, ".claude-plugin", "plugin.json"), ["name"]);
+  validJson(path.join(root, "manifest.json"), ["plugin", "version", "reference"]);
+
+  const skillMd = mdFiles(skillsDir);
+
+  // 2. no residual escapes
+  let escapes = 0;
+  for (const f of skillMd) {
+    for (const t of linkTargets(fs.readFileSync(f, "utf8"))) {
+      if (/^(\.\.\/\.\.\/|\.\.\/_shared\/|\.\.\/(create|review)-)/.test(t)) {
+        fail(`${path.relative(root, f)} still escapes: ${t}`); escapes++;
+      }
+    }
+  }
+  if (!escapes) ok(`no residual escape links (${skillMd.length} skill md)`);
+
+  // 3. ${CLAUDE_PLUGIN_ROOT} links resolve under the plugin root
+  let pr = 0, prBad = 0;
+  for (const f of skillMd) {
+    for (const t of linkTargets(fs.readFileSync(f, "utf8"))) {
+      if (!t.startsWith(PLUGIN_ROOT_TOKEN)) continue;
+      pr++;
+      const rel = t.slice(PLUGIN_ROOT_TOKEN.length).replace(/^\//, "").replace(/#.*$/, "");
+      if (!fs.existsSync(path.join(root, rel))) { fail(`${path.relative(root, f)} -> ${t} (missing)`); prBad++; }
+    }
+  }
+  if (!prBad) ok(`all ${pr} \${CLAUDE_PLUGIN_ROOT} links resolve`);
+
+  // 4. reference snapshot integrity
+  const refDir = path.join(root, "reference");
+  let refBad = 0, kuatDocs = 0;
+  for (const f of mdFiles(refDir)) {
+    const body = fs.readFileSync(f, "utf8");
+    for (const t of linkTargets(body)) {
+      if (/kuat-docs/.test(t)) { kuatDocs++; continue; }
+      if (/^(https?:|mailto:|\$\{)/.test(t)) continue;
+      const target = path.join(path.dirname(f), t.replace(/#.*$/, ""));
+      if (!fs.existsSync(target)) { fail(`reference ${path.relative(refDir, f)} -> ${t} (broken)`); refBad++; }
+    }
+  }
+  if (kuatDocs) fail(`${kuatDocs} kuat-docs link(s) survived in reference snapshot`);
+  if (!refBad && !kuatDocs) ok(`reference snapshot: ${mdFiles(refDir).length} files, 0 broken / 0 kuat-docs links`);
+
+  // 5. payload == source modulo link rewrite
+  const skillNames = fs.readdirSync(skillsDir).filter((n) => n !== "_shared");
+  let drift = 0;
+  for (const s of skillNames) {
+    const payload = fs.readFileSync(path.join(skillsDir, s, "SKILL.md"), "utf8");
+    const source = fs.readFileSync(path.join(SKILLS_DIR, s, "SKILL.md"), "utf8");
+    const norm = (x) => x
+      .replace(/\$\{CLAUDE_PLUGIN_ROOT\}\/reference\//g, "../../reference/")
+      .replace(/\$\{CLAUDE_PLUGIN_ROOT\}\/skills\/_shared\//g, "../_shared/")
+      .replace(/\$\{CLAUDE_PLUGIN_ROOT\}\/skills\//g, "../");
+    if (norm(payload) !== source) { fail(`${s}/SKILL.md drifts from source beyond link rewrite`); drift++; }
+  }
+  if (!drift) ok(`${skillNames.length} skills identical to source modulo link rewrite`);
+}
+
+function verifyMarketplace() {
+  console.log(`\n[marketplace]`);
+  const mp = validJson(path.join(MARKET_DIR, ".claude-plugin", "marketplace.json"), ["name", "owner", "plugins"]);
+  if (mp) {
+    const noVersion = mp.plugins.every((p) => !("version" in p));
+    if (noVersion) ok(`${mp.plugins.length} entries, none set 'version' (channel version comes from each ref's plugin.json)`);
+    else fail(`a marketplace entry sets 'version' — beta/stable would collide`);
+    for (const p of mp.plugins) {
+      if (!p.name || !p.source) fail(`entry missing name/source: ${JSON.stringify(p)}`);
+    }
+  }
+  for (const f of ["org-wide.json", "engineering.json", "pilot-beta.json"]) {
+    validJson(path.join(MARKET_DIR, "managed-settings", f));
+  }
+  ok("managed-settings JSON valid");
+}
+
+function main() {
+  for (const name of fs.readdirSync(PLUGINS_DIR)) {
+    if (fs.statSync(path.join(PLUGINS_DIR, name)).isDirectory()) verifyPlugin(name);
+  }
+  verifyMarketplace();
+  console.log(failures ? `\nFAILED: ${failures} issue(s)` : `\nALL CHECKS PASSED`);
+  process.exit(failures ? 1 : 0);
+}
+
+main();

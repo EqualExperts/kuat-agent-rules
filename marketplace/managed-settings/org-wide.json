@@ -1,0 +1,20 @@
+{
+  "_comment": "EE org-wide managed settings. Deploy to ALL consultants. Auto-registers the Kuat marketplace, locks marketplace sources to EE, and enables kuat-studio (stable) for everyone. Engineers additionally get engineering.json. Replace the PLACEHOLDER repo with the real marketplace repo before deploying.",
+  "extraKnownMarketplaces": {
+    "kuat": {
+      "source": {
+        "source": "github",
+        "repo": "EqualExperts/kuat-marketplace"
+      }
+    }
+  },
+  "strictKnownMarketplaces": [
+    {
+      "source": "github",
+      "repo": "EqualExperts/kuat-marketplace"
+    }
+  ],
+  "enabledPlugins": {
+    "kuat-studio@kuat": true
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "plugin": "kuat-build",
+  "version": "1.0.0",
+  "skills": [
+    "create-web-app",
+    "review-web-app"
+  ],
+  "reference": {
+    "repo": "EqualExperts/kuat-agent-rules",
+    "builtAtRef": "0e173e500cebf19b00d47037a2ccd8e4770ce6b7"
+  },
+  "builtAt": "2026-06-15T11:49:50.784Z"
+}

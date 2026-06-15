@@ -1,0 +1,18 @@
+{
+  "name": "kuat-studio",
+  "displayName": "Kuat Studio",
+  "version": "1.0.0",
+  "description": "Create and review Equal Experts branded slide decks, presentations, and visual assets (icons, infographics, illustrations, photography) — on brand, no setup required.",
+  "author": {
+    "name": "Equal Experts",
+    "url": "https://www.equalexperts.com"
+  },
+  "homepage": "https://www.equalexperts.com",
+  "license": "UNLICENSED",
+  "keywords": [
+    "equal-experts",
+    "brand",
+    "design-system",
+    "kuat"
+  ]
+}
