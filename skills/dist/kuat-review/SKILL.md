@@ -26,7 +26,7 @@ Every Equal Experts brand skill **must** resolve and verify the rules location b
 | Variable | Meaning |
 |----------|---------|
 | `RULES_ROOT` | Git repo root or npm package root (`@equal-experts/kuat-react`) |
-| `RULES_DIR` | `{RULES_ROOT}/kuat-docs/rules` (git) or `{RULES_ROOT}/agent-docs/rules` (package) |
+| `RULES_DIR` | `{RULES_ROOT}/reference` (git) or `{RULES_ROOT}/agent-docs/rules` (package) |
 | `RULES_REF` | Git SHA, or `manifest.json` `rules.snapshotRef` for packages |
 | `RULES_SOURCE` | `git` or `package` |
 | `PACKAGE_VERSION` | Installed package version when `RULES_SOURCE=package` |
@@ -39,7 +39,7 @@ Every Equal Experts brand skill **must** resolve and verify the rules location b
 
 Run [ensure-rules.sh](../scripts/ensure-rules.sh) when shell is available. Otherwise try in order:
 
-1. **`KUAT_RULES_PATH`** — git repo (`kuat-docs/rules/LOADING.md`) or package root (`agent-docs/`)
+1. **`KUAT_RULES_PATH`** — git repo (`reference/README.md`) or package root (`agent-docs/`)
 2. **`.kuat-rules-path`** — in cwd or git root
 3. **npm package** — walk up from cwd: `node_modules/@equal-experts/kuat-{react,vue,core}` with `agent-docs/rules/LOADING-consumer.md`
 4. **Sibling git paths:** `kuat-agent-docs`, `vendor/kuat-agent-docs`, `../kuat-agent-docs`
@@ -49,10 +49,12 @@ If none resolve, stop and direct the user to [skills/README.md](set KUAT_RULES_P
 
 ### Loading index by source
 
-| `RULES_SOURCE` | Load |
-|----------------|------|
-| `git` | `{RULES_DIR}/LOADING.md` (full taxonomy) |
-| `package` | `{RULES_DIR}/LOADING-consumer.md` (bundled web + foundations) |
+Loading is **per-skill** (each skill names the `reference/` slices it needs); there is no global loading taxonomy.
+
+| `RULES_SOURCE` | Start from | Then |
+|----------------|------------|------|
+| `git` | `{RULES_DIR}/README.md` (passive structure index) | Load the slices the active skill points to |
+| `package` | `{RULES_DIR}/LOADING-consumer.md` (bundled web + foundations) | Per the consumer snapshot |
 
 ---
 
@@ -82,7 +84,7 @@ See **Shared: consumption contract** (included above) and [kuat-docs/setup/consu
 
 When a scenario or artifact references a component ID (e.g. `shadcn:button`):
 
-1. Read [component-registry.md](../../kuat-docs/rules/types/web/product/component-registry.md) for slug mapping.
+1. Read [component-registry.md]({RULES_DIR}/media-types/web-product/component-registry.md) for slug mapping.
 2. Load doc from `{RULES_ROOT}/agent-docs/components/{slug}.md` or `{OVERLAY_DIR}/components/{slug}.md`.
 
 Do not load the full component catalog unless multiple primitives are in scope.
@@ -93,7 +95,7 @@ Do not load the full component catalog unless multiple primitives are in scope.
 
 - [consumption-contract.md](./consumption-contract.md)
 - [../scripts/README.md](skills/scripts/README.md in rules repo)
-- [../../kuat-docs/rules/LOADING.md]({RULES_DIR}/LOADING.md)
+- [reference library]({RULES_DIR}/README.md)
 - [../../kuat-docs/setup/consumption-architecture.md](../../kuat-docs/setup/consumption-architecture.md)
 
 <!-- end include: skills/shared/resolve-rules.md -->
@@ -121,8 +123,8 @@ When skills are used from a consumer implementation repository (for example `kua
 ## Load order
 
 1. Resolve rules (`RULES_DIR`) — see [resolve-rules.md](above: Shared — Resolve rules); run [ensure-rules.sh](../scripts/ensure-rules.sh)
-2. Load matching index: `LOADING.md` (git) or `LOADING-consumer.md` (package)
-3. Load foundations → role → type rules per task
+2. Start from the index: `reference/README.md` (git) or `LOADING-consumer.md` (package); loading is per-skill
+3. Load the `reference/` slices the active skill points to (foundations → medium → pattern)
 4. Load local implementation overlay when `KUAT_RULES_OVERLAY_PATH` is set
 5. Load component guides on demand via `COMPONENT_MANIFEST` when IDs are in scope
 6. Run the skill procedure (review or create)
@@ -148,12 +150,12 @@ Bundled package rules are canonical for **design intent at that package version*
 
 ## Platform isolation
 
-Load only the task type's rules from `types/` plus `foundations/`. Do not mix slides rules with web product rules in one session.
+Load only the active medium's rules from `reference/media-types/<medium>/` plus the shared foundations (`brand/`, `design-language/`, `content/`, `accessibility/`). Do not mix slides rules with web-product rules in one session.
 
 ## Related
 
 - [../../AGENTS.md]({RULES_ROOT}/AGENTS.md)
-- [../../kuat-docs/rules/LOADING.md]({RULES_DIR}/LOADING.md)
+- [reference library]({RULES_DIR}/README.md)
 - [../../kuat-docs/setup/consumption-architecture.md](../../kuat-docs/setup/consumption-architecture.md)
 - [../../kuat-docs/setup/ownership-matrix.md](../../kuat-docs/setup/ownership-matrix.md)
 
@@ -165,13 +167,13 @@ Do not use memorized token values — read rules from `RULES_DIR`.
 
 ## Step 1 — Load rules index
 
-Read `{RULES_DIR}/LOADING.md` when `RULES_SOURCE=git`, or `{RULES_DIR}/LOADING-consumer.md` when `RULES_SOURCE=package`. Load repo or package `AGENTS.md`. Load foundations, `{RULES_DIR}/roles/brand-reviewer.md` (role summary), and type-specific files per task type and Review load notes.
+Loading is **per-skill** now — prefer the matching **activity skill** ([review-web-app](../review-web-app/SKILL.md), [review-presentation](../review-presentation/SKILL.md), or [create-imagery](../create-imagery/SKILL.md) for imagery checks). If loading reference directly: start from `{RULES_DIR}/README.md` (git: `reference/`; package: `{RULES_DIR}/LOADING-consumer.md`), load repo or package `AGENTS.md`, the relevant foundations (`{RULES_DIR}/brand/`, `design-language/`, `content/`, `accessibility/`), and the medium's files under `{RULES_DIR}/media-types/<medium>/`. (The Brand-Reviewer framing is in this skill's header above.)
 
 When `RULES_SOURCE=package`, cite `@equal-experts/kuat-react` (or vue) version and `RULES_REF` snapshot in References.
 
 Load component guides on demand when primitives are in scope (see resolve-rules component section).
 
-**Do not load** `{RULES_DIR}/types/web/product/examples/` for review-only tasks.
+**Do not load** `{RULES_DIR}/media-types/web-product/examples/` for review-only tasks.
 
 ## Step 2 — Ask before reviewing (required)
 
@@ -196,14 +198,14 @@ Ask the user to choose (do not assume `brand_compliance` for "review this featur
 | 3 | Artifacts (files, URLs, Figma, screenshots) |
 | 4 | Scenario (if known) |
 | 5 | Audience / constraints |
-| 6 | Output format — see **Reference: Report formats** below |
+| 6 | Output format — see the **Report formats** section below |
 
 ### Type-specific context
 
 | Task type | Load and ask per |
 |-----------|------------------|
-| **web_product** | `{RULES_DIR}/types/web/product/review-context.md` — **required** at `product_ux` or `full` (user story, research, constraints) |
-| **slides** | `{RULES_DIR}/types/slides/README.md` — "Before you review" (scenario, audience, delivery mode) |
+| **web_product** | Review context (user story, research, constraints) — **required** at `product_ux` or `full`; carried by [review-web-app](../review-web-app/SKILL.md) |
+| **slides** | "Before you review" (scenario, audience, delivery mode) — carried by [review-presentation](../review-presentation/SKILL.md) |
 
 Never invent user stories or research conclusions.
 
@@ -211,25 +213,25 @@ If context is missing at `product_ux`/`full`, ask first; if the user proceeds, m
 
 ## Step 3 — Review
 
-Apply type checklists when present:
+Apply the medium checklist, now carried by the activity skills:
 
-- Slides: `{RULES_DIR}/types/slides/checklist.md`
-- Web product: `{RULES_DIR}/types/web/product/review-checklist.md`
-- Photography: `{RULES_DIR}/types/photography/quality-validation.md`
+- Slides: checklist in [review-presentation](../review-presentation/SKILL.md)
+- Web product: checklist in [review-web-app](../review-web-app/SKILL.md) (+ shared [review-common](../_shared/review-common.md))
+- Photography / imagery: quality check in [create-imagery](../create-imagery/SKILL.md)
 
-Cite `{RULES_DIR}/...` path and section for every violation. Flag rule vs user-request conflicts in output.
+Cite the `{RULES_DIR}/...` path and section for every violation. Flag rule vs user-request conflicts in output.
 
 ## Step 4 — Deliver
 
-Use the agreed output format. For `full_report`, follow **Reference: Report formats** below. Include `RULES_REF` in References.
+Use the agreed output format. For `full_report`, follow the **Report formats** section below. Include `RULES_REF` in References.
 
 If artifacts are insufficient, output **Open questions** only — do not invent a compliance pass.
 
 
 
-<!-- begin include: skills/kuat-review/references/report-formats.md -->
+<!-- begin include: skills/_shared/report-formats.md -->
 
-## Reference: report formats
+## Shared: report formats
 
 ## Review output formats
 
@@ -261,7 +263,7 @@ Ask the user to select one format before producing findings. Default to `full_re
 | **Major** | Clear rule breaks with user-facing impact |
 | **Minor** | Nits, inconsistencies, or polish gaps |
 
-<!-- end include: skills/kuat-review/references/report-formats.md -->
+<!-- end include: skills/_shared/report-formats.md -->
 
 
 
@@ -277,4 +279,4 @@ Ask the user to select one format before producing findings. Default to `full_re
 - Rules standards: `{RULES_DIR}` — [kuat-agent-docs](https://github.com/equalexperts/kuat-agent-docs)
 - Bundle manifest: compare `RULES_REF` to `dist/manifest.json` → `rules.builtAtRef`
 
-<!-- kuat-skill-bundle: kuat-review v1.0.0 rules-ref:f991487dc397 built:2026-05-21 -->
+<!-- kuat-skill-bundle: kuat-review v1.0.0 rules-ref:94e618d682c4 built:2026-06-15 -->

@@ -30,6 +30,13 @@ Create under `skills/` (new activity skills; leave legacy ones untouched):
 
 `create-web-app` also consumes the **`kuat-mono` component library** (published packages + per-component usage docs). It must degrade gracefully: if a component doesn't exist yet, fall back to documented patterns and flag the gap.
 
+> **Decision (Ed, confirmed): `technical.md` relocates to kuat-mono.** The web-product technical setup (`_to-skills/web-product/technical.md` — Tailwind/kuat-core preset, theming, component stack, tokens) is implementation-owned per the ownership matrix, so it does **not** become part of an agent-rules skill. Instead:
+> - **kuat-mono** receives it into the overlay (`kuat-docs/setup/`, merging with the existing `kuat-core-integration.md` / `consumer-setup.md` to avoid duplication) so it bundles into each package's `agent-docs/`. Do this as its own small PR or alongside the deferred prose-sweep PR noted in the 1b report.
+> - **`create-web-app`** then *reads* technical setup from the package/component `agent-docs` path (not from reference), consistent with the consumption contract.
+> - Remove `technical.md` from agent-rules `_to-skills/` once it has landed in mono.
+>
+> `examples/` ownership remains a **separate, still-open** call (kept in `reference/media-types/web-product/examples/` for now) — decide independently.
+
 ---
 
 ## Skill anatomy (apply to each `SKILL.md`)
@@ -54,7 +61,7 @@ Shared assets go in `skills/_shared/` (report formats, common review checklist, 
 3. Author `create-web-app` **first** as the reference template; get it producing on-brand output against a test brief before cloning the pattern.
 4. Build the remaining four, migrating procedure from `_to-skills/` and the legacy skills.
 5. Wire `create-web-app`/`review-web-app` to the `kuat-mono` component docs path (align with how packages expose `agent-docs/components/`); implement the graceful-fallback behaviour.
-6. Empty `_to-skills/` (every item integrated or explicitly dropped with a log entry).
+6. Empty `_to-skills/` (every item integrated or explicitly dropped with a log entry). **Exception:** `web-product/technical.md` is **relocated to kuat-mono** (see decision above), not folded into a skill — remove it from `_to-skills/` only once it has landed downstream.
 7. Build a small **eval set**: 2–3 fixed test briefs per skill scored against its checklist (this is the phase verification and the regression net for later releases).
 
 ---

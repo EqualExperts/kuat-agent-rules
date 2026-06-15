@@ -1,10 +1,10 @@
 # Reference Migration Map
 
-Phase 1 of the design-system migration repositioned the rules tree as a passive `reference/` library and moved all procedure into a Phase-2 holding area `_to-skills/`. This table maps every old path under `kuat-docs/rules/` to its new home.
+Phase 1 of the design-system migration repositioned the rules tree as a passive `reference/` library and parked all procedure in a `_to-skills/` holding area. **Phase 2** folded that procedure into the **activity skills** and removed `_to-skills/`. This table maps every old path under `kuat-docs/rules/` to its new home.
 
 **Consumers (e.g. `kuat-mono` 1b, IDE configs, skills) use this map to update their references.** Old paths no longer exist.
 
-> The legacy `kuat-docs/rules/LOADING.md` and `kuat-docs/rules/README.md` remain as **redirect tombstones** only (no taxonomy), so `skills/scripts/ensure-rules.sh` still resolves the repo root during the migration window. They are removed in Phase 2.
+> The legacy `kuat-docs/rules/LOADING.md` / `README.md` redirect tombstones (and the `kuat-docs/rules/` directory) were **removed in Phase 2**. `skills/scripts/ensure-rules.sh` now resolves the repo root via `reference/README.md` and sets `RULES_DIR=…/reference`.
 
 ---
 
@@ -43,24 +43,26 @@ Phase 1 of the design-system migration repositioned the rules tree as a passive 
 | `graphics/{icons,illustrations,infographics}.md` | `imagery/patterns/graphics/` |
 | `charts-data/README.md` | `charts-data/README.md` |
 
-## Procedure → `_to-skills/` (Phase-2 holding area, NOT shipped as reference)
+## Procedure → activity skills (Phase 2 — `_to-skills/` consumed and removed)
 
-| Old (`kuat-docs/rules/`) | New (`_to-skills/`) | Phase-2 destination |
-|---------------------------|---------------------|---------------------|
-| `roles/brand-reviewer.md` | `roles/brand-reviewer.md` | `review-*` skills |
-| `roles/technical-illustrator.md` | `roles/technical-illustrator.md` | `create-imagery` |
-| `roles/icon-designer.md` | `roles/icon-designer.md` | `create-imagery` |
-| `roles/README.md` | `roles/README.md` | (dispatcher → skill routing) |
-| `types/slides/checklist.md` | `slides/checklist.md` | presentation skills |
-| `types/slides/brand-compliance.md` | `slides/brand-compliance.md` | presentation skills |
-| `types/slides/README.md` (procedure parts) | `slides/README-procedure.md` | presentation skills |
-| `types/web/product/review-context.md` | `web-product/review-context.md` | `review-web-app` |
-| `types/web/product/review-checklist.md` | `web-product/review-checklist.md` | `review-web-app` |
-| `types/web/product/DEPRECATIONS.md` | `web-product/DEPRECATIONS.md` | `review-web-app` / backlog |
-| `types/web/product/technical.md` | `web-product/technical.md` | **candidate for relocation to `kuat-mono`** (setup/impl) |
-| `types/photography/quality-validation.md` | `photography/quality-validation.md` | imagery skill |
-| `LOADING.md` | `LOADING.md` | per-skill loading |
-| `workflows/README.md` | `workflows/README.md` | per-skill loading |
+Procedure failed the passive test, so it never shipped as reference. Phase 1 staged it in `_to-skills/`; Phase 2 folded each item into an activity skill (or dropped it) and deleted `_to-skills/`.
+
+| Old (`kuat-docs/rules/`) | Final home (Phase 2) |
+|---------------------------|----------------------|
+| `roles/brand-reviewer.md` | Inline Brand-Reviewer framing in `review-web-app` / `review-presentation` / `kuat-review` |
+| `roles/technical-illustrator.md` | `create-imagery` (role framing) |
+| `roles/icon-designer.md` | `create-imagery` (role framing) |
+| `roles/README.md` | Dropped — skill routing now lives in `skills/AGENTS.md` |
+| `types/slides/checklist.md` | `create-presentation` (delivery gate) + `review-presentation` (evidence table) |
+| `types/slides/brand-compliance.md` | `create-presentation` / `review-presentation` |
+| `types/slides/README.md` (procedure parts) | `create-presentation` ("before you create") |
+| `types/web/product/review-context.md` | `review-web-app` |
+| `types/web/product/review-checklist.md` | `review-web-app` + `skills/_shared/review-common.md` |
+| `types/web/product/DEPRECATIONS.md` | Dropped — superseded by component-registry + consumption contract |
+| `types/web/product/technical.md` | **Dropped in Phase 2** (recover from git `f0338ff`); relocate to `kuat-mono` `agent-docs/setup/` |
+| `types/photography/quality-validation.md` | `create-imagery` (light quality/accessibility check) |
+| `LOADING.md` | Dropped — mined for per-skill loading; each skill names its `reference/` slices |
+| `workflows/README.md` | Dropped — superseded by the skills themselves |
 
 ## Removed (superseded by fresh passive scope READMEs)
 
@@ -70,7 +72,8 @@ These pure-orientation / loading-index READMEs were deleted; their navigational 
 - `types/README.md`, `types/web/README.md`, `types/web/product/README.md`
 - `types/slides/scenarios/README.md`, `types/web/product/scenarios/README.md`, `types/web/marketing/scenarios/README.md`
 
-## Known follow-ups for Phase 2
+## Follow-ups
 
-- Legacy skills (`skills/kuat-create`, `skills/kuat-review`), `skills/shared/resolve-rules.md`, `skills/scripts/ensure-rules.sh`, and `skills/scripts/bundle-skills.mjs` still reference the old `kuat-docs/rules/...` paths and the retired `LOADING.md`. They resolve the repo root via the tombstone but cannot read moved content. Phase 2 rewires them to `reference/` with per-skill loading.
-- `web-product/examples/` and `web-product/technical.md` are flagged for a later review to relocate to `kuat-mono` (implementation ownership).
+- ✅ **Done in Phase 2:** legacy skills (`kuat-create`, `kuat-review`), `skills/shared/resolve-rules.md`, `skills/shared/consumption-contract.md`, `skills/scripts/ensure-rules.sh`, and `skills/scripts/bundle-skills.mjs` rewired from `kuat-docs/rules/…` + `LOADING.md` to `reference/` with per-skill loading; tombstones removed.
+- ⏳ **kuat-mono:** receive `technical.md` (recover from git `f0338ff`) into `agent-docs/setup/`; evaluate relocating `web-product/examples/` (implementation ownership).
+- ⏳ **Doc-sweep (deferred):** `skills/INSTALL.md`, `skills/install/*`, `kuat-docs/setup/*`, and `kuat-docs/README.md` still cite old `kuat-docs/rules/…` paths in setup prose. Sweep with the mappings in this file (note `foundations/` splits into `brand/` + `design-language/` + `content/` + `accessibility/`).

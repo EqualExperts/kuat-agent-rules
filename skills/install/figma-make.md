@@ -61,10 +61,10 @@ Make does **not** read `KUAT_RULES_PATH` or run `ensure-rules.sh`. Standards com
 
 In Figma Make, open **Guidelines** and add EE brand rules. Minimum content to paste or adapt:
 
-- Link or summary from `kuat-docs/rules/LOADING.md`
-- `kuat-docs/rules/foundations/design/colours.md` — tokens, EE Blue, semantic names
-- `kuat-docs/rules/foundations/design/typography.md` — Lexend, scale
-- Task-specific: e.g. `kuat-docs/rules/types/web/product/design.md` for product UI
+- Link or summary from `reference/README.md`
+- `reference/design-language/colours.md` — tokens, EE Blue, semantic names
+- `reference/design-language/typography.md` — Lexend, scale
+- Task-specific: e.g. `reference/media-types/web-product/design.md` for product UI
 
 See [Add guidelines to Figma Make](https://help.figma.com/hc/en-us/articles/33665861260823-Add-guidelines-to-Figma-Make).
 

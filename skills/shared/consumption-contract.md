@@ -5,8 +5,8 @@ When skills are used from a consumer implementation repository (for example `kua
 ## Load order
 
 1. Resolve rules (`RULES_DIR`) — see [resolve-rules.md](./resolve-rules.md); run [ensure-rules.sh](../scripts/ensure-rules.sh)
-2. Load matching index: `LOADING.md` (git) or `LOADING-consumer.md` (package)
-3. Load foundations → role → type rules per task
+2. Start from the index: `reference/README.md` (git) or `LOADING-consumer.md` (package); loading is per-skill
+3. Load the `reference/` slices the active skill points to (foundations → medium → pattern)
 4. Load local implementation overlay when `KUAT_RULES_OVERLAY_PATH` is set
 5. Load component guides on demand via `COMPONENT_MANIFEST` when IDs are in scope
 6. Run the skill procedure (review or create)
@@ -32,11 +32,11 @@ Bundled package rules are canonical for **design intent at that package version*
 
 ## Platform isolation
 
-Load only the task type's rules from `types/` plus `foundations/`. Do not mix slides rules with web product rules in one session.
+Load only the active medium's rules from `reference/media-types/<medium>/` plus the shared foundations (`brand/`, `design-language/`, `content/`, `accessibility/`). Do not mix slides rules with web-product rules in one session.
 
 ## Related
 
 - [../../AGENTS.md](../../AGENTS.md)
-- [../../kuat-docs/rules/LOADING.md](../../kuat-docs/rules/LOADING.md)
+- [reference library](../../reference/README.md)
 - [../../kuat-docs/setup/consumption-architecture.md](../../kuat-docs/setup/consumption-architecture.md)
 - [../../kuat-docs/setup/ownership-matrix.md](../../kuat-docs/setup/ownership-matrix.md)

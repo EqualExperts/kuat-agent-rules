@@ -21,4 +21,4 @@ Each media type under `media-types/<medium>/` owns a `patterns/` subfolder descr
 
 ## Migration
 
-This tree was established in Phase 1 of the design-system migration (see `docs/migration/`). Every old `kuat-docs/rules/...` path maps to its new home in [MIGRATION-MAP.md](./MIGRATION-MAP.md). Procedure extracted from the old tree is staged in the repo-root `_to-skills/` holding area for Phase 2.
+This tree was established in Phase 1 of the design-system migration (see `docs/migration/`). Every old `kuat-docs/rules/...` path maps to its new home in [MIGRATION-MAP.md](./MIGRATION-MAP.md). In Phase 2 the procedure extracted from the old tree was folded into the **activity skills** under `skills/` (loading is now per-skill — each skill names the `reference/` slices it needs).

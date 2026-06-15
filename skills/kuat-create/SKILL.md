@@ -23,24 +23,24 @@ Use printed `RULES_ROOT`, `RULES_DIR`, `RULES_REF`, `RULES_SOURCE`, and optional
 
 ## Step 1 — Load rules index
 
-Read `{RULES_DIR}/LOADING.md` when `RULES_SOURCE=git`, or `{RULES_DIR}/LOADING-consumer.md` when `RULES_SOURCE=package`. Confirm **task type** and load:
+Loading is **per-skill** now — prefer the matching **activity skill** for the task (see Related). If loading reference directly: start from `{RULES_DIR}/README.md` (git: `reference/`; package snapshot: `{RULES_DIR}/LOADING-consumer.md`), confirm **task type**, and load:
 
-1. Foundations (per LOADING row)
-2. Create role card if any (e.g. `{RULES_DIR}/roles/technical-illustrator.md` for infographics)
-3. Type-specific rules and optional scenarios
-4. Component guides from package/overlay when building UI primitives (prefer over deprecated [examples](../../kuat-docs/rules/types/web/product/examples/))
-5. `{RULES_DIR}/types/web/product/examples/` **only** for token/layout syntax when overlay docs are unavailable
+1. Foundations — `{RULES_DIR}/brand/`, `{RULES_DIR}/design-language/`, `{RULES_DIR}/content/`, `{RULES_DIR}/accessibility/` (only the slices the task needs)
+2. The medium's rules — `{RULES_DIR}/media-types/<medium>/` (+ its `patterns/` when the scenario is known)
+3. For infographics/icons, adopt the role framing carried by [create-imagery](../create-imagery/SKILL.md)
+4. Component guides from package/overlay when building UI primitives (prefer over the illustrative `{RULES_DIR}/media-types/web-product/examples/`)
+5. `{RULES_DIR}/media-types/web-product/examples/` **only** for token/layout syntax when overlay docs are unavailable
 
 ## Step 2 — Pre-flight
 
-Run type-specific **Before you create** guidance:
+Run type-specific **Before you create** guidance (now carried by the activity skills):
 
 | Task type | Guidance |
 |-----------|----------|
-| **slides** | `{RULES_DIR}/types/slides/README.md` |
-| **web_product** | `{RULES_DIR}/types/web/product/design.md` |
-| **icons / infographics** | Role card + `{RULES_DIR}/types/graphics/` |
-| **web_marketing** | `{RULES_DIR}/types/web/marketing/` + scenario when known |
+| **slides** | [create-presentation](../create-presentation/SKILL.md); rules in `{RULES_DIR}/media-types/slides/` |
+| **web_product** | [create-web-app](../create-web-app/SKILL.md); rules in `{RULES_DIR}/media-types/web-product/design.md` |
+| **icons / infographics** | [create-imagery](../create-imagery/SKILL.md); rules in `{RULES_DIR}/media-types/imagery/patterns/graphics/` |
+| **web_marketing** | `{RULES_DIR}/media-types/web-marketing/` + pattern when known |
 
 If deliverable format is ambiguous, ask once: Figma, code, copy doc, deck file, etc.
 
@@ -53,9 +53,10 @@ If deliverable format is ambiguous, ask once: Figma, code, copy doc, deck file, 
 
 ## Step 4 — Deliver
 
-Run the type checklist before handoff (e.g. `{RULES_DIR}/types/slides/checklist.md`).
+Run the activity skill's delivery checklist before handoff (e.g. the slides checklist in [create-presentation](../create-presentation/SKILL.md)).
 
 ## Related
 
+- Activity skills (preferred): [create-web-app](../create-web-app/SKILL.md), [create-imagery](../create-imagery/SKILL.md), [create-presentation](../create-presentation/SKILL.md)
 - Companion skill: `kuat-review` (source: `skills/kuat-review/`)
 - Install and bundle: `skills/README.md`
