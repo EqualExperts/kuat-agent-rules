@@ -12,7 +12,7 @@ If a foundation rule and this file conflict on accessibility minimums, the found
 
 | Role | Token | Use for |
 |---|---|---|
-| Eyebrow / section label | EE Blue | ALL CAPS section labels above titles, page-number badge, bracket motif, key callout panels |
+| Eyebrow / section label | EE Blue | ALL CAPS section labels above titles, page-number badge, the left-side "[" bracket, key callout panels |
 | Slide title | Tech Blue (on light) / White (on dark) | H1 of every content slide |
 | Body copy | Slate-900 | Paragraphs, lists, table cells on light backgrounds |
 | Body copy (dark slide) | White at ~95% opacity | Paragraphs on Slate-900 backgrounds |

@@ -7,6 +7,8 @@ description: Create or select Equal Experts visual assets — icons, infographic
 
 Produce on-brand Equal Experts visual assets, then run the light quality check before handoff. This skill covers four jobs — **icons**, **infographics**, **illustrations**, and **photography selection**. Pick the role for the job, load only the matching reference, and don't invent visual language beyond the brand and any supplied references. Standards live in [`/reference`](${CLAUDE_PLUGIN_ROOT}/reference/README.md).
 
+> **Never recreate the logo or brand marks.** The EE logo, wordmark, and bracket-E are **genuine assets** — insert them from the asset pack (`${CLAUDE_PLUGIN_ROOT}/assets/slides/logo/`, repo dev: `assets/slides/logo/`), never redraw, re-letter, re-trace, or "approximate" them in an infographic, illustration, or icon set. A recreated mark is off-brand even if it looks close (this is the Phase-4 failure mode). **If a required asset can't be resolved, stop and flag it** — do not fabricate one.
+
 ## Step 1 — Intake
 
 Run the grouped intake ([skills/_shared/intake.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/intake.md)) and confirm:
@@ -27,11 +29,11 @@ If a required reference or spec is missing, **ask and stop** before generating.
 | **Illustration** | Technical Illustrator framing, scaled to the requested format | Per brief; follow brand + illustration rules |
 | **Photography** | Selection/brief against EE photography rules (not generation) | EE People/Stock library sources; B&W |
 
-**Hard rules (all jobs):** follow the brand and design-language foundations for colour/type/spacing; follow the job-specific reference for domain rules; do not restate or override them. For "match existing set" tasks, reference files are mandatory.
+**Hard rules (all jobs):** follow the brand and design-language foundations for colour/type/spacing; follow the job-specific reference for domain rules; do not restate or override them. For "match existing set" tasks, reference files are mandatory. **Any EE logo / brand mark in the output must be the genuine asset from the asset pack — never recreated** (see the rule above).
 
 ## Step 3 — Load the standards you need
 
-- Brand identity & logo: [reference/brand/](${CLAUDE_PLUGIN_ROOT}/reference/brand/) (brand, logo)
+- Brand identity & logo: [reference/brand/](${CLAUDE_PLUGIN_ROOT}/reference/brand/) (brand, logo) — and the **genuine logo files** in the asset pack `${CLAUDE_PLUGIN_ROOT}/assets/slides/logo/` (insert, never recreate)
 - Colour / typography / spacing: [reference/design-language/](${CLAUDE_PLUGIN_ROOT}/reference/design-language/)
 - Accessibility (contrast, alt text): [reference/accessibility/accessibility.md](${CLAUDE_PLUGIN_ROOT}/reference/accessibility/accessibility.md)
 - **Icons:** [reference/media-types/imagery/patterns/graphics/icons.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/imagery/patterns/graphics/icons.md)
@@ -53,7 +55,7 @@ Run this gate on every imagery deliverable (full photography rubric folds the EE
 
 **Accessibility** — non-decorative images have descriptive, contextual alt text ("Engineer reviewing a pull request on a laptop", not "person at computer"); decorative images use `alt=""`; meaning never carried by colour or text-in-image alone; contrast meets AA.
 
-**Style & content** — monochrome (photography, unless exception); brand palette and consistent line/corner style (graphics); no holograms/AR/fictional tech; supports the surrounding content, not generic filler; sourced from approved EE libraries with rights cleared.
+**Style & content** — monochrome (photography, unless exception); brand palette and consistent line/corner style (graphics); no holograms/AR/fictional tech; supports the surrounding content, not generic filler; sourced from approved EE libraries with rights cleared. **Any EE logo/brand mark is the genuine asset from the pack — not recreated, redrawn, or re-lettered.**
 
 **Diversity & inclusion (photography sets)** — assess across the **full set**, not each image alone: varied ethnicity, age, gender; women and non-binary people in technical/leadership contexts; authentic, not staged for representation.
 

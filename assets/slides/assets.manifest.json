@@ -1,0 +1,47 @@
+{
+  "version": "1.0.0",
+  "phase": "4S",
+  "description": "Studio slide asset pack — the genuine source-of-truth for kuat-studio. The slides equivalent of web's component library: skills BUILD FROM and COMPARE AGAINST these assets; they never improvise or recreate them.",
+  "generatedBy": "assets/slides/prep-master.py (master + fonts) + manual logo/layout curation (Phase 4S)",
+  "master": {
+    "id": "ee-master-2026",
+    "file": "ee-master-2026.pptx",
+    "format": "pptx",
+    "slideSize": "16:9 (10 x 5.625 in)",
+    "themeFont": "Lexend",
+    "embeddedFonts": ["Lexend", "Lexend Light", "Lexend Medium", "Lexend SemiBold", "Lora", "JetBrains Mono"],
+    "layoutCount": 65,
+    "provenance": "Slimmed + font-fixed from '2026 EE branded master slides' (Google Slides canonical; PPTX export). 79 example slides + 125 orphan media stripped (51.5 MB -> 18.9 MB); theme Arial->Lexend; off-brand Montserrat removed; Lora + JetBrains Mono embedded. Raw 51 MB export kept external — see docs/migration/LOG.md (Phase 4S, decision A)."
+  },
+  "layouts": {
+    "_note": "Verified layouts for the build-from-master path; index is the python-pptx slide_masters[0].slide_layouts index. The master ships 65 layouts; fuller layout-map curation is deferred (Phase 4S out-of-scope).",
+    "title":   { "index": 0,  "name": "TITLE",          "placeholders": { "title": 0, "subtitle": 2 } },
+    "section": { "index": 4,  "name": "SECTION_HEADER", "placeholders": { "title": 0 } },
+    "content": { "index": 39, "name": "TITLE_AND_BODY", "placeholders": { "title": 0, "body": 1 } },
+    "blank":   { "index": 40, "name": "BLANK", "placeholders": {} }
+  },
+  "logo": {
+    "_rule": "create-* INSERT the genuine logo — inherited from the master layouts; NEVER recreate, redraw, or re-letter it. If an asset can't be resolved, STOP and flag — do not fabricate a mark. review-* COMPARE a deck's logo against these files; a recreation (e.g. a hand-drawn [E]) is a brand FAIL regardless of colour or placement.",
+    "wordmark-white":   { "file": "logo/ee-logo-wordmark-white.png", "from": "ppt/media/image1.png", "dimensions": "2048x543", "use": "Primary EE lockup (bracket-E + EQUAL EXPERTS wordmark), white variant — title bar, dark / section slides. The canonical mark reviews compare against." },
+    "brand-mark-white": { "file": "logo/ee-brand-mark-white.png", "from": "ppt/media/image3.png", "dimensions": "146x132", "use": "Square brand mark, white variant." }
+  },
+  "bracket": {
+    "description": "Left-side '[' bracket — a full-height tech-blue element on the LEFT EDGE of content / section layouts. This is the brand signature. It is NOT a top-left + bottom-right corner frame (the old reference described it wrongly).",
+    "color": "Tech blue (per the master); resolve the exact value from reference/design-language/colours.md",
+    "inheritance": "Comes for free when a deck is built from the master layouts; a prose description cannot reproduce it faithfully (the Phase-4 deck proved this)."
+  },
+  "iconLibrary": {
+    "note": "An ~80-icon library is inherited from the master media and used in-place via the layouts. Not individually catalogued in this manifest (deferred with the layout-map curation)."
+  },
+  "fonts": {
+    "dir": "fonts/",
+    "embeddedInMaster": true,
+    "files": ["Lora-{regular,bold,italic,boldItalic}.ttf", "JetBrainsMono-{regular,bold,italic,boldItalic}.ttf"],
+    "license": "SIL OFL 1.1 — see fonts/OFL-Lora.txt, fonts/OFL-JetBrainsMono.txt",
+    "note": "Lexend (the brand sans) was already embedded in the master. Lora (serif) + JetBrains Mono (code) static instances were sourced (OFL) and embedded by prep-master.py so decks render correctly on any machine."
+  },
+  "photography": {
+    "available": false,
+    "policy": "No EE photography / image library ships yet. create-presentation uses explicitly-marked placeholders that BLOCK release; review-presentation treats placeholder imagery as a release blocker. Building the EE image library is a separate future asset-pack addition."
+  }
+}

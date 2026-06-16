@@ -54,7 +54,7 @@ This ensures each platform gets only relevant guidance.
 ## Quick Reference (When Full Docs Unavailable)
 
 ### Brand Colors
-- **EE Blue:** `#0066CC` - Primary actions, brand
+- **EE Blue:** `oklch(0.645 0.163 237.5)` / `#1795d4` - Primary actions, brand
 - **Transform Teal:** `oklch(0.645 0.120 185.0)` - Secondary actions
 - **Tech Blue:** `oklch(0.435 0.090 240.0)` - Navigation, structure
 - **Equal Ember:** `oklch(0.625 0.200 65.0)` - Warnings, highlights
@@ -84,7 +84,7 @@ When working on Equal Experts content:
 1. **Determine intent** — review vs create; if unclear, ask
 2. **Check documentation first** before making design decisions
 3. **Follow existing patterns** - do not invent new ones
-4. **Use semantic tokens** - `bg-primary` not `#0066CC`
+4. **Use semantic tokens** - `bg-primary` not `#1795d4`
 5. **Ask if unclear** - request clarification rather than guessing
 
 ### Review

@@ -1,6 +1,6 @@
 # Eval briefs — review-presentation
 
-Rubric = the **Step 4 review table** (plus the **Step 3 visual gate**) in [skills/review-presentation/SKILL.md](../../../skills/review-presentation/SKILL.md).
+Rubric = the **Step 5 review table** (plus the **Step 3 authenticity gate** and **Step 4 visual gate**) in [skills/review-presentation/SKILL.md](../../../skills/review-presentation/SKILL.md).
 
 ---
 
@@ -26,18 +26,34 @@ Rubric = the **Step 4 review table** (plus the **Step 3 visual gate**) in [skill
 
 ## Brief E3 — Visual verification on a rendered deck
 
-Exercises the **Step 3 visual gate** + pixel sampling. Source is supplied as **per-slide PNG renders** (so the visual pass can run), with these properties:
+Exercises the **Step 4 visual gate** + pixel sampling. Source is supplied as **per-slide PNG renders** (so the visual pass can run), with these properties:
 
 > Review this rendered 8-slide knowledge-sharing deck (PNGs attached) at `brand_compliance` depth. Visible in the renders:
 > - Cover: full-bleed hero photo in **full colour** (not monochrome).
-> - Body slides: a top-right page badge filled with a **near-but-wrong blue** (~`#1E73D9`, not EE Blue `#0066CC`).
+> - Body slides: a top-right page badge filled with a **near-but-wrong blue** (~`#1E73D9`, not EE Blue `#1795d4`).
 > - One body slide where the EE logo has been **recoloured teal**.
 > - Otherwise on-brand (eyebrow+title structure, one layout per slide, body ≥ 11pt).
 
-**Expected findings:** the vision pass runs over the renders; **photography flagged** (colour hero should be B&W, ⬚ Photography); the badge is **pixel-sampled** and reported as `#1E73D9` vs the `#0066CC` token in `reference/design-language/colours.md` (⬚ Badge / action colour — not a vague "looks off"); **logo recolour flagged** (⬚ Logo); text/structure rows pass. Each finding cites `reference/...`.
+**Expected findings:** the vision pass runs over the renders; **photography flagged** (colour hero should be B&W, ⬚ Photography); the badge is **pixel-sampled** and reported as `#1E73D9` vs the `#1795d4` token in `reference/design-language/colours.md` (⬚ Badge / action colour — not a vague "looks off"); **logo recolour flagged** (⬚ Logo rendering); text/structure rows pass. Each finding cites `reference/...`.
 
 ### Brief E3-fallback — text-only source must not pass visual rows
 
 > Review this deck for brand compliance. (Source: a Google Slides **link / text-only extraction** — no render provided.)
 
 **Expected:** the skill recognises the source is not renderable, **requests a PDF / per-slide PNG export**, and marks every ⬚ row (photography, badge/action colour, logo, layouts, title-slide hero, co-brand) as a **flagged gap** — explicitly *not* a clean pass — while still verifying the text/structure rows (type size, stats, density, voice, closing contents). It must not assert the visual rows are compliant.
+
+---
+
+## Brief E4 — Recreated-logo deck must FAIL (the false-pass regression) — Phase 4S
+
+The **proof the Phase-4 false pass is fixed.** Source = the original failing pilot deck (`Kuat/kuat-studio-test/ai-in-design.html` / `ai-in-design.pdf`): a **bespoke HTML lookalike** whose "logo" is a fabricated **text `[E]` + "Equal Experts"** (the HTML has **zero `<img>` assets**), on a **near-but-wrong royal-blue** title bar, with grey placeholder photography.
+
+> Review this 18-slide knowledge-sharing deck at `brand_compliance` depth (PDF render available).
+
+**Expected findings (Step 3 authenticity gate):**
+- **✪ Logo authenticity → FAIL.** The logo is a **recreation** (a fabricated `[E]`/text wordmark), not the canonical asset (`assets/slides/logo/ee-logo-wordmark-white.png`). A recreation is a brand **FAIL regardless** of how clean it looks. (The Phase-4 review **passed** this — `ai-in-design-review.md` — because it only checked plausibility.)
+- **✪ Template authenticity → FAIL.** The deck is **bespoke HTML**, not built on `ee-master-2026.pptx`; the left "[" bracket / badge are redrawn, not inherited.
+- Badge / title-bar blue **pixel-sampled** as a near-miss vs the `#1795d4` token in `colours.md`; photography flagged (placeholder/colour, ⬚).
+- It must **NOT** report a clean or "partial pass" that overlooks the recreation. Authenticity FAILs are blocking and are not offset by good type/spacing.
+
+**Pass criterion for the eval:** the reworked review **fails the deck on authenticity** where the Phase-4 review passed it.
