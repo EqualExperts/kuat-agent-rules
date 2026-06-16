@@ -2,7 +2,7 @@
 
 Brand color specifications for Equal Experts. This document defines the brand colors, palette scales, and usage guidelines.
 
-> **Source of truth:** the canonical colour tokens live in **`@equal-experts/kuat-core` → `src/variables.css`** (the **brand palettes + aliases**; the support scales like slate/red/indigo are *not* brand colours). This document mirrors them in human-readable form and must stay in sync — change colours in kuat-core first, then reflect here. The hex values below are the authoritative `…-500` brand values; the full 50–950 scales live in kuat-core.
+> **Source of truth:** the canonical colour tokens live **upstream in this repo** at [`tokens/colors.tokens.json`](./tokens/colors.tokens.json) (W3C design-tokens; brand palettes + aliases). **This document and the downstream `@equal-experts/kuat-core` `variables.css` are both generated from it** — don't hand-edit either; change colours in the token file. (kuat-core is downstream; never the reverse.) Support scales (slate/red/indigo) are *not* brand colours. Hex values below are the authoritative `…-500` brand values; full 50–950 scales + aliases live in the token file.
 
 ---
 

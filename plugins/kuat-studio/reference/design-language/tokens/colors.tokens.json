@@ -1,0 +1,84 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "$description": "Equal Experts brand COLOUR tokens — the SINGLE SOURCE OF TRUTH (upstream, in kuat-agent-rules). Downstream artifacts are GENERATED from this file: reference/design-language/colours.md (human-readable) and @equal-experts/kuat-core src/variables.css (CSS). Never hand-edit those; change colours HERE. kuat-core is downstream — do not invert. Support scales (slate/red/indigo) are NOT brand colours and live only in kuat-core. Format: W3C Design Tokens; $value is hex, oklch preserved in $extensions.",
+  "color": {
+    "ee-blue": {
+      "$description": "EE Blue — primary brand colour (trust, technology). Scale 50 (light) → 950 (dark).",
+      "50":  { "$type": "color", "$value": "#e6f5fc", "$extensions": { "oklch": "oklch(0.945 0.028 237.5)" } },
+      "100": { "$type": "color", "$value": "#b3e2f7", "$extensions": { "oklch": "oklch(0.885 0.055 237.5)" } },
+      "200": { "$type": "color", "$value": "#80cff2", "$extensions": { "oklch": "oklch(0.825 0.082 237.5)" } },
+      "300": { "$type": "color", "$value": "#4dbced", "$extensions": { "oklch": "oklch(0.765 0.109 237.5)" } },
+      "400": { "$type": "color", "$value": "#26a8e3", "$extensions": { "oklch": "oklch(0.705 0.136 237.5)" } },
+      "500": { "$type": "color", "$value": "#1795d4", "$extensions": { "oklch": "oklch(0.645 0.163 237.5)" } },
+      "600": { "$type": "color", "$value": "#1378ae", "$extensions": { "oklch": "oklch(0.585 0.145 237.5)" } },
+      "700": { "$type": "color", "$value": "#105c88", "$extensions": { "oklch": "oklch(0.525 0.127 237.5)" } },
+      "800": { "$type": "color", "$value": "#0c4062", "$extensions": { "oklch": "oklch(0.365 0.109 237.5)" } },
+      "900": { "$type": "color", "$value": "#08243c", "$extensions": { "oklch": "oklch(0.245 0.082 237.5)" } },
+      "950": { "$type": "color", "$value": "#04121e", "$extensions": { "oklch": "oklch(0.145 0.055 237.5)" } }
+    },
+    "tech-blue": {
+      "$description": "Tech Blue — dark/structural (navigation, sidebar, depth).",
+      "50":  { "$type": "color", "$value": "#e8eef3", "$extensions": { "oklch": "oklch(0.935 0.015 240.0)" } },
+      "100": { "$type": "color", "$value": "#bdcfdc", "$extensions": { "oklch": "oklch(0.835 0.030 240.0)" } },
+      "200": { "$type": "color", "$value": "#92b0c5", "$extensions": { "oklch": "oklch(0.735 0.045 240.0)" } },
+      "300": { "$type": "color", "$value": "#6791ae", "$extensions": { "oklch": "oklch(0.635 0.060 240.0)" } },
+      "400": { "$type": "color", "$value": "#447496", "$extensions": { "oklch": "oklch(0.535 0.075 240.0)" } },
+      "500": { "$type": "color", "$value": "#22567c", "$extensions": { "oklch": "oklch(0.435 0.090 240.0)" } },
+      "600": { "$type": "color", "$value": "#1b4563", "$extensions": { "oklch": "oklch(0.365 0.080 240.0)" } },
+      "700": { "$type": "color", "$value": "#15354a", "$extensions": { "oklch": "oklch(0.295 0.070 240.0)" } },
+      "800": { "$type": "color", "$value": "#0e2431", "$extensions": { "oklch": "oklch(0.205 0.060 240.0)" } },
+      "900": { "$type": "color", "$value": "#071218", "$extensions": { "oklch": "oklch(0.125 0.040 240.0)" } },
+      "950": { "$type": "color", "$value": "#03090c", "$extensions": { "oklch": "oklch(0.075 0.025 240.0)" } }
+    },
+    "transform-teal": {
+      "$description": "Transform Teal — secondary (transformation, growth).",
+      "50":  { "$type": "color", "$value": "#e9f6f6", "$extensions": { "oklch": "oklch(0.945 0.020 185.0)" } },
+      "100": { "$type": "color", "$value": "#bfe7e7", "$extensions": { "oklch": "oklch(0.885 0.040 185.0)" } },
+      "200": { "$type": "color", "$value": "#95d8d9", "$extensions": { "oklch": "oklch(0.825 0.060 185.0)" } },
+      "300": { "$type": "color", "$value": "#6bc9ca", "$extensions": { "oklch": "oklch(0.765 0.080 185.0)" } },
+      "400": { "$type": "color", "$value": "#48b8b9", "$extensions": { "oklch": "oklch(0.705 0.100 185.0)" } },
+      "500": { "$type": "color", "$value": "#269c9e", "$extensions": { "oklch": "oklch(0.645 0.120 185.0)" } },
+      "600": { "$type": "color", "$value": "#1f7d7e", "$extensions": { "oklch": "oklch(0.545 0.105 185.0)" } },
+      "700": { "$type": "color", "$value": "#175e5f", "$extensions": { "oklch": "oklch(0.445 0.090 185.0)" } },
+      "800": { "$type": "color", "$value": "#103f3f", "$extensions": { "oklch": "oklch(0.305 0.075 185.0)" } },
+      "900": { "$type": "color", "$value": "#081f20", "$extensions": { "oklch": "oklch(0.185 0.055 185.0)" } },
+      "950": { "$type": "color", "$value": "#040f10", "$extensions": { "oklch": "oklch(0.105 0.035 185.0)" } }
+    },
+    "equal-ember": {
+      "$description": "Equal Ember — warm accent (energy, attention; use sparingly).",
+      "50":  { "$type": "color", "$value": "#fff3e6", "$extensions": { "oklch": "oklch(0.975 0.035 65.0)" } },
+      "100": { "$type": "color", "$value": "#ffdbb3", "$extensions": { "oklch": "oklch(0.925 0.070 65.0)" } },
+      "200": { "$type": "color", "$value": "#ffc380", "$extensions": { "oklch": "oklch(0.875 0.105 65.0)" } },
+      "300": { "$type": "color", "$value": "#ffab4d", "$extensions": { "oklch": "oklch(0.825 0.140 65.0)" } },
+      "400": { "$type": "color", "$value": "#ff941a", "$extensions": { "oklch": "oklch(0.775 0.175 65.0)" } },
+      "500": { "$type": "color", "$value": "#f07c00", "$extensions": { "oklch": "oklch(0.625 0.200 65.0)" } },
+      "600": { "$type": "color", "$value": "#c06300", "$extensions": { "oklch": "oklch(0.525 0.180 65.0)" } },
+      "700": { "$type": "color", "$value": "#904a00", "$extensions": { "oklch": "oklch(0.425 0.160 65.0)" } },
+      "800": { "$type": "color", "$value": "#603100", "$extensions": { "oklch": "oklch(0.325 0.140 65.0)" } },
+      "900": { "$type": "color", "$value": "#301900", "$extensions": { "oklch": "oklch(0.225 0.120 65.0)" } },
+      "950": { "$type": "color", "$value": "#180c00", "$extensions": { "oklch": "oklch(0.125 0.100 65.0)" } }
+    }
+  },
+  "brand": {
+    "$description": "Named brand aliases — the canonical reference points. Use these, not raw scale steps.",
+    "ee-blue":        { "$type": "color", "$value": "{color.ee-blue.500}" },
+    "tech-blue":      { "$type": "color", "$value": "{color.tech-blue.500}" },
+    "transform-teal": { "$type": "color", "$value": "{color.transform-teal.500}" },
+    "equal-ember":    { "$type": "color", "$value": "{color.equal-ember.500}" },
+    "ee-blue-accent": { "$type": "color", "$value": "{color.ee-blue.50}" },
+    "dark-data":      { "$type": "color", "$value": "#212526", "$description": "Primary text dark." },
+    "the-cloud":      { "$type": "color", "$value": "#f5f5f5", "$description": "Light surface." },
+    "byte-white":     { "$type": "color", "$value": "#ffffff" }
+  },
+  "alias": {
+    "$description": "Semantic role → brand mapping (mirrors kuat-core ee-light). Support-scale-backed roles (muted/border/ring/destructive) resolve to non-brand scales in kuat-core and are intentionally omitted here except destructive.",
+    "primary":     { "$type": "color", "$value": "{brand.ee-blue}" },
+    "secondary":   { "$type": "color", "$value": "{brand.transform-teal}" },
+    "sidebar":     { "$type": "color", "$value": "{brand.tech-blue}", "$description": "Dark navigation." },
+    "accent":      { "$type": "color", "$value": "{brand.ee-blue-accent}" },
+    "foreground":  { "$type": "color", "$value": "{brand.dark-data}" },
+    "background":  { "$type": "color", "$value": "{brand.byte-white}" },
+    "muted":       { "$type": "color", "$value": "{brand.the-cloud}" },
+    "destructive": { "$type": "color", "$value": "#dc2626", "$description": "Red 600 (support scale, not brand)." }
+  }
+}
