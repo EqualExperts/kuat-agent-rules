@@ -2,7 +2,7 @@
 
 All notable changes to this plugin are recorded here. Drives release notes.
 
-## 1.0.0 — 2026-06-15
+## 1.0.0 — 2026-06-16
 
 - Initial release. Skills: `create-web-app`, `review-web-app`.
-- Bundled `reference/` snapshot at `0b3ac6eb5174`.
+- Bundled `reference/` snapshot at `af6edb1ebca9`.
