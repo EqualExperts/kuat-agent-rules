@@ -132,6 +132,33 @@ function verifyPlugin(name) {
     if (norm(payload) !== source) { fail(`${s}/SKILL.md drifts from source beyond link rewrite`); drift++; }
   }
   if (!drift) ok(`${skillNames.length} skills identical to source modulo link rewrite`);
+
+  // 6. asset pack (only bundles that ship one — e.g. kuat-studio)
+  const assetsDir = path.join(root, "assets");
+  if (fs.existsSync(assetsDir)) {
+    const slides = path.join(assetsDir, "slides");
+    const master = path.join(slides, "ee-master-2026.pptx");
+    if (!fs.existsSync(master)) {
+      fail("asset pack: ee-master-2026.pptx missing");
+    } else {
+      const mb = fs.statSync(master).size / 1048576;
+      if (mb > 30) fail(`asset pack: master ${mb.toFixed(1)}MB exceeds 30MB guard`);
+      else ok(`asset master present (${mb.toFixed(1)}MB)`);
+    }
+    const manifest = validJson(path.join(slides, "assets.manifest.json"), ["master", "layouts", "logo"]);
+    if (manifest) {
+      const refs = [];
+      if (manifest.master?.file) refs.push(manifest.master.file);
+      for (const v of Object.values(manifest.logo || {})) {
+        if (v && typeof v === "object" && v.file) refs.push(v.file);
+      }
+      let bad = 0;
+      for (const r of refs) {
+        if (!fs.existsSync(path.join(slides, r))) { fail(`asset manifest -> ${r} (missing)`); bad++; }
+      }
+      if (!bad) ok(`asset manifest resolves (${refs.length} refs)`);
+    }
+  }
 }
 
 function verifyMarketplace() {

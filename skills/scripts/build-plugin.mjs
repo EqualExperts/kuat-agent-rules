@@ -27,6 +27,7 @@ const SKILLS_DIR = path.resolve(__dirname, "..");          // repo/skills
 const REPO_ROOT = path.resolve(SKILLS_DIR, "..");          // repo root
 const REFERENCE_DIR = path.join(REPO_ROOT, "reference");
 const PLUGINS_DIR = path.join(REPO_ROOT, "plugins");
+const ASSETS_DIR = path.join(REPO_ROOT, "assets");
 
 // Guard: only ever package the distributable root skills/, never .claude/skills/
 // (reserved for repo-local contributor skills — Phase 7).
@@ -60,6 +61,8 @@ const BUNDLES = [
     description:
       "Create and review Equal Experts branded slide decks, presentations, and visual assets (icons, infographics, illustrations, photography) — on brand, no setup required.",
     skills: ["create-presentation", "review-presentation", "create-imagery"],
+    assets: true, // bundle the slides asset pack (master + manifest + logo + fonts); kuat-build gets none
+
     commands: [
       { file: "presentation.md", description: "Create an EE slide deck", skill: "create-presentation", verb: "create" },
       { file: "review.md", description: "Review an EE slide deck", skill: "review-presentation", verb: "review" },
@@ -93,6 +96,14 @@ function gitRef() {
 }
 function today() {
   return new Date().toISOString().slice(0, 10);
+}
+function dirSizeBytes(dir) {
+  let total = 0;
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, e.name);
+    total += e.isDirectory() ? dirSizeBytes(p) : fs.statSync(p).size;
+  }
+  return total;
 }
 
 /** Rewrite the escape-links inside a skill / _shared markdown file to ${CLAUDE_PLUGIN_ROOT}. */
@@ -146,16 +157,36 @@ function copyReferenceSnapshot(destRefDir) {
   walk(REFERENCE_DIR, destRefDir);
 }
 
-function copySkill(skillName, destSkillsDir) {
-  const srcDir = path.join(SKILLS_DIR, skillName);
+/**
+ * Recursively copy a tree. Markdown files get their escape-links rewritten (when
+ * rewriteMd); every other file (incl. binary: .pptx, .ttf, .png, .py) is copied
+ * byte-for-byte. Skips .DS_Store. Used for skills (with subdirs like scripts/)
+ * and the asset pack.
+ */
+function copyTree(srcDir, outDir, rewriteMd) {
   for (const entry of fs.readdirSync(srcDir, { withFileTypes: true })) {
     if (entry.name === ".DS_Store") continue;
     const src = path.join(srcDir, entry.name);
-    const out = path.join(destSkillsDir, skillName, entry.name);
-    let body = read(src);
-    if (entry.name.endsWith(".md")) body = rewriteSkillLinks(body);
-    write(out, body);
+    const out = path.join(outDir, entry.name);
+    if (entry.isDirectory()) {
+      copyTree(src, out, rewriteMd);
+    } else if (entry.isFile()) {
+      if (rewriteMd && entry.name.endsWith(".md")) {
+        write(out, rewriteSkillLinks(read(src)));
+      } else {
+        fs.mkdirSync(path.dirname(out), { recursive: true });
+        fs.copyFileSync(src, out); // binary-safe
+      }
+    }
   }
+}
+
+function copySkill(skillName, destSkillsDir) {
+  copyTree(path.join(SKILLS_DIR, skillName), path.join(destSkillsDir, skillName), true);
+}
+
+function copyAssets(destAssetsDir) {
+  copyTree(ASSETS_DIR, destAssetsDir, false); // raw copy — never rewrite asset bytes
 }
 
 function copyShared(destSkillsDir) {
@@ -185,6 +216,7 @@ function buildBundle(bundle) {
   for (const s of bundle.skills) copySkill(s, skillsDest);
   copyShared(skillsDest);
   copyReferenceSnapshot(path.join(root, "reference"));
+  if (bundle.assets) copyAssets(path.join(root, "assets"));
 
   for (const cmd of bundle.commands) write(path.join(root, "commands", cmd.file), commandBody(cmd));
 
@@ -227,14 +259,14 @@ All notable changes to this plugin are recorded here. Drives release notes.
   const digestInput = bundle.skills
     .map((s) => read(path.join(skillsDest, s, "SKILL.md")))
     .join("\n");
-  return { name: bundle.name, skills: bundle.skills.length, ref, sha: sha256(digestInput) };
+  return { name: bundle.name, skills: bundle.skills.length, ref, sha: sha256(digestInput), bytes: dirSizeBytes(root) };
 }
 
 function main() {
   console.log("Building plugins → plugins/");
   const built = BUNDLES.map(buildBundle);
   for (const b of built) {
-    console.log(`  wrote plugins/${b.name}/ (${b.skills} skills, ref ${b.ref.slice(0, 12)})`);
+    console.log(`  wrote plugins/${b.name}/ (${b.skills} skills, ${(b.bytes / 1048576).toFixed(1)}MB, ref ${b.ref.slice(0, 12)})`);
   }
   console.log("Done.");
 }
