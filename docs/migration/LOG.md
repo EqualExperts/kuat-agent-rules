@@ -4,6 +4,25 @@ Dated record of checkpoint decisions and non-obvious deviations, per phase. Newe
 
 ---
 
+## Phase 4 — Pilot (beta channel)
+
+**Branch:** `migration/phase-4-pilot` · **Started:** 2026-06-16
+
+### Checkpoint decisions (resolved at start, with Ed)
+
+- **A — Scope = in-repo code slice only.** Phase 4 is "mostly process, not code": the pilot itself (interactive `claude --plugin-dir` validation, marketplace stand-up + `stable`/`beta` refs + auth token, clean-account install, `kuat-build` live component read against an installed `@equal-experts/*` package, consultant selection/pre-registration/quickstart, feedback capture + weekly triage, rating-based exit criteria, "release mechanics proven twice") is runtime + cross-repo + human/ops work that can't run inside this repo (guardrail: work only within this repo). The agent-executable slice = the committed skill improvement (visual verification for `review-presentation`) + its eval brief + rebuild/verify + this phase's report. Everything else is handed back to Ed/ops as a pilot-readiness checklist in `report-phase-4.md`.
+- **B — Link-text prerequisite already satisfied.** The plan's first Prerequisite (fix the web-app Step-2 link *text*) was already merged on `main` as `0b3ac6e` ("de-path link labels in built skill payloads"); `verify-plugins.mjs` already learned the label transform and the baseline run = ALL CHECKS PASSED. → verified only, no rework. (Closes the Phase-3 cosmetic follow-up.)
+- **C — "Implement visual verification" = author the skill procedure (markdown), not build a rendering/diff pipeline.** Skills instruct the agent; the vision pass + pixel sampling are procedures the agent performs with its own vision + the hex/oklch tokens in `reference/design-language/colours.md`. No separate screenshot/diff script.
+- **D — Eval brief authored, not run here.** Brief E3 (rendered-deck visual pass + a text-only fallback variant) is added as a durable described-render fixture in E1's style; running & scoring it needs a rendered deck + a live session = a pilot step (same bucket as the other runtime checks).
+- **E — `kuat-studio` version bump left to the release/promotion step.** Source edit + rebuild verify fine without it; intended beta bump noted in the report. `review-web-app` visual-verification generalisation recorded as a follow-up (out of scope this phase, per the plan).
+
+### Deviations & non-obvious decisions (appended as they occur)
+
+- **2026-06-16 — Visual-verification pass added to `review-presentation` (source `SKILL.md`).** New **Step 3 — Establish visual fidelity (render the deck)**: when the source is a live connector / text-only extraction, obtain a PDF or per-slide PNG render and run a vision pass; pixel-sample badge/action colours and compare the sampled hex to `reference/design-language/colours.md` (EE Blue `#0066CC`); documented text-only limitation + a no-render fallback that flags rather than passes. Checklist renumbered to **Step 4** with **7 ⬚ visual-gate rows** + a new **Badge / action colour** pixel-sample row; Deliver renumbered to Step 5 and tightened to surface an unmet visual gate; intake gained a **Source fidelity** line and the **Do not** list a "no passing visual checks from text alone" rule.
+- **2026-06-16 — Rebuilt + re-verified.** `npm run build:plugins` regenerated both payloads; `verify-plugins.mjs` = **ALL CHECKS PASSED**. `kuat-studio` `${CLAUDE_PLUGIN_ROOT}` links 44→45 = the new `colours.md` link (resolves); payloads still byte-identical to source modulo the link rewrite. Source keeps relative `../../reference/...` (dev path + Phase-2 evals intact); built label de-pathed per `0b3ac6e`.
+- **2026-06-16 — Eval Brief E3 (+ E3-fallback) added** to `docs/migration/evals/review-presentation.md`. E3 = rendered-deck visual pass (near-miss badge blue `#1E73D9` vs `#0066CC`, colour hero, recoloured logo) expecting pixel-sampled findings; E3-fallback = text-only source must request a render and flag the ⬚ rows, never pass. Rubric pointer updated (Step 3 → Step 4 table + Step 3 gate). E1/E2 unchanged. Authored as durable fixtures; live run = a pilot step.
+- **2026-06-16 — `review-web-app` visual generalisation = follow-up.** The same render-vs-text gap applies to reviewing a live URL/DOM vs rendered screenshots; recorded for a later phase, out of scope here per the plan.
+
 ## Phase 3 — Plugin Packaging & Marketplace
 
 **Branch:** `migration/phase-3-plugin-packaging` · **Started:** 2026-06-15
