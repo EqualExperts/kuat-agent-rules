@@ -293,7 +293,7 @@ Create a slide deck for a client pitch.
 What is the primary EE brand colour and which semantic token should I use in product UI?
 ```
 
-**Pass if:** EE Blue / `#0066CC` (or oklch equivalent) and `bg-primary` or `--primary` from rules — not a guessed purple or generic blue.
+**Pass if:** EE Blue (the value in `colours.md` — currently `#1795d4` / oklch equivalent) and `bg-primary` or `--primary` from rules — not a guessed purple or generic blue.
 
 ---
 

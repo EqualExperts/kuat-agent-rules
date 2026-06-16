@@ -31,7 +31,7 @@ Run the grouped intake and choose a **review depth** ([skills/_shared/intake.md]
 Slide brand compliance is largely **visual** — photography treatment, logo/badge rendering, exact colours, layout — and **text extraction is blind to all of it.** Before running the visual rows of the checklist:
 
 - **If the source is a live connector (Google Slides) or a text-only extraction**, obtain **rendered slides** — a PDF export or per-slide PNGs (Google Slides → *File ▸ Download ▸ PDF / PNG*, or the Drive connector's export) — and run a **vision pass** over them, covering what text can't show: photography treatment (monochrome vs colour), logo/badge rendering, colour usage, and layout/spacing.
-- **Exact colours → pixel-sample, don't eyeball.** Where colour fidelity matters (the page badge, primary actions, links), sample the pixel value from the render and compare it to the token in [reference/design-language/colours.md](${CLAUDE_PLUGIN_ROOT}/reference/design-language/colours.md) — e.g. EE Blue `#0066CC` / `oklch(0.645 0.163 237.5)`. Report the **sampled hex vs the expected token**, not an impression.
+- **Exact colours → pixel-sample, don't eyeball.** Where colour fidelity matters (the page badge, primary actions, links), sample the pixel value from the render and compare it against the EE Blue value in [colours.md](${CLAUDE_PLUGIN_ROOT}/reference/design-language/colours.md) — **read the current value there; do not rely on a memorised hex** (the token is the source of truth and can evolve). Report the **sampled hex vs the colours.md value**, not an impression.
 - **Already have a render?** A supplied PDF/PNG or Figma frames satisfy this — go straight to the vision pass.
 
 **Fallback — no render obtainable.** Do **not** pass the visual rows. Mark every render-dependent item (**⬚** in Step 4) as a **flagged gap**, state the limitation explicitly — *"source was text-only (connector / extraction); photography treatment, exact colours, and logo/badge rendering could not be verified"* — and ask the user to supply a PDF or per-slide PNG export. Verify the remaining (text / structure) rows as normal.
@@ -49,7 +49,7 @@ Run every item you can verify from the supplied artifacts; cite the `reference/.
 | ⬚ Layouts | One layout per slide, no hybrids; 5–8 distinct across the deck |
 | Stats | Numbers paired with explanatory copy on the same slide |
 | ⬚ Page badge | EE Blue badge top-right on body slides; absent on title/divider/full-bleed |
-| ⬚ Badge / action colour | Pixel-sampled hex matches the token in `reference/design-language/colours.md` (EE Blue `#0066CC`) — not a near-miss blue |
+| ⬚ Badge / action colour | Pixel-sampled hex matches the EE Blue value read from `reference/design-language/colours.md` (read it — don't assume a hex) — not a near-miss blue |
 | ⬚ Logo | On title + closing only; not every slide; no recolour/distortion/effects; renders cleanly |
 | Closing | Named contact, photograph, email, phone, social row |
 | ⬚ Co-brand | Client logo not equal weight to EE on the cover (endorsement pattern) |

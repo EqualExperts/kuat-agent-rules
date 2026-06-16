@@ -177,7 +177,7 @@ Always specify `defaultVariants`:
 
 ### Design Tokens
 
-- Use semantic color tokens (`bg-primary`, not `#0066CC`)
+- Use semantic color tokens (`bg-primary`, not a raw hex)
 - Use spacing scale (`p-4`, not `padding: 17px`)
 - Use border radius rules (0px/4px/6px)
 
