@@ -4,6 +4,20 @@ Dated record of checkpoint decisions and non-obvious deviations, per phase. Newe
 
 ---
 
+## Content reconciliation — Tone of Voice guide
+
+**Date:** 2026-06-16 · **Source:** *Equal Experts Tone of Voice.pdf* (the published guide)
+
+Reconciled `reference/content/` (writing-style, formatting, numbers, punctuation), `reference/brand/voice-and-tone.md`, and the `reference/accessibility/` Inclusive Language section to the published guide. The previous content files were generic boilerplate that **contradicted** the published Style Guide — em dash vs spaced en dash for asides, italics for emphasis (EE: quotes only), 12-hour clock with a colon (EE: full stop), no one-to-ten/figures-11+ rule at all, and Oxford-comma-on by default (EE: off). All fixed; no files renamed/moved/deleted, so inbound links are intact. Plugin snapshots regenerated via `build-plugin.mjs`.
+
+### Flagged media gaps (not built — flag only, per Ed)
+
+The Tone of Voice guide covers material that has **no `media-types/` home** yet:
+- **Social media** — channel tone (LinkedIn, X), and emoji/hashtag usage (only the mechanical rules now live in `content/formatting.md`). Candidate: a future `media-types/social/`.
+- **Templates referenced by the guide** — case-study, blog, playbook/informative, pitch-deck, and Knowledge Portal templates. These exist as Google Docs/Slides links in the source PDF but aren't mirrored in `reference/`.
+
+---
+
 ## Phase 4S — kuat-studio asset pack + skill rework
 
 **Branch:** `feat/phase-4s-studio-asset-pack` · **Started:** 2026-06-16

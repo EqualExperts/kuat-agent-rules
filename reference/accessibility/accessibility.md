@@ -367,11 +367,17 @@ Always spell out abbreviations on first use:
 
 ## Inclusive Language
 
+Inclusive language is part of how Equal Experts writes — it helps us be accurate and build trust. Around 16% of people worldwide experience some form of disability, so it matters that we don't unintentionally exclude anyone from accessing or understanding our work. This section is the authoritative source for inclusive word choices across all content; the [writing style](../content/writing-style.md) guidance links here.
+
 ### Guidelines
 
 - Use language that is respectful and free of bias
-- Avoid exclusionary terms or outdated phrases
-- Consider diverse audiences and perspectives
+- Avoid terms that contribute to stigmas around disability or mental illness
+- Make content **gender-neutral** wherever possible, and avoid words and phrases that indicate gender bias
+- Avoid words, images, or situations that reinforce racial, ethnic, or religious stereotypes
+- Be considerate with computer and software terminology such as "master", "slave", and "blacklist" — prefer neutral alternatives (for example "main", "primary/replica", "blocklist")
+- Avoid assumptions: when including someone in a piece of content, ask how they'd like to be identified
+- Avoid idioms where possible, or make sure they're clearly explained — they don't always translate across cultures or for non-native readers
 - When in doubt, research current preferred terminology
 
 ### Person-First Language

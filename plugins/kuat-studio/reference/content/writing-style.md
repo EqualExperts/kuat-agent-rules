@@ -31,7 +31,7 @@ Prefer the subject doing the action. It's clearer and more direct.
 | You can save your work here | Work can be saved here |
 | We recommend testing first | It is recommended that testing be performed first |
 
-Use passive only when the actor is unknown or irrelevant, or when you want to emphasise the action.
+Use passive only when the actor is unknown or irrelevant, or when you want to emphasise the action over the subject: "The health check saved the client £3 million."
 
 ---
 
@@ -83,9 +83,14 @@ Use everyday contractions so content sounds natural and approachable.
 - Use **"we"** for Equal Experts when it's clear from context
 - Keep "my" vs "your" consistent with the product (e.g. "your account" in product UI)
 
+### Don't "we" all over the content
+
+Describing ourselves as "we" humanises the brand, but using it too often can read as boastful or insincere — especially when we want to emphasise the client, their input, and the collaboration. Balance "we" with the customer's perspective.
+
 ---
 
 ## Related Documentation
 
 - [Voice and tone](../brand/voice-and-tone.md) - Principles and audience
 - [Formatting](./formatting.md) - Capitalisation, headings, lists
+- [Inclusive language](../accessibility/accessibility.md#inclusive-language) - Accessible, bias-free word choices
