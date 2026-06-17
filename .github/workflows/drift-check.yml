@@ -1,0 +1,44 @@
+# Drift check — keeps generated artifacts in sync with their source of truth.
+#
+# Phase 7 (kuat-agent-rules / Run A). Gates:
+#   - tokens:check    colours.md must match colors.tokens.json (the #0066CC drift class)
+#   - reference:check passive test + link integrity + structure + token drift on CHANGED
+#                     reference files (needs full history for the merge-base; fetch-depth: 0)
+#   - verify:plugins  payloads valid + contributor skills absent from every plugin payload
+#
+# NOTE (Phase 7): authored-but-unverified — there is no Actions runner in the dev
+# environment to exercise this. Validate on the first PR. The deterministic gates
+# (tokens:check, verify:plugins) need no git history; reference:check is change-scoped.
+# `check-reference.mjs --all` surfaces a ~60-item legacy "Testing Checklist" backlog —
+# intentionally NOT gated here (it predates Phase 7).
+
+name: drift-check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # full history so reference:check can merge-base against origin/main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Scripts use only Node built-ins — no install step needed.
+      - name: Token drift (colours.md vs colors.tokens.json)
+        run: npm run tokens:check
+
+      - name: Reference change gate (passive / links / structure / token drift)
+        run: npm run reference:check
+
+      - name: Build + verify plugin payloads (no contributor-skill leak)
+        run: |
+          npm run build:plugins
+          npm run verify:plugins

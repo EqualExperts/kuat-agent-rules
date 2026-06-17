@@ -130,3 +130,12 @@ We are migrating from the old `rules/` + intent-skills architecture to **referen
 ### Distribution model (context)
 
 Pinned semver + **beta/stable channels** + pre-registration via managed settings. A plugin release is how fresh reference reaches consultants. Bump `version` in **`plugin.json` only** (never also in the marketplace entry). See `docs/migration/phase-3-plugin-packaging.md`.
+
+### Contributor skills (Phase 7 — DS team, repo-local)
+
+The skills under [.claude/skills/](./.claude/skills/) are **contributor** skills — for the small DS team who *extend* the system, not consultants who *apply* it. They are **repo-local only**: project-scoped, auto-discovered when working in this repo, and **never** packaged into a plugin, the marketplace, or managed settings (the build refuses to package from `.claude/skills/`, and `verify-plugins.mjs` asserts none leak into a payload). Being in the repo *is* the access control.
+
+- **Colours change at the SoT, never by hand.** `reference/design-language/colours.md` is a **generated artifact** (`npm run tokens:generate` from `colors.tokens.json`); a drift check (`npm run tokens:check`) gates it. Use [generate-tokens](./.claude/skills/generate-tokens/SKILL.md).
+- **Reference changes go through the gate.** Add/edit reference with [author-reference](./.claude/skills/author-reference/SKILL.md); gate it with [review-reference-change](./.claude/skills/review-reference-change/SKILL.md) (`npm run reference:check` — passive test, link integrity, structure, token drift).
+- **New skills** in house style: [author-skill](./.claude/skills/author-skill/SKILL.md). **Studio asset pack:** [prep-slides-master](./.claude/skills/prep-slides-master/SKILL.md), [curate-slide-layouts](./.claude/skills/curate-slide-layouts/SKILL.md), [add-brand-asset](./.claude/skills/add-brand-asset/SKILL.md).
+- Component authoring (`add-kuat-component`) + the downstream `variables.css`/registry generation live **downstream in kuat-mono** — see `docs/migration/phase-7-kuat-mono-handoff.md`.

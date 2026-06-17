@@ -1,8 +1,8 @@
-# Phase 7 — Contributor Skills (restricted · fast-follow)
+# Phase 7 — Contributor Skills (repo-local · **gates `stable`**)
 
 **Repos / Claude Code projects:** `kuat-mono` **and** `kuat-agent-rules` (cross-repo)
 **Branches:** `feature/phase-7-contributor` in each repo
-**Depends on:** Phase 5 (governance + contribution model published; consumer system stable). Restricted distribution to the DS team only.
+**Sequencing (Ed):** pulled **forward — before Phase 5 `stable`.** The DS team must be able to maintain Studio + Build before consultants depend on a stable release. Repo-local, DS-team-only.
 
 > Everything so far has served **Kuat consumers** (people applying the design system). This phase serves **Kuat contributors** — the small DS team who extend the system itself. These skills touch the source of truth, so they are sensitive.
 >
@@ -16,14 +16,31 @@ Equip the DS team to extend Kuat safely and consistently: author **components** 
 
 ---
 
-## Skills to build
+## Skills to build (all four families — Ed)
 
-| Skill | Repo | Job |
-|-------|------|-----|
-| `add-kuat-component` | `kuat-mono` | Scaffold a new component (React + Vue) + Storybook + tests; update `components.manifest.json` + the generated component registry; regenerate the package `agent-docs` bundle |
-| `author-reference` | `kuat-agent-rules` | Add/edit a reference guideline or pattern **upholding the passive test** and the `media-types/<medium>/patterns/` structure; update `MIGRATION-MAP.md` if paths move |
-| `review-reference-change` | `kuat-agent-rules` | Gate a reference change: passive-test scan (no verbs/roles/loading tables), link integrity, structure conformance |
-| `author-skill` *(optional)* | `kuat-agent-rules` | Scaffold a new activity skill in the house style (sharp trigger, progressive disclosure, `${CLAUDE_PLUGIN_ROOT}` links, checklist, version stamp) |
+### Build (kuat-mono)
+| Skill | Job |
+|-------|-----|
+| `add-kuat-component` | Scaffold a component (React + Vue) + Storybook + tests; update `components.manifest.json`; **regenerate the component registry from the manifest** + a **CI drift check** (reference registry vs kuat-mono manifest); regenerate the package `agent-docs` bundle. Closes the "component log goes stale" concern. |
+
+### Tokens (cross-repo — closes the colour SoT gap)
+| Skill | Job |
+|-------|-----|
+| `generate-tokens` | From the upstream `reference/design-language/tokens/colors.tokens.json` SoT, **generate** `reference/design-language/colours.md` **and** downstream kuat-core `variables.css` (via the 1b sync direction), with a **CI drift check** that fails if either artifact diverges from the tokens. Permanently prevents the `#0066CC` class of drift. (Replaces the current hand-maintained `colours.md`.) |
+
+### Studio asset-pack upkeep (kuat-agent-rules)
+| Skill | Job |
+|-------|-----|
+| `prep-master` | Wrap `assets/slides/prep-master.py` as a skill: when the master changes, re-slim + fix theme font → Lexend + embed fonts → refresh `ee-master-2026.pptx`; self-check. |
+| `curate-layouts` | Render/inspect the 65 master layouts, label them by purpose in `assets.manifest.json`, prune unused → shrink the master/payload (the deferred layout-map curation). |
+| `add-brand-asset` | Add a logo variant / photography / icon to the pack + `assets.manifest.json` with the right IDs (the path to closing the image-library gap). |
+
+### Shared authoring (kuat-agent-rules)
+| Skill | Job |
+|-------|-----|
+| `author-reference` | Add/edit a reference guideline or pattern **upholding the passive test** + the `media-types/<medium>/patterns/` structure; update `MIGRATION-MAP.md` if paths move. (For colours, edits go through the **token SoT** + `generate-tokens`, not by hand.) |
+| `review-reference-change` | Gate a reference change: passive-test scan (no verbs/roles/loading tables), link integrity, structure conformance, token-drift. |
+| `author-skill` | Scaffold a new activity skill in the house style (sharp trigger, progressive disclosure, `${CLAUDE_PLUGIN_ROOT}` links, checklist, version stamp). |
 
 ---
 
