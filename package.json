@@ -5,6 +5,10 @@
   "description": "Equal Experts brand rules and agent skills",
   "scripts": {
     "bundle:skills": "node skills/scripts/bundle-skills.mjs",
-    "build:plugins": "node skills/scripts/build-plugin.mjs"
+    "build:plugins": "node skills/scripts/build-plugin.mjs",
+    "verify:plugins": "node skills/scripts/verify-plugins.mjs",
+    "tokens:generate": "node skills/scripts/generate-tokens.mjs",
+    "tokens:check": "node skills/scripts/generate-tokens.mjs --check",
+    "reference:check": "node skills/scripts/check-reference.mjs"
   }
 }

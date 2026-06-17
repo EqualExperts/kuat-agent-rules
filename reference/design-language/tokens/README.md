@@ -13,8 +13,17 @@ This folder holds the **canonical design tokens** for the Equal Experts design s
 
 ## Rules
 
-- **Change colours here, then regenerate.** Never hand-edit `colours.md` or `variables.css` — they drift (that's how EE Blue became `#0066CC`). A CI drift check should fail if a generated artifact diverges from these tokens.
+- **Change colours here, then regenerate.** Never hand-edit `colours.md` or `variables.css` — they drift (that's how EE Blue became `#0066CC`). The drift check fails if a generated artifact diverges from these tokens.
 - **Direction is one-way:** tokens (upstream) → `colours.md` + kuat-core (downstream). Never generate these tokens *from* kuat-core.
 - **Support scales** (slate/red/indigo) are not brand colours and live only in kuat-core.
 
-*(Generation scripts + CI check are part of Phase 4S — see `docs/migration/phase-studio-asset-pack.md`. Until they exist, these tokens are the authority and `colours.md` is kept in sync by hand.)*
+## How to regenerate (Phase 7)
+
+```bash
+npm run tokens:generate   # rewrite reference/design-language/colours.md from this token file
+npm run tokens:check      # CI drift gate — exits 1 if colours.md diverges from the tokens
+```
+
+- The generator is `skills/scripts/generate-tokens.mjs`; `colours.md` carries a `GENERATED FILE — DO NOT EDIT BY HAND` banner. Prose lives in the generator template — change it there and regenerate.
+- `tokens:check` runs in `.github/workflows/drift-check.yml` and inside the reference review gate (`npm run reference:check`).
+- The **downstream** `@equal-experts/kuat-core` `variables.css` half is generated in **kuat-mono** from the synced tokens (Phase 7 Run B — see `docs/migration/phase-7-kuat-mono-handoff.md`). The contributor workflow for colour changes is the repo-local `generate-tokens` skill (`.claude/skills/generate-tokens/`).

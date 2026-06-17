@@ -161,6 +161,37 @@ function verifyPlugin(name) {
   }
 }
 
+/**
+ * Distribution guard (Phase 7): contributor skills live in .claude/skills/ and must NEVER
+ * appear in a plugin payload. Derived from the live .claude/skills/ dir so it auto-covers
+ * future contributor skills. Also asserts no `.claude` path leaked into any payload.
+ */
+function verifyNoContributorLeak() {
+  console.log(`\n[distribution guard]`);
+  const claudeSkillsDir = path.join(REPO_ROOT, ".claude", "skills");
+  const contributorSkills = fs.existsSync(claudeSkillsDir)
+    ? fs.readdirSync(claudeSkillsDir, { withFileTypes: true }).filter((e) => e.isDirectory()).map((e) => e.name)
+    : [];
+  let leaks = 0;
+  const hasClaudePath = (dir) => {
+    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (e.name === ".claude") return true;
+      if (e.isDirectory() && hasClaudePath(path.join(dir, e.name))) return true;
+    }
+    return false;
+  };
+  for (const name of fs.readdirSync(PLUGINS_DIR)) {
+    const root = path.join(PLUGINS_DIR, name);
+    if (!fs.statSync(root).isDirectory()) continue;
+    const skillsDir = path.join(root, "skills");
+    for (const s of contributorSkills) {
+      if (fs.existsSync(path.join(skillsDir, s))) { fail(`contributor skill '${s}' leaked into ${name} payload`); leaks++; }
+    }
+    if (hasClaudePath(root)) { fail(`a .claude/ path leaked into ${name} payload`); leaks++; }
+  }
+  if (!leaks) ok(`no contributor skill leaked into any payload (${contributorSkills.length} repo-local skills kept out)`);
+}
+
 function verifyMarketplace() {
   console.log(`\n[marketplace]`);
   const mp = validJson(path.join(MARKET_DIR, ".claude-plugin", "marketplace.json"), ["name", "owner", "plugins"]);
@@ -182,6 +213,7 @@ function main() {
   for (const name of fs.readdirSync(PLUGINS_DIR)) {
     if (fs.statSync(path.join(PLUGINS_DIR, name)).isDirectory()) verifyPlugin(name);
   }
+  verifyNoContributorLeak();
   verifyMarketplace();
   console.log(failures ? `\nFAILED: ${failures} issue(s)` : `\nALL CHECKS PASSED`);
   process.exit(failures ? 1 : 0);

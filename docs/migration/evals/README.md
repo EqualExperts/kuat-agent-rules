@@ -24,3 +24,7 @@ All briefs below are authored as durable fixtures. **Live-run & scored this phas
 | review-presentation | 2 | [review-presentation.md](./review-presentation.md) |
 
 Generated sample outputs live in [outputs/](./outputs/).
+
+## Later phases
+
+- **Phase 7 (contributor skills, Run A):** [phase-7-contributor.md](./phase-7-contributor.md) → [RESULTS-phase-7.md](./RESULTS-phase-7.md). These are **executed** checks (script + exit code), not rubric-scored.
