@@ -355,35 +355,6 @@ Kuat components automatically respect `prefers-reduced-motion`. When building cu
 
 ---
 
-## Testing Checklist
-
-### Keyboard Testing
-
-- [ ] Can reach all interactive elements with Tab
-- [ ] Focus order is logical
-- [ ] Focus indicator is visible
-- [ ] Can activate buttons/links with Enter/Space
-- [ ] Can close modals with Escape
-- [ ] No keyboard traps
-
-### Screen Reader Testing
-
-- [ ] Page has descriptive title
-- [ ] Headings create logical outline
-- [ ] Images have appropriate alt text
-- [ ] Links and buttons have clear labels
-- [ ] Form fields are labelled
-- [ ] Error messages are announced
-
-### Visual Testing
-
-- [ ] Content visible at 200% zoom
-- [ ] Works in both orientations
-- [ ] Colour contrast meets requirements
-- [ ] Information not conveyed by colour alone
-
----
-
 ## Related Documentation
 
 - [Accessibility foundations](../../accessibility/accessibility.md) - Principles and guidelines

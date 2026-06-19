@@ -57,3 +57,17 @@ The **proof the Phase-4 false pass is fixed.** Source = the original failing pil
 - It must **NOT** report a clean or "partial pass" that overlooks the recreation. Authenticity FAILs are blocking and are not offset by good type/spacing.
 
 **Pass criterion for the eval:** the reworked review **fails the deck on authenticity** where the Phase-4 review passed it.
+
+---
+
+## Brief E5 — Case-study deck review (scenario parity, genuine master)
+
+> Review this client case-study deck at `brand_compliance` depth. Source: the actual `.pptx`, built from the EE master (PDF render also available). It's broadly on-brand; the planted issues are scenario-specific, not authenticity.
+
+Planted issues to catch:
+> - Cover places the **client logo at equal weight** beside the EE logo (should be the endorsement pattern — EE leads; client logo in the body, not co-equal on the cover).
+> - The case study names a client and outcome that are **not marked as approved/true**.
+> - No closing **contact** block.
+> - One body slide states a result as a **bare "+40%"** with no surrounding context.
+
+**Targets:** scenario resolved = **case study** (distinct from E1 sales / E2 reporting); because the source **is** the genuine `.pptx`, the **authenticity gate (Step 3) passes** — and the review says so explicitly rather than treating "on the master" as suspicious. Findings are the **case-study pattern** breaches (co-brand weight, approval/truth of the named case, closing contact, contextless stat), each cited to `reference/media-types/slides/patterns/case-studies.md` / `slides/...`. Confirms a clean-authenticity deck is **not** auto-passed and the scenario pattern rules are applied.

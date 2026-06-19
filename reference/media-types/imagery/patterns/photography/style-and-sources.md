@@ -71,13 +71,9 @@ Images featuring members of the Equal Experts network take priority over all oth
 - Social and event contexts (conferences, off-sites, team gatherings)  
 - A mix of activities, emotions, and workplace interactions  
 
-### 3.3 Verification checklist for EE People imagery
+### 3.3 What makes EE People imagery usable
 
-- [ ] Image is sourced from the official EE People image library  
-- [ ] Subject(s) have provided consent (handled centrally by marketing)  
-- [ ] Image has been converted to monochrome (unless an exception applies)  
-- [ ] Image reflects authentic moment — not overly staged  
-- [ ] Diversity of representation is considered  
+Usable EE People imagery is sourced from the official EE People image library, with subject consent handled centrally by marketing. It is converted to monochrome (unless an exception applies — see §1.2), reflects an authentic moment rather than an overly staged one, and is chosen with diversity of representation in mind (see [diversity-inclusion.md](./diversity-inclusion.md)).
 
 ---
 

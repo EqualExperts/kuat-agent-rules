@@ -50,3 +50,54 @@ Source: the actual Phase-4 false-pass deck. Findings under the reworked skill:
 - **✪ Template authenticity → FAIL.** Bespoke HTML, not built on `ee-master-2026.pptx`; the badge/bracket are redrawn, not inherited.
 - **Colour:** the title-bar blue is hard-coded `#0066CC` in the deck CSS — a **near-miss** vs the genuine EE Blue `#1795d4` in `colours.md` (the same wrong value the Phase-4 review pixel-sampled and *passed*).
 - **Contrast with Phase 4:** `kuat-studio-test/ai-in-design-review.md` recorded "Logo — title + closing only … **Pass**" and "badge `#0066CC` exact … **Pass**". The reworked skill inverts both to FAIL. **The false pass is fixed.**
+
+---
+
+## Phase H — Optimise & Test (run 2026-06-19)
+
+Reference ref: branch `feature/phase-h-optimise-and-test`. Eval set expanded into the regression net + release gate. Rigor per **Decision-D (carried from Phase 2)**: every brief is a durable fixture+rubric; a representative subset is **live-run & scored** in-session; tooling-dependent briefs keep prior evidence and stay **fixture+pilot**.
+
+### Full coverage matrix (briefs × skills)
+
+| Skill | Brief | Run | Verdict |
+|-------|-------|-----|---------|
+| create-web-app | A1 sign-in (no pkg) | live (P2) | ✅ PASS |
+| create-web-app | A2 dashboard sidebar · A3 docs empty/loading | fixture | regression net |
+| create-web-app | **A4 settings page** | fixture (new) | regression net |
+| create-web-app | **A5 data table / list view** | **live (H)** | ✅ PASS — [outputs/create-web-app-A5.md](./outputs/create-web-app-A5.md) |
+| review-web-app | B1 brand_compliance · B2 full | live (P2) / fixture | ✅ PASS / net |
+| review-web-app | **B3 product_ux depth** | **live (H)** | ✅ PASS — [outputs/review-web-app-B3.md](./outputs/review-web-app-B3.md) |
+| create-imagery | C1 icons | live (P2) | ✅ PASS |
+| create-imagery | C2 infographic (refs req'd) · C3 photography | fixture | regression net |
+| create-imagery | **C4 illustration** | fixture (new) | regression net |
+| create-imagery | **C5 negative: recreate-logo → refuse** | **live (H)** | ✅ PASS (negative) — [outputs/create-imagery-C5.md](./outputs/create-imagery-C5.md) |
+| create-presentation | D1 knowledge-share/live | live (P2) | ✅ PASS |
+| create-presentation | D2 sales case-study/read-ahead | fixture | regression net |
+| create-presentation | D3 build-from-master | live (4S) | ✅ PASS (structural) |
+| create-presentation | **D4 reporting × left-behind** | fixture (new) | regression net |
+| review-presentation | E1 brand flawed | live (P2) | ✅ PASS |
+| review-presentation | E2 read-ahead density · E3 visual + E3-fallback | fixture / pilot | net / pilot |
+| review-presentation | E4 recreated-logo → FAIL | live (4S) | ✅ PASS (negative — the proof) |
+| review-presentation | **E5 case-study review (genuine master)** | fixture (new) | regression net |
+| edge-cases | **X1 ambiguous intake · X2 conflict vs rule · X3 missing asset · X4 varied sources** | **live (H)** | ✅ PASS (all 4) — [outputs/edge-cases-X1-X4.md](./outputs/edge-cases-X1-X4.md) |
+
+**Live-scored this phase (H): 7/7 PASS** — A5, B3, C5, X1, X2, X3, X4.
+
+### Negatives (must FAIL review / be refused)
+
+| Negative | Where | Status |
+|----------|-------|--------|
+| Recreated logo (review side) | E4 | ✅ FAILs — carried from 4S, the false-pass proof |
+| Recreated logo (create side, refusal) | **C5** | ✅ refused this phase |
+| Off-brand / near-miss colour | E3 (`#1E73D9`), E4 (`#0066CC`) | ✅ pixel-sampled vs `#1795d4` SoT |
+| Non-master / bespoke deck | E4 | ✅ template-authenticity FAIL |
+
+### Installed-form re-run (Decision-D)
+
+`verify-plugins` asserts the packaged skills are **identical to source modulo link rewrite** (kuat-build 2, kuat-studio 3) and the reference snapshot (89 files) is 0-broken — so behaviour scored against source == installed. Spot-checked the specific Phase-H changes in the built payloads: review-web-app's new `## Conflict & ambiguity` is present in `plugins/kuat-build/...`; create-imagery's never-recreate rule is present in `plugins/kuat-studio/...`; the three cleared web-product reference files pass the passive test inside the snapshot.
+
+### Notes
+
+- **(b) hardening surfaced one gap, now fixed:** review-web-app lacked an explicit `## Conflict & ambiguity` section (it only inherited the line via `review-common`). Added for uniformity with the other four skills; X2/X4 pass.
+- **Tooling-dependent briefs stay pilot:** D3 (build-from-master) and E3 (rendered-deck vision pass) need a renderer/python-pptx not run headless here — prior evidence carried; they are the regression net for a pilot run, not faked green.
+- **Reference optimisation:** the 61 legacy passive-test violations were **fully cleared** — `check-reference.mjs --all` is now 0 (was 61). See LOG / report.

@@ -90,14 +90,12 @@ A case study page uses five images. Each image passes the individual quality che
 
 ---
 
-## 6. Diversity checklist for image selection
+## 6. What well-represented selection looks like
 
-Use these checks for any image featuring people.
+Across a piece of content, a well-represented image set has these properties:
 
-- [ ] Does this image avoid reinforcing a demographic default for the role or activity shown?
-- [ ] Are people of different ethnicities represented across the full content set?
-- [ ] Are people of different ages represented across the full content set?
-- [ ] Are women and non-binary people shown in technical and leadership contexts, not only in facilitation roles?
-- [ ] Is the diversity in the image authentic and natural, rather than clearly staged for representation purposes?
-- [ ] Viewed alongside all other images in this piece of content, does the set as a whole represent a realistic cross-section of people?
-- [ ] If only one person is shown, does the choice of that person avoid reinforcing a stereotype about the role or activity?
+- It avoids reinforcing a demographic default for any role or activity shown.
+- It represents a range of ethnicities and ages across the full set, not within a single image.
+- It shows women and non-binary people in technical and leadership contexts, not only facilitation roles.
+- Its diversity reads as authentic and natural, rather than staged for representation.
+- Viewed as a whole it reads as a realistic cross-section of people — and where a single person appears, that choice still avoids reinforcing a stereotype about the role or activity.

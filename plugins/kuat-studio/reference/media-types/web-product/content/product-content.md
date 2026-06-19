@@ -90,32 +90,6 @@ Before writing, know:
 
 ---
 
-## Product Content Checklist
-
-**Context and Timing:**
-- [ ] Content appears at right moment
-- [ ] Information directly relevant
-- [ ] Content disappears when not relevant
-
-**Clarity and Conciseness:**
-- [ ] Every word carries meaning
-- [ ] As short as possible while clear
-- [ ] Most important info first
-
-**Usability:**
-- [ ] Users can complete task without leaving for help
-- [ ] Button labels describe action clearly
-- [ ] Form labels clear and persistent
-- [ ] Error messages explain problem and fix
-
-**Accessibility:**
-- [ ] Accessible to screen readers
-- [ ] Labels connected to inputs
-- [ ] Error messages associated with fields
-- [ ] Logical heading hierarchy
-
----
-
 ## Related Documentation
 
 - [Voice and tone](../../../brand/voice-and-tone.md) - Voice, tone, style
