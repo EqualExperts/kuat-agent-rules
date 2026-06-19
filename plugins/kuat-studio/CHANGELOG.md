@@ -2,7 +2,7 @@
 
 All notable changes to this plugin are recorded here. Drives release notes.
 
-## 1.0.0 — 2026-06-17
+## 1.0.0 — 2026-06-19
 
 - Initial release. Skills: `create-presentation`, `review-presentation`, `create-imagery`.
-- Bundled `reference/` snapshot at `a408d8b6869b`.
+- Bundled `reference/` snapshot at `fb8bbcbb2792`.

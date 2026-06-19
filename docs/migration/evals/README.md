@@ -17,14 +17,16 @@ All briefs below are authored as durable fixtures. **Live-run & scored this phas
 
 | Skill | Briefs | File |
 |-------|--------|------|
-| create-web-app | 3 | [create-web-app.md](./create-web-app.md) |
-| review-web-app | 2 | [review-web-app.md](./review-web-app.md) |
-| create-imagery | 3 | [create-imagery.md](./create-imagery.md) |
-| create-presentation | 2 | [create-presentation.md](./create-presentation.md) |
-| review-presentation | 2 | [review-presentation.md](./review-presentation.md) |
+| create-web-app | 5 (A1–A5) | [create-web-app.md](./create-web-app.md) |
+| review-web-app | 3 (B1–B3) | [review-web-app.md](./review-web-app.md) |
+| create-imagery | 5 (C1–C5) | [create-imagery.md](./create-imagery.md) |
+| create-presentation | 4 (D1–D4) | [create-presentation.md](./create-presentation.md) |
+| review-presentation | 5 (E1–E5, + E3-fallback) | [review-presentation.md](./review-presentation.md) |
+| cross-skill edge cases | 4 (X1–X4) | [edge-cases.md](./edge-cases.md) |
 
 Generated sample outputs live in [outputs/](./outputs/).
 
 ## Later phases
 
 - **Phase 7 (contributor skills, Run A):** [phase-7-contributor.md](./phase-7-contributor.md) → [RESULTS-phase-7.md](./RESULTS-phase-7.md). These are **executed** checks (script + exit code), not rubric-scored.
+- **Phase H (optimise & test):** the brief set above was expanded into the regression net + release gate; results in [RESULTS.md](./RESULTS.md) → "Phase H" section. **This full set is re-run on every release** and is the promotion gate. Rigor = Decision-D (durable fixtures; representative live subset scored; tooling-dependent briefs stay pilot). Negatives (C5, E4) must FAIL/be refused.

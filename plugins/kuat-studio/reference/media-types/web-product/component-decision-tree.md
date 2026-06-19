@@ -206,38 +206,9 @@ import { cn } from "@/lib/utils"
 
 ---
 
-## Testing Checklist
+## Component testing
 
-Before shipping a component, verify:
-
-### Functionality
-- [ ] All variants render correctly
-- [ ] Default props work
-- [ ] Custom className can be passed
-- [ ] Component ref is forwarded (React)
-
-### Types
-- [ ] Props are properly typed
-- [ ] Types are exported
-- [ ] No TypeScript errors
-
-### Accessibility
-- [ ] Keyboard navigation works
-- [ ] Screen reader announces correctly
-- [ ] Focus visible and logical
-- [ ] ARIA attributes present
-
-### Styling
-- [ ] Uses design tokens
-- [ ] Works in light and dark mode
-- [ ] Responsive if applicable
-- [ ] Matches design specifications
-
-### Edge Cases
-- [ ] Long text handled
-- [ ] Empty states handled
-- [ ] Loading states (if applicable)
-- [ ] Error states (if applicable)
+Component test strategy and per-component verification (functionality, types, accessibility, styling, edge cases) are **owned by the implementation repo** — `kuat-mono` and the published package — per the upstream/local ownership split (see the repo's `AGENTS.md`). This reference covers component **selection and structure**, not test procedure.
 
 ---
 

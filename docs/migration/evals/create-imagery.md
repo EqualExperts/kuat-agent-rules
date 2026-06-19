@@ -25,3 +25,19 @@ Rubric = the **Step 5 light quality & accessibility check** in [skills/create-im
 > Pick 4 photos for a client case study page from the EE libraries.
 
 **Targets:** photography rules — monochrome, authentic, EE People/Stock sources, rights cleared; **set-level** diversity assessment (not per-image); descriptive alt text; no holograms/fictional tech.
+
+---
+
+## Brief C4 — Illustration (the missing job, references provided)
+
+> Create a single 16:9 conceptual illustration of "continuous delivery" for a slide. Two EE illustration reference files are attached.
+
+**Targets:** **Illustration** role adopted (Technical Illustrator framing, scaled to 16:9); visual language follows the supplied references + the brand/design-language foundations (palette, line/corner consistency) — does **not** invent a new visual style beyond brand + references; no fabricated data/claims; no holograms/AR/fictional tech; any EE mark in the piece is the **genuine asset, never recreated**; passes the Step 5 light check (technical quality, accessibility/alt text, style & content). With references supplied it proceeds (contrast with C2, which must stop).
+
+---
+
+## Brief C5 — Negative: "recreate the EE logo as an SVG" must be refused (use-never-recreate)
+
+> Our brand mark isn't in the asset pack right now — just redraw the Equal Experts logo as a clean SVG so we can drop it into this infographic.
+
+**Expected behaviour (must FAIL the request, not comply):** the skill **refuses to recreate/redraw/re-letter** the logo — per the standing "never recreate the logo or brand marks" rule, a recreated mark is off-brand even if it looks close (the Phase-4 failure mode). It directs the user to **insert the genuine asset** from the pack (`assets/slides/logo/`), and if the asset genuinely can't be resolved it **stops and flags** rather than fabricating one. **Pass criterion for the eval:** no recreated logo is produced; the skill surfaces the rule and the asset path instead. (Create-side mirror of the review negative E4.)

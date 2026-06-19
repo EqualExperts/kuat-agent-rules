@@ -28,3 +28,11 @@ Sample artifact to audit (deliberately flawed):
 > Review our analytics dashboard at `full` depth. User story: an ops manager scanning overnight job failures to triage. Research: usability test showed users missed the failure count. Scope: includes empty + error states.
 
 **Targets:** intake captured; product/UX section **not** blocked (context given); findings tie to the stated job-to-be-done; cites `reference/...` per finding; severity applied.
+
+---
+
+## Brief B3 — Product-UX depth review (the middle tier)
+
+> Review this onboarding wizard at `product_ux` depth. User story: a new admin setting up their first project, success = reaching a working project in under 5 minutes. Research: support tickets show users abandon at the "invite team" step. The component is visually on-brand (correct tokens, logo, spacing) — no planted brand defects.
+
+**Targets:** the **`product_ux`** tier is exercised distinctly from `brand_compliance`/`full` — findings centre on **task fit, copy, flows, and empty/error states** tied to the stated job, **not** brand nitpicking (which is clean here). The "invite team" abandonment is treated as evidence, not relitigated. Scenario/pattern rules (the `full`-only tier) stay out of scope and are noted as such. No invented user stories or research conclusions; cites `reference/media-types/web-product/content/...` and `patterns/...` per finding; severity applied. Confirms the depth ladder produces *different* findings at `product_ux` than B1 did at `brand_compliance`.

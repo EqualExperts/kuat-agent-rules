@@ -60,6 +60,12 @@ Cite the `reference/...` file + section for every finding.
 
 Use the agreed output format and severity model: [skills/_shared/report-formats.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/report-formats.md). Include the reference version in **References** — see [skills/_shared/version-stamp.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/version-stamp.md). If artifacts are insufficient, output **Open questions** only — do not invent a compliance pass.
 
+## Conflict & ambiguity
+
+- Where the artifact (or the user's stated intent) conflicts with a brand/accessibility rule, **flag the conflict** as a finding and recommend the compliant option — never silently mark it a pass.
+- If a foundation rule and a web-product rule conflict, the foundation wins — raise it explicitly.
+- If a component guide or asset can't be resolved, review against documented patterns and **flag the gap** rather than fabricating a verdict.
+
 ## Do not
 
 - Generate mockups, rewritten copy, or code unless asked
