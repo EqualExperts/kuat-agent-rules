@@ -64,6 +64,7 @@ Then hand to [review-reference-change](../review-reference-change/SKILL.md) for 
 
 ## Related
 
+- Part of the [contribution model](../../../contribute/overview.md) — this is the **Light/Medium · reference** path ([proposing a reference change](../../../contribute/proposing-a-reference-change.md)).
 - Review gate: [review-reference-change](../review-reference-change/SKILL.md)
 - Colours: [generate-tokens](../generate-tokens/SKILL.md)
 - New skill (not reference): [author-skill](../author-skill/SKILL.md)

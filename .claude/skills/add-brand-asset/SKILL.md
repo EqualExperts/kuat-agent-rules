@@ -67,6 +67,7 @@ Log the addition + provenance in [`docs/migration/LOG.md`](../../../docs/migrati
 
 ## Related
 
+- Part of the [contribution model](../../../contribute/overview.md) — this is the **Light · slide-asset / imagery** path ([proposing a slide asset](../../../contribute/proposing-a-slide-asset.md), [proposing an icon or image](../../../contribute/proposing-an-icon-or-image.md)).
 - Master prep: [prep-slides-master](../prep-slides-master/SKILL.md) · layout map: [curate-slide-layouts](../curate-slide-layouts/SKILL.md)
 - Consumers: [create-presentation](../../../skills/create-presentation/SKILL.md), [review-presentation](../../../skills/review-presentation/SKILL.md)
 - Manifest: [`assets/slides/assets.manifest.json`](../../../assets/slides/assets.manifest.json) · pack README: [`assets/README.md`](../../../assets/README.md)

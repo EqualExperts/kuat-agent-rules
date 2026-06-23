@@ -95,6 +95,7 @@ Close with **References** — the reference ref reviewed against
 
 ## Related
 
+- Part of the [contribution model](../../../contribute/overview.md) — this is the **reference-contribution gate** (the Review step) ([proposing a reference change](../../../contribute/proposing-a-reference-change.md)).
 - Authoring counterpart: [author-reference](../author-reference/SKILL.md) · colours: [generate-tokens](../generate-tokens/SKILL.md)
 - Output formats + severity: [`skills/_shared/report-formats.md`](../../../skills/_shared/report-formats.md)
 - Checker: `skills/scripts/check-reference.mjs` · npm: `reference:check`
