@@ -139,3 +139,7 @@ The skills under [.claude/skills/](./.claude/skills/) are **contributor** skills
 - **Reference changes go through the gate.** Add/edit reference with [author-reference](./.claude/skills/author-reference/SKILL.md); gate it with [review-reference-change](./.claude/skills/review-reference-change/SKILL.md) (`npm run reference:check` — passive test, link integrity, structure, token drift).
 - **New skills** in house style: [author-skill](./.claude/skills/author-skill/SKILL.md). **Studio asset pack:** [prep-slides-master](./.claude/skills/prep-slides-master/SKILL.md), [curate-slide-layouts](./.claude/skills/curate-slide-layouts/SKILL.md), [add-brand-asset](./.claude/skills/add-brand-asset/SKILL.md).
 - Component authoring (`add-kuat-component`) + the downstream `variables.css`/registry generation live **downstream in kuat-mono** — see `docs/migration/phase-7-kuat-mono-handoff.md`.
+
+### Contributing
+
+How to propose, build, review, and release changes to Kuat — the hybrid model, the four sizes, and a per-surface "Proposing a…" page for each contributor skill + gate — lives in [CONTRIBUTING.md](./CONTRIBUTING.md) (front door) and [contribute/overview.md](./contribute/overview.md) (full model). The `contribute/` docs are governance/how-to and sit **outside** the passive `reference/` library, so they are never bundled into a consumer plugin.

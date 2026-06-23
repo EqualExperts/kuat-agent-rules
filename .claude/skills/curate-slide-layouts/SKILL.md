@@ -64,6 +64,7 @@ on title/section/full-bleed).
 
 ## Related
 
+- Part of the [contribution model](../../../contribute/overview.md) — this is the **Light · slide-asset** path ([proposing a slide asset](../../../contribute/proposing-a-slide-asset.md)).
 - Master prep: [prep-slides-master](../prep-slides-master/SKILL.md) · brand assets: [add-brand-asset](../add-brand-asset/SKILL.md)
 - Consumer: [create-presentation](../../../skills/create-presentation/SKILL.md)
 - Helper: `skills/scripts/inspect-layouts.py` · manifest: [`assets/slides/assets.manifest.json`](../../../assets/slides/assets.manifest.json)

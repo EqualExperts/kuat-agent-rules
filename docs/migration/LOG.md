@@ -4,6 +4,22 @@ Dated record of checkpoint decisions and non-obvious deviations, per phase. Newe
 
 ---
 
+## Contribution model — rollout (publish + wire up the governance layer)
+
+**Branch:** `feature/contribution-model` · **Date:** 2026-06-23 · **Scope this run:** `kuat-agent-rules` only (rollout-prompt deliverables 1–4, 7); the `kuat-mono` half (5–6) is handed off. Source content was finalised (decisions resolved by Ed, 19 Jun 2026) — this run **publishes and wires it**, it does not re-decide.
+
+### Decisions (resolved at start, with Ed)
+
+- **A — kuat-agent-rules only this run.** The `feature/contribution-model` branch exists only here, and the `kuat-mono` half is a separate repo with its own branch/PR. So this run does deliverables 1–4 + 7 in full and documents 5–6 (kuat-mono `CONTRIBUTING.md` + AGENTS.md link, pointing to the canonical `contribute/overview.md` here) as a clean handoff. Cross-repo acceptance is "handed off", not claimed met.
+- **B — `contribute/` is top-level, not under `reference/`.** Governance is how-to, which (i) would trip the `review-reference-change` passive-test gate and (ii) must never ship inside a consumer plugin. Confirmed safe by construction: `build-plugin.mjs` only snapshots `reference/` + named skills (+ `assets/` for studio) — a top-level `contribute/` is never reached.
+
+### Deviations & non-obvious decisions (appended as they occur)
+
+- **2026-06-23 — Source content lives in `docs/migration/`, not `execution-plans/`.** The rollout prompt cites `execution-plans/kuat-contribution-model.md` + `execution-plans/contribute/decision-log.seed.md`; the live copies are in `docs/migration/`. Adapted `kuat-contribution-model.md` §1–7 → `contribute/overview.md` (dropped the "draft" framing + migration-internal asides, kept the relax-later posture and the surface→skill→gate table); seeded `contribute/decision-log.md` verbatim from `decision-log.seed.md`.
+- **2026-06-23 — Skill-name reconciliation in the per-type pages.** The prompt abbreviates `prep-master`/`curate-layouts`; the real skills are `prep-slides-master`/`curate-slide-layouts`. `add-kuat-component` is **not** in this repo (downstream in kuat-mono) — `proposing-a-component.md` points there rather than wiring a local skill.
+- **2026-06-23 — Pointer lines link to both the model and the per-type page.** Each of the 7 `.claude/skills/*/SKILL.md` gained a first `## Related` bullet naming its **size · surface** and linking `contribute/overview.md` + its `proposing-a-*.md` page (richer than the prompt's "one-line pointer", still one line).
+- **2026-06-23 — Guardrail verified, gates green.** `verify-plugins` ALL CHECKS PASSED (7 repo-local skills kept out; reference snapshot unchanged at 89 files); `grep` confirms no `contribute/` reference in either payload and no `contribute/` dir is bundled; `reference:check` green with **0 changed reference files** (we added nothing under `reference/`); link-resolution sweep over all 18 touched files = 0 broken. `deprecation-guidelines.md` is a stub flagging the Phase-5 fast-follow (designed against retiring `kuat-create`/`kuat-review`).
+
 ## Phase H — Optimise & Test (hardening; the last gate before `stable`)
 
 **Branch:** `feature/phase-h-optimise-and-test` · **Started:** 2026-06-19 · **Scope:** a defined first hardening pass to the promotion bar — (a) expand evals, (b) harden the 5 activity skills, (c) optimise reference + clear the 61 legacy passive-test violations. a/b/c continue as ongoing work post-H.

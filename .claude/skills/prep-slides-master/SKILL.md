@@ -69,6 +69,7 @@ TTF there and extend `NEW_FONTS` in `prep-master.py`. Keep the `OFL-*.txt` licen
 
 ## Related
 
+- Part of the [contribution model](../../../contribute/overview.md) — this is the **Medium · slide-asset** path ([proposing a slide asset](../../../contribute/proposing-a-slide-asset.md)).
 - Layout map: [curate-slide-layouts](../curate-slide-layouts/SKILL.md) · brand assets: [add-brand-asset](../add-brand-asset/SKILL.md)
 - Consumers: [create-presentation](../../../skills/create-presentation/SKILL.md), [review-presentation](../../../skills/review-presentation/SKILL.md)
 - Script: [`assets/slides/prep-master.py`](../../../assets/slides/prep-master.py) · manifest: [`assets/slides/assets.manifest.json`](../../../assets/slides/assets.manifest.json)

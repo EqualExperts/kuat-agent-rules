@@ -62,6 +62,7 @@ Until that lands, this token file is the authority and `variables.css` follows.
 
 ## Related
 
+- Part of the [contribution model](../../../contribute/overview.md) — this is the **Medium · token** path (Heavy for token *structure*) ([proposing a token change](../../../contribute/proposing-a-token-change.md)).
 - Reference (the WHAT): [`reference/design-language/colours.md`](../../../reference/design-language/colours.md) — generated; read, don't edit.
 - Review gate: [review-reference-change](../review-reference-change/SKILL.md)
 - Downstream contract: [`docs/migration/phase-7-kuat-mono-handoff.md`](../../../docs/migration/phase-7-kuat-mono-handoff.md)

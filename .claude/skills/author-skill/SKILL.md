@@ -86,6 +86,7 @@ token trips the verifier's reverse-rewrite — see the Phase-4S LOG note).
 
 ## Related
 
+- Part of the [contribution model](../../../contribute/overview.md) — this is the **Heavy · skill** path ([proposing a skill](../../../contribute/proposing-a-skill.md)).
 - Reference (not a skill): [author-reference](../author-reference/SKILL.md)
 - Templates to copy: [create-presentation](../../../skills/create-presentation/SKILL.md), [review-web-app](../../../skills/review-web-app/SKILL.md)
 - Build/verify: `skills/scripts/build-plugin.mjs`, `skills/scripts/verify-plugins.mjs`
