@@ -1,5 +1,7 @@
 # Slides — Case Studies Scenario
 
+**Implements:** [describe a case study](../../../patterns/help-users/describe-a-case-study.md) — the shared cross-medium concept, where the user goal and medium-agnostic principles live. This file owns the *how* in slides.
+
 **Job-to-be-done:** Tell a specific client story with credibility. Stands alone as a sales artefact, also slots into bigger decks.
 
 **Typical deck shape:** Single slide (summary) OR 2–3 slides (challenge / approach / outcomes). The case-study layout supports both.

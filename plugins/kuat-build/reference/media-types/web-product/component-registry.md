@@ -8,7 +8,7 @@ Stable IDs link patterns and checklists to per-component guides in the implement
 
 | ID | Display name | Source | Overlay / package doc | Upstream refs |
 |----|--------------|--------|----------------------|---------------|
-| `shadcn:button` | Button | shadcn CLI + `kuat-core` theme | `components/button.md` | [forms](./patterns/forms.md), [authentication](./patterns/authentication.md), [content/actions](./content/actions.md) |
+| `shadcn:button` | Button | shadcn CLI + `kuat-core` theme | `components/button.md` | [complete a form](./patterns/complete-a-form.md), [sign in](./patterns/sign-in.md), [content/actions](./content/actions.md) |
 | `kuat:button-group` | ButtonGroup | `@equal-experts/kuat-react` / `kuat-vue` | `components/button-group.md` | [component-decision-tree](./component-decision-tree.md) |
 | `kuat:kuat-header` | KuatHeader | `@equal-experts/kuat-react` / `kuat-vue` block | `components/kuat-header.md` | [component-decision-tree](./component-decision-tree.md), [design](./design.md) |
 

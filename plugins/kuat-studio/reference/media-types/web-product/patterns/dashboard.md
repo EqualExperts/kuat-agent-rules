@@ -1,19 +1,19 @@
-# Dashboard Scenarios
+# Dashboard
 
-Patterns for data dashboards, analytics views, metrics displays, and reporting interfaces.
+**User goal:** See the key metrics at a glance, understand trends over time, and move from data to a
+confident decision — drilling into detail only when needed.
 
----
+> **Pattern:** *Pages* · single-medium (web-product) — concept and implementation together.
+> Covers analytics views, metrics displays, data tables, and reporting interfaces.
+
+## Context
+
+A dashboard exists to turn data into decisions. Users arrive wanting insights quickly, with the most
+important metrics visible at a glance, patterns and changes over time made legible, and clear paths from
+what the numbers say to what to do next — while keeping the option to explore deeper when a question
+demands it.
 
 ## Principles
-
-### User Goals
-
-- **Get insights quickly** - Key metrics visible at a glance
-- **Understand trends** - Patterns and changes over time
-- **Take action** - Clear paths from data to decisions
-- **Explore deeper** - Drill down into details when needed
-
-### UX Principles
 
 | Principle | Implementation |
 |-----------|----------------|
@@ -22,22 +22,18 @@ Patterns for data dashboards, analytics views, metrics displays, and reporting i
 | Consistent data | Same time periods, units, formats |
 | Actionable context | Explain what numbers mean |
 
-### Success Metrics
+Success shows up as: time to find key information, decision confidence, filter usage patterns, and
+drill-down completion rates.
 
-- Time to find key information
-- Decision confidence
-- Filter usage patterns
-- Drill-down completion rates
+## Solution in web-product
 
----
-
-## Layout
+### Layout
 
 **Base Layout:** Sidebar Navigation
 
 Dashboards benefit from persistent navigation and maximum content width.
 
-### Metrics Dashboard Structure
+#### Metrics Dashboard Structure
 
 ```
 ┌──────┬──────────────────────────────────┐
@@ -57,7 +53,7 @@ Dashboards benefit from persistent navigation and maximum content width.
 └──────┴──────────────────────────────────┘
 ```
 
-### Data Table Dashboard Structure
+#### Data Table Dashboard Structure
 
 ```
 ┌──────┬──────────────────────────────────┐
@@ -76,7 +72,7 @@ Dashboards benefit from persistent navigation and maximum content width.
 └──────┴──────────────────────────────────┘
 ```
 
-### Specifications
+#### Specifications
 
 | Element | Value |
 |---------|-------|
@@ -85,11 +81,9 @@ Dashboards benefit from persistent navigation and maximum content width.
 | KPI card grid | 4 columns desktop, 2 tablet, 1 mobile |
 | Grid gap | 16-24px |
 
----
+### Design
 
-## Design
-
-### Color Tokens
+#### Color Tokens
 
 | Element | Token |
 |---------|-------|
@@ -101,7 +95,7 @@ Dashboards benefit from persistent navigation and maximum content width.
 | Negative trend | `text-destructive` |
 | Neutral | `text-muted-foreground` |
 
-### KPI Card Pattern
+#### KPI Card Pattern
 
 | Element | Specification |
 |---------|---------------|
@@ -111,7 +105,7 @@ Dashboards benefit from persistent navigation and maximum content width.
 | Value | `text-2xl font-bold` or `text-3xl font-bold` |
 | Trend | Small text with arrow icon |
 
-### Chart Container Pattern
+#### Chart Container Pattern
 
 | Element | Specification |
 |---------|---------------|
@@ -120,7 +114,7 @@ Dashboards benefit from persistent navigation and maximum content width.
 | Header | Title left, controls right |
 | Min height | 300px primary, 200px secondary |
 
-### Typography Hierarchy
+#### Typography Hierarchy
 
 | Element | Style |
 |---------|-------|
@@ -131,11 +125,9 @@ Dashboards benefit from persistent navigation and maximum content width.
 | Chart titles | `text-base font-medium` |
 | Table headers | `text-sm font-medium` |
 
----
+### Content
 
-## Content
-
-### KPI Cards
+#### KPI Cards
 
 **Structure:**
 
@@ -152,7 +144,7 @@ Dashboards benefit from persistent navigation and maximum content width.
 | "Active Users" | "2,847" | "-3% vs last week" |
 | "Conversion Rate" | "4.2%" | "No change" |
 
-### Chart Headers
+#### Chart Headers
 
 ```
 ┌─────────────────────────────────────┐
@@ -168,7 +160,7 @@ Dashboards benefit from persistent navigation and maximum content width.
 - Period selector for time range
 - Overflow menu for export, settings
 
-### Empty States
+#### Empty States
 
 | Scenario | Message |
 |----------|---------|
@@ -177,16 +169,14 @@ Dashboards benefit from persistent navigation and maximum content width.
 | Loading error | "Unable to load data" + "Retry" button |
 | New user | "No activity yet" + guidance to get started |
 
-### Loading States
+#### Loading States
 
 - KPI cards: Skeleton with pulse animation
 - Charts: Skeleton rectangle with centered spinner
 - Tables: 5-10 skeleton rows
 - Show loading indicator, never stale data without indicator
 
----
-
-## Accessibility
+### Accessibility
 
 **Base requirements:** See [accessibility foundations](../../../accessibility/accessibility.md) and [web accessibility](../accessibility.md)
 
@@ -200,18 +190,16 @@ Dashboards benefit from persistent navigation and maximum content width.
 | Focus order | KPIs first, then filters, then main content |
 | Live regions | Use `aria-live` for updating data |
 
-### Data Visualisation
+#### Data Visualisation
 
 - Provide text summaries of chart insights
 - Link to accessible data table from each chart
 - Use patterns/textures in addition to colors
 - Ensure legends are keyboard navigable
 
----
+### Implementation
 
-## Implementation
-
-### Filter Patterns
+#### Filter Patterns
 
 **Filter Bar (above content):**
 
@@ -236,7 +224,7 @@ Use for complex filtering (10+ filter options):
 - Range sliders
 - "Apply" and "Clear" actions at bottom
 
-### Data Table Patterns
+#### Data Table Patterns
 
 | Element | Implementation |
 |---------|----------------|
@@ -246,7 +234,7 @@ Use for complex filtering (10+ filter options):
 | Pagination | Bottom of table with page size selector |
 | Empty state | Centered message in table body |
 
-### State Management
+#### State Management
 
 | State | Handling |
 |-------|----------|
@@ -256,15 +244,13 @@ Use for complex filtering (10+ filter options):
 | Stale | Show "Last updated" timestamp |
 | Refreshing | Show subtle loading indicator, keep data visible |
 
-### Responsive Behavior
+#### Responsive Behavior
 
 | Breakpoint | KPI Grid | Charts | Tables |
 |------------|----------|--------|--------|
 | Mobile | 1 column | Full width, stacked | Horizontal scroll or card view |
 | Tablet | 2 columns | Full width | Horizontal scroll |
 | Desktop | 4 columns | Grid layout | Full table |
-
----
 
 ## Best Practices
 
@@ -305,9 +291,14 @@ Use for complex filtering (10+ filter options):
 | Real-time data | Show update indicator, timestamp |
 | Export large datasets | Async export with notification |
 
----
+## Examples
 
-## Related Documentation
+The sidebar-navigation frame above is the canonical mid-fidelity dashboard: a row of KPI cards across the
+top (4 columns on desktop), a primary chart below, and secondary charts beneath that. The data-table
+variant swaps the chart stack for a filters bar, a scrollable table, and pagination — same shell, different
+content body.
+
+## Related
 
 - [Product Design](../design.md) - Sidebar Navigation layout
 - [Accessibility foundations](../../../accessibility/accessibility.md) - Color and contrast

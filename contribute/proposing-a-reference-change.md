@@ -30,4 +30,7 @@ checklists, "before you create/review", numbered steps), it is **procedure** and
 4. **Release** — the next plugin build snapshots the updated `reference/` into the consumer
    plugins. Log notable decisions.
 
+Proposing an outcome-framed **pattern** (single-medium or shared across media) has its own placement and
+anatomy rules — see **[Proposing a pattern](./proposing-a-pattern.md)**.
+
 See the [model overview](./overview.md) for sizes and decision rights.

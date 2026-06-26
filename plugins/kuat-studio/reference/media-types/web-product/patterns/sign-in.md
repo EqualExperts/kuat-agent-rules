@@ -1,42 +1,38 @@
-# Authentication Scenarios
+# Help users to sign in
 
-Patterns for login, registration, password flows, and account verification.
+**User goal:** Get into the product quickly and securely, and recover access without friction when a
+password is forgotten.
 
----
+> **Pattern:** *Help users to…* · single-medium (web-product) — concept and implementation together.
+> Covers login, registration, password reset, and MFA / code entry.
+
+## Context
+
+Authentication is a barrier to the user's real task. Users want to get in quickly, trust that their
+credentials are protected, and recover easily when something goes wrong. It is the first impression of
+the product's competence, so friction and unclear errors here cost disproportionately.
 
 ## Principles
 
-### User Goals
-
-- **Get in quickly** - Authentication is a barrier to the actual task
-- **Feel secure** - Trust that credentials are protected
-- **Recover easily** - Forgot password shouldn't be frustrating
-
-### UX Principles
-
-| Principle | Implementation |
+| Principle | What it means |
 |-----------|----------------|
 | Minimise friction | Only ask for essential information |
 | Clear feedback | Immediate, helpful error messages |
 | Maintain trust | Security indicators, clear privacy info |
 | Support recovery | Easy password reset, account recovery |
 
-### Success Metrics
+Success shows up as: time to complete login/registration, password-reset completion rate, error and
+recovery rates, and abandonment rate.
 
-- Time to complete login/registration
-- Password reset completion rate
-- Error rate and recovery success
-- Abandonment rate
+## Solution in web-product
 
----
-
-## Layout
+### Layout
 
 **Base Layout:** Single Column
 
 Authentication pages should minimise distraction and focus users on the task.
 
-### Page Structure
+#### Page Structure
 
 ```
 ┌─────────────────────────────────────────┐
@@ -59,7 +55,7 @@ Authentication pages should minimise distraction and focus users on the task.
 └─────────────────────────────────────────┘
 ```
 
-### Specifications
+#### Specifications
 
 | Element | Value |
 |---------|-------|
@@ -71,23 +67,21 @@ Authentication pages should minimise distraction and focus users on the task.
 | Minimum viewport height | 100vh |
 | Logo placement | Centered above card, or inside card header |
 
-### Header
+#### Header
 
 - **Minimal navigation** - Logo only, no full navigation
 - Logo links to marketing site or app home
 - No distracting elements
 
-### Footer
+#### Footer
 
 - Minimal: legal links only (Privacy Policy, Terms)
 - Copyright notice optional
 - No marketing content
 
----
+### Design
 
-## Design
-
-### Color Tokens
+#### Color Tokens
 
 | Element | Token |
 |---------|-------|
@@ -98,7 +92,7 @@ Authentication pages should minimise distraction and focus users on the task.
 | Error text | `text-destructive` |
 | Link text | `text-primary` |
 
-### Typography
+#### Typography
 
 | Element | Style |
 |---------|-------|
@@ -109,7 +103,7 @@ Authentication pages should minimise distraction and focus users on the task.
 | Error messages | `text-sm text-destructive` |
 | Links | `text-sm text-primary underline` |
 
-### Spacing
+#### Spacing
 
 | Element | Spacing |
 |---------|---------|
@@ -119,11 +113,9 @@ Authentication pages should minimise distraction and focus users on the task.
 | Form to button | 24px |
 | Button to secondary link | 16px |
 
----
+### Content
 
-## Content
-
-### Login Page
+#### Login Page
 
 **Required Elements:**
 
@@ -146,7 +138,7 @@ Authentication pages should minimise distraction and focus users on the task.
 | Forgot link | "Forgot your password?" |
 | Register link | "Don't have an account? Sign up" |
 
-### Registration Page
+#### Registration Page
 
 **Required Elements:**
 
@@ -166,7 +158,7 @@ Authentication pages should minimise distraction and focus users on the task.
 - Unmet: `text-muted-foreground`
 - Met: `text-green-600` with checkmark
 
-### Password Reset Flow
+#### Password Reset Flow
 
 **Step 1: Request Reset**
 
@@ -181,16 +173,14 @@ Authentication pages should minimise distraction and focus users on the task.
 - Password requirements visible
 - "Reset password" button
 
-### MFA / Code Entry
+#### MFA / Code Entry
 
 - 6-digit code input (individual boxes or single field)
 - "Resend code" link with countdown timer
 - "Use different method" secondary action
 - Clear instructions on where code was sent
 
----
-
-## Accessibility
+### Accessibility
 
 **Base requirements:** See [accessibility foundations](../../../accessibility/accessibility.md) and [web accessibility](../accessibility.md)
 
@@ -205,7 +195,7 @@ Authentication pages should minimise distraction and focus users on the task.
 | Password toggle | Toggle button is keyboard accessible |
 | Error announcement | Screen reader announces errors on submit |
 
-### Form Validation
+#### Form Validation
 
 Follow the standard validation pattern:
 
@@ -215,11 +205,9 @@ Follow the standard validation pattern:
 - **Error summary** - Show summary at top with links to fields
 - **Focus first error** - Move focus to first invalid field
 
----
+### Implementation
 
-## Implementation
-
-### Button Placement
+#### Button Placement
 
 **Component guide:** `shadcn:button` — the `components/button.md` guide lives in the consumer package or overlay (see [component-registry.md](../component-registry.md)).
 
@@ -229,7 +217,7 @@ Follow the standard validation pattern:
 | Secondary link | Below button, centered | Text link |
 | Forgot password | Below password field, right | Text link |
 
-### Error States
+#### Error States
 
 | Error Type | Display Location |
 |------------|-----------------|
@@ -238,7 +226,7 @@ Follow the standard validation pattern:
 | Rate limiting | Alert above form with wait time |
 | Network error | Alert above form with retry option |
 
-### Security Considerations
+#### Security Considerations
 
 | Requirement | Implementation |
 |-------------|----------------|
@@ -247,15 +235,13 @@ Follow the standard validation pattern:
 | Password visibility | Toggle with clear state indication |
 | Session timeout | Warn before logging out |
 
-### Responsive Behavior
+#### Responsive Behavior
 
 | Breakpoint | Behavior |
 |------------|----------|
 | Mobile | Card padding reduced to 24px, full width with margin |
 | Tablet | Centered card, 400px max |
 | Desktop | Centered card, 400px max |
-
----
 
 ## Best Practices
 
@@ -294,10 +280,14 @@ Follow the standard validation pattern:
 | Email not verified | Offer to resend verification |
 | Session expired mid-flow | Preserve form data, prompt re-authentication |
 
----
+## Examples
 
-## Related Documentation
+The single centred auth card above (max 400px, logo centred, primary action full-width) is the canonical
+mid-fidelity frame. The same frame serves login, registration, password reset, and MFA — the fields and
+microcopy change, the layout does not.
+
+## Related
 
 - [Product Design](../design.md) - Layout patterns
 - [Web Accessibility](../accessibility.md) - Form validation pattern
-- [Forms Pattern](./forms.md) - General form patterns
+- [Help users to complete a form](./complete-a-form.md) - General form patterns

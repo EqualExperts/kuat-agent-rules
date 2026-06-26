@@ -31,7 +31,7 @@ Load progressively — start with foundations, add the medium + pattern slices t
 | Layout & navigation (dark nav patterns, logo placement) | [reference/media-types/web-product/design.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/design.md) |
 | Component selection priority | [reference/media-types/web-product/component-decision-tree.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/component-decision-tree.md) |
 | UX writing (actions, errors, empty states, forms, confirmations) | [reference/media-types/web-product/content/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/content/) + [reference/content/](${CLAUDE_PLUGIN_ROOT}/reference/content/) |
-| The specific page type | [reference/media-types/web-product/patterns/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/patterns/) — `authentication`, `dashboards`, `documentation`, `forms` |
+| The specific page type | [reference/media-types/web-product/patterns/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/patterns/) — outcome-framed: *Help users to* `sign-in`, `complete-a-form`; *Pages* `dashboard`, `documentation` |
 | Logo usage | [reference/brand/logo.md](${CLAUDE_PLUGIN_ROOT}/reference/brand/logo.md) |
 | Transactional email UI | [reference/media-types/web-product/emails.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/emails.md) |
 
