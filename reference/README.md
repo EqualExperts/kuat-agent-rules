@@ -15,9 +15,10 @@ The passive **reference library** for the Equal Experts design system: what is t
 | [design-language/](./design-language/) | Design principles, colours, typography, spacing, borders |
 | [content/](./content/) | Writing style, formatting, numbers, punctuation |
 | [accessibility/](./accessibility/) | WCAG-aligned accessibility standards |
+| [patterns/](./patterns/) | Shared, cross-medium pattern **concepts** (outcome-framed); see [overview](./patterns/overview.md) |
 | [media-types/](./media-types/) | Per-medium reference — `slides`, `web-product`, `web-marketing`, `imagery`, `charts-data` |
 
-Each media type under `media-types/<medium>/` owns a `patterns/` subfolder describing how specific things are done in that medium (deck types, page types, photography vs graphics). Foundations are shared; media types reference foundations but **not each other**.
+Each media type under `media-types/<medium>/` owns a `patterns/` subfolder describing how specific things are done in that medium (deck types, page types, photography vs graphics). A pattern that is genuinely shared across media has its medium-agnostic **concept** factored up to the top-level [patterns/](./patterns/) layer, with per-medium implementations linking back to it — see the [patterns overview](./patterns/overview.md). Foundations are shared; media types reference foundations but **not each other**.
 
 ## Migration
 

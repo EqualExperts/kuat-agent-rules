@@ -47,7 +47,9 @@ is valuable **participation**, not contribution.
 | Slide layouts / brand assets | `kuat-agent-rules` `assets/` | `prep-slides-master` / `curate-slide-layouts` / `add-brand-asset` | `verify-plugins` asset check |
 | Skills | `kuat-agent-rules` (or repo-local) | `author-skill` | trigger / eval review |
 
-See the matching **[Proposing a …](./proposing-a-component.md)** page for each surface.
+See the matching **[Proposing a …](./proposing-a-component.md)** page for each surface. A **pattern**
+(outcome-framed guidance, single-medium or shared across media) has its own shape and placement rules —
+see **[Proposing a pattern](./proposing-a-pattern.md)**.
 
 ## 4. Contribution size
 

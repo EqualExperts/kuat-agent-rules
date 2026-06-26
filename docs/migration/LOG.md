@@ -4,6 +4,26 @@ Dated record of checkpoint decisions and non-obvious deviations, per phase. Newe
 
 ---
 
+## Pattern model — rollout (web-product full cut + shared/placeholder scaffolding)
+
+**Branch:** `feature/pattern-model` · **Date:** 2026-06-26 · **Scope this run:** `kuat-agent-rules` only — rollout-prompt deliverables 1–5. Design decisions resolved (`kuat-pattern-model.md` §9, Ed, 19 Jun 2026); this run implements, it does not re-decide. **Blocks deferred** (no pattern↔block registry, no `proposing-a-block`).
+
+### Checkpoint decisions (resolved at start, with Ed)
+
+- **A — Extend the reference gate.** The design's top-level `reference/patterns/` (shared cross-medium concepts) was **illegal** under `check-reference.mjs` `structure()`, which permitted `patterns/` only at `reference/media-types/<medium>/patterns/`. Since "review-reference-change passes" is an acceptance criterion and the design names `reference/patterns/` explicitly, the gate is extended to allow exactly that one extra home (parent === `reference/`) alongside the per-medium home. Chosen over renaming the shared layer to dodge the gate (would diverge from the design).
+- **B — Lean reframe, keep detail.** The four web-product patterns are reframed to the outcome anatomy (user goal → context → principles → solution-in-web-product → examples) with the existing layout/design/content/a11y/implementation detail reorganised under "Solution", not discarded — `create-web-app` consumes that detail.
+- **C — Rename to outcome slugs** (`git mv`, history preserved): `authentication→sign-in`, `forms→complete-a-form`, `dashboards→dashboard`, `documentation→documentation` (kept). Recorded in MIGRATION-MAP; `create-web-app` + README refs updated.
+- **D — Stay on `feature/pattern-model`** (the rollout prompt's explicit branch), not the generic `migration/phase-<slug>`.
+
+### Deviations & non-obvious decisions (appended as they occur)
+
+- **2026-06-26 — Gate change is full-tree, not changed-files.** `check-reference.mjs` `structure()` walks the whole `reference/` tree on every run, so the new `reference/patterns/` would have failed the gate repo-wide until the structure check was extended — hence Decision A had to land first, before any new folder. Verified green before and after.
+- **2026-06-26 — External link sweep beyond the reframed files.** The gate caught two broken links the in-file reframe didn't touch: `component-registry.md` linked `./patterns/forms.md` + `./patterns/authentication.md`; fixed to `complete-a-form` / `sign-in`. The three `content/*.md` hits for `./forms.md` are a **different** file (`web-product/content/forms.md`), not the renamed pattern — left untouched.
+- **2026-06-26 — `reference/README.md` index updated (in scope, low-risk).** Added a `patterns/` row + a sentence to the Structure section so the shared layer is discoverable. README is in `PASSIVE_SKIP`, so this is safe.
+- **2026-06-26 — Historical `docs/migration/` artifacts left as-is.** Dated verification reports (`phase-4-manual-verification--build-report.md`) and eval outputs cite the old `patterns/authentication.md|forms.md` paths. These are point-in-time records; the rename is carried by MIGRATION-MAP rather than rewriting history.
+- **2026-06-26 — Reframe delegated, verified centrally.** `sign-in.md` was hand-crafted as the template; the other three were reframed by parallel subagents against it (strict "preserve detail verbatim, restructure only"). Quality gated by `reference:check` (passive/links/structure), a no-bloat grep, and a spot-read. Line counts held (293–351 vs 304–362 originals) — detail preserved, lead condensed.
+- **2026-06-26 — Gates green; no bloat.** `reference:check --all` green (92 files, 337 links, structure, token drift); `verify:plugins` ALL PASSED (snapshot 91 files, 0 broken, 7 contributor skills kept out); each medium's `patterns/` holds only its own implementations (`describe-a-case-study` has no web-product file). Renames via `git mv` (history preserved). Pattern **index** (optional) deferred.
+
 ## Contribution model — rollout (publish + wire up the governance layer)
 
 **Branch:** `feature/contribution-model` · **Date:** 2026-06-23 · **Scope this run:** `kuat-agent-rules` only (rollout-prompt deliverables 1–4, 7); the `kuat-mono` half (5–6) is handed off. Source content was finalised (decisions resolved by Ed, 19 Jun 2026) — this run **publishes and wires it**, it does not re-decide.

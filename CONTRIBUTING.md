@@ -55,6 +55,7 @@ the request step:
 - [Proposing a component](./contribute/proposing-a-component.md)
 - [Proposing a token change](./contribute/proposing-a-token-change.md)
 - [Proposing a reference change](./contribute/proposing-a-reference-change.md)
+- [Proposing a pattern](./contribute/proposing-a-pattern.md)
 - [Proposing a slide asset](./contribute/proposing-a-slide-asset.md)
 - [Proposing an icon or image](./contribute/proposing-an-icon-or-image.md)
 - [Proposing a skill](./contribute/proposing-a-skill.md)

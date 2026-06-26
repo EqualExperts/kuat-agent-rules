@@ -43,6 +43,19 @@ Phase 1 of the design-system migration repositioned the rules tree as a passive 
 | `graphics/{icons,illustrations,infographics}.md` | `imagery/patterns/graphics/` |
 | `charts-data/README.md` | `charts-data/README.md` |
 
+## Pattern model — outcome-framed renames (2026-06, within `reference/`)
+
+The web-product patterns were reframed to **outcome-framed** names (see [patterns/overview.md](./patterns/overview.md)). Consumers citing the old filenames update as follows:
+
+| Old (`reference/media-types/web-product/patterns/`) | New |
+|------------------------------------------------------|-----|
+| `authentication.md` | `sign-in.md` (*Help users to* sign in) |
+| `forms.md` | `complete-a-form.md` (*Help users to* complete a form) |
+| `dashboards.md` | `dashboard.md` (*Pages*: Dashboard) |
+| `documentation.md` | `documentation.md` (unchanged; *Pages*: Documentation) |
+
+A new top-level shared layer `reference/patterns/` now holds cross-medium pattern **concepts** (currently `help-users/describe-a-case-study.md`, implemented by `media-types/slides/patterns/case-studies.md`); single-medium patterns stay under their own medium.
+
 ## Procedure → activity skills (Phase 2 — `_to-skills/` consumed and removed)
 
 Procedure failed the passive test, so it never shipped as reference. Phase 1 staged it in `_to-skills/`; Phase 2 folded each item into an activity skill (or dropped it) and deleted `_to-skills/`.

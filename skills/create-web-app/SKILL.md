@@ -31,7 +31,7 @@ Load progressively — start with foundations, add the medium + pattern slices t
 | Layout & navigation (dark nav patterns, logo placement) | [../../reference/media-types/web-product/design.md](../../reference/media-types/web-product/design.md) |
 | Component selection priority | [../../reference/media-types/web-product/component-decision-tree.md](../../reference/media-types/web-product/component-decision-tree.md) |
 | UX writing (actions, errors, empty states, forms, confirmations) | [../../reference/media-types/web-product/content/](../../reference/media-types/web-product/content/) + [../../reference/content/](../../reference/content/) |
-| The specific page type | [../../reference/media-types/web-product/patterns/](../../reference/media-types/web-product/patterns/) — `authentication`, `dashboards`, `documentation`, `forms` |
+| The specific page type | [../../reference/media-types/web-product/patterns/](../../reference/media-types/web-product/patterns/) — outcome-framed: *Help users to* `sign-in`, `complete-a-form`; *Pages* `dashboard`, `documentation` |
 | Logo usage | [../../reference/brand/logo.md](../../reference/brand/logo.md) |
 | Transactional email UI | [../../reference/media-types/web-product/emails.md](../../reference/media-types/web-product/emails.md) |
 

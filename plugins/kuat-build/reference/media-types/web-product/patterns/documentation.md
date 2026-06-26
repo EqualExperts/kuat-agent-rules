@@ -1,19 +1,18 @@
-# Documentation Scenarios
+# Documentation
 
-Patterns for documentation sites, knowledge bases, API references, and content-heavy pages.
+**User goal:** Find information quickly, understand it, complete tasks with step-by-step guidance, and
+stay oriented throughout.
 
----
+> **Pattern:** *Pages* · single-medium (web-product) — concept and implementation together.
+> Covers documentation sites, knowledge bases, API references, and content-heavy pages.
+
+## Context
+
+Documentation is where users go to find information, understand how something works, and complete tasks.
+They want to search and navigate efficiently, read clear and well-structured explanations, follow
+step-by-step guidance that works, and always know where they are and where to go next.
 
 ## Principles
-
-### User Goals
-
-- **Find information quickly** - Search and navigate efficiently
-- **Understand content** - Clear, well-structured explanations
-- **Complete tasks** - Step-by-step guidance that works
-- **Stay oriented** - Know where they are and where to go next
-
-### UX Principles
 
 | Principle | Implementation |
 |-----------|----------------|
@@ -22,22 +21,18 @@ Patterns for documentation sites, knowledge bases, API references, and content-h
 | Multiple paths | Search, navigation, breadcrumbs |
 | Progressive detail | Overview first, details on demand |
 
-### Success Metrics
+Success shows up as: search effectiveness (found what they needed), time to find information, page bounce
+rate, and task completion rate for tutorials.
 
-- Search effectiveness (found what they needed)
-- Time to find information
-- Page bounce rate
-- Task completion rate (for tutorials)
+## Solution in web-product
 
----
-
-## Layout
+### Layout
 
 **Base Layout:** Sidebar Navigation + Split Layout
 
 Documentation uses a three-column layout on desktop:
 
-### Docs Landing Page
+#### Docs Landing Page
 
 Use Horizontal Navigation:
 
@@ -57,7 +52,7 @@ Use Horizontal Navigation:
 └─────────────────────────────────────┘
 ```
 
-### Docs Content Page
+#### Docs Content Page
 
 Use Sidebar + Split (three-column):
 
@@ -77,7 +72,7 @@ Use Sidebar + Split (three-column):
 └──────┴──────────────────────────────────┘
 ```
 
-### Specifications
+#### Specifications
 
 | Element | Value |
 |---------|-------|
@@ -86,11 +81,9 @@ Use Sidebar + Split (three-column):
 | Content max-width | 800px (prose) |
 | Content padding | 32-48px |
 
----
+### Design
 
-## Design
-
-### Color Tokens
+#### Color Tokens
 
 | Element | Token |
 |---------|-------|
@@ -101,7 +94,7 @@ Use Sidebar + Split (three-column):
 | Inline code | `bg-muted` |
 | Links | `text-primary` |
 
-### Typography
+#### Typography
 
 | Element | Style |
 |---------|-------|
@@ -112,7 +105,7 @@ Use Sidebar + Split (three-column):
 | Code | `font-mono text-sm` |
 | Sidebar nav | `text-sm` |
 
-### Navigation Sidebar
+#### Navigation Sidebar
 
 | Element | Specification |
 |---------|---------------|
@@ -123,7 +116,7 @@ Use Sidebar + Split (three-column):
 | Sub-pages | Indented, smaller text |
 | Scroll | Independent from content |
 
-### Table of Contents (Right)
+#### Table of Contents (Right)
 
 | Element | Specification |
 |---------|---------------|
@@ -132,11 +125,9 @@ Use Sidebar + Split (three-column):
 | Active tracking | Highlight current section on scroll |
 | Visibility | Hide below 1280px |
 
----
+### Content
 
-## Content
-
-### Page Structure
+#### Page Structure
 
 ```markdown
 # Page Title           ← H1, one per page
@@ -150,7 +141,7 @@ Intro paragraph        ← No heading, describes page purpose
 #### Detail            ← H4, use sparingly
 ```
 
-### Navigation Hierarchy
+#### Navigation Hierarchy
 
 ```
 Getting Started        ← Category (bold, not clickable)
@@ -163,7 +154,7 @@ Components             ← Category
     Examples           ← Sub-page
 ```
 
-### Breadcrumbs
+#### Breadcrumbs
 
 ```
 Docs / Components / Button / Variants
@@ -173,7 +164,7 @@ Docs / Components / Button / Variants
 - All items clickable except current
 - Truncate middle items on mobile if needed
 
-### Previous/Next Navigation
+#### Previous/Next Navigation
 
 ```
 ┌─────────────────────────────────────────┐
@@ -186,9 +177,7 @@ Docs / Components / Button / Variants
 - Based on sidebar navigation order
 - Show page titles, not just "Previous/Next"
 
----
-
-## Accessibility
+### Accessibility
 
 **Base requirements:** See [accessibility foundations](../../../accessibility/accessibility.md) and [web accessibility](../accessibility.md)
 
@@ -203,18 +192,16 @@ Docs / Components / Button / Variants
 | Code blocks | Scrollable with keyboard, screen reader context |
 | Multiple nav labels | `aria-label` to distinguish left vs right sidebars |
 
-### Code Blocks
+#### Code Blocks
 
 - Ensure code blocks are keyboard scrollable
 - Provide language context for screen readers
 - Copy button must be keyboard accessible
 - Don't rely on syntax highlighting alone for meaning
 
----
+### Implementation
 
-## Implementation
-
-### Code Block Patterns
+#### Code Block Patterns
 
 **Inline Code:**
 
@@ -248,7 +235,7 @@ Docs / Components / Button / Variants
 - Preserve selection across page navigation
 - Accessible tab panel pattern
 
-### Search Patterns
+#### Search Patterns
 
 **Search Bar:**
 
@@ -264,7 +251,7 @@ Docs / Components / Button / Variants
 - Keyboard navigation (arrows + enter)
 - Recent searches
 
-### Table of Contents Behavior
+#### Table of Contents Behavior
 
 | Behavior | Implementation |
 |----------|----------------|
@@ -274,15 +261,13 @@ Docs / Components / Button / Variants
 | Hide on small screens | Below 1280px |
 | Collapse | Optionally collapsible |
 
-### Responsive Behavior
+#### Responsive Behavior
 
 | Breakpoint | Left Sidebar | Content | Right Sidebar |
 |------------|--------------|---------|---------------|
 | Mobile | Drawer (hidden) | Full width | Hidden |
 | Tablet | Collapsible | Full width | Hidden |
 | Desktop | Visible (240px) | Centered (max 800px) | Visible (200px) |
-
----
 
 ## Best Practices
 
@@ -324,9 +309,14 @@ Docs / Components / Button / Variants
 | External links | Mark with icon, open in new tab |
 | Deprecated content | Clear warnings, link to current |
 
----
+## Examples
 
-## Related Documentation
+The three-column docs content page above is the canonical mid-fidelity frame: a left navigation sidebar
+(240-280px) with the doc tree, a centred prose column (max 800px) carrying breadcrumbs, title, and body,
+and a sticky right-hand "On This Page" table of contents. The docs landing page is the same system in a
+horizontal-nav variant — hero search, category cards, popular articles — with the sidebar dropped.
+
+## Related
 
 - [Product Design](../design.md) - Sidebar and Split layouts
 - [Accessibility foundations](../../../accessibility/accessibility.md) - Structure and headings

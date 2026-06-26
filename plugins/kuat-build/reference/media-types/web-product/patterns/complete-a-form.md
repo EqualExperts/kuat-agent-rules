@@ -1,19 +1,19 @@
-# Form Scenarios
+# Help users to complete a form
 
-Patterns for forms, settings pages, multi-step wizards, and data entry interfaces.
+**User goal:** Complete a form efficiently — understand what's needed, correct mistakes easily, and not
+lose work in progress.
 
----
+> **Pattern:** *Help users to…* · single-medium (web-product) — concept and implementation together.
+> Covers forms, settings pages, multi-step wizards, and data entry interfaces.
+
+## Context
+
+Forms are where users hand over information to get something done, and every field is friction between
+them and their task. They want to complete the task efficiently, understand what each field needs and
+why, fix errors without re-entering data, and trust that their progress won't be lost. This covers
+public forms, app settings, multi-step wizards, and inline data entry.
 
 ## Principles
-
-### User Goals
-
-- **Complete task efficiently** - Minimal friction to submission
-- **Understand requirements** - Clear what's needed and why
-- **Correct mistakes easily** - Fix errors without re-entering data
-- **Save progress** - Don't lose work unexpectedly
-
-### UX Principles
 
 | Principle | Implementation |
 |-----------|----------------|
@@ -22,16 +22,11 @@ Patterns for forms, settings pages, multi-step wizards, and data entry interface
 | Helpful feedback | Specific, actionable error messages |
 | Progress preservation | Save work, confirm destructive actions |
 
-### Success Metrics
+Success shows up as: form completion rate, time to complete, error rate and recovery, and abandonment rate.
 
-- Form completion rate
-- Time to complete
-- Error rate and recovery
-- Abandonment rate
+## Solution in web-product
 
----
-
-## Layout
+### Layout
 
 **Base Layout:** Varies by context
 
@@ -42,7 +37,7 @@ Patterns for forms, settings pages, multi-step wizards, and data entry interface
 | Multi-step wizards | Single Column or Horizontal Navigation |
 | Inline editing | Within parent layout |
 
-### Card-Based Form (Settings, Profile)
+#### Card-Based Form (Settings, Profile)
 
 ```
 ┌─────────────────────────────────────┐
@@ -55,7 +50,7 @@ Patterns for forms, settings pages, multi-step wizards, and data entry interface
 └─────────────────────────────────────┘
 ```
 
-### Multi-Step Wizard
+#### Multi-Step Wizard
 
 ```
 ┌─────────────────────────────────────┐
@@ -72,7 +67,7 @@ Patterns for forms, settings pages, multi-step wizards, and data entry interface
 └─────────────────────────────────────┘
 ```
 
-### Specifications
+#### Specifications
 
 | Element | Value |
 |---------|-------|
@@ -82,11 +77,9 @@ Patterns for forms, settings pages, multi-step wizards, and data entry interface
 | Section spacing | 32px between cards |
 | Settings page max-width | 800px |
 
----
+### Design
 
-## Design
-
-### Color Tokens
+#### Color Tokens
 
 | Element | Token |
 |---------|-------|
@@ -98,7 +91,7 @@ Patterns for forms, settings pages, multi-step wizards, and data entry interface
 | Error state | `border-destructive`, `text-destructive` |
 | Success indicator | `text-green-600` |
 
-### Typography
+#### Typography
 
 | Element | Style |
 |---------|-------|
@@ -110,7 +103,7 @@ Patterns for forms, settings pages, multi-step wizards, and data entry interface
 | Error text | `text-sm text-destructive` |
 | Required indicator | `text-destructive` (asterisk) |
 
-### Spacing
+#### Spacing
 
 | Element | Value |
 |---------|-------|
@@ -119,11 +112,9 @@ Patterns for forms, settings pages, multi-step wizards, and data entry interface
 | Between fields | 24px |
 | Button group gap | 16px |
 
----
+### Content
 
-## Content
-
-### Field Labels
+#### Field Labels
 
 | Requirement | Example |
 |-------------|---------|
@@ -131,7 +122,7 @@ Patterns for forms, settings pages, multi-step wizards, and data entry interface
 | Required indicator | "Email address *" |
 | Optional indicator | "Phone number (optional)" |
 
-### Helper Text
+#### Helper Text
 
 Use to:
 - Explain format requirements
@@ -144,7 +135,7 @@ Email address *
 We'll send your receipt to this address.
 ```
 
-### Error Messages
+#### Error Messages
 
 | Quality | Bad | Good |
 |---------|-----|------|
@@ -152,7 +143,7 @@ We'll send your receipt to this address.
 | Actionable | "Error" | "Please enter a valid date (DD/MM/YYYY)" |
 | Polite | "Wrong!" | "Please check this field" |
 
-### Button Labels
+#### Button Labels
 
 | Action | Label |
 |--------|-------|
@@ -162,9 +153,7 @@ We'll send your receipt to this address.
 | Cancel | "Cancel", "Discard changes" |
 | Delete | "Delete", "Remove" |
 
----
-
-## Accessibility
+### Accessibility
 
 **Base requirements:** See [accessibility foundations](../../../accessibility/accessibility.md) and [web accessibility](../accessibility.md)
 
@@ -179,7 +168,7 @@ We'll send your receipt to this address.
 | Focus management | Focus first error after failed submission |
 | No time limits | Allow unlimited time (or generous extension) |
 
-### Form Validation Pattern
+#### Form Validation Pattern
 
 **Critical: Validate on submit, not on blur**
 
@@ -191,18 +180,16 @@ We'll send your receipt to this address.
 | Error summary | Show summary above form with field links |
 | Focus first error | Move focus to first invalid field |
 
-### Grouping
+#### Grouping
 
 Use `<fieldset>` and `<legend>` for:
 - Radio button groups
 - Checkbox groups
 - Related fields (e.g., address components)
 
----
+### Implementation
 
-## Implementation
-
-### Field Layout Patterns
+#### Field Layout Patterns
 
 **Vertical (Default):**
 
@@ -233,7 +220,7 @@ Best for: Settings pages with many fields
 
 Best for: Related fields (names, addresses)
 
-### Button Placement
+#### Button Placement
 
 **Component guide:** `shadcn:button` — the `components/button.md` guide for button behaviour lives in the consumer package `agent-docs/` or overlay (see [component-registry.md](../component-registry.md)).
 
@@ -259,7 +246,7 @@ Best for: Related fields (names, addresses)
 | Left | Back (`variant="outline"`) |
 | Right | Next/Submit (`variant="default"`) |
 
-### Settings Page Pattern
+#### Settings Page Pattern
 
 Multiple card sections, each independently saveable:
 
@@ -281,7 +268,7 @@ Multiple card sections, each independently saveable:
 | Section max-width | 800px |
 | Alignment | Left-aligned (not centered) |
 
-### Multi-Step Wizard Pattern
+#### Multi-Step Wizard Pattern
 
 **Progress Indicator:**
 
@@ -301,15 +288,13 @@ Multiple card sections, each independently saveable:
 - Warn before leaving with unsaved changes
 - Handle session timeout gracefully
 
-### Responsive Behavior
+#### Responsive Behavior
 
 | Breakpoint | Grid Fields | Button Layout |
 |------------|-------------|---------------|
 | Mobile | Stack to single column | Stack vertically |
 | Tablet | 2 columns | Horizontal |
 | Desktop | As designed | Horizontal |
-
----
 
 ## Best Practices
 
@@ -352,10 +337,15 @@ Multiple card sections, each independently saveable:
 | Session timeout | Save draft, prompt re-auth |
 | Network failure | Queue submission, retry automatically |
 
----
+## Examples
 
-## Related Documentation
+The card-based form above (600px max-width, section title in the header, fields stacked with 24px
+spacing, and `[Cancel] [Save]` in the footer) is the canonical mid-fidelity frame. The same frame
+scales up to independently saveable settings sections and, with a progress indicator and Back / Next
+controls, to multi-step wizards.
+
+## Related
 
 - [Product Design](../design.md) - Layout options
 - [Web Accessibility](../accessibility.md) - Form validation pattern
-- [Authentication Pattern](./authentication.md) - Login/registration forms
+- [Help users to sign in](./sign-in.md) - Login/registration forms

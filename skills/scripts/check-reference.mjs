@@ -128,10 +128,14 @@ function structure() {
       if (!e.isDirectory()) continue;
       const p = path.join(d, e.name);
       if (e.name === "patterns") {
-        const parent = path.dirname(p);   // .../<medium>
+        const parent = path.dirname(p);   // .../<medium>  OR  reference/ (shared layer)
         const grand = path.dirname(parent); // .../media-types
-        if (path.basename(grand) !== "media-types" || path.dirname(grand) !== REFERENCE_DIR) {
-          fail(`structure — '${rel(p)}' : patterns/ may only live at reference/media-types/<medium>/patterns/`);
+        // Two legal homes: the shared cross-medium concepts layer (reference/patterns/)
+        // and a medium's own patterns (reference/media-types/<medium>/patterns/).
+        const sharedLayer = parent === REFERENCE_DIR;
+        const mediumLayer = path.basename(grand) === "media-types" && path.dirname(grand) === REFERENCE_DIR;
+        if (!sharedLayer && !mediumLayer) {
+          fail(`structure — '${rel(p)}' : patterns/ may only live at reference/patterns/ (shared concepts) or reference/media-types/<medium>/patterns/`);
           bad++;
         }
       }
@@ -139,7 +143,7 @@ function structure() {
     }
   };
   walk(REFERENCE_DIR);
-  if (!bad) ok("structure: patterns/ only under media-types/<medium>/");
+  if (!bad) ok("structure: patterns/ only at reference/patterns/ or media-types/<medium>/");
 }
 
 // --- 4. TOKEN DRIFT --------------------------------------------------------
