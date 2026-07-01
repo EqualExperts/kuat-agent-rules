@@ -29,6 +29,7 @@ Skip the context block at `brand_compliance` depth, and note in the report that 
 - Product design & navigation: [reference/media-types/web-product/design.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/design.md)
 - Web accessibility specifics: [reference/media-types/web-product/accessibility.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/accessibility.md)
 - Component selection: [reference/media-types/web-product/component-decision-tree.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/component-decision-tree.md)
+- Token contract, for any shadcn/third-party item: `@equal-experts/kuat-core/token-contract.json` (shipped in the package — the authored light+dark semantic tokens and their `--color-*` backing)
 - The page-type pattern in scope: [reference/media-types/web-product/patterns/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/patterns/)
 - UX writing (when depth ≥ `product_ux`): [reference/media-types/web-product/content/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/content/)
 
@@ -44,6 +45,7 @@ Run the common checklist ([skills/_shared/review-common.md](${CLAUDE_PLUGIN_ROOT
 - [ ] Dark navigation pattern used where applicable; white monochrome logo on dark
 - [ ] Components sourced per the decision tree; cited IDs match their component guides
 - [ ] No inline styles for themeable properties — design tokens used
+- [ ] Any added shadcn/third-party UI item passes the token audits (coverage + theme integrity) — see below
 
 **Product / UX fit (`product_ux` / `full` only — blocked without review context)**
 - [ ] Primary actions/labels support the stated job-to-be-done
@@ -55,6 +57,40 @@ Run the common checklist ([skills/_shared/review-common.md](${CLAUDE_PLUGIN_ROOT
 If context is missing, mark this section **Blocked** and list required items under Open questions.
 
 Cite the `reference/...` file + section for every finding.
+
+### Token audits (any shadcn/third-party item in scope)
+
+A consumer's own global CSS, or a `shadcn init`/`add` run, can silently override Kuat's semantic
+tokens even when the component itself looks fine — coverage alone won't catch that. Run both
+checks against the shipped `@equal-experts/kuat-core/token-contract.json`:
+
+1. **Coverage (names).** Enumerate the tokens the item consumes — raw `var(--x)` and Tailwind
+   `bg-/text-/border-/ring-/fill-*` utilities — and diff against the contract's authored
+   vocabulary. Report ✅ inherited / ⚠️ missing in Kuat / ⚠️ light-only (dark gap), plus a WCAG
+   contrast note on fg/bg pairs.
+2. **Theme integrity (values).** Resolve the app's effective `:root`/`.dark` (kuat-core's baseline
+   plus the consumer's own blocks, in import order) and diff each semantic token against the
+   contract's authored value **by resolved colour**. Report ✅ intact / ⚠️ OVERRIDDEN. This is
+   what catches a `shadcn init` clobber that coverage alone misses.
+
+**Resolution (fixed rule):** a missing/dark-gap/overridden token is resolved by adding it to
+kuat-core (`variables.css`, light **and** dark) so every consumer inherits it, then the contract
+regenerates. Fall back to an explicit local mapping only when adding to kuat-core is genuinely
+wrong. Never leave a token resolving to a shadcn default.
+
+**Feedback record.** On a gap or missing-token finding, write a structured record to
+`.kuat/feedback/<timestamp>-<item>.json`:
+```json
+{ "kind": "...", "item": "...", "itemSource": "...", "tokensMissing": [], "tokensDarkGap": [], "resolution": "...", "resolutionDetail": "...", "kuatCoreVersion": "..." }
+```
+and surface a one-line "notify the Kuat DS team" pointer in the report — no channel is wired yet,
+don't invent one.
+
+No published audit script exists yet (`audit-coverage.mjs` / `audit-theme.mjs` live unpublished in
+kuat-mono) — run this as a manual enumerate → diff → resolve activity against the contract, the
+same way every other rule in this skill is cited rather than scripted. Publishing these as
+`kuat-core` bins or a dedicated `@equal-experts/kuat-audit` package is an open packaging decision
+for kuat-mono, not something this skill assumes.
 
 ## Step 4 — Deliver
 
