@@ -17,6 +17,7 @@ These rules govern the creation and use of graphic elements in Equal Experts mat
 | Icons | [icons.md](./icons.md) | Icon style and usage |
 | Illustrations | [illustrations.md](./illustrations.md) | Illustration guidelines |
 | Infographics | [infographics.md](./infographics.md) | Information graphics |
+| Diagrams (provisional) | [diagrams.md](./diagrams.md) | Architecture/flow diagram colour rules |
 
 ---
 
@@ -31,7 +32,7 @@ These rules govern the creation and use of graphic elements in Equal Experts mat
 
 ## Color Usage
 
-- Use brand color palette from [design-language/colours.md](../../../../design-language/colours.md)
+- Use brand color palette from [design-language/colours.md](../../../../design-language/colours.md) — Tier 1 Core by default; extended colours (Tier 2) only for keyed/coded elements, see [diagrams.md](./diagrams.md)
 - Ensure sufficient contrast
 - Don't rely on color alone to convey meaning
 

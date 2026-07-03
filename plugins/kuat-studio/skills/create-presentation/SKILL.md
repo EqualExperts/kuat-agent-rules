@@ -62,6 +62,8 @@ The output is a **PPTX built by cloning the master's real layouts**, not bespoke
 
 - One idea per slide — the **title carries the argument**, not just the topic.
 - EE Blue does **one** accent job per slide (eyebrow OR callout OR chart accent).
+- **Dark Data deck model (provisional):** the proven pattern pairs a Dark Data background with the core palette and a single extended pull-out — Logic Lime or Orange (Equal Ember), never both. See [reference/media-types/slides/styling.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/slides/styling.md) → *Extended palette in decks*.
+- **In-slide charts use one palette at a time** — the Tier 3 categorical order, never EE Blue and Transform Teal in the same chart. See [reference/media-types/slides/data.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/slides/data.md).
 - 11pt minimum body copy (10pt captions only on detail-heavy slides); one chart per slide, conclusion in the title; stats paired with context.
 - Aim for **5–8 distinct layouts across the whole deck**, not one per slide.
 - **Imagery:** there is **no EE image library yet**. Any photograph is an **explicitly-marked placeholder that BLOCKS release** — never a colour stock image passed off as final, never a fabricated photo. Photography is B&W when the library exists.
@@ -76,7 +78,8 @@ The output is a **PPTX built by cloning the master's real layouts**, not bespoke
 - [ ] Section eyebrow + slide title on every content slide
 - [ ] No body copy below 11pt; any imagery is a marked placeholder (blocks release) until the library exists
 - [ ] One layout per slide (no hybrids); 5–8 layouts across the deck
-- [ ] Stats paired with context; one chart per slide, conclusion in the title
+- [ ] Stats paired with context; one chart per slide, conclusion in the title; chart uses one palette (never EE Blue + Transform Teal together)
+- [ ] Extended-palette pull-out (if any) is Logic Lime or Orange, not both, and not a full-bleed fill
 - [ ] Page-number badge present on body slides (inherited); absent on title/divider/full-bleed
 - [ ] Closing slide: named contact, photograph, email, phone, social row
 - [ ] Sub-brand / co-brand follows the endorsement pattern, not equal weight

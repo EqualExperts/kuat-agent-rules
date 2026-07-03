@@ -5,7 +5,7 @@ description: Create or select Equal Experts visual assets — icons, infographic
 
 # Create EE imagery
 
-Produce on-brand Equal Experts visual assets, then run the light quality check before handoff. This skill covers four jobs — **icons**, **infographics**, **illustrations**, and **photography selection**. Pick the role for the job, load only the matching reference, and don't invent visual language beyond the brand and any supplied references. Standards live in [`/reference`](${CLAUDE_PLUGIN_ROOT}/reference/README.md).
+Produce on-brand Equal Experts visual assets, then run the light quality check before handoff. This skill covers five jobs — **icons**, **infographics**, **illustrations**, **diagrams**, and **photography selection**. Pick the role for the job, load only the matching reference, and don't invent visual language beyond the brand and any supplied references. Standards live in [`/reference`](${CLAUDE_PLUGIN_ROOT}/reference/README.md).
 
 > **Never recreate the logo or brand marks.** The EE logo, wordmark, and bracket-E are **genuine assets** — insert them from the asset pack (`${CLAUDE_PLUGIN_ROOT}/assets/slides/logo/`, repo dev: `assets/slides/logo/`), never redraw, re-letter, re-trace, or "approximate" them in an infographic, illustration, or icon set. A recreated mark is off-brand even if it looks close (this is the Phase-4 failure mode). **If a required asset can't be resolved, stop and flag it** — do not fabricate one.
 
@@ -13,7 +13,7 @@ Produce on-brand Equal Experts visual assets, then run the light quality check b
 
 Run the grouped intake ([skills/_shared/intake.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/intake.md)) and confirm:
 
-- **Which job** — icon / infographic / illustration / photography selection.
+- **Which job** — icon / infographic / illustration / diagram / photography selection.
 - **Deliverable** — format, size, vector vs raster, quantity (single vs set).
 - **Reference assets** — for icon sets and infographics, EE style references are usually **required** (see role guardrails).
 - **Data/copy** — provided, or to be supplied? Never invent statistics, claims, or copy.
@@ -27,6 +27,7 @@ If a required reference or spec is missing, **ask and stop** before generating.
 | **Infographic** | "You are a professional Technical Illustrator. Create a 2K high-fidelity infographic (16:9) for Equal Experts by strictly adhering to the visual language in the attached reference files." | 2K, 16:9, single deliverable |
 | **Icon** | "You are a professional Icon Designer for Equal Experts. Create recognizable, consistent, simple icons using the brand palette, with a unified line weight and corner style." | SVG, 24×24 base, consistent line weight/radius |
 | **Illustration** | Technical Illustrator framing, scaled to the requested format | Per brief; follow brand + illustration rules |
+| **Diagram** | Technical Illustrator framing, keyed/coded elements kept simple | Architecture/flow diagram; Tier 1 default, Tier 2 only when genuinely keyed |
 | **Photography** | Selection/brief against EE photography rules (not generation) | EE People/Stock library sources; B&W |
 
 **Hard rules (all jobs):** follow the brand and design-language foundations for colour/type/spacing; follow the job-specific reference for domain rules; do not restate or override them. For "match existing set" tasks, reference files are mandatory. **Any EE logo / brand mark in the output must be the genuine asset from the asset pack — never recreated** (see the rule above).
@@ -39,12 +40,14 @@ If a required reference or spec is missing, **ask and stop** before generating.
 - **Icons:** [reference/media-types/imagery/patterns/graphics/icons.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/imagery/patterns/graphics/icons.md)
 - **Infographics:** [reference/media-types/imagery/patterns/graphics/infographics.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/imagery/patterns/graphics/infographics.md)
 - **Illustrations:** [reference/media-types/imagery/patterns/graphics/illustrations.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/imagery/patterns/graphics/illustrations.md)
+- **Diagrams (provisional):** [reference/media-types/imagery/patterns/graphics/diagrams.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/imagery/patterns/graphics/diagrams.md) — Tier 1 default, keyed-only Tier 2, CVD/lightness rules
 - **Photography:** [reference/media-types/imagery/patterns/photography/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/imagery/patterns/photography/) (principles, diversity-inclusion, style-and-sources)
 
 ## Step 4 — Create / select
 
 - Stay within the brand palette and supplied references; keep line weight, corner style, and colour consistent across a set.
-- Infographics: data/information design only from supplied data; ask if the brief is missing what's needed.
+- Infographics: data/information design only from supplied data; ask if the brief is missing what's needed. When colour encodes categories, use **one palette at a time** (the Tier 3 categorical order — [colours.md](${CLAUDE_PLUGIN_ROOT}/reference/design-language/colours.md#data-visualisation--categorical-order)) and add a second cue (label, pattern, shape) so meaning survives in greyscale or for colour-blind viewers — never hue alone.
+- Diagrams: Tier 1 by default; bring in Tier 2 colours only when nodes are genuinely keyed, and differentiate categories by lightness plus a label, not hue alone — see [diagrams.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/imagery/patterns/graphics/diagrams.md).
 - Photography: choose from EE People/Stock libraries; monochrome unless an exception applies; authentic, diverse, realistic technology.
 
 ## Step 5 — Light quality & accessibility check (before handoff)

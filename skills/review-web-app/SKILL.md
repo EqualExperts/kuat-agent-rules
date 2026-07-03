@@ -27,6 +27,8 @@ Skip the context block at `brand_compliance` depth, and note in the report that 
 
 - Brand + accessibility core: [../_shared/review-common.md](../_shared/review-common.md)
 - Product design & navigation: [../../reference/media-types/web-product/design.md](../../reference/media-types/web-product/design.md)
+- Colour tiers, pairing, extended-palette rules: [../../reference/design-language/colour-usage.md](../../reference/design-language/colour-usage.md)
+- Shadcn light/dark colour mapping: [../../reference/media-types/web-product/colour-modes.md](../../reference/media-types/web-product/colour-modes.md)
 - Web accessibility specifics: [../../reference/media-types/web-product/accessibility.md](../../reference/media-types/web-product/accessibility.md)
 - Component selection: [../../reference/media-types/web-product/component-decision-tree.md](../../reference/media-types/web-product/component-decision-tree.md)
 - Token contract, for any shadcn/third-party item: `@equal-experts/kuat-core/token-contract.json` (shipped in the package — the authored light+dark semantic tokens and their `--color-*` backing)
@@ -45,6 +47,9 @@ Run the common checklist ([../_shared/review-common.md](../_shared/review-common
 - [ ] Dark navigation pattern used where applicable; white monochrome logo on dark
 - [ ] Components sourced per the decision tree; cited IDs match their component guides
 - [ ] No inline styles for themeable properties — design tokens used
+- [ ] Links use the `link` token, not EE Blue (`primary`) — EE Blue fails small-text contrast
+- [ ] Status/RAG colours (error/warning/success/info) via semantic tokens, always paired with an icon/label — flag colour-alone status
+- [ ] Surfaces/borders use the EE neutral scale, not Server Slate or raw greys; extended-palette colours (if any) stay within the ≤5–10% pull-out cap, never a full-page flood
 - [ ] Any added shadcn/third-party UI item passes the token audits (coverage + theme integrity) — see below
 
 **Product / UX fit (`product_ux` / `full` only — blocked without review context)**
@@ -62,7 +67,16 @@ Cite the `reference/...` file + section for every finding.
 
 A consumer's own global CSS, or a `shadcn init`/`add` run, can silently override Kuat's semantic
 tokens even when the component itself looks fine — coverage alone won't catch that. Run both
-checks against the shipped `@equal-experts/kuat-core/token-contract.json`:
+checks against the shipped `@equal-experts/kuat-core/token-contract.json`.
+
+**Extended/semantic/neutral tokens (pending WS5).** The upstream token SoT now includes the
+extended palette, the EE neutral scale, and the semantic layer (`error`/`warning`/`success`/
+`info`/`link`/`interaction-state`) — see [colours.md](../../reference/design-language/colours.md).
+Once `token-contract.json` is regenerated from these (kuat-mono, tracked separately), extend the
+coverage/theme-integrity diff below to include them. Until then, review the semantic/pairing rules
+above against [colour-usage.md](../../reference/design-language/colour-usage.md) even where the
+contract hasn't caught up yet — don't wait on the contract to flag an obvious violation (e.g. EE
+Blue used as a text link, or Fruity colours encoding status).
 
 1. **Coverage (names).** Enumerate the tokens the item consumes — raw `var(--x)` and Tailwind
    `bg-/text-/border-/ring-/fill-*` utilities — and diff against the contract's authored

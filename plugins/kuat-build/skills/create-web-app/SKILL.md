@@ -27,6 +27,8 @@ Load progressively — start with foundations, add the medium + pattern slices t
 | Need | Load |
 |------|------|
 | Colour / type / spacing / radius tokens | [reference/design-language/](${CLAUDE_PLUGIN_ROOT}/reference/design-language/) (colours, typography, spacing, borders) |
+| Colour tiers, pairing, extended-palette rules | [reference/design-language/colour-usage.md](${CLAUDE_PLUGIN_ROOT}/reference/design-language/colour-usage.md) |
+| Shadcn light/dark colour mapping | [reference/media-types/web-product/colour-modes.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/colour-modes.md) |
 | Accessibility requirements | [reference/accessibility/accessibility.md](${CLAUDE_PLUGIN_ROOT}/reference/accessibility/accessibility.md) + [reference/media-types/web-product/accessibility.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/accessibility.md) |
 | Layout & navigation (dark nav patterns, logo placement) | [reference/media-types/web-product/design.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/design.md) |
 | Component selection priority | [reference/media-types/web-product/component-decision-tree.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/component-decision-tree.md) |
@@ -58,6 +60,9 @@ Per-component API/usage/a11y is **not** in this repo — it ships with the imple
 - Reuse existing components/patterns first; build custom only when the decision tree bottoms out.
 - Semantic tokens only (`bg-primary`, `bg-sidebar`, `p-4`) — never raw hex or arbitrary px.
 - Product layouts use **dark navigation** (Tech Blue) with white monochrome logo; light content areas.
+- **EE Blue for buttons/icons/CTAs (`primary`); the `link` semantic token for text links and small text** — never EE Blue for a text link, it fails small-text contrast. See [colour-modes.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/colour-modes.md).
+- Surfaces, borders, and dividers use the **EE neutral scale** (`neutral-*` / `muted`, `border`, `input`), not Server Slate (a distinct brand grey) or raw greys.
+- Status colours use the semantic tokens (`error`/`warning`/`success`/`info`) — always paired with an icon/label, never colour alone.
 - Radius: 0px static content, 6px interactive, 4px inputs.
 - Build the scoped states (empty / loading / error) when in scope, per the content rules.
 
@@ -65,6 +70,8 @@ Per-component API/usage/a11y is **not** in this repo — it ships with the imple
 
 - [ ] Components resolved via the decision tree; custom code only where justified; any missing-component fallback **flagged**
 - [ ] All colours, spacing, type, radius via semantic tokens — no arbitrary hex/px
+- [ ] Links use the `link` token, buttons/CTAs use `primary` (EE Blue) — not swapped
+- [ ] Status colours (error/warning/success/info) via semantic tokens, paired with icon/label
 - [ ] Dark nav pattern + white monochrome logo where a product layout applies
 - [ ] Single logical H1; sequential headings; visible focus states; accessible names on controls
 - [ ] WCAG AA contrast (4.5:1 text, 3:1 large/UI)

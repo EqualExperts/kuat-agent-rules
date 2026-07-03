@@ -66,7 +66,8 @@ Run every item you can verify; cite the `reference/...` file + section (or the a
 | ⬚ Logo rendering | On title + closing only; not every slide; no recolour/distortion/effects; renders cleanly |
 | Closing | Named contact, photograph, email, phone, social row |
 | ⬚ Co-brand | Client logo not equal weight to EE on the cover (endorsement pattern) |
-| Charts | One chart per slide; title states the conclusion |
+| Charts | One chart per slide; title states the conclusion; one palette per chart — flag EE Blue + Transform Teal used together (near-identical lightness) |
+| Extended pull-outs | If Logic Lime/Orange accents are used, only one per deck, dark text, never a full-bleed fill — see [styling.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/slides/styling.md) → *Extended palette in decks (provisional)* |
 | Case studies | Named client; claims defensible; approval noted if external |
 | Density vs mode | Matches the delivery mode: self-contained but lean for read/left-behind/forwarded; sparse only if genuinely presented-live |
 | Voice | Active voice; no hedge chains; jargon reduced |
