@@ -50,9 +50,14 @@ function resolveHex(value, seen = 0) {
 
 /** A brand scale's -500 hex + oklch (the canonical brand value). */
 function brand500(key) {
-  const step = tokens.color?.[key]?.["500"];
-  if (!step) throw new Error(`missing color.${key}.500 in tokens`);
-  return { hex: step.$value.toLowerCase(), oklch: step.$extensions?.oklch ?? "" };
+  return scaleStep(key, "500");
+}
+
+/** Any scale's step hex + oklch. */
+function scaleStep(key, step) {
+  const node = tokens.color?.[key]?.[String(step)];
+  if (!node) throw new Error(`missing color.${key}.${step} in tokens`);
+  return { hex: node.$value.toLowerCase(), oklch: node.$extensions?.oklch ?? "" };
 }
 
 // --- Presentation config: prose is template; VALUES come from the tokens above. ---
@@ -89,7 +94,50 @@ const ALIASES = [
   { label: "`--foreground` (`--brand-dark-data`)", aliasKey: "foreground", mapsTo: "text dark" },
   { label: "`--background` (`--brand-byte-white`)", aliasKey: "background", mapsTo: "white" },
   { label: "`--muted` (`--brand-the-cloud`)", aliasKey: "muted", mapsTo: "Slate 100" },
-  { label: "`--destructive`", aliasKey: "destructive", mapsTo: "Red 600" },
+  { label: "`--destructive`", aliasKey: "destructive", mapsTo: "Runtime Red 600" },
+];
+
+// Extended palette — 2026-06-29 colours lockdown (extended-palette-review.md). Exception-only:
+// see colour-usage.md for the tier model. Each is a flat peer scale, anchored at its measured
+// lightness step (not forced to 500).
+const EXTENDED = [
+  { key: "index-indigo", name: "Index Indigo", anchorStep: "800", role: "Info / call-out", textOn: "White" },
+  { key: "packet-plum", name: "Packet Plum", anchorStep: "600", role: "Expressive accent / dark surface", textOn: "White" },
+  { key: "runtime-red", name: "Runtime Red", anchorStep: "600", role: "Error / danger", textOn: "White" },
+  { key: "uptime-green", name: "Uptime Green", anchorStep: "500", role: "Success", textOn: "White" },
+  { key: "server-slate", name: "Server Slate", anchorStep: "600", role: "Near-neutral brand grey (distinct from the EE neutral scale)", textOn: "White" },
+  { key: "logic-lime", name: "Logic Lime", anchorStep: "300", role: "Bright pull-out accent · display alias \"Lime\"", textOn: "Dark Data" },
+  { key: "edge-blue", name: "Edge Blue", anchorStep: "200", role: "Hover/active state — light end of the 3-stage blue", textOn: "Dark Data" },
+  { key: "signal-yellow", name: "Signal Yellow", anchorStep: "300", role: "Bright pull-out accent · display alias \"Sunflower\"", textOn: "Dark Data" },
+  { key: "cursor-coral", name: "Cursor Coral", anchorStep: "400", role: "Decorative pull-out (not error)", textOn: "Dark Data" },
+  { key: "patch-peach", name: "Patch Peach", anchorStep: "300", role: "Light warm pull-out accent", textOn: "Dark Data" },
+];
+
+// EE neutral scale — monotonic Byte White (50) -> Dark Data (950). Named aliases at 4 points.
+const NEUTRAL_ALIASES = [
+  { step: "50", name: "Byte White" },
+  { step: "100", name: "The Cloud" },
+  { step: "600", name: "Overcast" },
+  { step: "950", name: "Dark Data" },
+];
+
+// Cross-cutting semantic / RAG layer — sits above the tiers. Never colour alone (WCAG 1.4.1).
+const SEMANTIC = [
+  { key: "error", label: "Error / danger", requiredText: "White", note: "7.8:1 AAA · replaces support #dc2626" },
+  { key: "warning", label: "Warning", requiredText: "Dark Data", note: "5.6:1 AA · white text FAILS (2.8:1)" },
+  { key: "success", label: "Success", requiredText: "White", note: "5.0:1 AA" },
+  { key: "info", label: "Info / call-out", requiredText: "White", note: "13.4:1 AAA" },
+  { key: "link", label: "Text link / small text", requiredText: "is the text", note: "WIP — ~97% of AA on white (4.34:1), deliberately close to EE Blue; strict-AA fallback #007cb9" },
+  { key: "interaction-state", label: "Interaction state (hover/active)", requiredText: "Dark Data", note: "8.8:1 AAA" },
+  { key: "error-dark", label: "Error, on dark surfaces", requiredText: "—", note: "lighter step for on-dark text" },
+  { key: "success-dark", label: "Success, on dark surfaces", requiredText: "—", note: "lighter step for on-dark text" },
+  { key: "info-dark", label: "Info, on dark surfaces", requiredText: "—", note: "lighter step for on-dark text" },
+];
+
+const DATAVIZ_ORDER = [
+  ["categorical-1", "EE Blue"], ["categorical-2", "Equal Ember"], ["categorical-3", "Tech Blue"],
+  ["categorical-4", "Logic Lime"], ["categorical-5", "Packet Plum"], ["categorical-6", "Edge Blue"],
+  ["categorical-7", "Runtime Red"], ["categorical-8", "Signal Yellow"],
 ];
 
 function brandSection(b) {
@@ -105,6 +153,45 @@ ${b.useFor.map((u) => `- ${u}`).join("\n")}`;
 
 function aliasRows() {
   return ALIASES.map((a) => `| ${a.label} | ${a.mapsTo} | \`${resolveHex(tokens.alias[a.aliasKey].$value)}\` |`).join("\n");
+}
+
+function extendedRows() {
+  return EXTENDED.map((e) => {
+    const v = scaleStep(e.key, e.anchorStep);
+    return `| ${e.name} | ${e.role} | \`${v.hex}\` (step ${e.anchorStep}) | ${e.textOn} |`;
+  }).join("\n");
+}
+
+function neutralRows() {
+  const steps = ["50", "100", "200", "300", "400", "500", "600", "700", "800", "900", "950"];
+  return steps
+    .map((s) => {
+      const v = scaleStep("neutral", s);
+      const alias = NEUTRAL_ALIASES.find((n) => n.step === s);
+      return `| ${s} | \`${v.hex}\` | ${alias ? `**${alias.name}**` : ""} |`;
+    })
+    .join("\n");
+}
+
+function semanticRows() {
+  return SEMANTIC.map((s) => `| ${s.label} | \`${resolveHex(tokens.semantic[s.key].$value)}\` | ${s.requiredText} | ${s.note} |`).join("\n");
+}
+
+function dataVizRows() {
+  return DATAVIZ_ORDER.map(([key, name], i) => `${i + 1}. **${name}** \`${resolveHex(tokens["data-viz"][key].$value)}\``).join("\n");
+}
+
+function pairingSummary() {
+  const darkSurfaces = EXTENDED.filter((e) => e.textOn === "White").map((e) => e.name);
+  const brightSurfaces = EXTENDED.filter((e) => e.textOn === "Dark Data").map((e) => e.name);
+  return `**Dark surfaces (white text):** ${darkSurfaces.join(", ")}, Dark Data.
+
+**Bright surfaces (Dark Data text):** ${brightSurfaces.join(", ")}, EE Blue, Transform Teal, Equal Ember.
+
+**Do not pair:**
+- EE Blue \`${resolveHex(tokens.brand["ee-blue"].$value)}\` and Transform Teal \`${resolveHex(tokens.brand["transform-teal"].$value)}\` adjacent in a categorical sequence — 1.01:1 luminance, indistinguishable in greyscale/CVD.
+- The Fruity combination (Runtime Red, Cursor Coral, Uptime Green, Logic Lime, Signal Yellow, Patch Peach) for any data encoding — collapses under protanopia. Decoration only.
+- White text on Equal Ember \`${resolveHex(tokens.brand["equal-ember"].$value)}\` — fails at 2.8:1; use Dark Data.`;
 }
 
 function render() {
@@ -155,18 +242,52 @@ Support scales (slate, red, indigo) back these aliases but are **not brand colou
 
 ---
 
-## Neutral Colors
+## Extended Palette (exception-only)
 
-For text, backgrounds, and UI elements:
+Added in the June 2026 colours lockdown. **Core is primary; extended is exception-only** — see
+[colour-usage.md](./colour-usage.md) for the tier model (data viz, keyed diagrams, small pull-outs).
+Each is a flat peer scale (50–950), anchored at its measured lightness step, not forced to 500.
 
-| Color | Usage |
-|-------|-------|
-| White | Light backgrounds, text on dark |
-| Slate-50 to Slate-200 | Light backgrounds, subtle borders |
-| Slate-300 to Slate-500 | Secondary text, dividers |
-| Slate-600 to Slate-800 | Primary text (light mode) |
-| Slate-900 to Slate-950 | Headings, dark backgrounds |
-| Black | Maximum contrast, specific uses |
+| Colour | Role | Value | Text on it |
+|--------|------|-------|------------|
+${extendedRows()}
+
+---
+
+## EE Neutral Scale
+
+Monotonic Byte White → Dark Data, distinct from Server Slate (a brand grey, not a UI neutral):
+
+| Step | Value | Alias |
+|------|-------|-------|
+${neutralRows()}
+
+---
+
+## Semantic / RAG Colours
+
+Cross-cutting roles that mean a *specific thing* and may appear in any scenario — reserved for
+meaning, never reused decoratively. Always pair with an icon/shape/label (WCAG 1.4.1 — never
+colour alone).
+
+| Role | Value | Required text | Notes |
+|------|-------|----------------|-------|
+${semanticRows()}
+
+---
+
+## Data Visualisation — Categorical Order
+
+Tier 3 sequence for charts/data viz only. Use in order; stop when there are enough categories.
+CVD-checked, lightness-separated. Never place EE Blue and Transform Teal adjacent.
+
+${dataVizRows()}
+
+---
+
+## Pairing Summary
+
+${pairingSummary()}
 
 ---
 

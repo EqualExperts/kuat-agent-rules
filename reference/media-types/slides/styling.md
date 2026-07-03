@@ -32,6 +32,21 @@ If a foundation rule and this file conflict on accessibility minimums, the found
 - Do not put Tech Blue text on Slate-900 — contrast is poor. Use white on dark.
 - Do not introduce off-brand colours from a client palette in the body. If a client co-brand colour is needed, restrict it to a single endorsement strip.
 
+### Extended palette in decks (provisional)
+
+**Provisional** — pending a dedicated slides session with Brand (Ben Wilks). Interim position from
+the June 2026 colours lockdown:
+
+- The proven conference model pairs a **Dark Data** background with the core palette and **Logic
+  Lime or Orange (Equal Ember)** pull-out accents — never both in the same deck, and never as body
+  text or a large fill.
+- In-slide charts use **one palette at a time** — the Tier 3 categorical order from
+  [colours.md](../../design-language/colours.md#data-visualisation--categorical-order), not a
+  mixed selection of extended colours.
+- Full light/dark deck variants and the named theme combinations (Core, Data, Digital, Fruity,
+  Ocean — see [colour-usage.md](../../design-language/colour-usage.md#named-combinations)) are
+  deferred to that later session.
+
 ---
 
 ## Typography
