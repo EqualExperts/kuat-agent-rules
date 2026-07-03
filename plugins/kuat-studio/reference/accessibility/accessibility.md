@@ -99,11 +99,37 @@ When using colour for status (red/amber/green):
 3. **Include legend** - Always explain what colours mean
 4. **Consider colour blindness** - Red/green are commonly confused
 
+### Status / RAG Colour Values
+
+The semantic layer in [colours.md](../design-language/colours.md#semantic--rag-colours) fixes the
+status set — always pair with the listed shape/icon, never colour alone:
+
+| State | Colour | Required text | Ratio |
+|-------|--------|----------------|-------|
+| Error / danger | Runtime Red `#a3152b` | White | 7.8:1 AAA |
+| Warning | Equal Ember `#f07c00` | Dark Data (white **fails**, 2.8:1) | 5.6:1 AA |
+| Success | Uptime Green `#11821b` | White | 5.0:1 AA |
+| Info / call-out | Index Indigo `#352361` | White | 13.4:1 AAA |
+
+Runtime Red and Uptime Green collapse under protanopia — the icon/shape/label partner is what
+makes RAG status colour-blind safe, not the colour itself.
+
+### Accessible Link Colour (WIP)
+
+EE Blue (`#1795d4`) fails body-text contrast (3.3:1 on white) and is reserved for buttons, icons,
+and larger CTAs. Text links and small text use the semantic `link` token (`#0080be`) instead —
+see [colour-usage.md](../design-language/colour-usage.md#links-vs-buttons--the-accessible-blue).
+This value is deliberately just under the 4.5:1 AA threshold (4.34:1 on white, ≈97%) to stay close
+to EE Blue, pending validation in real link contexts; a strict-AA fallback (`#007cb9`, 4.58:1)
+exists if that validation doesn't hold.
+
 ### Charts and Data Visualisation
 
 - Use patterns or textures in addition to colours
-- Ensure adjacent colours have sufficient contrast
+- Ensure adjacent colours have sufficient contrast (3:1 minimum, WCAG 1.4.11)
+- Never place EE Blue and Transform Teal adjacent — near-identical lightness (1.01:1)
 - Provide data tables as alternatives to charts
+- Full CVD rules and the categorical sequence: [colours.md](../design-language/colours.md#data-visualisation--categorical-order)
 
 ---
 

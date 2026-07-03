@@ -10,7 +10,7 @@ Charts, tables, and impact metrics on slides.
 
 - One chart per slide. The chart is the slide.
 - Title states the conclusion, not the chart type. "Deployments increased 400× year on year" beats "Annual deployment count".
-- Use EE Blue as the primary series colour. Secondary series step down to Tech Blue, then a neutral grey. Reserve Equal Ember or Transform Teal for highlighting a single data point that makes the argument.
+- Use **one palette at a time**: the Tier 3 categorical order (EE Blue → Equal Ember → Tech Blue → …) from [colours.md](../../design-language/colours.md#data-visualisation--categorical-order). Never use EE Blue and Transform Teal in the same chart — near-identical lightness (1.01:1), indistinguishable in greyscale/CVD. Reserve Equal Ember for highlighting the single data point that makes the argument.
 - Remove gridlines, chart borders, and legends where the data labels alone are sufficient. Direct-label series instead of using a legend.
 - Round numbers. "£30M" not "£29,847,221.50" in a presented chart. Precision goes in an appendix or notes.
 

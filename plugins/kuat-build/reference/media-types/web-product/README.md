@@ -5,6 +5,7 @@ Reference for Equal Experts web applications, dashboards, internal tools, and pr
 | File | Scope |
 |------|-------|
 | [design.md](./design.md) | Layout, navigation, product visual patterns |
+| [colour-modes.md](./colour-modes.md) | Shadcn light/dark semantic colour mapping |
 | [accessibility.md](./accessibility.md) | Product accessibility requirements |
 | [emails.md](./emails.md) | Transactional / product email patterns |
 | [component-decision-tree.md](./component-decision-tree.md) | Which component source to use (Blocks → Kuat → shadcn → custom) |

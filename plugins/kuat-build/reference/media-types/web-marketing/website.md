@@ -10,6 +10,20 @@ Marketing websites are public-facing pages designed to inform, engage, and conve
 
 ---
 
+## Colour Usage
+
+Marketing pages are **core-dominant**: Tier 1 (EE Blue, Transform Teal, Tech Blue, Equal Ember,
+Dark Data, The Cloud, White) for almost everything. Full-page background floods are restricted to
+**Tech Blue or Dark Data** (or The Cloud / white) — EE Blue is used at block/component level only,
+never as a full-page fill.
+
+Extended-palette colours (Logic Lime, Equal Ember) appear only as small pull-outs — dark text on
+them, never body text, never a full flood — and must stay within **~5–10% of a page's total
+area**. See [colour-usage.md](../../design-language/colour-usage.md) for the full tier model and
+[colours.md](../../design-language/colours.md) for values.
+
+---
+
 ## Layout Structure
 
 ```
