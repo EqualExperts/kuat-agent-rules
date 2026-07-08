@@ -14,7 +14,7 @@ request.
 
 ## Step 0 — Context and fidelity gate
 
-Normally satisfied by [claude-design-build-intake](${CLAUDE_PLUGIN_ROOT}/skills/claude-design-build-intake/SKILL.md) (and
+Normally satisfied by [mockup-build-intake](${CLAUDE_PLUGIN_ROOT}/skills/mockup-build-intake/SKILL.md) (and
 [create-design](./SKILL.md) upstream of it). Re-confirm here if that wasn't run:
 
 - [ ] Confirmed Equal Experts/Kuat vs. a different client's system before using any Kuat value.
@@ -60,5 +60,5 @@ Normally satisfied by [claude-design-build-intake](${CLAUDE_PLUGIN_ROOT}/skills/
 ## Related
 
 - [figma-build-checklist](./figma-build-checklist.md) - equivalent checklist for the Figma route
-- [claude-design-build-intake](${CLAUDE_PLUGIN_ROOT}/skills/claude-design-build-intake/SKILL.md) - runs before this checklist
+- [mockup-build-intake](${CLAUDE_PLUGIN_ROOT}/skills/mockup-build-intake/SKILL.md) - runs before this checklist
 - [create-design](./SKILL.md) - upstream context/fidelity/route decision

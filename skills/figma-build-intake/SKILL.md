@@ -55,6 +55,6 @@ done.
 
 - [figma-build-checklist](../create-design/figma-build-checklist.md) - execution-time verification, run after this intake
 - [create-design](../create-design/SKILL.md) - upstream single/multiple, fidelity, and route decision
-- [claude-design-build-intake](../claude-design-build-intake/SKILL.md) - equivalent skill for the Claude Design route
+- [mockup-build-intake](../mockup-build-intake/SKILL.md) - equivalent skill for the Claude Design route
 - [create-web-app](../create-web-app/SKILL.md) - EE code deliverables; this skill covers the Figma deliverable case instead
 - [intake](../_shared/intake.md) - shared intake used in Step 2

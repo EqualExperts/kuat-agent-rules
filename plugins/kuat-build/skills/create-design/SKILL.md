@@ -1,6 +1,6 @@
 ---
 name: create-design
-description: Use when a request needs new visual design concepts or mockups — screens, components, or layouts — before any code or Figma work starts. Determines (1) whether to produce a single design or multiple concept directions, (2) the fidelity level and how strictly Kuat design-system compliance applies at that fidelity, and (3) whether the output route is Figma or Claude Design (inline mockup). Hands off to figma-build-intake or claude-design-build-intake accordingly. Not for code implementation (see create-web-app) or slides/imagery (see create-presentation, create-imagery).
+description: Use when a request needs new visual design concepts or mockups — screens, components, or layouts — before any code or Figma work starts. Determines (1) whether to produce a single design or multiple concept directions, (2) the fidelity level and how strictly Kuat design-system compliance applies at that fidelity, and (3) whether the output route is Figma or Claude Design (inline mockup). Hands off to figma-build-intake or mockup-build-intake accordingly. Not for code implementation (see create-web-app) or slides/imagery (see create-presentation, create-imagery).
 ---
 
 # Create a design (mockup / concept)
@@ -58,7 +58,7 @@ Ask if not stated. Use these as defaults, not hard rules:
 
 - **Figma route:** invoke [figma-build-intake](${CLAUDE_PLUGIN_ROOT}/skills/figma-build-intake/SKILL.md), passing the context
   (Step 0), concept count (Step 1), and fidelity (Step 2).
-- **Claude Design route:** invoke [claude-design-build-intake](${CLAUDE_PLUGIN_ROOT}/skills/claude-design-build-intake/SKILL.md),
+- **Claude Design route:** invoke [mockup-build-intake](${CLAUDE_PLUGIN_ROOT}/skills/mockup-build-intake/SKILL.md),
   passing the same three inputs.
 - If the request turns out to need code (not a mockup), stop here and use
   [create-web-app](${CLAUDE_PLUGIN_ROOT}/skills/create-web-app/SKILL.md) instead.
@@ -66,6 +66,6 @@ Ask if not stated. Use these as defaults, not hard rules:
 ## Related
 
 - [figma-build-intake](${CLAUDE_PLUGIN_ROOT}/skills/figma-build-intake/SKILL.md) - Figma route
-- [claude-design-build-intake](${CLAUDE_PLUGIN_ROOT}/skills/claude-design-build-intake/SKILL.md) - Claude Design route
+- [mockup-build-intake](${CLAUDE_PLUGIN_ROOT}/skills/mockup-build-intake/SKILL.md) - Claude Design route
 - [create-web-app](${CLAUDE_PLUGIN_ROOT}/skills/create-web-app/SKILL.md) - code implementation, not a mockup
 - [figma-build-checklist](./figma-build-checklist.md) · [claude-design-build-checklist](./claude-design-build-checklist.md)

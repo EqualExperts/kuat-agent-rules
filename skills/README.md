@@ -20,7 +20,7 @@ This directory is staged in `kuat-agent-docs` for testing; it may be extracted t
 | **review-web-app** | [review-web-app/](./review-web-app/) | Auditing product UI |
 | **create-design** | [create-design/](./create-design/) | New design mockups/concepts — decides single vs. multiple, fidelity, and Figma vs. Claude Design |
 | **figma-build-intake** | [figma-build-intake/](./figma-build-intake/) | Pre-flight for the Figma route (run via create-design or directly) |
-| **claude-design-build-intake** | [claude-design-build-intake/](./claude-design-build-intake/) | Pre-flight for the Claude Design route (run via create-design or directly) |
+| **mockup-build-intake** | [mockup-build-intake/](./mockup-build-intake/) | Pre-flight for the Claude Design route (run via create-design or directly) |
 | **create-imagery** | [create-imagery/](./create-imagery/) | Icons, infographics, illustrations, photography selection |
 | **create-presentation** | [create-presentation/](./create-presentation/) | Building EE slide decks |
 | **review-presentation** | [review-presentation/](./review-presentation/) | Auditing EE slide decks |

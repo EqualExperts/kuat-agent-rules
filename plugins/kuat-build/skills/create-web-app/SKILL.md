@@ -59,7 +59,7 @@ Per-component API/usage/a11y is **not** in this repo — it ships with the imple
 above doesn't apply the same way. Use [create-design](${CLAUDE_PLUGIN_ROOT}/skills/create-design/SKILL.md) instead of this step
 — it decides single-vs-multiple concepts and fidelity, routes to
 [figma-build-intake](${CLAUDE_PLUGIN_ROOT}/skills/figma-build-intake/SKILL.md) or
-[claude-design-build-intake](${CLAUDE_PLUGIN_ROOT}/skills/claude-design-build-intake/SKILL.md), and neither customises a
+[mockup-build-intake](${CLAUDE_PLUGIN_ROOT}/skills/mockup-build-intake/SKILL.md), and neither customises a
 vendor-provided skill.
 
 ## Step 4 — Build
