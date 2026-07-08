@@ -16,19 +16,19 @@ entirely outside Figma's package, so there is nothing to lose when Figma updates
 Any time a request will result in building or updating a screen, component, or view inside a Figma
 file — run this first, before calling `figma-generate-design` or writing a `use_figma` script.
 
-Usually reached via [create-design](../create-design/SKILL.md), which decides single-vs-multiple
+Usually reached via [create-design](${CLAUDE_PLUGIN_ROOT}/skills/create-design/SKILL.md), which decides single-vs-multiple
 concepts, fidelity, and the Figma-vs-Claude-Design route before handing off here. If reached that way,
 reuse its answers below instead of re-asking.
 
 ## Step 1 — Design-system context (ask if not already known)
 
 - Is this Equal Experts / Kuat work, or work for a different client with its own design system?
-- **If Kuat:** the target file defaults to Kuat2 — see [../../reference/media-types/web-product/design.md](../../reference/media-types/web-product/design.md) for layout templates and the component-resolution priority. Still confirm the file key/URL if not already given.
-- **If not Kuat:** do not carry over any Kuat file key, component, token, or layout default. Get (or discover from) the client's own file — Step 3 of [figma-build-checklist.md](../create-design/figma-build-checklist.md) covers live discovery against whatever file is in scope.
+- **If Kuat:** the target file defaults to Kuat2 — see [reference/media-types/web-product/design.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/design.md) for layout templates and the component-resolution priority. Still confirm the file key/URL if not already given.
+- **If not Kuat:** do not carry over any Kuat file key, component, token, or layout default. Get (or discover from) the client's own file — Step 3 of [figma-build-checklist.md](${CLAUDE_PLUGIN_ROOT}/skills/create-design/figma-build-checklist.md) covers live discovery against whatever file is in scope.
 
 ## Step 2 — Scope the build
 
-Run the shared intake — see [../_shared/intake.md](../_shared/intake.md): scenario/page type, sections
+Run the shared intake — see [skills/_shared/intake.md](${CLAUDE_PLUGIN_ROOT}/skills/_shared/intake.md): scenario/page type, sections
 needed, states in scope, whether the source contains images (triggers the parallel
 `generate_figma_design` capture workflow in Figma's own skill).
 
@@ -47,14 +47,14 @@ not seen elsewhere in the file).
 
 Only now invoke Figma's own skills (`figma-generate-design`, `figma-use`) unmodified, using the
 context resolved in Steps 1-3. During and after the build, run
-[figma-build-checklist.md](../create-design/figma-build-checklist.md) Steps 1-5 (discovery completeness,
+[figma-build-checklist.md](${CLAUDE_PLUGIN_ROOT}/skills/create-design/figma-build-checklist.md) Steps 1-5 (discovery completeness,
 token binding, component fidelity, composition honesty, pre-handoff self-audit) before calling it
 done.
 
 ## Related
 
-- [figma-build-checklist](../create-design/figma-build-checklist.md) - execution-time verification, run after this intake
-- [create-design](../create-design/SKILL.md) - upstream single/multiple, fidelity, and route decision
-- [claude-design-build-intake](../claude-design-build-intake/SKILL.md) - equivalent skill for the Claude Design route
-- [create-web-app](../create-web-app/SKILL.md) - EE code deliverables; this skill covers the Figma deliverable case instead
-- [intake](../_shared/intake.md) - shared intake used in Step 2
+- [figma-build-checklist](${CLAUDE_PLUGIN_ROOT}/skills/create-design/figma-build-checklist.md) - execution-time verification, run after this intake
+- [create-design](${CLAUDE_PLUGIN_ROOT}/skills/create-design/SKILL.md) - upstream single/multiple, fidelity, and route decision
+- [claude-design-build-intake](${CLAUDE_PLUGIN_ROOT}/skills/claude-design-build-intake/SKILL.md) - equivalent skill for the Claude Design route
+- [create-web-app](${CLAUDE_PLUGIN_ROOT}/skills/create-web-app/SKILL.md) - EE code deliverables; this skill covers the Figma deliverable case instead
+- [intake](${CLAUDE_PLUGIN_ROOT}/skills/_shared/intake.md) - shared intake used in Step 2

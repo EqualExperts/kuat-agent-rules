@@ -6,16 +6,16 @@ real components or bind live variables — so it leans harder on explicit flaggi
 approximated. Run at the start of a build (Step 0) and again before returning the mockup (Steps 1-5).
 
 There is no persisted token/component registry for Claude Design either — resolution happens live
-against the same sources code and Figma builds use ([reference/design-language/](../../reference/design-language/),
-[component-registry.md](../../reference/media-types/web-product/component-registry.md)), every
+against the same sources code and Figma builds use ([reference/design-language/](${CLAUDE_PLUGIN_ROOT}/reference/design-language/),
+[component-registry.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/component-registry.md)), every
 request.
 
 ---
 
 ## Step 0 — Context and fidelity gate
 
-Normally satisfied by [claude-design-build-intake](../claude-design-build-intake/SKILL.md) (and
-[create-design](../create-design/SKILL.md) upstream of it). Re-confirm here if that wasn't run:
+Normally satisfied by [claude-design-build-intake](${CLAUDE_PLUGIN_ROOT}/skills/claude-design-build-intake/SKILL.md) (and
+[create-design](./SKILL.md) upstream of it). Re-confirm here if that wasn't run:
 
 - [ ] Confirmed Equal Experts/Kuat vs. a different client's system before using any Kuat value.
 - [ ] Confirmed the fidelity level (low/mid/high) and therefore how much of Steps 1-3 below is
@@ -54,11 +54,11 @@ Normally satisfied by [claude-design-build-intake](../claude-design-build-intake
 - [ ] State the fidelity level achieved and list what was deliberately approximated because of that
       fidelity band vs. what's a genuine gap.
 - [ ] If the mockup is meant to progress toward a build-ready deliverable, say so and point to
-      [figma-build-intake](../figma-build-intake/SKILL.md) as the next step — Claude Design output is
+      [figma-build-intake](${CLAUDE_PLUGIN_ROOT}/skills/figma-build-intake/SKILL.md) as the next step — Claude Design output is
       not itself a build-ready artifact.
 
 ## Related
 
 - [figma-build-checklist](./figma-build-checklist.md) - equivalent checklist for the Figma route
-- [claude-design-build-intake](../claude-design-build-intake/SKILL.md) - runs before this checklist
-- [create-design](../create-design/SKILL.md) - upstream context/fidelity/route decision
+- [claude-design-build-intake](${CLAUDE_PLUGIN_ROOT}/skills/claude-design-build-intake/SKILL.md) - runs before this checklist
+- [create-design](./SKILL.md) - upstream context/fidelity/route decision

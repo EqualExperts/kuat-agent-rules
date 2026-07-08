@@ -11,6 +11,7 @@ Stable IDs link patterns and checklists to per-component guides in the implement
 | `shadcn:button` | Button | shadcn CLI + `kuat-core` theme | `components/button.md` | [complete a form](./patterns/complete-a-form.md), [sign in](./patterns/sign-in.md), [content/actions](./content/actions.md) |
 | `kuat:button-group` | ButtonGroup | `@equal-experts/kuat-react` / `kuat-vue` | `components/button-group.md` | [component-decision-tree](./component-decision-tree.md) |
 | `kuat:kuat-header` | KuatHeader | `@equal-experts/kuat-react` / `kuat-vue` block | `components/kuat-header.md` | [component-decision-tree](./component-decision-tree.md), [design](./design.md) |
+| `kuat:callout` | Callout | `@equal-experts/kuat-react` / `kuat-vue` | `components/callout.md` | [component-decision-tree](./component-decision-tree.md) |
 
 Expand this table in `kuat-mono` as component docs are added. Keep IDs stable; add new rows rather than renaming IDs.
 

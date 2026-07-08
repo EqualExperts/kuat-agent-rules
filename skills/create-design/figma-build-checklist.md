@@ -68,4 +68,4 @@ own skills are invoked. Re-confirm here if that skill wasn't run for some reason
 
 - [claude-design-build-checklist](./claude-design-build-checklist.md) - equivalent checklist for the Claude Design route
 - [create-web-app](../create-web-app/SKILL.md) - invokes this checklist for Figma deliverables
-- [intake](./intake.md) - shared intake, run before this checklist
+- [intake](../_shared/intake.md) - shared intake, run before this checklist

@@ -11,7 +11,7 @@ ever directionally similar to Kuat, never spec-accurate, because nothing forces 
 values. This skill is what makes a Kuat-targeted Claude Design mockup actually resolve against the
 real design system, at whatever fidelity the brief calls for.
 
-Usually reached via [create-design](../create-design/SKILL.md), which resolves context, concept
+Usually reached via [create-design](${CLAUDE_PLUGIN_ROOT}/skills/create-design/SKILL.md), which resolves context, concept
 count, and fidelity first. If invoked directly, resolve those here instead.
 
 ## Step 1 — Context and fidelity (skip if already given)
@@ -19,7 +19,7 @@ count, and fidelity first. If invoked directly, resolve those here instead.
 - Equal Experts / Kuat, or a different client's own system? If Kuat, proceed below. If not, do not
   substitute any Kuat value — discover the client's own brand/tokens (from what's provided) using the
   same live-resolution approach.
-- Fidelity level (low / mid / high) — see [create-design](../create-design/SKILL.md#step-2--fidelity-level-sets-compliance-strictness)
+- Fidelity level (low / mid / high) — see [create-design](${CLAUDE_PLUGIN_ROOT}/skills/create-design/SKILL.md#step-2--fidelity-level-sets-compliance-strictness)
   for what each requires. This sets how much of Step 2 is mandatory.
 
 ## Step 2 — Resolve real values live (no persisted registry)
@@ -29,10 +29,10 @@ There is no separate "Claude Design token registry" to maintain — pull straigh
 
 | Need | Source |
 |------|--------|
-| Colour / type / spacing / radius values | [../../reference/design-language/](../../reference/design-language/) (exact hex/rem values, not approximations) |
-| Colour tiers, pairing, status colours | [../../reference/design-language/colour-usage.md](../../reference/design-language/colour-usage.md) |
-| Component visual spec (padding, radius, states) | [../../reference/media-types/web-product/component-registry.md](../../reference/media-types/web-product/component-registry.md) → the resolved component's guide |
-| Layout / regions | [../../reference/media-types/web-product/design.md](../../reference/media-types/web-product/design.md) + [patterns/](../../reference/media-types/web-product/patterns/) |
+| Colour / type / spacing / radius values | [reference/design-language/](${CLAUDE_PLUGIN_ROOT}/reference/design-language/) (exact hex/rem values, not approximations) |
+| Colour tiers, pairing, status colours | [reference/design-language/colour-usage.md](${CLAUDE_PLUGIN_ROOT}/reference/design-language/colour-usage.md) |
+| Component visual spec (padding, radius, states) | [reference/media-types/web-product/component-registry.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/component-registry.md) → the resolved component's guide |
+| Layout / regions | [reference/media-types/web-product/design.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/design.md) + [patterns/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/patterns/) |
 
 At **low** fidelity this step is informational only (structure matters, not exact values — use
 neutral placeholders and say so). At **mid** fidelity, resolve real colour/type tokens but
@@ -53,11 +53,11 @@ Build with the Claude Design tool using the resolved values. Since it can't bind
 instantiate real components the way Figma can, translate each resolved token/spec into literal CSS
 values at build time — accuracy is a one-time translation, not a live binding, so re-verify against
 source if the underlying tokens change. Run
-[claude-design-build-checklist.md](../create-design/claude-design-build-checklist.md) before returning the
+[claude-design-build-checklist.md](${CLAUDE_PLUGIN_ROOT}/skills/create-design/claude-design-build-checklist.md) before returning the
 mockup.
 
 ## Related
 
-- [claude-design-build-checklist](../create-design/claude-design-build-checklist.md) - execution-time verification
-- [figma-build-intake](../figma-build-intake/SKILL.md) - equivalent skill for the Figma route
-- [create-design](../create-design/SKILL.md) - upstream context/fidelity/route decision
+- [claude-design-build-checklist](${CLAUDE_PLUGIN_ROOT}/skills/create-design/claude-design-build-checklist.md) - execution-time verification
+- [figma-build-intake](${CLAUDE_PLUGIN_ROOT}/skills/figma-build-intake/SKILL.md) - equivalent skill for the Figma route
+- [create-design](${CLAUDE_PLUGIN_ROOT}/skills/create-design/SKILL.md) - upstream context/fidelity/route decision

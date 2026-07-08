@@ -14,7 +14,7 @@ gets a clear brief instead of guessing.
 Is this Equal Experts / Kuat work, or work for a different client with its own design system? Ask if
 not already stated. Carry the answer into whichever skill you hand off to in Step 4 — don't ask again.
 
-- **If Kuat:** [../../reference/media-types/web-product/design.md](../../reference/media-types/web-product/design.md) and the Kuat2 file are in scope.
+- **If Kuat:** [reference/media-types/web-product/design.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/design.md) and the Kuat2 file are in scope.
 - **If not Kuat:** no Kuat file, component, token, or layout default applies. The downstream intake
   skill discovers the target system live instead.
 
@@ -36,7 +36,7 @@ Ask if not stated, using these three bands:
 
 | Fidelity | What it looks like | Kuat compliance requirement |
 |----------|--------------------|------------------------------|
-| **Low** (wireframe / concept) | Structure and content hierarchy only; greyscale or neutral placeholders; boxes stand in for components | Follow Kuat's *structural* patterns ([patterns/](../../reference/media-types/web-product/patterns/), [design.md](../../reference/media-types/web-product/design.md)) — exact tokens/components not required. Label it a wireframe, not a compliance reference. |
+| **Low** (wireframe / concept) | Structure and content hierarchy only; greyscale or neutral placeholders; boxes stand in for components | Follow Kuat's *structural* patterns ([patterns/](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/patterns/), [design.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/design.md)) — exact tokens/components not required. Label it a wireframe, not a compliance reference. |
 | **Mid** (styled concept / directional) | Real Kuat brand colours and typography visible; approximate spacing/radius; components can be close approximations | Use real Kuat tokens for colour/type; component approximations allowed if flagged. Good for comparing multiple directions quickly. |
 | **High** (spec-accurate / build-ready) | Pixel-accurate; intended to be handed to engineering or dropped into the file as-is | Full compliance — run the downstream checklist (`figma-build-checklist` or `claude-design-build-checklist`) start to finish. No unflagged approximations. |
 
@@ -56,16 +56,16 @@ Ask if not stated. Use these as defaults, not hard rules:
 
 ## Step 4 — Hand off
 
-- **Figma route:** invoke [figma-build-intake](../figma-build-intake/SKILL.md), passing the context
+- **Figma route:** invoke [figma-build-intake](${CLAUDE_PLUGIN_ROOT}/skills/figma-build-intake/SKILL.md), passing the context
   (Step 0), concept count (Step 1), and fidelity (Step 2).
-- **Claude Design route:** invoke [claude-design-build-intake](../claude-design-build-intake/SKILL.md),
+- **Claude Design route:** invoke [claude-design-build-intake](${CLAUDE_PLUGIN_ROOT}/skills/claude-design-build-intake/SKILL.md),
   passing the same three inputs.
 - If the request turns out to need code (not a mockup), stop here and use
-  [create-web-app](../create-web-app/SKILL.md) instead.
+  [create-web-app](${CLAUDE_PLUGIN_ROOT}/skills/create-web-app/SKILL.md) instead.
 
 ## Related
 
-- [figma-build-intake](../figma-build-intake/SKILL.md) - Figma route
-- [claude-design-build-intake](../claude-design-build-intake/SKILL.md) - Claude Design route
-- [create-web-app](../create-web-app/SKILL.md) - code implementation, not a mockup
+- [figma-build-intake](${CLAUDE_PLUGIN_ROOT}/skills/figma-build-intake/SKILL.md) - Figma route
+- [claude-design-build-intake](${CLAUDE_PLUGIN_ROOT}/skills/claude-design-build-intake/SKILL.md) - Claude Design route
+- [create-web-app](${CLAUDE_PLUGIN_ROOT}/skills/create-web-app/SKILL.md) - code implementation, not a mockup
 - [figma-build-checklist](./figma-build-checklist.md) · [claude-design-build-checklist](./claude-design-build-checklist.md)
