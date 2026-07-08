@@ -38,6 +38,9 @@ if (path.basename(SKILLS_DIR) !== "skills" || SKILLS_DIR.includes(`${path.sep}.c
 const ALL_SKILLS = [
   "create-web-app",
   "review-web-app",
+  "create-design",
+  "figma-build-intake",
+  "claude-design-build-intake",
   "create-imagery",
   "create-presentation",
   "review-presentation",
@@ -49,7 +52,7 @@ const BUNDLES = [
     displayName: "Kuat Build",
     description:
       "Build and review Equal Experts web application UI — forms, dashboards, app screens, product flows — on brand and accessible, using the Kuat design system. For engineers in Claude Code / Cowork.",
-    skills: ["create-web-app", "review-web-app"],
+    skills: ["create-web-app", "review-web-app", "create-design", "figma-build-intake", "claude-design-build-intake"],
     commands: [
       { file: "web-app.md", description: "Build EE web app UI", skill: "create-web-app", verb: "build or modify" },
       { file: "review.md", description: "Review EE web app UI", skill: "review-web-app", verb: "review" },

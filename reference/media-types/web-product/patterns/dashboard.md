@@ -53,24 +53,12 @@ Dashboards benefit from persistent navigation and maximum content width.
 └──────┴──────────────────────────────────┘
 ```
 
-#### Data Table Dashboard Structure
+#### Data Table Variant
 
-```
-┌──────┬──────────────────────────────────┐
-│      │ Header: Title + Actions          │
-│ Side ├──────────────────────────────────┤
-│ bar  │ Filters Bar                      │
-│      ├──────────────────────────────────┤
-│      │ ┌─────────────────────────────┐  │
-│      │ │                             │  │
-│      │ │      Data Table             │  │
-│      │ │      (scrollable)           │  │
-│      │ │                             │  │
-│      │ └─────────────────────────────┘  │
-│      ├──────────────────────────────────┤
-│      │ Pagination                       │
-└──────┴──────────────────────────────────┘
-```
+For a data-table-first dashboard, swap the KPI/chart body for the
+[browse and filter](./browse-and-filter.md) pattern — same sidebar-navigation shell, with a
+search/filter bar above a scrollable table and pagination below. See that pattern for the filter-bar,
+filter-panel, and table specifications; they aren't repeated here.
 
 #### Specifications
 
@@ -199,40 +187,11 @@ Dashboards benefit from persistent navigation and maximum content width.
 
 ### Implementation
 
-#### Filter Patterns
+#### Filter and Table Patterns
 
-**Filter Bar (above content):**
-
-```
-┌─────────────────────────────────────────────────────┐
-│ [Date Range ▼] [Category ▼] [Status ▼]    [Search] │
-└─────────────────────────────────────────────────────┘
-```
-
-- Horizontal layout
-- Date range picker left
-- Category filters middle
-- Search right
-- Background: `bg-muted/50` or transparent
-
-**Filter Sidebar (within content):**
-
-Use for complex filtering (10+ filter options):
-
-- Collapsible sections
-- Checkbox groups
-- Range sliders
-- "Apply" and "Clear" actions at bottom
-
-#### Data Table Patterns
-
-| Element | Implementation |
-|---------|----------------|
-| Sortable columns | Click header to sort, show arrow direction |
-| Row selection | Checkbox in first column |
-| Row actions | Overflow menu or icon buttons |
-| Pagination | Bottom of table with page size selector |
-| Empty state | Centered message in table body |
+Filter bar/panel and data table implementation live in
+[browse and filter](./browse-and-filter.md) — this dashboard's data-table variant uses that pattern
+directly rather than a separate spec.
 
 #### State Management
 
@@ -295,10 +254,12 @@ Use for complex filtering (10+ filter options):
 
 The sidebar-navigation frame above is the canonical mid-fidelity dashboard: a row of KPI cards across the
 top (4 columns on desktop), a primary chart below, and secondary charts beneath that. The data-table
-variant swaps the chart stack for a filters bar, a scrollable table, and pagination — same shell, different
-content body.
+variant swaps the chart stack for the [browse and filter](./browse-and-filter.md) pattern — same shell,
+different content body.
 
 ## Related
 
 - [Product Design](../design.md) - Sidebar Navigation layout
+- [Browse and filter](./browse-and-filter.md) - Filter bar/panel and table specification, used by the data-table variant
+- [Detail page](./detail-page.md) - Also reuses this pattern's Chart Container Pattern
 - [Accessibility foundations](../../../accessibility/accessibility.md) - Color and contrast
