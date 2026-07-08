@@ -14,7 +14,7 @@ This skill **links** to the passive reference library; load only the slices you 
 Run the grouped intake first: see [../_shared/intake.md](../_shared/intake.md). For web product, confirm at least:
 
 - **Scenario / page type** — form, dashboard, documentation, auth flow, table, settings, etc.
-- **Framework + deliverable** — React, Vue, or plain HTML/CSS? Code, Figma, or a spec?
+- **Framework + deliverable** — React, Vue, or plain HTML/CSS? Code, or a mockup (Figma / Claude Design — if mockup, switch to [create-design](../create-design/SKILL.md))?
 - **Scope of states** — happy path only, or also empty / loading / error states?
 - **Component source available** — is `@equal-experts/kuat-react`/`kuat-vue` (or an overlay) installed? (Drives Step 3.)
 
@@ -55,6 +55,13 @@ Per-component API/usage/a11y is **not** in this repo — it ships with the imple
 - **Flag the gap** explicitly in your output: name the component ID you wanted, note it wasn't resolvable, and that you fell back to documented patterns — so it can be added to the library later.
 - Never silently invent a component API or hardcode values to paper over a missing guide.
 
+**If the deliverable is a mockup — Figma or Claude Design — rather than code:** the component-registry
+above doesn't apply the same way. Use [create-design](../create-design/SKILL.md) instead of this step
+— it decides single-vs-multiple concepts and fidelity, routes to
+[figma-build-intake](../figma-build-intake/SKILL.md) or
+[claude-design-build-intake](../claude-design-build-intake/SKILL.md), and neither customises a
+vendor-provided skill.
+
 ## Step 4 — Build
 
 - Reuse existing components/patterns first; build custom only when the decision tree bottoms out.
@@ -88,4 +95,5 @@ Per-component API/usage/a11y is **not** in this repo — it ships with the imple
 ## Related
 
 - Review counterpart: [review-web-app](../review-web-app/SKILL.md)
+- Mockups instead of code: [create-design](../create-design/SKILL.md)
 - Shared: [intake](../_shared/intake.md) · [version-stamp](../_shared/version-stamp.md)
