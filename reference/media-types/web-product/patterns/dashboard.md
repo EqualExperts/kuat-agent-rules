@@ -79,7 +79,7 @@ filter-panel, and table specifications; they aren't repeated here.
 | Card background | `bg-card` |
 | Card border | `border` |
 | Sidebar | `bg-sidebar` |
-| Positive trend | `text-green-600` / `text-green-500` (dark) |
+| Positive trend | `text-success` |
 | Negative trend | `text-destructive` |
 | Neutral | `text-muted-foreground` |
 

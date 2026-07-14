@@ -72,6 +72,10 @@ function rewriteBundledMarkdown(body, skillId) {
     "](set KUAT_RULES_PATH or .kuat-rules-path — see skills README)"
   );
   out = out.replace(
+    /\]\(\.\.\/install\/figma-agent\.md(#[^)]*)?\)/g,
+    "](see skills/install/figma-agent.md in the kuat-agent-docs repo — pair a connector with rules content in the same prompt)"
+  );
+  out = out.replace(
     /\]\(\.\.\/scripts\/README\.md\)/g,
     "](skills/scripts/README.md in rules repo)"
   );
