@@ -36,6 +36,10 @@ Pre-built compositions that combine multiple components:
 
 Custom components unique to the design system:
 - `ButtonGroup` - Group of related buttons
+- `StatusBadge` - Status indicator (success/warning/error/info/neutral, one per item, non-interactive)
+- `Tag` - Categorisation pill (nine colours, zero-to-many per item, toggle or dismiss interaction)
+- `TagGroup` - Accessibility wrapper for a set of Tags (group role, label, dismissal announcements)
+- `CounterBadge` - Numeric count pill ("99+" overflow, overlays icons/avatars)
 - Other components not available in shadcn
 
 **Use when:** The component doesn't exist in shadcn but is needed across multiple applications.
