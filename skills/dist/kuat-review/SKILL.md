@@ -28,7 +28,7 @@ Every Equal Experts brand skill **must** resolve and verify the rules location b
 | `RULES_ROOT` | Git repo root or npm package root (`@equal-experts/kuat-react`) |
 | `RULES_DIR` | `{RULES_ROOT}/reference` (git) or `{RULES_ROOT}/agent-docs/rules` (package) |
 | `RULES_REF` | Git SHA, or `manifest.json` `rules.snapshotRef` for packages |
-| `RULES_SOURCE` | `git` or `package` |
+| `RULES_SOURCE` | `git`, `package`, or `connector` (no filesystem — see Step 0 below) |
 | `PACKAGE_VERSION` | Installed package version when `RULES_SOURCE=package` |
 | `OVERLAY_DIR` | Set when `KUAT_RULES_OVERLAY_PATH` is valid |
 | `COMPONENT_MANIFEST` | Path to `components.manifest.json` when present |
@@ -37,7 +37,31 @@ Every Equal Experts brand skill **must** resolve and verify the rules location b
 
 ## Resolution order
 
-Run [ensure-rules.sh](../scripts/ensure-rules.sh) when shell is available. Otherwise try in order:
+### Step 0 — Environment check (do this first)
+
+Before trying any of the filesystem/package steps below, confirm whether you can run shell commands
+or read local paths at all. **In the Figma agent (Design files) and Figma Make, you cannot** — there
+is no shell, no environment variables, no `node_modules`, no project root to place a
+`.kuat-rules-path` file in. Steps 1-5 below do not apply there, and telling the user to set
+`KUAT_RULES_PATH` or install an npm package is not actionable advice in that surface.
+
+If shell/filesystem access is unavailable:
+
+1. Set `RULES_SOURCE=connector`.
+2. Check this prompt (and recent conversation turns) for rules content already supplied: a connector
+   reference (e.g. `@Notion`, `@Drive`) pointing at a mirrored copy of the `reference/` library, or
+   rules text/files pasted or attached directly.
+3. If found, treat that content as `RULES_DIR` for this session and cite the connector/attachment
+   (not a git path) as the source in place of `RULES_REF`.
+4. If not found, **stop and ask the user** to either pair a connector with rules content in the same
+   prompt, or paste/attach the relevant reference doc(s) (e.g. `design.md`, `colours.md`) directly —
+   per [figma-agent.md](see skills/install/figma-agent.md in the kuat-agent-docs repo — pair a connector with rules content in the same prompt). Do
+   **not** point them at `KUAT_RULES_PATH`, `.kuat-rules-path`, or `node_modules` install steps; none
+   of those are things a person can act on from inside a Figma chat.
+
+If shell/filesystem access **is** available (Cursor, Claude Code, Claude Projects with uploaded files,
+a repo checkout), run [ensure-rules.sh](../scripts/ensure-rules.sh) when shell is available. Otherwise
+try in order:
 
 1. **`KUAT_RULES_PATH`** — git repo (`reference/README.md`) or package root (`agent-docs/`)
 2. **`.kuat-rules-path`** — in cwd or git root
@@ -45,7 +69,7 @@ Run [ensure-rules.sh](../scripts/ensure-rules.sh) when shell is available. Other
 4. **Sibling git paths:** `kuat-agent-docs`, `vendor/kuat-agent-docs`, `../kuat-agent-docs`
 5. **Skills co-located** — parent of `skills/` in `kuat-agent-docs`
 
-If none resolve, stop and direct the user to [skills/README.md](set KUAT_RULES_PATH or .kuat-rules-path — see skills README).
+If none of steps 1-5 resolve, stop and direct the user to [skills/README.md](set KUAT_RULES_PATH or .kuat-rules-path — see skills README).
 
 ### Loading index by source
 
@@ -55,6 +79,7 @@ Loading is **per-skill** (each skill names the `reference/` slices it needs); th
 |----------------|------------|------|
 | `git` | `{RULES_DIR}/README.md` (passive structure index) | Load the slices the active skill points to |
 | `package` | `{RULES_DIR}/LOADING-consumer.md` (bundled web + foundations) | Per the consumer snapshot |
+| `connector` | Whatever slice the connector/attachment actually contains | Load only what was supplied — do not assume the full library is present, and say so in output |
 
 ---
 
@@ -64,6 +89,7 @@ Loading is **per-skill** (each skill names the `reference/` slices it needs); th
 |----------------|--------|
 | `git` | `KUAT_RULES_REF` pin; `KUAT_RULES_UPDATE=1` to pull/checkout |
 | `package` | Rules pinned to installed version; override with `KUAT_RULES_PATH` to git clone for latest upstream |
+| `connector` | No pinning available — freshness depends on whoever maintains the connector's source doc; flag this as a limitation in output rather than asserting currency |
 
 ---
 
@@ -279,4 +305,4 @@ Ask the user to select one format before producing findings. Default to `full_re
 - Rules standards: `{RULES_DIR}` — [kuat-agent-docs](https://github.com/equalexperts/kuat-agent-docs)
 - Bundle manifest: compare `RULES_REF` to `dist/manifest.json` → `rules.builtAtRef`
 
-<!-- kuat-skill-bundle: kuat-review v1.0.0 rules-ref:91e35031c8f0 built:2026-07-03 -->
+<!-- kuat-skill-bundle: kuat-review v1.0.0 rules-ref:4dadc70b1486 built:2026-07-14 -->

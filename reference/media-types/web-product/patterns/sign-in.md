@@ -156,7 +156,7 @@ Authentication pages should minimise distraction and focus users on the task.
 - Show requirements list below password field
 - Check/uncheck as requirements are met
 - Unmet: `text-muted-foreground`
-- Met: `text-green-600` with checkmark
+- Met: `text-success` with checkmark
 
 #### Password Reset Flow
 

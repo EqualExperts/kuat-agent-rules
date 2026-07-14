@@ -49,7 +49,13 @@ Skills are available **across all your Make files** on your account.
 
 ### Share with teammates
 
-Skills are **per account**. To share: **Skills** → **Manage skills** → select skill → **Export**. Teammates import the exported `.md` file on their account.
+Skills are created **per account**, but a skill can be **published to a team or organization**:
+**Skills** → **Manage skills** → select skill → **···** → **Publish** (target the team the source
+file belongs to, or the whole org). Published skills appear for every member automatically, and
+**Publish changes** pushes later edits — this is preferred over per-person export/import. Use manual
+export/import (**Manage skills** → select skill → **Export**; teammates import the file) only as a
+fallback, e.g. for people outside the org. See [figma-agent.md](./figma-agent.md#step-2--install-publish-to-the-team-dont-rely-on-per-account-import)
+for the full publish walkthrough — the same mechanism applies to skills created here in Make.
 
 ---
 
@@ -114,18 +120,22 @@ Attach a screenshot or describe the current Make output, then:
 | No `ensure-rules.sh` in Make | Run script locally; paste `RULES_REF` into Guidelines or prompt when rules change |
 | Only first skill in a multi-skill prompt runs | Use one slash command per message |
 | Custom skills: default + Claude Opus 4.7 only | Switch model in Make settings |
+| Switching models mid-session blocks skill invocation in the very next prompt | Wait one extra prompt after a model switch before invoking a skill again |
 | Rules not in git inside Make | Guidelines + connectors + optional Make kit |
 | Non-deterministic output | Re-run or tighten Guidelines |
 
 ---
 
-## Not the same as Figma MCP (Cursor)
+## Not the same as the Figma agent or Figma MCP (Cursor)
 
-| | **Figma Make custom skills** | **Figma MCP in Cursor** |
-|--|-------------------------------|-------------------------|
-| Purpose | Prompt-to-build in Make | Read/write Design, FigJam, Slides files |
-| Install | Upload `dist/*.SKILL.md` | MCP + `figma-use` skill |
-| Kuat rules | Guidelines / connectors | `KUAT_RULES_PATH` + repo rules |
+| | **Figma Make custom skills** | **Figma agent (Design)** | **Figma MCP in Cursor** |
+|--|-------------------------------|---------------------------|-------------------------|
+| Purpose | Prompt-to-build in Make | Chat with the agent inside a Design file | Read/write Design, FigJam, Slides files |
+| Install | Upload `dist/*.SKILL.md`, or use a published team/org skill | Upload `dist/*.SKILL.md`, or use a published team/org skill | MCP + `figma-use` skill |
+| Kuat rules | Guidelines / connectors / Make kits | No Guidelines equivalent — connector or nothing (see [figma-agent.md](./figma-agent.md)) | `KUAT_RULES_PATH` + repo rules |
+
+See [figma-agent.md](./figma-agent.md) for the Design-file agent install guide — same skill bundles,
+different rules mechanism.
 
 ---
 
@@ -140,3 +150,4 @@ See [INSTALL.md](../INSTALL.md) tests **D** (create pre-flight) and **B** (revie
 - [../INSTALL.md](../INSTALL.md)
 - [../dist/README.md](../dist/README.md)
 - [claude-projects.md](./claude-projects.md) — similar upload-only pattern
+- [figma-agent.md](./figma-agent.md) — companion guide for the Figma agent in Design files
