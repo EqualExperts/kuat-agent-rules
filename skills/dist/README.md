@@ -15,4 +15,4 @@ node skills/scripts/bundle-skills.mjs
 
 Rules standards remain in the `reference/` library — not embedded in bundles.
 
-Built against rules ref: `4dadc70b1486edf8efd3d8d4ccca24b837bc2c72`
+Built against rules ref: `3467cfe6bec2cc18a21c0e888b1fdad5901dc083`

@@ -32,9 +32,13 @@ If shell/filesystem access is unavailable:
 
 1. Set `RULES_SOURCE=connector`.
 2. Check this prompt (and recent conversation turns) for rules content already supplied: a connector
-   reference (e.g. `@Notion`, `@Drive`) pointing at a mirrored copy of the `reference/` library, or
-   rules text/files pasted or attached directly.
-3. If found, treat that content as `RULES_DIR` for this session and cite the connector/attachment
+   reference (e.g. `@Notion`, `@Drive`) pointing at a mirrored copy of the `reference/` library, rules
+   text/files pasted or attached directly, or — in Figma Make specifically — a selected **Make kit**'s
+   own `guidelines/` files (`Guidelines.md`, `setup.md`, `tokens.md`, `components/`). A Make kit's
+   guidelines are a stronger, more authoritative source than an ad-hoc connector (they're
+   design-system-authored, not just linked) — if one is active for the session, treat it as the
+   primary source and don't ask the user for a connector on top of it.
+3. If found, treat that content as `RULES_DIR` for this session and cite the connector/attachment/kit
    (not a git path) as the source in place of `RULES_REF`.
 4. If not found, **stop and ask the user** to either pair a connector with rules content in the same
    prompt, or paste/attach the relevant reference doc(s) (e.g. `design.md`, `colours.md`) directly —
