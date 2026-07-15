@@ -82,9 +82,24 @@ Use [connectors](https://help.figma.com/hc/en-us/articles/35440096186007) (Notio
 Use /kuat-create to build this screen. Follow our design system doc from @Notion [url].
 ```
 
-### Option C — Make kits
+### Option C — Make kits (preferred for design-system-backed generation)
 
-For design-system-backed generation, use **Make kits** with your Figma library plus guidelines ([Figma blog — Make kits](https://www.figma.com/blog/introducing-make-kits-and-make-attachments)).
+**Make kits** let Make start from the real `@equal-experts/kuat-react`/`kuat-vue` npm packages and/or
+the Kuat2 Figma library's variables and styles, instead of approximating Kuat from prose. This is a
+stronger mechanism than Guidelines/connectors alone — Make begins with actual Kuat components rather
+than look-alikes that need cleanup. Reference: [Get started with Make
+kits](https://help.figma.com/hc/en-us/articles/39241689698839), [Write design system guidelines for
+Make kits](https://developers.figma.com/docs/code/write-design-system-guidelines/).
+
+**Guideline content is staged and ready to use**: [install/make-kit-guidelines/](./make-kit-guidelines/)
+has drafted `Guidelines.md`, `setup.md`, `tokens.md`, and `components/overview.md`, sourced from the
+real `kuat-react` package and `reference/` docs — copy them into the kit's `guidelines/` folder when
+assembling it (Make file → Settings → Create a kit → Assemble). That folder's README also lists open
+questions (primitive import path, undocumented components) to resolve before publishing the kit to
+the org.
+
+Once published (Settings → Publish Make kit → team or organization), select it from **Select a Make
+kit** in the prompter — no more per-session Guidelines setup needed.
 
 ---
 

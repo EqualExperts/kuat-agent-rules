@@ -45,19 +45,17 @@ Sourced directly from real package/repo facts, not invented:
    fits the Make-kit mechanism. Confirm whether those subpath exports are intended for exactly this
    kind of direct consumption, or are an internal implementation detail — if the latter, the kit needs
    a different primitives strategy before publishing.
-2. **Border radius mismatch.** `reference/design-language/borders.md` states the design intent as
-   0px (static) / 6px (interactive) / 4px (inputs). The actual generated Tailwind scale in
-   `kuat-core/src/variables.css` is `--radius: 0.3rem` (4.8px) with `--radius-sm/md/lg/xl` derived by
-   ±2px/4px from that base — none of which lands exactly on 0, 4, or 6. `tokens.md` below flags this
-   discrepancy rather than picking one silently; needs a decision on which is canonical before this
-   goes into a published kit.
-3. **Coverage gap.** Only 7 components have real `agent-docs` guides (Callout, StatusBadge, Tag,
+2. **Coverage gap.** Only 7 components have real `agent-docs` guides (Callout, StatusBadge, Tag,
    TagGroup, CounterBadge, ButtonGroup, KuatHeader) plus Button. Everything else `kuat-react` exports
    (Accordion, AlertDialog, Select, Checkbox, Radio, Switch, Textarea, Field, Toggle, ToggleGroup,
    Carousel, KuatCarousel, IconButton, Sonner, KuatRadialProgress, Badge) has no documented props in
    this repo yet — `components/overview.md` lists them but can't give Make the same granular
    guidance. Worth prioritising for the same treatment `add-kuat-component` gives new components
    ([phase-7-contributor-skills.md](../../../docs/migration/phase-7-contributor-skills.md)).
-4. **npm registry reachability.** Confirmed public and usable per Ed — no blocker here, but worth a
+3. **npm registry reachability.** Confirmed public and usable per Ed — no blocker here, but worth a
    final check that Figma Make can actually resolve `@equal-experts/kuat-react` at kit-assembly time
    (Step 2 of [Get started with Make kits](https://help.figma.com/hc/en-us/articles/39241689698839)).
+
+Resolved: the border-radius mismatch previously listed here was fixed on 2026-07-15 — `kuat-core`'s
+`--radius` base moved from `0.3rem` to `0.5rem`, so the `--radius-*` scale now lands exactly on the
+0/4/6 design intent in `reference/design-language/borders.md`. `tokens.md` documents the final scale.

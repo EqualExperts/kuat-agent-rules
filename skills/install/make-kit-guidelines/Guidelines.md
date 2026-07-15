@@ -22,8 +22,9 @@ workflows. Not marketing pages, not slides.
 - **Status colour is reserved for status.** Runtime Red = error only, Uptime Green = success only,
   Equal Ember = warning only, Index Indigo = info only. Edge Blue is reserved for hover/active
   interaction states, not categorisation. None of the five should be repurposed decoratively.
-- **Border philosophy**: minimal. Prefer spacing and surface-colour contrast over borders. See
-  `tokens.md` for the current radius-value discrepancy that needs resolving before this is final.
+- **Border philosophy**: minimal. Prefer spacing and surface-colour contrast over borders. Radius
+  comes from the Kuat token scale by element category — see the Radius table in `tokens.md`; never
+  hard-code a pixel value.
 
 ## Reading order
 
@@ -87,5 +88,5 @@ an icon and a text label, never colour alone.
 ## Related
 
 - `setup.md` — how to actually import and theme
-- `tokens.md` — the token layer, including two open discrepancies flagged for resolution
+- `tokens.md` — the token layer
 - `components/overview.md` — full catalog and decision trees
