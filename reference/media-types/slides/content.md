@@ -8,6 +8,10 @@ Density, hierarchy, and voice for presentation copy.
 
 ## Density and hierarchy
 
+These rules — and "empty area is fine" under [Don't](#dont) — are Slides' application of
+[composition.md](../../design-language/composition.md)'s focal-hierarchy, whitespace, and restraint
+principles; see that file for the cross-medium vocabulary.
+
 - **One idea per slide.** The slide title is the headline; body copy supports it. If you need an "and also" you need another slide.
 - **Title carries the argument**, not the topic. Prefer "Moving from on-premise monoliths to many digital services on paved roads" over "John Lewis case study".
 - **Lead sentence is the elevator pitch.** Bold it. A reader skimming bolded leads should still get the argument.

@@ -318,6 +318,24 @@ See [logo guidelines](../../brand/logo.md).
 
 ---
 
+## Composition — Density vs Generosity by Content Type
+
+Product UI has the sharpest density tension of any Kuat medium: some content is correctly dense,
+some correctly generous, and defaulting to one or the other everywhere is the most common cause of
+flat, generic product screens. [composition.md](../../design-language/composition.md)'s
+whitespace-as-active-tool principle applies per content type here, not as one fixed padding value:
+
+| Content type | Default | Why |
+|--------------|---------|-----|
+| Metric/summary row, tables, dashboards | Dense — tight spacing, small type steps between adjacent values | Users scan many concurrent data points; generous spacing here reduces how much fits above the fold without adding clarity |
+| Page header, empty states, onboarding, confirmation panels | Generous — larger type-scale jump, more surrounding whitespace | These moments have one message to land; density here reads as cramped rather than efficient |
+| Forms, detail pages | Balanced — the field-spacing rules in [forms.md](./content/forms.md); generous at section breaks, dense within a section | Fields in a section belong together; section breaks are where the reader re-orients |
+
+The dashboard density default does not transfer to a settings or onboarding screen just because
+both are "product UI" — the content type in hand, not the medium, sets the density.
+
+---
+
 ## Usage Guidelines
 
 ### Do's

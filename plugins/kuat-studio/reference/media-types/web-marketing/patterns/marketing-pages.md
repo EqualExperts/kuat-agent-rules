@@ -29,6 +29,15 @@ Patterns for landing pages, feature pages, pricing, testimonials, and promotiona
 - CTA click-through rate
 - Conversion rate
 
+### Composition
+
+Marketing pages default to the generous-whitespace case in
+[composition.md](../../../design-language/composition.md) — the goal is persuasion, not density.
+The specs elsewhere in this file **are** this medium's application of those principles, not
+independent rules: the 64-96px section padding (Design → Spacing Between Sections) is
+whitespace-as-active-tool, and "one message per section" / "one primary CTA per section"
+(Best Practices) is this medium's focal-hierarchy rule.
+
 ---
 
 ## Layout

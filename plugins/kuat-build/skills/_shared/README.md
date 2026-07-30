@@ -7,6 +7,7 @@ Procedure snippets reused across the Phase-2 activity skills (and the legacy ski
 | [intake.md](./intake.md) | all skills | Grouped intake + review-depth model |
 | [review-common.md](./review-common.md) | review-* skills | Brand + accessibility checklist core |
 | [report-formats.md](./report-formats.md) | review-* skills | Review output formats + severity |
+| [observer-gate.md](./observer-gate.md) | create-* and review-* skills | Adversarial whole-artifact anti-generic pass, run after the checklists |
 | [version-stamp.md](./version-stamp.md) | all skills | Reference/version citation habit |
 
 Standards (the WHAT) live in [`/reference`](${CLAUDE_PLUGIN_ROOT}/reference/README.md); these files are procedure (the HOW) and never duplicate reference content.

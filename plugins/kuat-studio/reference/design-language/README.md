@@ -8,4 +8,5 @@ Visual design language for Equal Experts — the tokens and principles that appl
 | [colours.md](./colours.md) | Brand colour palette and usage |
 | [typography.md](./typography.md) | Fonts and type scale |
 | [spacing.md](./spacing.md) | Spacing system |
+| [composition.md](./composition.md) | Composition and craft principles (medium-agnostic) |
 | [borders.md](./borders.md) | Border philosophy and specifications |

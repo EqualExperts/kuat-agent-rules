@@ -11,6 +11,7 @@ web-product implementation live together in one document.
 | [Sign in](./sign-in.md) | Login, registration, password flows, MFA | Single column |
 | [Complete a form](./complete-a-form.md) | Settings, multi-step forms, data entry | Varies |
 | [Browse and filter](./browse-and-filter.md) | Record lists, directories, search results | Sidebar navigation |
+| [Know the outcome of their action](./give-feedback-on-an-action.md) | Post-action feedback: confirmations, errors, toasts, system status | Varies |
 
 ## Pages
 

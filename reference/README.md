@@ -12,7 +12,7 @@ The passive **reference library** for the Equal Experts design system: what is t
 | Area | Scope |
 |------|-------|
 | [brand/](./brand/) | Brand principles, logo, voice and tone |
-| [design-language/](./design-language/) | Design principles, colours, typography, spacing, borders |
+| [design-language/](./design-language/) | Design principles, colours, typography, spacing, borders, composition |
 | [content/](./content/) | Writing style, formatting, numbers, punctuation |
 | [accessibility/](./accessibility/) | WCAG-aligned accessibility standards |
 | [patterns/](./patterns/) | Shared, cross-medium pattern **concepts** (outcome-framed); see [overview](./patterns/overview.md) |

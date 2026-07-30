@@ -19,6 +19,19 @@ Brand + accessibility core that applies to **every** review intent (web, slides,
 
 Full requirements: [reference/accessibility/accessibility.md](${CLAUDE_PLUGIN_ROOT}/reference/accessibility/accessibility.md).
 
+## Craft & composition (all depths)
+
+- [ ] One clear focal point per screen/section — not multiple elements at equal visual weight
+      ([reference/design-language/composition.md](${CLAUDE_PLUGIN_ROOT}/reference/design-language/composition.md))
+- [ ] Whitespace use matches the medium's own density default for this content type — not
+      uniformly minimal (or uniformly generous) regardless of context; see the medium's own
+      reference file (e.g. `web-product/design.md`, `web-marketing/patterns/marketing-pages.md`,
+      `slides/content.md`)
+- [ ] Hierarchy is reinforced by scale/weight contrast, not colour alone
+- [ ] Run the [observer gate](./observer-gate.md) as the final pass — a compliant checklist above
+      does not by itself clear a screen of being generic; the observer gate makes that a distinct,
+      citable finding rather than a vague impression
+
 ## Severity & reporting
 
 Map failures to severity (Critical / Major / Minor) and the chosen output format — see [report-formats.md](./report-formats.md). Flag any rule-vs-request conflict in the output rather than silently breaking the rule.
