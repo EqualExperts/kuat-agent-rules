@@ -1,24 +1,44 @@
 {
   "version": "1.0.0",
-  "builtAt": "2026-07-30T07:58:09.246Z",
+  "builtAt": "2026-07-30T08:50:03.106Z",
   "rules": {
     "repo": "equalexperts/kuat-agent-docs",
     "loadingPath": "reference/README.md",
-    "builtAtRef": "c7c1afc0fd520d32e478ea9c50bd497f655885bd"
+    "builtAtRef": "3a78ad12cb5cea3c50ad4bd6483b70597cf1dc61"
   },
   "skills": {
     "kuat-review": {
       "file": "kuat-review/SKILL.md",
-      "sha256": "edff3f1187ca288389bdc7a3568b6374aa44be611c42e91b8707f07793a90ef6"
+      "sha256": "691b53068b190381d76a23ee00adbcdb764c69d1ede99ab1e69e4057d364a0f9"
     },
     "kuat-create": {
       "file": "kuat-create/SKILL.md",
-      "sha256": "7e2350e086cfeb92fc27394ba61ec40d2fc7eb099de21f8b600d82ffcd927ed5"
+      "sha256": "068e437e35bb00d5a2c3c7657ce7e21f46e3682c0f765e0b1494230711710a39"
+    },
+    "kuat-figma-design": {
+      "file": "kuat-figma-design/SKILL.md",
+      "sha256": "952bb7e75ba349ac603b78024c866352deb29fded7382c3fc7f95daa0d89fcdf"
+    },
+    "kuat-figma-prototype": {
+      "file": "kuat-figma-prototype/SKILL.md",
+      "sha256": "e9daeff5194ce06b0d9f9ccdbcb66e2b9938d7c2bdb3f47c446ae3aabb9e61e8"
+    },
+    "kuat-figma-review-design": {
+      "file": "kuat-figma-review-design/SKILL.md",
+      "sha256": "729a486c960d107128d5c71da5ca553d1c2c5335dc7849636944d8f1803a6946"
+    },
+    "kuat-figma-make": {
+      "file": "kuat-figma-make/SKILL.md",
+      "sha256": "262364b525dfdf27fd8dc5626be35a377be16aa9111461aea28f016dcfd1dbab"
+    },
+    "kuat-figma-review-make": {
+      "file": "kuat-figma-review-make/SKILL.md",
+      "sha256": "b48997d0e0681b79dcc09b15bbc9a05ff3b96249bc0c672fbe18a79598edfe2c"
     }
   },
   "ensureRulesScript": "scripts/ensure-rules.sh",
   "usage": {
-    "uploadOnlyTools": "Upload dist/kuat-review/SKILL.md and/or dist/kuat-create/SKILL.md (self-contained).",
+    "uploadOnlyTools": "Upload the dist/<skill>/SKILL.md files you need (each self-contained). Figma surfaces: the kuat-figma-* skills. Claude Projects: kuat-create/kuat-review.",
     "filesystemTools": "Symlink dist/kuat-review or source skills/kuat-review; run dist/scripts/ensure-rules.sh."
   }
 }

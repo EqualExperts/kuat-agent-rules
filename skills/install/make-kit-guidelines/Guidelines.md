@@ -34,6 +34,8 @@ workflows. Not marketing pages, not slides.
 2. `setup.md` — imports, CSS, theming, and the primitives import-path decision
 3. `tokens.md` — colour, typography, spacing, radius
 4. `components/overview.md` — full component catalog, resolution priority, decision trees
+5. `craft.md` — composition principles, density by content type, and the observer tests output
+   must survive before shipping
 
 **Read on demand:**
 
@@ -90,3 +92,4 @@ an icon and a text label, never colour alone.
 - `setup.md` — how to actually import and theme
 - `tokens.md` — the token layer
 - `components/overview.md` — full catalog and decision trees
+- `craft.md` — composition quality: what "considered, not generic" means and how it's tested

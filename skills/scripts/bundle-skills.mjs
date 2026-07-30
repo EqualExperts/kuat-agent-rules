@@ -15,10 +15,45 @@ const REPO_ROOT = path.resolve(SKILLS_DIR, "..");
 const DIST_DIR = path.join(SKILLS_DIR, "dist");
 const INCLUDE_RE = /\{\{include:([^}]+)\}\}/g;
 
+// Two kinds of bundle:
+// - legacy intent skills (kuat-review/kuat-create): use {{include:...}} directives in source.
+// - standalone activity skills (kuat-figma-*): plugin-convention sources (plain relative links);
+//   the bundler appends each `inline` file as a "Shared: <name>" section and rewrites links to it,
+//   then unlinks any remaining relative .md links (single-file surfaces can't resolve them).
+// craft.md (composition principles + density table + observer tests) is inlined into every
+// Figma bundle: these surfaces are single-file uploads with no guaranteed rules source, and
+// the craft content is the point of these skills — it must not live only behind {RULES_DIR}.
+const CRAFT = "install/make-kit-guidelines/craft.md";
+const FIGMA_SHARED = ["_shared/intake.md", CRAFT, "_shared/version-stamp.md"];
+const FIGMA_REVIEW_SHARED = [
+  "_shared/intake.md",
+  "_shared/review-common.md",
+  CRAFT,
+  "_shared/observer-gate.md",
+  "_shared/report-formats.md",
+  "_shared/version-stamp.md",
+];
 const SKILLS = [
   { id: "kuat-review", source: "kuat-review/SKILL.md" },
   { id: "kuat-create", source: "kuat-create/SKILL.md" },
+  {
+    id: "kuat-figma-design",
+    source: "kuat-figma-design/SKILL.md",
+    standalone: true,
+    inline: [
+      "_shared/intake.md",
+      CRAFT,
+      "kuat-figma-design/figma-build-checklist.md",
+      "_shared/observer-gate.md",
+      "_shared/version-stamp.md",
+    ],
+  },
+  { id: "kuat-figma-prototype", source: "kuat-figma-prototype/SKILL.md", standalone: true, inline: FIGMA_SHARED },
+  { id: "kuat-figma-review-design", source: "kuat-figma-review-design/SKILL.md", standalone: true, inline: FIGMA_REVIEW_SHARED },
+  { id: "kuat-figma-make", source: "kuat-figma-make/SKILL.md", standalone: true, inline: FIGMA_SHARED },
+  { id: "kuat-figma-review-make", source: "kuat-figma-review-make/SKILL.md", standalone: true, inline: FIGMA_REVIEW_SHARED },
 ];
+const FIGMA_SKILL_IDS = SKILLS.filter((s) => s.standalone).map((s) => s.id);
 
 function read(filePath) {
   return fs.readFileSync(filePath, "utf8");
@@ -137,13 +172,78 @@ function extractFrontmatter(content) {
   return { frontmatter: match[1], body: match[2] };
 }
 
-function bundleSkill({ id, source }) {
+function sectionLabel(relPath) {
+  return path.basename(relPath, ".md").replace(/-/g, " ");
+}
+
+// Standalone activity skills: append each `inline` file as a section, point links at it,
+// then unlink whatever relative .md links remain (single-file surfaces resolve nothing).
+function bundleStandaloneBody(body, inline) {
+  let out = body;
+  const sections = [];
+  for (const rel of inline) {
+    const absPath = path.join(SKILLS_DIR, rel);
+    if (!fs.existsSync(absPath)) {
+      throw new Error(`Inline file not found: ${rel} → ${absPath}`);
+    }
+    const label = sectionLabel(rel);
+    // Drop the file's own H1 (the "Shared:" section heading replaces it), demote H2s to H3s.
+    let content = read(absPath).replace(/^# .*\n/, "").trim();
+    content = content.replace(/^## /gm, "### ");
+    sections.push(`\n\n<!-- begin include: skills/${rel} -->\n\n## Shared: ${label}\n\n${content}\n\n<!-- end include: skills/${rel} -->`);
+
+    // Links to this file (from the skill dir or from a sibling _shared file) → the section below.
+    const base = path.basename(rel);
+    const linkRe = new RegExp(
+      String.raw`\[([^\]]+)\]\((?:\.\.\/_shared\/|\.\/)${base.replace(".", "\\.")}(#[^)]*)?\)`,
+      "g"
+    );
+    out = out.replace(linkRe, (_, text) => `**${text.includes("/") ? path.basename(text) : text}** (see "Shared: ${label}" below)`);
+  }
+  out += sections.join("");
+
+  // Second pass so links *inside* inlined sections also resolve to sibling sections.
+  for (const rel of inline) {
+    const base = path.basename(rel);
+    const label = sectionLabel(rel);
+    const linkRe = new RegExp(
+      String.raw`\[([^\]]+)\]\((?:\.\.\/_shared\/|\.\/)${base.replace(".", "\\.")}(#[^)]*)?\)`,
+      "g"
+    );
+    out = out.replace(linkRe, (_, text) => `**${text.includes("/") ? path.basename(text) : text}** (see "Shared: ${label}" below)`);
+  }
+
+  // Reference library links resolve against {RULES_DIR} at runtime (kit / connector / checkout).
+  out = out.replace(/\]\(\.\.\/\.\.\/reference\//g, "]({RULES_DIR}/");
+  // De-path link labels that were spelled as the repo-relative path.
+  out = out.replace(/\[\.\.\/\.\.\/reference\/([^\]]+)\]/g, "[$1]");
+
+  // Anything else relative — sibling skills, repo docs — cannot resolve on a single-file
+  // surface: keep the label as plain text.
+  out = out.replace(/\[([^\]]+)\]\((?:\.\.?\/)[^)]*\.md(?:#[^)]*)?\)/g, "$1");
+
+  return out;
+}
+
+function bundleSkill({ id, source, standalone, inline }) {
   const sourcePath = path.join(SKILLS_DIR, source);
   const raw = read(sourcePath);
   const { frontmatter, body } = extractFrontmatter(raw);
 
-  let bundledBody = expandIncludes(body);
-  bundledBody = rewriteBundledMarkdown(bundledBody, id);
+  let bundledBody;
+  if (standalone) {
+    // Related tail first (it names sibling skills as links we'd otherwise unlink blindly).
+    const relatedIdx = body.lastIndexOf("\n## Related\n");
+    let trimmed = relatedIdx !== -1 ? body.slice(0, relatedIdx) : body;
+    const siblings = FIGMA_SKILL_IDS.filter((s) => s !== id)
+      .map((s) => `\`${s}\``)
+      .join(" · ");
+    trimmed += `\n## Related skills\n\n- Sibling Figma skills on this surface (each its own bundled SKILL.md in \`skills/dist/\`): ${siblings}\n- Rules standards: \`{RULES_DIR}\` — [kuat-agent-rules](https://github.com/EqualExperts/kuat-agent-rules)\n`;
+    bundledBody = bundleStandaloneBody(trimmed, inline ?? []);
+  } else {
+    bundledBody = expandIncludes(body);
+    bundledBody = rewriteBundledMarkdown(bundledBody, id);
+  }
 
   const rulesRef = gitRef();
   const version = bundleVersion();
@@ -208,7 +308,7 @@ function main() {
     ensureRulesScript: "scripts/ensure-rules.sh",
     usage: {
       uploadOnlyTools:
-        "Upload dist/kuat-review/SKILL.md and/or dist/kuat-create/SKILL.md (self-contained).",
+        "Upload the dist/<skill>/SKILL.md files you need (each self-contained). Figma surfaces: the kuat-figma-* skills. Claude Projects: kuat-create/kuat-review.",
       filesystemTools:
         "Symlink dist/kuat-review or source skills/kuat-review; run dist/scripts/ensure-rules.sh.",
     },
@@ -227,8 +327,7 @@ node skills/scripts/bundle-skills.mjs
 
 | Artifact | Use |
 |----------|-----|
-| [kuat-review/SKILL.md](./kuat-review/SKILL.md) | Upload to Claude Projects, Figma Make, other single-file tools |
-| [kuat-create/SKILL.md](./kuat-create/SKILL.md) | Upload to Claude Projects, Figma Make, other single-file tools |
+${SKILLS.map(({ id, standalone }) => `| [${id}/SKILL.md](./${id}/SKILL.md) | ${standalone ? "Upload to the Figma agent (Design files) or Figma Make custom skills" : "Upload to Claude Projects and other single-file tools"} |`).join("\n")}
 | [manifest.json](./manifest.json) | Version and rules ref for installers |
 | [scripts/ensure-rules.sh](./scripts/ensure-rules.sh) | Keep rules fresh (filesystem tools) |
 

@@ -19,7 +19,11 @@ This directory is staged in `kuat-agent-docs` for testing; it may be extracted t
 | **create-web-app** | [create-web-app/](./create-web-app/) | Building product UI (forms, dashboards, app screens) as code |
 | **review-web-app** | [review-web-app/](./review-web-app/) | Auditing product UI |
 | **create-design** | [create-design/](./create-design/) | New design mockups/concepts — decides single vs. multiple, fidelity, and Figma vs. Claude Design |
-| **figma-build-intake** | [figma-build-intake/](./figma-build-intake/) | Pre-flight for the Figma route (run via create-design or directly) |
+| **kuat-figma-design** | [kuat-figma-design/](./kuat-figma-design/) | Design screens/components in a Figma Design file — ideation, craft, and system-compliance gates (absorbs the old figma-build-intake) |
+| **kuat-figma-prototype** | [kuat-figma-prototype/](./kuat-figma-prototype/) | Wire Figma screens into a clickable flow-first prototype |
+| **kuat-figma-review-design** | [kuat-figma-review-design/](./kuat-figma-review-design/) | Review an existing Figma design — bindings, brand, accessibility, craft |
+| **kuat-figma-make** | [kuat-figma-make/](./kuat-figma-make/) | Generate UI in Figma Make backed by the real kuat-react package (dist upload only) |
+| **kuat-figma-review-make** | [kuat-figma-review-make/](./kuat-figma-review-make/) | Review Figma Make output — real imports, tokens, craft (dist upload only) |
 | **mockup-build-intake** | [mockup-build-intake/](./mockup-build-intake/) | Pre-flight for the Claude Design route (run via create-design or directly) |
 | **create-imagery** | [create-imagery/](./create-imagery/) | Icons, infographics, illustrations, photography selection |
 | **create-presentation** | [create-presentation/](./create-presentation/) | Building EE slide decks |

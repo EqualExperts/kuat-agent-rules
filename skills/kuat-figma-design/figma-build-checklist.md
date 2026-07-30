@@ -11,7 +11,7 @@ every request — Step 1 is what replaces a registry.
 
 ## Step 0 — Context gate (run first, every session)
 
-Normally satisfied by [figma-build-intake](../figma-build-intake/SKILL.md), which runs before Figma's
+Normally satisfied by [kuat-figma-design](./SKILL.md) Step 0, which runs before Figma's
 own skills are invoked. Re-confirm here if that skill wasn't run for some reason:
 
 - [ ] Confirm which design system is in scope before touching the canvas: Equal Experts / Kuat, or a
@@ -92,6 +92,7 @@ something generic; the observer gate is what catches that.
 
 ## Related
 
-- [claude-design-build-checklist](./claude-design-build-checklist.md) - equivalent checklist for the Claude Design route
+- [kuat-figma-design](./SKILL.md) - the skill this checklist gates
+- [claude-design-build-checklist](../create-design/claude-design-build-checklist.md) - equivalent checklist for the Claude Design route
 - [create-web-app](../create-web-app/SKILL.md) - invokes this checklist for Figma deliverables
 - [intake](../_shared/intake.md) - shared intake, run before this checklist

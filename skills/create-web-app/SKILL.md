@@ -58,7 +58,7 @@ Per-component API/usage/a11y is **not** in this repo — it ships with the imple
 **If the deliverable is a mockup — Figma or Claude Design — rather than code:** the component-registry
 above doesn't apply the same way. Use [create-design](../create-design/SKILL.md) instead of this step
 — it decides single-vs-multiple concepts and fidelity, routes to
-[figma-build-intake](../figma-build-intake/SKILL.md) or
+[kuat-figma-design](../kuat-figma-design/SKILL.md) or
 [mockup-build-intake](../mockup-build-intake/SKILL.md), and neither customises a
 vendor-provided skill.
 

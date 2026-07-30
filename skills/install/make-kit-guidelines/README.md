@@ -17,6 +17,7 @@ guidelines](https://developers.figma.com/docs/code/write-design-system-guideline
 | [Guidelines.md](./Guidelines.md) | Kit root `guidelines/Guidelines.md` — read first, routes to everything else |
 | [setup.md](./setup.md) | Kit root `guidelines/setup.md` — imports, CSS, theming |
 | [tokens.md](./tokens.md) | Kit root `guidelines/tokens.md` — colour, typography, spacing, radius |
+| [craft.md](./craft.md) | Kit root `guidelines/craft.md` — composition principles, density table, observer tests |
 | [components/overview.md](./components/overview.md) | `guidelines/components/overview.md` — component catalog + decision trees |
 
 ## What's authoritative vs. what's drafted
