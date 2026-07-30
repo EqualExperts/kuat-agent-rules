@@ -39,12 +39,17 @@ const ALL_SKILLS = [
   "create-web-app",
   "review-web-app",
   "create-design",
-  "figma-build-intake",
+  "kuat-figma-design",
+  "kuat-figma-prototype",
+  "kuat-figma-review-design",
   "mockup-build-intake",
   "create-imagery",
   "create-presentation",
   "review-presentation",
 ];
+// Note: kuat-figma-make and kuat-figma-review-make are deliberately NOT here —
+// they target the Figma Make surface only and ship via bundle-skills.mjs (dist/),
+// never inside a plugin. Bundled skills must not link to them (prose mentions only).
 
 const BUNDLES = [
   {
@@ -52,7 +57,15 @@ const BUNDLES = [
     displayName: "Kuat Build",
     description:
       "Build and review Equal Experts web application UI — forms, dashboards, app screens, product flows — on brand and accessible, using the Kuat design system. For engineers in Claude Code / Cowork.",
-    skills: ["create-web-app", "review-web-app", "create-design", "figma-build-intake", "mockup-build-intake"],
+    skills: [
+      "create-web-app",
+      "review-web-app",
+      "create-design",
+      "kuat-figma-design",
+      "kuat-figma-prototype",
+      "kuat-figma-review-design",
+      "mockup-build-intake",
+    ],
     commands: [
       { file: "web-app.md", description: "Build EE web app UI", skill: "create-web-app", verb: "build or modify" },
       { file: "review.md", description: "Review EE web app UI", skill: "review-web-app", verb: "review" },

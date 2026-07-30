@@ -1,6 +1,6 @@
 # Install skills in Figma Make
 
-[Figma Make](https://www.figma.com/make/) supports **custom skills** — single Markdown files that follow the [Agent Skills specification](https://agentskills.io/specification). Invoke them with slash commands (e.g. `/kuat-create`).
+[Figma Make](https://www.figma.com/make/) supports **custom skills** — single Markdown files that follow the [Agent Skills specification](https://agentskills.io/specification). Invoke them with slash commands (e.g. `/kuat-figma-make`).
 
 **Important:** Make accepts **one `.md` file per skill** only. It does not load `scripts/`, `references/`, or `shared/` folders. Use **bundled** skills from `skills/dist/`.
 
@@ -24,12 +24,15 @@ From the `kuat-agent-docs` repo root:
 npm run bundle:skills
 ```
 
-Upload these files (not the source `skills/kuat-review/` folders):
+Upload these files (never the source `skills/<name>/` folders — each dist file is a single
+self-contained SKILL.md with the shared checklists and craft rules inlined). Make gets the two
+Make-surface skills; the `kuat-figma-design`/`prototype`/`review-design` bundles belong in the
+[Figma agent](./figma-agent.md) instead:
 
 | File | Skill name (slash command) |
 |------|----------------------------|
-| `skills/dist/kuat-create/SKILL.md` | `kuat-create` |
-| `skills/dist/kuat-review/SKILL.md` | `kuat-review` |
+| `skills/dist/kuat-figma-make/SKILL.md` | `kuat-figma-make` — generate UI backed by the real kuat-react package |
+| `skills/dist/kuat-figma-review-make/SKILL.md` | `kuat-figma-review-make` — review Make output: real imports, tokens, craft |
 
 ---
 
@@ -41,7 +44,7 @@ Repeat for each skill file:
 2. Click in the **prompt box**.
 3. Select **Skills** → **Create skill**.
 4. Click **Import from computer** (or drag the file).
-5. Select `skills/dist/kuat-create/SKILL.md` (or `kuat-review`).
+5. Select `skills/dist/kuat-figma-make/SKILL.md` (or `kuat-figma-review-make`).
 6. Review **name**, **description**, and content (from YAML frontmatter).
 7. Click **Create**.
 
@@ -92,9 +95,10 @@ kits](https://help.figma.com/hc/en-us/articles/39241689698839), [Write design sy
 Make kits](https://developers.figma.com/docs/code/write-design-system-guidelines/).
 
 **Guideline content is staged and ready to use**: [install/make-kit-guidelines/](./make-kit-guidelines/)
-has drafted `Guidelines.md`, `setup.md`, `tokens.md`, and `components/overview.md`, sourced from the
-real `kuat-react` package and `reference/` docs — copy them into the kit's `guidelines/` folder when
-assembling it (Make file → Settings → Create a kit → Assemble). That folder's README also lists open
+has drafted `Guidelines.md`, `setup.md`, `tokens.md`, `craft.md` (composition principles, density
+table, observer tests), and `components/overview.md`, sourced from the real `kuat-react` package and
+`reference/` docs — copy them into the kit's `guidelines/` folder when assembling it (Make file →
+Settings → Create a kit → Assemble). That folder's README also lists open
 questions (primitive import path, undocumented components) to resolve before publishing the kit to
 the org.
 
@@ -108,22 +112,25 @@ kit** in the prompter — no more per-session Guidelines setup needed.
 ### Create (primary)
 
 ```text
-/kuat-create Build an EE product settings page with dark nav and semantic tokens.
+/kuat-figma-make Build an EE product settings page with dark nav and semantic tokens.
 ```
 
-Or: **Skills** → **Use skills** → select `kuat-create` → **Send**.
+Or: **Skills** → **Use skills** → select `kuat-figma-make` → **Send**.
 
-**Pass if:** Make asks clarifying questions (scenario, audience, deliverable) before generating a large UI.
+**Pass if:** Make checks whether the Kuat Make kit is selected, asks clarifying questions
+(scenario, states, content) before generating, and the generated code imports from
+`@equal-experts/kuat-react` rather than re-implementing components.
 
 ### Review
 
-Attach a screenshot or describe the current Make output, then:
+Point it at the current Make output (the generated code, not just a screenshot), then:
 
 ```text
-/kuat-review Review this screen for EE brand compliance. brand_compliance depth only.
+/kuat-figma-review-make Review this build for genuine Kuat usage. brand_compliance depth only.
 ```
 
-**Pass if:** It asks for artifacts/depth/output format before listing violations.
+**Pass if:** It asks for artifacts/depth/output format before listing violations, and audits the
+code's imports and tokens — not only the rendered pixels.
 
 ---
 
@@ -156,7 +163,7 @@ different rules mechanism.
 
 ## Verify
 
-See [INSTALL.md](../INSTALL.md) tests **D** (create pre-flight) and **B** (review intake). Run them in Make with `/kuat-create` and `/kuat-review`.
+See [INSTALL.md](../INSTALL.md) tests **D** (create pre-flight) and **B** (review intake). Run them in Make with `/kuat-figma-make` and `/kuat-figma-review-make`.
 
 ---
 

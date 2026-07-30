@@ -23,6 +23,7 @@ All briefs below are authored as durable fixtures. **Live-run & scored this phas
 | create-presentation | 4 (D1–D4) | [create-presentation.md](./create-presentation.md) |
 | review-presentation | 5 (E1–E5, + E3-fallback) | [review-presentation.md](./review-presentation.md) |
 | cross-skill edge cases | 4 (X1–X4) | [edge-cases.md](./edge-cases.md) |
+| kuat-figma-* (design/prototype/review-design/make/review-make) | 9 (F1–F9) | [kuat-figma-skills.md](./kuat-figma-skills.md) |
 
 Generated sample outputs live in [outputs/](./outputs/).
 

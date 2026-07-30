@@ -59,5 +59,5 @@ mockup.
 ## Related
 
 - [claude-design-build-checklist](../create-design/claude-design-build-checklist.md) - execution-time verification
-- [figma-build-intake](../figma-build-intake/SKILL.md) - equivalent skill for the Figma route
+- [kuat-figma-design](../kuat-figma-design/SKILL.md) - equivalent skill for the Figma route
 - [create-design](../create-design/SKILL.md) - upstream context/fidelity/route decision

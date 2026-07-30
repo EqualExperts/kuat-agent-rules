@@ -1,6 +1,6 @@
 ---
 name: create-design
-description: Use when a request needs new visual design concepts or mockups — screens, components, or layouts — before any code or Figma work starts. Determines (1) whether to produce a single design or multiple concept directions, (2) the fidelity level and how strictly Kuat design-system compliance applies at that fidelity, and (3) whether the output route is Figma or Claude Design (inline mockup). Hands off to figma-build-intake or mockup-build-intake accordingly. Not for code implementation (see create-web-app) or slides/imagery (see create-presentation, create-imagery).
+description: Use when a request needs new visual design concepts or mockups — screens, components, or layouts — before any code or Figma work starts. Determines (1) whether to produce a single design or multiple concept directions, (2) the fidelity level and how strictly Kuat design-system compliance applies at that fidelity, and (3) whether the output route is Figma or Claude Design (inline mockup). Hands off to kuat-figma-design or mockup-build-intake accordingly. Not for code implementation (see create-web-app) or slides/imagery (see create-presentation, create-imagery).
 ---
 
 # Create a design (mockup / concept)
@@ -56,7 +56,7 @@ Ask if not stated. Use these as defaults, not hard rules:
 
 ## Step 4 — Hand off
 
-- **Figma route:** invoke [figma-build-intake](../figma-build-intake/SKILL.md), passing the context
+- **Figma route:** invoke [kuat-figma-design](../kuat-figma-design/SKILL.md), passing the context
   (Step 0), concept count (Step 1), and fidelity (Step 2).
 - **Claude Design route:** invoke [mockup-build-intake](../mockup-build-intake/SKILL.md),
   passing the same three inputs.
@@ -65,7 +65,7 @@ Ask if not stated. Use these as defaults, not hard rules:
 
 ## Related
 
-- [figma-build-intake](../figma-build-intake/SKILL.md) - Figma route
+- [kuat-figma-design](../kuat-figma-design/SKILL.md) - Figma route
 - [mockup-build-intake](../mockup-build-intake/SKILL.md) - Claude Design route
 - [create-web-app](../create-web-app/SKILL.md) - code implementation, not a mockup
-- [figma-build-checklist](./figma-build-checklist.md) · [claude-design-build-checklist](./claude-design-build-checklist.md)
+- [figma-build-checklist](../kuat-figma-design/figma-build-checklist.md) · [claude-design-build-checklist](./claude-design-build-checklist.md)

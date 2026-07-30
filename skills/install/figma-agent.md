@@ -4,7 +4,7 @@ The **Figma agent** is the chat sidebar available inside Figma Design files — 
 [Figma Make](./figma-make.md) (prompt-to-code) and from the Figma MCP server used by Cursor/Claude
 Code. It supports the same **custom skills** mechanism as Make: single Markdown files following the
 [Agent Skills specification](https://agentskills.io/specification), invoked with slash commands (e.g.
-`/kuat-create`).
+`/kuat-figma-design`).
 
 Official help: [Custom skills for the Figma agent and Figma Make](https://help.figma.com/hc/en-us/articles/40283639496599-Custom-skills-for-the-Figma-agent-and-Figma-Make)
 
@@ -13,8 +13,8 @@ kits ([figma-make.md](./figma-make.md#step-3--add-brand-rules-separate-from-skil
 Make-only — there is no equivalent surface for pasting brand rules into a Design file. For the Figma
 agent, context comes from three sources only: the custom skill itself, [connectors](#step-3--pair-with-a-connector-for-live-rules)
 paired with it in the same prompt, and whatever the target file's own components/variables/styles
-already contain. This lines up with how [figma-build-intake](../figma-build-intake/SKILL.md) and
-[figma-build-checklist](../create-design/figma-build-checklist.md) already work — live discovery every
+already contain. This lines up with how [kuat-figma-design](../kuat-figma-design/SKILL.md) and
+[figma-build-checklist](../kuat-figma-design/figma-build-checklist.md) already work — live discovery every
 session, no persisted registry — so no change is needed there.
 
 ---
@@ -37,13 +37,16 @@ From this repo's root — the directory containing `package.json` and `skills/sc
 npm run bundle:skills
 ```
 
-Upload these files (not the source `skills/kuat-review/`, `skills/kuat-create/` folders — the agent
-does not load `scripts/`, `references/`, or `shared/` folders, same restriction as Make):
+Upload these files (never the source `skills/<name>/` folders — the agent does not load `scripts/`,
+`references/`, or `shared/` folders, same restriction as Make). The Design-file agent gets the three
+Design-surface skills; the two `kuat-figma-make*` bundles belong in [Figma Make](./figma-make.md)
+instead:
 
 | File | Skill name (slash command) |
 |------|----------------------------|
-| `skills/dist/kuat-create/SKILL.md` | `kuat-create` |
-| `skills/dist/kuat-review/SKILL.md` | `kuat-review` |
+| `skills/dist/kuat-figma-design/SKILL.md` | `kuat-figma-design` — design screens/components, craft + system gates |
+| `skills/dist/kuat-figma-prototype/SKILL.md` | `kuat-figma-prototype` — wire screens into a flow-first prototype |
+| `skills/dist/kuat-figma-review-design/SKILL.md` | `kuat-figma-review-design` — review bindings, brand, accessibility, craft |
 
 ---
 
@@ -58,11 +61,11 @@ path for Kuat, not manual export/import per person.
 1. Open any Figma Design file you have edit access to, ideally one in the team/org you want to
    publish to.
 2. Click in the **prompt box** → **Skills** → **Add skill** → **Import from computer**.
-3. Select `skills/dist/kuat-create/SKILL.md`. Review name/description/content → **Add**.
-4. Repeat for `skills/dist/kuat-review/SKILL.md`.
-5. Open **Skills** → **Manage skills**, select `kuat-create` → **···** → **Publish**. Confirm name and
-   description, then **Publish** to the team or the whole organization.
-6. Repeat for `kuat-review`.
+3. Select `skills/dist/kuat-figma-design/SKILL.md`. Review name/description/content → **Add**.
+4. Repeat for `kuat-figma-prototype` and `kuat-figma-review-design`.
+5. Open **Skills** → **Manage skills**, select `kuat-figma-design` → **···** → **Publish**. Confirm
+   name and description, then **Publish** to the team or the whole organization.
+6. Repeat for the other two.
 
 **Note:** you can only publish to the team the source file belongs to, or to the whole organization —
 not to a team the file isn't in. Pick a Kuat-owned file/team as the publishing origin.
@@ -97,7 +100,7 @@ the agent can pull live design-system context, and reference the connector in th
 skill:
 
 ```text
-Use /kuat-create to build this screen. Follow our design system doc from @Notion [url].
+Use /kuat-figma-design to build this screen. Follow our design system doc from @Notion [url].
 ```
 
 If a Notion/Drive mirror of the `reference/` library (at minimum `design.md`, `colours.md`,
@@ -109,24 +112,33 @@ Design files have no path to current Kuat rules content at all, since they can't
 
 ## Step 4 — Use skills
 
-### Create
+### Design
 
 ```text
-/kuat-create Build an EE product settings page with dark nav and semantic tokens.
+/kuat-figma-design Build an EE product settings page with dark nav and semantic tokens.
 ```
 
-**Pass if:** the agent asks clarifying questions (scenario, audience, deliverable) before generating a
-large UI.
+**Pass if:** the agent confirms design-system context and scenario, states its composition plan
+(focal point, density) before building, and runs the build checklist + observer gate before handoff.
+
+### Prototype
+
+```text
+/kuat-figma-prototype Wire the onboarding flow from these screens, including the error state.
+```
+
+**Pass if:** it defines the flow and audits screens/states before wiring anything.
 
 ### Review
 
 Select the frame or attach a screenshot, then:
 
 ```text
-/kuat-review Review this screen for EE brand compliance. brand_compliance depth only.
+/kuat-figma-review-design Review this screen for EE brand compliance. brand_compliance depth only.
 ```
 
-**Pass if:** it asks for artifacts/depth/output format before listing violations.
+**Pass if:** it asks for artifacts/depth/output format before listing violations, and inspects
+bindings (variables/text styles/instances), not just the rendering.
 
 ---
 
@@ -134,7 +146,7 @@ Select the frame or attach a screenshot, then:
 
 | Issue | Workaround |
 |-------|------------|
-| Only the first skill mentioned in a prompt is invoked | One slash command per message — sequence `figma-build-intake` context and `/kuat-create` across turns, not in one prompt |
+| Only the first skill mentioned in a prompt is invoked | One slash command per message — e.g. `/kuat-figma-design` and `/kuat-figma-review-design` in separate turns, not one prompt |
 | No Guidelines file for Design-file agent sessions | Pair the skill with a connector every time (Step 3); don't assume rules persist between sessions without one |
 | Rules not in git inside the agent's own context | Keep the connector-mirrored copy current; re-bundle skills after rules changes |
 | Non-deterministic output | Re-run, or tighten the connector doc / prompt |
@@ -156,7 +168,7 @@ Select the frame or attach a screenshot, then:
 ## Verify
 
 See [INSTALL.md](../INSTALL.md) tests **D** (create pre-flight) and **B** (review intake). Run them in
-a Figma Design file with `/kuat-create` and `/kuat-review`.
+a Figma Design file with `/kuat-figma-design` and `/kuat-figma-review-design`.
 
 ---
 
@@ -165,4 +177,4 @@ a Figma Design file with `/kuat-create` and `/kuat-review`.
 - [../INSTALL.md](../INSTALL.md)
 - [../dist/README.md](../dist/README.md)
 - [figma-make.md](./figma-make.md) — companion guide for Figma Make specifically
-- [figma-build-intake](../figma-build-intake/SKILL.md) · [figma-build-checklist](../create-design/figma-build-checklist.md) — live-discovery pattern this guide relies on in the absence of Guidelines
+- [kuat-figma-design](../kuat-figma-design/SKILL.md) · [figma-build-checklist](../kuat-figma-design/figma-build-checklist.md) — live-discovery pattern this guide relies on in the absence of Guidelines

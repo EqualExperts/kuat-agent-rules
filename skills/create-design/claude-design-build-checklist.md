@@ -1,7 +1,7 @@
 # Claude Design Build Checklist
 
 Verification checklist for a Kuat-targeted mockup built with the Claude Design inline-mockup tool.
-Mirrors [figma-build-checklist.md](./figma-build-checklist.md) for the route that can't instantiate
+Mirrors [figma-build-checklist.md](../kuat-figma-design/figma-build-checklist.md) for the route that can't instantiate
 real components or bind live variables — so it leans harder on explicit flagging of what's exact vs.
 approximated. Run at the start of a build (Step 0) and again before returning the mockup (Steps 1-6).
 
@@ -77,11 +77,11 @@ gate as the Figma route, unmodified. It doesn't care which tool produced the art
 - [ ] State the fidelity level achieved and list what was deliberately approximated because of that
       fidelity band vs. what's a genuine gap.
 - [ ] If the mockup is meant to progress toward a build-ready deliverable, say so and point to
-      [figma-build-intake](../figma-build-intake/SKILL.md) as the next step — Claude Design output is
+      [kuat-figma-design](../kuat-figma-design/SKILL.md) as the next step — Claude Design output is
       not itself a build-ready artifact.
 
 ## Related
 
-- [figma-build-checklist](./figma-build-checklist.md) - equivalent checklist for the Figma route
+- [figma-build-checklist](../kuat-figma-design/figma-build-checklist.md) - equivalent checklist for the Figma route
 - [mockup-build-intake](../mockup-build-intake/SKILL.md) - runs before this checklist
 - [create-design](./SKILL.md) - upstream context/fidelity/route decision
