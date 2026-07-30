@@ -89,7 +89,7 @@ Success shows up as: form completion rate, time to complete, error rate and reco
 | Input border | `border-input` |
 | Input focus | `ring-ring` |
 | Error state | `border-destructive`, `text-destructive` |
-| Success indicator | `text-green-600` |
+| Success indicator | `text-success` |
 
 #### Typography
 

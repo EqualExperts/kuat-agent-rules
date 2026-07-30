@@ -12,8 +12,14 @@ Stable IDs link patterns and checklists to per-component guides in the implement
 | `kuat:button-group` | ButtonGroup | `@equal-experts/kuat-react` / `kuat-vue` | `components/button-group.md` | [component-decision-tree](./component-decision-tree.md) |
 | `kuat:kuat-header` | KuatHeader | `@equal-experts/kuat-react` / `kuat-vue` block | `components/kuat-header.md` | [component-decision-tree](./component-decision-tree.md), [design](./design.md) |
 | `kuat:callout` | Callout | `@equal-experts/kuat-react` / `kuat-vue` | `components/callout.md` | [component-decision-tree](./component-decision-tree.md) |
+| `kuat:status-badge` | StatusBadge | `@equal-experts/kuat-react` / `kuat-vue` | `components/status-badge.md` | [component-decision-tree](./component-decision-tree.md) |
+| `kuat:tag` | Tag | `@equal-experts/kuat-react` / `kuat-vue` | `components/tag.md` | [component-decision-tree](./component-decision-tree.md) |
+| `kuat:tag-group` | TagGroup | `@equal-experts/kuat-react` / `kuat-vue` | `components/tag-group.md` | [component-decision-tree](./component-decision-tree.md) |
+| `kuat:counter-badge` | CounterBadge | `@equal-experts/kuat-react` / `kuat-vue` | `components/counter-badge.md` | [component-decision-tree](./component-decision-tree.md) |
 
 Expand this table in `kuat-mono` as component docs are added. Keep IDs stable; add new rows rather than renaming IDs.
+
+> `Badge` (the predecessor of StatusBadge/Tag/CounterBadge) is deprecated and intentionally has no registry row — see `kuat-docs/DEPRECATIONS.md` in `kuat-mono`.
 
 ---
 

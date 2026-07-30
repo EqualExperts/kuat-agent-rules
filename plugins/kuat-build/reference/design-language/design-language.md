@@ -26,9 +26,9 @@ WCAG AA compliance minimum. All color combinations, interactive elements, and co
 
 ### 3. Simplicity
 
-Minimal borders, clear hierarchy through spacing. Prefer simple solutions over complex ones.
+Do the hard work to make it simple. Minimal borders, clear hierarchy through spacing — simplicity is the result of effort spent on hierarchy and editing, not of doing less. Simple is not the same as low-effort or flat.
 
-**Why:** Simplicity communicates confidence and professionalism.
+**Why:** Simplicity communicates confidence and professionalism; it is earned by editing, not by leaving things out.
 
 ### 4. Clarity
 
@@ -42,6 +42,12 @@ Support different contexts - light/dark, print/digital, large/small formats.
 
 **Why:** Brand materials must work across many platforms and use cases.
 
+### 6. Craft
+
+Deliberate composition — one clear focal point per view, whitespace spent intentionally rather than minimally, scale contrast that reinforces hierarchy. Simplicity (principle 3) rules out unnecessary complexity; it is not a ceiling on visual interest. See [composition.md](./composition.md) for the medium-agnostic vocabulary and each medium's own file (linked there) for how it applies.
+
+**Why:** Correct tokens and accessible contrast are necessary but not sufficient — a screen can pass every other principle here and still read as generic if nothing was composed with intent.
+
 ---
 
 ## Design Token Categories
@@ -53,6 +59,7 @@ Support different contexts - light/dark, print/digital, large/small formats.
 | Spacing | Padding, margin, gaps, relationships | [spacing.md](./spacing.md) |
 | Borders | Widths, styles, radius, colors | [borders.md](./borders.md) |
 | Logo | Usage, sizing, variants, placement | [logo.md](../brand/logo.md) |
+| Composition | Focal hierarchy, whitespace intent, scale contrast (principles only — each medium's own file holds the application) | [composition.md](./composition.md) |
 
 ---
 
@@ -114,4 +121,5 @@ Type-specific rules build on these general principles:
 - [Typography](./typography.md) - Fonts and type scale
 - [Spacing](./spacing.md) - Spacing system
 - [Borders](./borders.md) - Border philosophy
+- [Composition & Craft](./composition.md) - Layout composition and visual hierarchy
 - [Writing style](../content/writing-style.md) - Writing style and usage

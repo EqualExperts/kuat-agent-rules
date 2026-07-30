@@ -31,6 +31,8 @@ Use when: Limited navigation items (5-7 items)
 
 ```
 ┌─────────────────────────────────────────┐
+│ System Banner (full width, conditional) │
+├─────────────────────────────────────────┤
 │ Dark Navigation Bar (Tech Blue)         │
 │ [Logo]    [Nav Items]    [User Menu]    │
 ├─────────────────────────────────────────┤
@@ -57,7 +59,9 @@ Use when: Limited navigation items (5-7 items)
 Use when: Complex navigation, hierarchical structure, 8+ items
 
 ```
-┌──────┬──────────────────────────────────┐
+┌─────────────────────────────────────────┐
+│ System Banner (full width, conditional) │
+├──────┬──────────────────────────────────┤
 │      │ Top Bar (Light)                  │
 │ Dark │ [Breadcrumbs]    [User Menu]     │
 │ Side │──────────────────────────────────┤
@@ -84,13 +88,19 @@ Use when: Complex navigation, hierarchical structure, 8+ items
 
 Dark Sidebar Navigation is the default template for internal business tools: three persistent
 regions — sidebar, top bar, main content — host different content per screen without changing
-the shell.
+the shell. A fourth, conditional zone sits above all three when a site-wide status message is
+active.
 
 | Region | Purpose | Composition (top to bottom / left to right) |
 |--------|---------|-----------------------------------------------|
+| System banner | App-wide status (outage, deprecation, access change) | Full width, above the entire shell — spans both sidebar and top bar, not just the content area. Does not overlay or displace the top bar; only present when a site-wide message is active |
 | Sidebar | Wayfinding and workspace context | Workspace/brand switcher → primary navigation → secondary/utility links → account footer |
 | Top bar | Page context and utility actions | Collapse toggle + breadcrumb or page title (left) → site-wide utilities such as search, notifications, theme toggle, external link (right) |
 | Main content | Task surface | Primary content block(s) — a single block, or bento-style blocks for a dashboard-type layout |
+
+Section/page-level feedback (error summary, inline confirmation banner) is not part of this
+system-banner zone — it uses `Callout` as-is at the top of the main content area. See the Main
+content composition table below.
 
 **Sidebar composition:**
 
@@ -117,13 +127,15 @@ the shell.
 
 | Row | Purpose | Notes |
 |-----|---------|-------|
+| Feedback | Page/section-level feedback tied to a submitted action | Top-of-content-area callout or error summary; appears above the page header row when present |
 | Page header | Title + primary actions | Omit if the top bar already carries the page title |
 | Metric/summary row | At-a-glance KPIs | Card grid, 3-4 columns desktop — see [dashboard pattern](./patterns/dashboard.md) |
 | Visualization row | Trends over time | One or two chart cards side by side |
 | Primary work surface | The task itself | Table/list ([browse and filter](./patterns/browse-and-filter.md)), cards ([section hub](./patterns/section-hub.md)), identity + tabs ([detail page](./patterns/detail-page.md)), kanban board, or form — see the relevant [pattern](./patterns/) |
 
 Not every row applies to every screen — a settings page may use only "Page header" plus a form,
-while a metrics dashboard uses all four.
+while a metrics dashboard uses all rows below "Feedback." "Feedback" itself only appears when
+there's a submitted action to report on.
 
 ---
 
@@ -157,6 +169,11 @@ structured documents (reports, briefs).
 ```
 
 See [sign-in pattern](./patterns/sign-in.md) and [form pattern](./patterns/complete-a-form.md).
+
+A confirmation page (the end state of a completed form, application, or transaction) uses this
+same narrow/centred variant rather than a distinct layout shape — it's a simple end-state of a
+form flow, not a different page type. See [give feedback on an action
+pattern](./patterns/give-feedback-on-an-action.md).
 
 #### Full-Width / Long-Form (Reports, Briefs, Structured Documents)
 
@@ -298,6 +315,24 @@ See [logo guidelines](../../brand/logo.md).
 - Use `bg-card` token for card backgrounds
 - Follow [borders](../../design-language/borders.md) for border styling
 - Follow [spacing](../../design-language/spacing.md) for padding
+
+---
+
+## Composition — Density vs Generosity by Content Type
+
+Product UI has the sharpest density tension of any Kuat medium: some content is correctly dense,
+some correctly generous, and defaulting to one or the other everywhere is the most common cause of
+flat, generic product screens. [composition.md](../../design-language/composition.md)'s
+whitespace-as-active-tool principle applies per content type here, not as one fixed padding value:
+
+| Content type | Default | Why |
+|--------------|---------|-----|
+| Metric/summary row, tables, dashboards | Dense — tight spacing, small type steps between adjacent values | Users scan many concurrent data points; generous spacing here reduces how much fits above the fold without adding clarity |
+| Page header, empty states, onboarding, confirmation panels | Generous — larger type-scale jump, more surrounding whitespace | These moments have one message to land; density here reads as cramped rather than efficient |
+| Forms, detail pages | Balanced — the field-spacing rules in [forms.md](./content/forms.md); generous at section breaks, dense within a section | Fields in a section belong together; section breaks are where the reader re-orients |
+
+The dashboard density default does not transfer to a settings or onboarding screen just because
+both are "product UI" — the content type in hand, not the medium, sets the density.
 
 ---
 

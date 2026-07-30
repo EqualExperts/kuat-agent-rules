@@ -3,7 +3,7 @@
 Verification checklist for a Kuat-targeted mockup built with the Claude Design inline-mockup tool.
 Mirrors [figma-build-checklist.md](./figma-build-checklist.md) for the route that can't instantiate
 real components or bind live variables — so it leans harder on explicit flagging of what's exact vs.
-approximated. Run at the start of a build (Step 0) and again before returning the mockup (Steps 1-5).
+approximated. Run at the start of a build (Step 0) and again before returning the mockup (Steps 1-6).
 
 There is no persisted token/component registry for Claude Design either — resolution happens live
 against the same sources code and Figma builds use ([reference/design-language/](${CLAUDE_PLUGIN_ROOT}/reference/design-language/),
@@ -47,7 +47,30 @@ Normally satisfied by [mockup-build-intake](${CLAUDE_PLUGIN_ROOT}/skills/mockup-
 - [ ] States plainly whether the overall layout matches an existing Kuat pattern/screen or is newly
       composed from on-system parts.
 
-## Step 5 — Pre-handoff self-audit
+## Step 5 — Composition quality
+
+Distinct from Step 4: Step 4 discloses *which* layout was used; this step checks whether it's any
+good, against [reference/design-language/composition.md](${CLAUDE_PLUGIN_ROOT}/reference/design-language/composition.md)
+and the target medium's own specialization. This applies regardless of the fact that Claude Design
+renders through generic CSS rather than bound Kuat variables (Steps 1-3 above) — composition is a
+property of the layout itself, not of how faithfully its tokens are bound.
+
+- [ ] The mockup has one identifiable focal point per screen or section — not several elements
+      competing at equal visual weight.
+- [ ] Spacing choices match the medium's own density default for this content type — not defaulted
+      to the smallest value that technically satisfies the resolved token.
+- [ ] Hierarchy levels show real scale/weight contrast, not colour-only differentiation.
+- [ ] Content used to validate hierarchy is real or realistic, not placeholder filler — if
+      placeholder text was unavoidable at low fidelity, flag it explicitly per Step 0's fidelity
+      gate rather than treating the layout as validated.
+- [ ] For exploratory/multiple-concept requests ([create-design](./SKILL.md) Step 1), concepts
+      differ in more than palette or spacing — genuine layout or hierarchy divergence, not
+      near-duplicates.
+
+**Before returning the mockup:** run the [observer gate](${CLAUDE_PLUGIN_ROOT}/skills/_shared/observer-gate.md) — the same
+gate as the Figma route, unmodified. It doesn't care which tool produced the artifact.
+
+## Step 6 — Pre-handoff self-audit
 
 - [ ] Re-scan for unresolved/generic values that should have been mapped to real Kuat tokens, and for
       any element skipped in Step 1.
