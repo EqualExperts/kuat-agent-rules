@@ -1,7 +1,7 @@
 # Figma Build Verification
 
 Figma builds are verified against a procedure, not a passive reference — the checklist itself lives
-with the skill that runs it: `skills/create-design/figma-build-checklist.md`.
+with the skill that runs it: `skills/kuat-figma-design/figma-build-checklist.md`.
 
 That checklist covers the design-system context gate (Kuat vs. a different client's own system),
 live component/variable discovery, token binding, component fidelity, and a pre-handoff self-audit.
