@@ -84,6 +84,8 @@ vendor-provided skill.
 - [ ] WCAG AA contrast (4.5:1 text, 3:1 large/UI)
 - [ ] UX copy supports the task (actions, errors, empty states) — not marketing tone
 - [ ] Scoped states (empty/loading/error) handled when in scope
+- [ ] One clear focal point per screen; density matches the content type (dense for dashboards/tables, generous for onboarding/empty states — see [composition.md](../../reference/design-language/composition.md) and the density table in [web-product/design.md](../../reference/media-types/web-product/design.md)); hierarchy uses scale/weight contrast, not colour alone
+- [ ] Run the [observer gate](../_shared/observer-gate.md) as a fresh adversarial pass — the boxes above can all be ticked and the screen still be generic
 - [ ] Version stamp applied — see [../_shared/version-stamp.md](../_shared/version-stamp.md)
 
 ## Conflict & ambiguity

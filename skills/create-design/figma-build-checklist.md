@@ -1,7 +1,7 @@
 # Figma Build Checklist
 
 Verification checklist for any Figma build that claims to follow a design system — run it at the
-start of a build (Step 0) and again before handoff (Steps 1-5). It applies whether the target system
+start of a build (Step 0) and again before handoff (Steps 1-6). It applies whether the target system
 is Kuat or a different client's own library; nothing here assumes Kuat by default.
 
 There is no persisted component/variable registry to keep in sync. Discovery is done live, in full,
@@ -57,7 +57,33 @@ own skills are invoked. Re-confirm here if that skill wasn't run for some reason
       composed from on-system parts. "Built from on-system components" and "matches an existing
       on-system layout" are different claims — don't conflate them.
 
-## Step 5 — Pre-handoff self-audit
+## Step 5 — Composition quality
+
+Distinct from Step 4: Step 4 discloses *which* layout was used; this step checks whether it's any
+good, against [../../reference/design-language/composition.md](../../reference/design-language/composition.md)
+**and** the target medium's own specialization (e.g.
+[../../reference/media-types/web-product/design.md](../../reference/media-types/web-product/design.md)
+for product UI, [../../reference/media-types/web-marketing/patterns/marketing-pages.md](../../reference/media-types/web-marketing/patterns/marketing-pages.md)
+for marketing).
+
+- [ ] The build has one identifiable focal point per screen or section — not several elements
+      competing at equal visual weight.
+- [ ] Spacing choices match the medium's own density default for this content type (e.g. dense for
+      a product dashboard's metric row, generous for a marketing hero or a product onboarding
+      screen) — not defaulted to the smallest grid value that technically satisfies the token.
+- [ ] Hierarchy levels show real scale/weight contrast, not colour-only differentiation.
+- [ ] Text content used for validation is real or realistic (from the source brief), not
+      placeholder Latin filler or generic labels — if placeholder text was unavoidable, flag it
+      explicitly rather than treating the layout as validated.
+- [ ] For exploratory/multiple-concept requests ([create-design](./SKILL.md) Step 1), concepts
+      differ in more than palette or spacing — genuine layout or hierarchy divergence, not
+      near-duplicates.
+
+**Before handoff:** run the [observer gate](../_shared/observer-gate.md) — a separate, ruthless
+pass distinct from this checklist. This step can be satisfied box-by-box and still produce
+something generic; the observer gate is what catches that.
+
+## Step 6 — Pre-handoff self-audit
 
 - [ ] Re-scan the finished build for: unbound colours/spacing, non-component shapes duplicating an
       available component, and anything skipped in Step 1.
