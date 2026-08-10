@@ -72,8 +72,8 @@ Self-audit the **generated code**, not just the preview:
 - [ ] Composition: one focal point per screen; density matches the content type; hierarchy carried
       by scale/weight, not colour alone; at least one restraint decision named.
 - [ ] Run the observer tests from the kit's `craft.md` as a fresh adversarial pass — brand-swap,
-      colour-only hierarchy, uniform spacing, placeholder, named restraint. Any hit is a finding
-      to fix or flag, not soften.
+      hierarchy differentiation, uniform spacing, placeholder, named restraint. Any hit is a
+      finding to fix or flag, not soften.
 - [ ] State what was approximated (and why) vs. what is a genuine gap; stamp the output with the
       kit/package version per [../_shared/version-stamp.md](../_shared/version-stamp.md).
 

@@ -72,8 +72,8 @@ Self-audit the **generated code**, not just the preview:
 - [ ] Composition: one focal point per screen; density matches the content type; hierarchy carried
       by scale/weight, not colour alone; at least one restraint decision named.
 - [ ] Run the observer tests from the kit's `craft.md` as a fresh adversarial pass — brand-swap,
-      colour-only hierarchy, uniform spacing, placeholder, named restraint. Any hit is a finding
-      to fix or flag, not soften.
+      hierarchy differentiation, uniform spacing, placeholder, named restraint. Any hit is a
+      finding to fix or flag, not soften.
 - [ ] State what was approximated (and why) vs. what is a genuine gap; stamp the output with the
       kit/package version per **version-stamp.md** (see "Shared: version stamp" below).
 
@@ -165,8 +165,9 @@ A fresh, adversarial re-read of the whole screen — not a repeat of the line-it
 - **Brand-swap:** strip the logo and swap the colour tokens for a competitor's. Still looks
   completely at home on their product? Then the composition is generic — only the colours are
   doing brand work.
-- **Colour-only hierarchy:** any two adjacent hierarchy levels differing only by colour? The
-  hierarchy isn't real.
+- **Hierarchy differentiation:** any two adjacent hierarchy levels flatly identical, or
+  distinguished only by colour with no difference in size or weight? Either way, the hierarchy
+  isn't real — colour, or nothing, is standing in for structure.
 - **Uniform spacing:** one spacing value everywhere regardless of content type? Spacing was
   defaulted, not decided.
 - **Placeholder:** hierarchy validated only against filler? Unproven, not passing.
@@ -207,4 +208,4 @@ If a shell is unavailable and no release version is known, state `reference ref:
 
 <!-- end include: skills/_shared/version-stamp.md -->
 
-<!-- kuat-skill-bundle: kuat-figma-make v1.0.0 rules-ref:3a78ad12cb5c built:2026-07-30 -->
+<!-- kuat-skill-bundle: kuat-figma-make v1.0.0 rules-ref:1076a8030d85 built:2026-08-10 -->

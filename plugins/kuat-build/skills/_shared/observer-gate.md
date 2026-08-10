@@ -23,9 +23,13 @@ test, is a finding — cite it, don't soften it.
 - **Brand-swap test.** Strip the logo and swap the colour tokens for a competitor's. Would this
   layout still look completely at home on their product? If yes, it's generic — the composition
   isn't doing any brand- or content-specific work, only the colours are.
-- **Colour-only hierarchy test.** Do any two adjacent hierarchy levels differ *only* by colour,
-  with no difference in size, weight, or spacing? If yes, the hierarchy isn't real — it's colour
-  standing in for structure.
+- **Hierarchy-differentiation test** (broadened after batch-1 eval evidence — see
+  `Kuat/composition-craft-proposal/eval-results-g2-batch1.md`). Do any two adjacent hierarchy
+  levels lack a real difference in size or weight — either because they're **flatly identical**, or
+  because **colour is the only thing distinguishing them**? Either case is a fail: the original
+  wording only caught "differs *only* by colour," but live output showed the more common failure is
+  no differentiation at all, which is a step below that. If either is true, the hierarchy isn't
+  real — colour, or nothing, is standing in for structure.
 - **Uniform-spacing test.** Is every section using the same spacing value regardless of what the
   content actually is — dense data and a persuasive hero treated identically? If yes, spacing was
   defaulted, not decided (see composition.md's whitespace principle).

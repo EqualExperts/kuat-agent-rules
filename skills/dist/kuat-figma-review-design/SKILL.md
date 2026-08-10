@@ -191,8 +191,9 @@ A fresh, adversarial re-read of the whole screen — not a repeat of the line-it
 - **Brand-swap:** strip the logo and swap the colour tokens for a competitor's. Still looks
   completely at home on their product? Then the composition is generic — only the colours are
   doing brand work.
-- **Colour-only hierarchy:** any two adjacent hierarchy levels differing only by colour? The
-  hierarchy isn't real.
+- **Hierarchy differentiation:** any two adjacent hierarchy levels flatly identical, or
+  distinguished only by colour with no difference in size or weight? Either way, the hierarchy
+  isn't real — colour, or nothing, is standing in for structure.
 - **Uniform spacing:** one spacing value everywhere regardless of content type? Spacing was
   defaulted, not decided.
 - **Placeholder:** hierarchy validated only against filler? Unproven, not passing.
@@ -237,9 +238,13 @@ test, is a finding — cite it, don't soften it.
 - **Brand-swap test.** Strip the logo and swap the colour tokens for a competitor's. Would this
   layout still look completely at home on their product? If yes, it's generic — the composition
   isn't doing any brand- or content-specific work, only the colours are.
-- **Colour-only hierarchy test.** Do any two adjacent hierarchy levels differ *only* by colour,
-  with no difference in size, weight, or spacing? If yes, the hierarchy isn't real — it's colour
-  standing in for structure.
+- **Hierarchy-differentiation test** (broadened after batch-1 eval evidence — see
+  `Kuat/composition-craft-proposal/eval-results-g2-batch1.md`). Do any two adjacent hierarchy
+  levels lack a real difference in size or weight — either because they're **flatly identical**, or
+  because **colour is the only thing distinguishing them**? Either case is a fail: the original
+  wording only caught "differs *only* by colour," but live output showed the more common failure is
+  no differentiation at all, which is a step below that. If either is true, the hierarchy isn't
+  real — colour, or nothing, is standing in for structure.
 - **Uniform-spacing test.** Is every section using the same spacing value regardless of what the
   content actually is — dense data and a persuasive hero treated identically? If yes, spacing was
   defaulted, not decided (see composition.md's whitespace principle).
@@ -326,4 +331,4 @@ If a shell is unavailable and no release version is known, state `reference ref:
 
 <!-- end include: skills/_shared/version-stamp.md -->
 
-<!-- kuat-skill-bundle: kuat-figma-review-design v1.0.0 rules-ref:3a78ad12cb5c built:2026-07-30 -->
+<!-- kuat-skill-bundle: kuat-figma-review-design v1.0.0 rules-ref:1076a8030d85 built:2026-08-10 -->
