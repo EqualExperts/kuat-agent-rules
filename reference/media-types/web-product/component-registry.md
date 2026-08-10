@@ -16,8 +16,11 @@ Stable IDs link patterns and checklists to per-component guides in the implement
 | `kuat:tag` | Tag | `@equal-experts/kuat-react` / `kuat-vue` | `components/tag.md` | [component-decision-tree](./component-decision-tree.md) |
 | `kuat:tag-group` | TagGroup | `@equal-experts/kuat-react` / `kuat-vue` | `components/tag-group.md` | [component-decision-tree](./component-decision-tree.md) |
 | `kuat:counter-badge` | CounterBadge | `@equal-experts/kuat-react` / `kuat-vue` | `components/counter-badge.md` | [component-decision-tree](./component-decision-tree.md) |
+| `kuat:content-card` | ContentCard | `@equal-experts/kuat-react` / `kuat-vue` | `components/content-card.md` | [component-decision-tree](./component-decision-tree.md), [borders](../../design-language/borders.md) |
 
 Expand this table in `kuat-mono` as component docs are added. Keep IDs stable; add new rows rather than renaming IDs.
+
+> There is no themed `shadcn:card` in Kuat today — raw shadcn `Card` defaults to `rounded-xl`, which has no Kuat override. Generic static content blocks resolve to `kuat:content-card` above; don't add a `shadcn:card` row until one is actually themed and verified.
 
 > `Badge` (the predecessor of StatusBadge/Tag/CounterBadge) is deprecated and intentionally has no registry row — see `kuat-docs/DEPRECATIONS.md` in `kuat-mono`.
 
