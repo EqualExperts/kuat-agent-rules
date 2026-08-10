@@ -39,8 +39,9 @@ A fresh, adversarial re-read of the whole screen — not a repeat of the line-it
 - **Brand-swap:** strip the logo and swap the colour tokens for a competitor's. Still looks
   completely at home on their product? Then the composition is generic — only the colours are
   doing brand work.
-- **Colour-only hierarchy:** any two adjacent hierarchy levels differing only by colour? The
-  hierarchy isn't real.
+- **Hierarchy differentiation:** any two adjacent hierarchy levels flatly identical, or
+  distinguished only by colour with no difference in size or weight? Either way, the hierarchy
+  isn't real — colour, or nothing, is standing in for structure.
 - **Uniform spacing:** one spacing value everywhere regardless of content type? Spacing was
   defaulted, not decided.
 - **Placeholder:** hierarchy validated only against filler? Unproven, not passing.

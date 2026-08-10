@@ -1,39 +1,39 @@
 {
   "version": "1.0.0",
-  "builtAt": "2026-07-30T08:50:03.106Z",
+  "builtAt": "2026-08-10T10:41:09.731Z",
   "rules": {
     "repo": "equalexperts/kuat-agent-docs",
     "loadingPath": "reference/README.md",
-    "builtAtRef": "3a78ad12cb5cea3c50ad4bd6483b70597cf1dc61"
+    "builtAtRef": "1076a8030d85b44f47613a1034273b53f9102668"
   },
   "skills": {
     "kuat-review": {
       "file": "kuat-review/SKILL.md",
-      "sha256": "691b53068b190381d76a23ee00adbcdb764c69d1ede99ab1e69e4057d364a0f9"
+      "sha256": "c9e1e15552ca0712da802daca7c86b41d81f3697d149c5463fa1f85cb2ffd18d"
     },
     "kuat-create": {
       "file": "kuat-create/SKILL.md",
-      "sha256": "068e437e35bb00d5a2c3c7657ce7e21f46e3682c0f765e0b1494230711710a39"
+      "sha256": "c9cb42d6c495f78bdc6153b8165862e8bfbe14c83f8a2ece8d6173ff60f4a4fe"
     },
     "kuat-figma-design": {
       "file": "kuat-figma-design/SKILL.md",
-      "sha256": "952bb7e75ba349ac603b78024c866352deb29fded7382c3fc7f95daa0d89fcdf"
+      "sha256": "921aafb118ef7a35c4d130e7599626b49c29709d84ce4f587ff5e86b67f8ffc9"
     },
     "kuat-figma-prototype": {
       "file": "kuat-figma-prototype/SKILL.md",
-      "sha256": "e9daeff5194ce06b0d9f9ccdbcb66e2b9938d7c2bdb3f47c446ae3aabb9e61e8"
+      "sha256": "50bdd24b228fb5de1f49ca05a5c6c4af9a369e6583bee68ee3233b3c123dc997"
     },
     "kuat-figma-review-design": {
       "file": "kuat-figma-review-design/SKILL.md",
-      "sha256": "729a486c960d107128d5c71da5ca553d1c2c5335dc7849636944d8f1803a6946"
+      "sha256": "d8b3e156ce7715131718c47cafb2c6b0d1ad4d2d198becdc761db6625bbfb67e"
     },
     "kuat-figma-make": {
       "file": "kuat-figma-make/SKILL.md",
-      "sha256": "262364b525dfdf27fd8dc5626be35a377be16aa9111461aea28f016dcfd1dbab"
+      "sha256": "0e6b702a77d43b75b31ed4124e62a46f4ea3c0571747bb2397616b0df8c79e6e"
     },
     "kuat-figma-review-make": {
       "file": "kuat-figma-review-make/SKILL.md",
-      "sha256": "b48997d0e0681b79dcc09b15bbc9a05ff3b96249bc0c672fbe18a79598edfe2c"
+      "sha256": "753feb189d86343662578be77e17263ce24fa3ad131e4571a9b22e6fc827ea53"
     }
   },
   "ensureRulesScript": "scripts/ensure-rules.sh",
