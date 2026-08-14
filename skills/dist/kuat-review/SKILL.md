@@ -309,4 +309,4 @@ Ask the user to select one format before producing findings. Default to `full_re
 - Rules standards: `{RULES_DIR}` — [kuat-agent-docs](https://github.com/equalexperts/kuat-agent-docs)
 - Bundle manifest: compare `RULES_REF` to `dist/manifest.json` → `rules.builtAtRef`
 
-<!-- kuat-skill-bundle: kuat-review v1.0.0 rules-ref:a9880de24f6d built:2026-09-29 -->
+<!-- kuat-skill-bundle: kuat-review v1.0.0 rules-ref:e13d75cfdaf9 built:2026-09-29 -->

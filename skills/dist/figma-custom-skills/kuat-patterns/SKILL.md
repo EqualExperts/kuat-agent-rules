@@ -160,4 +160,4 @@ vX.Y.Z · <date>`, in the deliverable footer or the review's References section.
 - **kuat-tokens** — token binding once the pattern and shell are chosen.
 - **kuat-create** — the orchestrator; load this skill alongside it for any build or review task.
 
-<!-- kuat-skill-bundle: kuat-patterns v1.0.0 rules-ref:a9880de24f6d built:2026-09-29 -->
+<!-- kuat-skill-bundle: kuat-patterns v1.0.0 rules-ref:e13d75cfdaf9 built:2026-09-29 -->
