@@ -10,18 +10,18 @@ Code examples for using Kuat Design System spacing in React.
 
 ```tsx
 // Standard card padding
-<div className="bg-card border border-border rounded-lg p-6">
+<div className="bg-card border border-border rounded-none p-6">
   <h3>Card Title</h3>
   <p>Card content</p>
 </div>
 
 // Small card
-<div className="bg-card border border-border rounded-lg p-4">
+<div className="bg-card border border-border rounded-none p-4">
   Compact card
 </div>
 
 // Large card
-<div className="bg-card border border-border rounded-lg p-8">
+<div className="bg-card border border-border rounded-none p-8">
   Spacious card
 </div>
 ```
