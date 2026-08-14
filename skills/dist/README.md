@@ -37,4 +37,4 @@ Not emitted by default (still `{RULES_DIR}`-dependent); set
 Rules standards for the legacy group remain in the `reference/` library — not embedded in those
 bundles. The `figma-custom-skills/` group inlines everything it needs instead, by design.
 
-Built against rules ref: `5812d78c12ab819b9b1a11a9936693bb836594f6`
+Built against rules ref: `d87e1c6cbacb3637df82264b8e50d04c03767be4`
