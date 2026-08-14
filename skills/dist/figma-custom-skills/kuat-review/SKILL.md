@@ -113,4 +113,4 @@ Include the version stamp: `Kuat review skill vX.Y.Z · <date>`.
   this skill checks against; load alongside it.
 - **kuat-create** — routes fixes for anything this skill finds.
 
-<!-- kuat-skill-bundle: kuat-review v1.0.0 rules-ref:5812d78c12ab built:2026-08-14 -->
+<!-- kuat-skill-bundle: kuat-review v1.0.0 rules-ref:d87e1c6cbacb built:2026-08-14 -->
