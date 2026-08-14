@@ -81,7 +81,7 @@ Code examples for using Kuat Design System colors in Vue.
 
 ```vue
 <template>
-  <div class="bg-card text-card-foreground border-border rounded-lg p-4">
+  <div class="bg-card text-card-foreground border-border rounded-none p-4">
     Card content
   </div>
 </template>

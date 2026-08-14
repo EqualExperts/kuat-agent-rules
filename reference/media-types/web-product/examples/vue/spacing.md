@@ -11,18 +11,18 @@ Code examples for using Kuat Design System spacing in Vue.
 ```vue
 <template>
   <!-- Standard card padding -->
-  <div class="bg-card border border-border rounded-lg p-6">
+  <div class="bg-card border border-border rounded-none p-6">
     <h3>Card Title</h3>
     <p>Card content</p>
   </div>
 
   <!-- Small card -->
-  <div class="bg-card border border-border rounded-lg p-4">
+  <div class="bg-card border border-border rounded-none p-4">
     Compact card
   </div>
 
   <!-- Large card -->
-  <div class="bg-card border border-border rounded-lg p-8">
+  <div class="bg-card border border-border rounded-none p-8">
     Spacious card
   </div>
 </template>

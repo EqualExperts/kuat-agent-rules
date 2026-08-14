@@ -73,7 +73,7 @@ Code examples for using Kuat Design System colors in React.
 ## Cards
 
 ```tsx
-<div className="bg-card text-card-foreground border-border rounded-lg p-4">
+<div className="bg-card text-card-foreground border-border rounded-none p-4">
   Card content
 </div>
 ```
