@@ -19,6 +19,15 @@ This directory is staged in `kuat-agent-docs` for testing; it may be extracted t
 | **create-web-app** | [create-web-app/](./create-web-app/) | Building product UI (forms, dashboards, app screens) as code |
 | **review-web-app** | [review-web-app/](./review-web-app/) | Auditing product UI |
 | **create-design** | [create-design/](./create-design/) | New design mockups/concepts — decides single vs. multiple, fidelity, and Figma vs. Claude Design |
+> **Deprecated (Figma AI custom skills use-case only):** `kuat-figma-design`, `kuat-figma-prototype`,
+> `kuat-figma-review-design`, `kuat-figma-make`, `kuat-figma-review-make` below still reference
+> `{RULES_DIR}` in their bundled bodies, which Figma AI's native custom-skills runtime (no network,
+> no shell) cannot resolve — see [figma-custom-skills.md](./figma-custom-skills.md) for the
+> replacement domain-split release (`kuat-create`, `kuat-tokens`, `kuat-composition`,
+> `kuat-patterns`, `kuat-components`, `kuat-review` — fully self-contained). These five rows remain
+> valid for filesystem/connector-backed Figma agent setups that *can* resolve `{RULES_DIR}`; they
+> are not deprecated for that use case, only for Figma's native custom-skills upload path.
+
 | **kuat-figma-design** | [kuat-figma-design/](./kuat-figma-design/) | Design screens/components in a Figma Design file — ideation, craft, and system-compliance gates (absorbs the old figma-build-intake) |
 | **kuat-figma-prototype** | [kuat-figma-prototype/](./kuat-figma-prototype/) | Wire Figma screens into a clickable flow-first prototype |
 | **kuat-figma-review-design** | [kuat-figma-review-design/](./kuat-figma-review-design/) | Review an existing Figma design — bindings, brand, accessibility, craft |
