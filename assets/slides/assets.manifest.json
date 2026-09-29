@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "phase": "4S",
-  "description": "Studio slide asset pack — the genuine source-of-truth for kuat-studio. The slides equivalent of web's component library: skills BUILD FROM and COMPARE AGAINST these assets; they never improvise or recreate them.",
+  "description": "Studio slide asset pack — the genuine source-of-truth for ee-design-system-studio. The slides equivalent of web's component library: skills BUILD FROM and COMPARE AGAINST these assets; they never improvise or recreate them.",
   "generatedBy": "assets/slides/prep-master.py (master + fonts) + manual logo/layout curation (Phase 4S)",
   "master": {
     "id": "ee-master-2026",

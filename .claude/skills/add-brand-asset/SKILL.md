@@ -62,7 +62,7 @@ The pack currently declares `photography.available: false`, and both slide skill
 npm run build:plugins && npm run verify:plugins   # asset manifest resolves (N refs); master ≤ 30 MB
 ```
 
-Confirm the new file is bundled into the kuat-studio payload and the manifest reference resolves.
+Confirm the new file is bundled into the ee-design-system-studio payload and the manifest reference resolves.
 Log the addition + provenance in [`docs/migration/LOG.md`](../../../docs/migration/LOG.md).
 
 ## Related

@@ -1,6 +1,6 @@
 # Studio asset pack
 
-The genuine brand source-of-truth for **kuat-studio** — the slides equivalent of web's
+The genuine brand source-of-truth for **ee-design-system-studio** — the slides equivalent of web's
 component library (kuat-mono). The Phase-4 pilot failed because studio had no such pack: the
 skills could only *approximate* the brand and reviews could only check *plausibility*, so a
 hand-drawn `[E]` logo passed review. This pack fixes that root cause.
@@ -42,8 +42,8 @@ drop the embedded fonts).
 
 ## Bundling
 
-`skills/scripts/build-plugin.mjs` copies `assets/` into the **kuat-studio** payload only.
-`kuat-build` ships no asset pack. `skills/scripts/verify-plugins.mjs` checks the master + manifest
+`skills/scripts/build-plugin.mjs` copies `assets/` into the **ee-design-system-studio** payload only.
+`ee-design-system-build` ships no asset pack. `skills/scripts/verify-plugins.mjs` checks the master + manifest
 resolve in the payload.
 
 ## Fonts

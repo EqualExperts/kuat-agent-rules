@@ -116,4 +116,4 @@ Two passes, in order, neither optional:
   step above where it's needed.
 - **ee-figma-review** — for checking existing work instead of building new work.
 
-<!-- kuat-skill-bundle: ee-figma-create v1.0.0 rules-ref:5a4f168e0fb1 built:2026-09-29 -->
+<!-- kuat-skill-bundle: ee-figma-create v1.0.0 rules-ref:afbf8985ba4a built:2026-09-29 -->

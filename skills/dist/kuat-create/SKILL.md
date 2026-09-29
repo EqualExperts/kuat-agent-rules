@@ -233,4 +233,4 @@ Run the activity skill's delivery checklist before handoff (e.g. the slides chec
 - Rules standards: `{RULES_DIR}` — [kuat-agent-docs](https://github.com/equalexperts/kuat-agent-docs)
 - Bundle manifest: compare `RULES_REF` to `dist/manifest.json` → `rules.builtAtRef`
 
-<!-- kuat-skill-bundle: kuat-create v1.0.0 rules-ref:5a4f168e0fb1 built:2026-09-29 -->
+<!-- kuat-skill-bundle: kuat-create v1.0.0 rules-ref:afbf8985ba4a built:2026-09-29 -->

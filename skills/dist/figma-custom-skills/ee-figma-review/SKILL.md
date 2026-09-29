@@ -113,4 +113,4 @@ Include the version stamp: `Kuat review skill vX.Y.Z · <date>`.
   this skill checks against; load alongside it.
 - **ee-figma-create** — routes fixes for anything this skill finds.
 
-<!-- kuat-skill-bundle: ee-figma-review v1.0.0 rules-ref:5a4f168e0fb1 built:2026-09-29 -->
+<!-- kuat-skill-bundle: ee-figma-review v1.0.0 rules-ref:afbf8985ba4a built:2026-09-29 -->

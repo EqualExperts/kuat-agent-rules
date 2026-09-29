@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Template-prep: turn the raw "2026 EE branded master slides" export into the
-slimmed, brand-correct master that ships in the kuat-studio asset pack.
+slimmed, brand-correct master that ships in the ee-design-system-studio asset pack.
 
 We operate **directly on the OOXML package** (zipfile + targeted text edits),
 NOT via python-pptx. python-pptx does not model `p:embeddedFontLst`, and a
