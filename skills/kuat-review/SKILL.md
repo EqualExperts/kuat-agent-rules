@@ -1,6 +1,6 @@
 ---
 name: kuat-review
-description: EE design system (Kuat) — review Equal Experts branded work against the EE design system and brand rules — slides, web UI, marketing, graphics or photography, for brand, accessibility or product UX. Use when auditing or checking whether something is on-brand for Equal Experts. Always loads the latest EE rules before reviewing.
+description: "EE design system (Kuat) — review Equal Experts branded work against the EE design system and brand rules: slides, web UI, marketing, graphics or photography, for brand, accessibility or product UX. Use when auditing or checking whether something is on-brand for Equal Experts. Always loads the latest EE rules before reviewing."
 ---
 
 # Equal Experts brand review

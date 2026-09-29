@@ -1,6 +1,6 @@
 ---
 name: kuat-figma-prototype
-description: EE design system (Kuat) in Figma — turn Figma screens into a clickable prototype of a user flow. Defines the flow, checks every step has a screen and state, wires connections with sensible triggers and restrained animation, then checks the flow hangs together. Use when asked for a prototype, clickable flow, walkthrough or "make it interactive" in Figma for Equal Experts work. Not for designing screens (kuat-figma-design), reviews (kuat-figma-review-design) or Figma Make (kuat-figma-make).
+description: "EE design system (Kuat) in Figma — turn Figma screens into a clickable prototype of a user flow. Defines the flow, checks every step has a screen and state, wires connections with sensible triggers and restrained animation, then checks the flow hangs together. Use when asked for a prototype, clickable flow, walkthrough or \"make it interactive\" in Figma for Equal Experts work. Not for designing screens (kuat-figma-design), reviews (kuat-figma-review-design) or Figma Make (kuat-figma-make)."
 ---
 
 # EE design system: Figma prototype (Kuat)

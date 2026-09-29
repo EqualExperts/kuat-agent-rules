@@ -5,7 +5,7 @@ description: Label and prune the PRESENTATION / SLIDE-DECK master's slide layout
 
 # Curate the slide-deck master layout map
 
-> **Slides only.** "Layouts" here = the slide layouts inside the kuat-studio presentation master
+> **Slides only.** "Layouts" here = the slide layouts inside the ee-design-system-studio presentation master
 > (`assets/slides/ee-master-2026.pptx`). This is not about web page layouts.
 
 The studio master ships **65 layouts**; only four are labelled in

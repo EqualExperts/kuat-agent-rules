@@ -1,51 +1,51 @@
 {
   "version": "1.0.0",
-  "builtAt": "2026-09-29T12:27:14.897Z",
+  "builtAt": "2026-09-29T14:36:58.791Z",
   "rules": {
     "repo": "equalexperts/kuat-agent-docs",
     "loadingPath": "reference/README.md",
-    "builtAtRef": "a9880de24f6dd54b8cea63e80a95a4f85994dbd8"
+    "builtAtRef": "afbf8985ba4aad86769fee6d106d59f4e15c4f15"
   },
   "skills": {
     "kuat-review": {
       "file": "kuat-review/SKILL.md",
-      "sha256": "140288ecd07d07d2f48eaf02d758223afbb0acfbc80d498d00ad65187a0165ba"
+      "sha256": "3f4203129f8d4caa84c0577f3bcc466b633fbe41b24da1a829ea9da673d919c5"
     },
     "kuat-create": {
       "file": "kuat-create/SKILL.md",
-      "sha256": "b801e029b1309280a66a516f9025bc5080724e47097a01f0f16d7bef9d33b579"
+      "sha256": "d407358ccda4cc74d3a5c4ecca21bb850ee7e794a98647d0fecdecf8e3eba35f"
     }
   },
   "figmaCustomSkills": {
-    "kuat-create": {
-      "file": "figma-custom-skills/kuat-create/SKILL.md",
-      "sha256": "49af63addb32f208f4f5872f2eb132a490928c3c6dab612eb48ce8639ad22108",
-      "chars": 7179
+    "ee-figma-create": {
+      "file": "figma-custom-skills/ee-figma-create/SKILL.md",
+      "sha256": "dc9ee9f6e9cf0078dcd9c42ab18d4a01e4d92132751496ac9df863e3b2cbf64f",
+      "chars": 7200
     },
     "kuat-tokens": {
       "file": "figma-custom-skills/kuat-tokens/SKILL.md",
-      "sha256": "902a968738e544377961ce8de40191b28e4a328ca3bc1003c51fe4ad3a08ea3f",
-      "chars": 11381
+      "sha256": "4813f2199d8f09fe2829690b2862e699301aa6c7326b6825911c393347ff992e",
+      "chars": 12990
     },
     "kuat-composition": {
       "file": "figma-custom-skills/kuat-composition/SKILL.md",
-      "sha256": "ae85df957dfc54b0cad06d51913eafb4712dd3324af8a53cc849dfcced3b7b49",
-      "chars": 11169
+      "sha256": "4fb4fc1090998469bbca0bbc3fac305eae53d9ea4cafb30efee6392e54183ddc",
+      "chars": 11174
     },
     "kuat-patterns": {
       "file": "figma-custom-skills/kuat-patterns/SKILL.md",
-      "sha256": "92234a78f5a522a27915d3221ae3f396412eb8caa1bf37e7bbe4f4d403cd3bc5",
-      "chars": 11524
+      "sha256": "15ded1f92a458c45e0c060eca0489a01ca7060d30e0d8f934313d813a6cdc47a",
+      "chars": 11530
     },
     "kuat-components": {
       "file": "figma-custom-skills/kuat-components/SKILL.md",
-      "sha256": "1c441f82e792784637b7a0ff3aed8e732607a325a44656b0ca3faa938733547d",
-      "chars": 8730
+      "sha256": "de6fa25e6a9f049ec72eb59f945c66e016758c26283fdeb7def3f8bb127cdad1",
+      "chars": 9342
     },
-    "kuat-review": {
-      "file": "figma-custom-skills/kuat-review/SKILL.md",
-      "sha256": "7e511340fa2e301e1ac637cff29b8a40374e4fc490f57752a4558bd01c2bdff8",
-      "chars": 6532
+    "ee-figma-review": {
+      "file": "figma-custom-skills/ee-figma-review/SKILL.md",
+      "sha256": "4a7807b3ffe3713f874218753ceef6f9395494dfa45169fb092bd7797b303c3e",
+      "chars": 6549
     }
   },
   "deprecated": {
@@ -61,7 +61,7 @@
   "ensureRulesScript": "scripts/ensure-rules.sh",
   "usage": {
     "uploadOnlyTools": "Upload the dist/<skill>/SKILL.md files you need (each self-contained). Claude Projects: kuat-create/kuat-review.",
-    "figmaCustomSkills": "Install dist/figma-custom-skills/<skill>/SKILL.md via Figma AI's create_custom_skill (name/description/body) — fully self-contained, no {RULES_DIR}, no network required at runtime. Install all six: kuat-create, kuat-tokens, kuat-composition, kuat-patterns, kuat-components, kuat-review.",
+    "figmaCustomSkills": "Install dist/figma-custom-skills/<skill>/SKILL.md via Figma AI's create_custom_skill (name/description/body) — fully self-contained, no {RULES_DIR}, no network required at runtime. Install all six: ee-figma-create, kuat-tokens, kuat-composition, kuat-patterns, kuat-components, ee-figma-review.",
     "filesystemTools": "Symlink dist/kuat-review or source skills/kuat-review; run dist/scripts/ensure-rules.sh."
   }
 }

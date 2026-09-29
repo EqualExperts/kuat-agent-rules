@@ -1,6 +1,6 @@
 ---
 name: kuat-patterns
-description: EE design system (Kuat) patterns — page and scenario patterns for Equal Experts product UI (dashboards, forms, sign-in, detail pages, browse-and-filter, docs) and marketing pages, with layout shells, components and density defaults. Use when building or reviewing a specific page type in Figma, Figma Make or code with the EE design system. Load with the composition and components skills.
+description: "EE design system (Kuat) patterns — page and scenario patterns for Equal Experts product UI (dashboards, forms, sign-in, detail pages, browse-and-filter, docs) and marketing pages, with layout shells, components and density defaults. Use when building or reviewing a specific page type in Figma, Figma Make or code with the EE design system. Load with the composition and components skills."
 ---
 
 # EE design system patterns (Kuat)
@@ -158,6 +158,6 @@ vX.Y.Z · <date>`, in the deliverable footer or the review's References section.
 - **kuat-components** — which named component fills each pattern's slots (metric card, table,
   status indicator, etc.).
 - **kuat-tokens** — token binding once the pattern and shell are chosen.
-- **kuat-create** — the orchestrator; load this skill alongside it for any build or review task.
+- **ee-figma-create** — the orchestrator; load this skill alongside it for any build or review task.
 
 <!-- kuat-skill-bundle: kuat-patterns v1.0.0 -->

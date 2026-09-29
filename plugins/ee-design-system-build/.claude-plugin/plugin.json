@@ -1,0 +1,18 @@
+{
+  "name": "ee-design-system-build",
+  "displayName": "EE Design System: Build (Kuat)",
+  "version": "1.0.0",
+  "description": "EE design system (Kuat) — build and review Equal Experts web application UI (forms, dashboards, app screens, product flows) and design in Figma, on brand and accessible. For engineers in Claude Code / Cowork.",
+  "author": {
+    "name": "Equal Experts",
+    "url": "https://www.equalexperts.com"
+  },
+  "homepage": "https://www.equalexperts.com",
+  "license": "UNLICENSED",
+  "keywords": [
+    "equal-experts",
+    "brand",
+    "design-system",
+    "kuat"
+  ]
+}

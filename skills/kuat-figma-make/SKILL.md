@@ -1,6 +1,6 @@
 ---
 name: kuat-figma-make
-description: EE design system (Kuat) in Figma Make — generate Equal Experts product UI in Figma Make with the real EE component library (`@equal-experts/kuat-react` via the Kuat Make kit), real EE design tokens and composition checks. Use for any prompt-to-build work in a Figma Make file that should follow the EE design system. Makes sure code imports real EE components, not lookalikes. Not for Figma Design files (kuat-figma-design), reviewing Make output (kuat-figma-review-make) or code outside Make (create-web-app).
+description: "EE design system (Kuat) in Figma Make — generate Equal Experts product UI in Figma Make with the real EE component library (`@equal-experts/kuat-react` via the Kuat Make kit), real EE design tokens and composition checks. Use for any prompt-to-build work in a Figma Make file that should follow the EE design system. Makes sure code imports real EE components, not lookalikes. Not for Figma Design files (kuat-figma-design), reviewing Make output (kuat-figma-review-make) or code outside Make (create-web-app)."
 ---
 
 # EE design system: Figma Make build (Kuat)

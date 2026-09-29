@@ -1,6 +1,6 @@
 ---
 name: kuat-composition
-description: EE design system (Kuat) composition — layout and craft rules for Equal Experts design — focal hierarchy, density by content type, scale contrast, whitespace, restraint, and checks that catch a compliant but generic screen. Use for any EE Figma design, review or Figma Make build that needs layout and hierarchy judgment, not just correct tokens. Load with the tokens and patterns skills.
+description: "EE design system (Kuat) composition — layout and craft rules for Equal Experts design: focal hierarchy, density by content type, scale contrast, whitespace, restraint, and checks that catch a compliant but generic screen. Use for any EE Figma design, review or Figma Make build that needs layout and hierarchy judgment, not just correct tokens. Load with the tokens and patterns skills."
 ---
 
 # EE design system composition (Kuat)
@@ -171,6 +171,6 @@ vX.Y.Z · <date>`, in the deliverable footer or the review's References section.
 - **kuat-tokens** — the spacing/type-scale values these principles spend; load together.
 - **kuat-patterns** — per-medium specialisation of density and focal-hierarchy rules.
 - **kuat-components** — which component carries a given piece of hierarchy.
-- **kuat-create** — the orchestrator; load this skill alongside it for any build or review task.
+- **ee-figma-create** — the orchestrator; load this skill alongside it for any build or review task.
 
 <!-- kuat-skill-bundle: kuat-composition v1.0.0 -->

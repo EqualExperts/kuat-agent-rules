@@ -1,11 +1,11 @@
 ---
 name: prep-slides-master
-description: Re-slim and brand-fix the Equal Experts PRESENTATION / SLIDE-DECK master template (the .pptx behind kuat-studio) when the raw Google Slides master changes. Slides-only. Use when a new "2026 EE branded master slides" export needs turning into the shipped assets/slides/ee-master-2026.pptx — strips example slides + orphan media, sets the theme font to Lexend, embeds Lora + JetBrains Mono, removes Montserrat, and self-checks. Contributor-only; repo-local. NOT for building a deck (that's create-presentation), and NOT for web/marketing/imagery.
+description: Re-slim and brand-fix the Equal Experts PRESENTATION / SLIDE-DECK master template (the .pptx behind ee-design-system-studio) when the raw Google Slides master changes. Slides-only. Use when a new "2026 EE branded master slides" export needs turning into the shipped assets/slides/ee-master-2026.pptx — strips example slides + orphan media, sets the theme font to Lexend, embeds Lora + JetBrains Mono, removes Montserrat, and self-checks. Contributor-only; repo-local. NOT for building a deck (that's create-presentation), and NOT for web/marketing/imagery.
 ---
 
 # Prep the studio slide-deck master
 
-> **Slides only.** This skill maintains the **presentation master** (`.pptx`) that the kuat-studio
+> **Slides only.** This skill maintains the **presentation master** (`.pptx`) that the ee-design-system-studio
 > slide skills build from. It has nothing to do with web, marketing, or imagery.
 
 The studio asset pack ships **one** genuine master, `assets/slides/ee-master-2026.pptx`, that

@@ -1,0 +1,18 @@
+{
+  "plugin": "ee-design-system-build",
+  "version": "1.0.0",
+  "skills": [
+    "create-web-app",
+    "review-web-app",
+    "create-design",
+    "kuat-figma-design",
+    "kuat-figma-prototype",
+    "kuat-figma-review-design",
+    "mockup-build-intake"
+  ],
+  "reference": {
+    "repo": "EqualExperts/kuat-agent-rules",
+    "builtAtRef": "afbf8985ba4aad86769fee6d106d59f4e15c4f15"
+  },
+  "builtAt": "2026-09-29T14:36:58.987Z"
+}

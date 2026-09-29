@@ -43,8 +43,8 @@ const LEGACY_SKILLS = [
   { id: "kuat-create", source: "kuat-create/SKILL.md" },
 ];
 
-// DEPRECATED — superseded by the figma-custom-skills domain split below (kuat-create,
-// kuat-tokens, kuat-composition, kuat-patterns, kuat-components, kuat-review under
+// DEPRECATED — superseded by the figma-custom-skills domain split below (ee-figma-create,
+// kuat-tokens, kuat-composition, kuat-patterns, kuat-components, ee-figma-review under
 // dist/figma-custom-skills/). Kept here, commented out of the active build, only so the
 // bundler script itself still documents what these were and why they were retired: every one
 // of them still carries {RULES_DIR} link placeholders in its bundled body, which Figma's custom
@@ -59,15 +59,15 @@ const DEPRECATED_FIGMA_WORKFLOW_SKILLS = [
 ];
 
 // Figma AI custom skills — domain split, fully self-contained, no {RULES_DIR}.
-// Source folder names differ from the shipped skill `name` for kuat-create / kuat-review to
-// avoid colliding with the unrelated legacy Claude-Code sources of the same name above.
+// Source folders match the shipped skill `name`. The orchestrator and review skills are named
+// ee-figma-create / ee-figma-review so they don't collide with the legacy kuat-create / kuat-review above.
 const FIGMA_CUSTOM_SKILLS = [
-  { id: "kuat-create", source: "kuat-create-figma/SKILL.md" },
+  { id: "ee-figma-create", source: "ee-figma-create/SKILL.md" },
   { id: "kuat-tokens", source: "kuat-tokens/SKILL.md" },
   { id: "kuat-composition", source: "kuat-composition/SKILL.md" },
   { id: "kuat-patterns", source: "kuat-patterns/SKILL.md" },
   { id: "kuat-components", source: "kuat-components/SKILL.md" },
-  { id: "kuat-review", source: "kuat-review-figma/SKILL.md" },
+  { id: "ee-figma-review", source: "ee-figma-review/SKILL.md" },
 ];
 
 const SKILLS = [
@@ -398,7 +398,7 @@ function main() {
       figmaCustomSkills:
         "Install dist/figma-custom-skills/<skill>/SKILL.md via Figma AI's create_custom_skill (name/description/body) " +
         "— fully self-contained, no {RULES_DIR}, no network required at runtime. Install all six: " +
-        "kuat-create, kuat-tokens, kuat-composition, kuat-patterns, kuat-components, kuat-review.",
+        "ee-figma-create, kuat-tokens, kuat-composition, kuat-patterns, kuat-components, ee-figma-review.",
       filesystemTools:
         "Symlink dist/kuat-review or source skills/kuat-review; run dist/scripts/ensure-rules.sh.",
     },
@@ -423,14 +423,12 @@ Fully self-contained — no \`{RULES_DIR}\`, no network access required. Install
 | Artifact | Loads for |
 |----------|-----------|
 ${FIGMA_CUSTOM_SKILLS.map(({ id }) => `| [figma-custom-skills/${id}/SKILL.md](./figma-custom-skills/${id}/SKILL.md) | ${
-  id === "kuat-create"
+  id === "ee-figma-create"
     ? "Orchestrator — start here, load siblings per step"
-    : id === "kuat-review"
+    : id === "ee-figma-review"
       ? "Reviewing existing Figma/Figma Make work"
       : `${id.replace("kuat-", "")} rules`
-}${", "}see \`skills/${
-  { "kuat-create": "kuat-create-figma", "kuat-review": "kuat-review-figma" }[id] ?? id
-}/SKILL.md\` for source |`).join("\n")}
+}${", "}see \`skills/${id}/SKILL.md\` for source |`).join("\n")}
 
 ## Other consumption surfaces
 

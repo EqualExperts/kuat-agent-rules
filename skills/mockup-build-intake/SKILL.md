@@ -1,6 +1,6 @@
 ---
 name: mockup-build-intake
-description: EE design system (Kuat) — pre-flight before building an inline mockup in Claude (show_widget / visualize). Confirms whether the work uses the EE design system or another client's system, sets the fidelity bar, and pulls real EE design tokens and component specs instead of generic defaults. Use before any quick Equal Experts UI mockup, wireframe or visual in chat.
+description: "EE design system (Kuat) — pre-flight before building an inline mockup in Claude (show_widget / visualize). Confirms whether the work uses the EE design system or another client's system, sets the fidelity bar, and pulls real EE design tokens and component specs instead of generic defaults. Use before any quick Equal Experts UI mockup, wireframe or visual in chat."
 ---
 
 # Inline-mockup build intake (Claude Design)

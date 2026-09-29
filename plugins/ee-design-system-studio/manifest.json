@@ -1,0 +1,14 @@
+{
+  "plugin": "ee-design-system-studio",
+  "version": "1.0.0",
+  "skills": [
+    "create-presentation",
+    "review-presentation",
+    "create-imagery"
+  ],
+  "reference": {
+    "repo": "EqualExperts/kuat-agent-rules",
+    "builtAtRef": "afbf8985ba4aad86769fee6d106d59f4e15c4f15"
+  },
+  "builtAt": "2026-09-29T14:36:59.051Z"
+}

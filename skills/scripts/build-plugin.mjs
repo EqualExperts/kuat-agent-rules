@@ -53,7 +53,7 @@ const ALL_SKILLS = [
 
 const BUNDLES = [
   {
-    name: "kuat-build",
+    name: "ee-design-system-build",
     displayName: "EE Design System: Build (Kuat)",
     description:
       "EE design system (Kuat) — build and review Equal Experts web application UI (forms, dashboards, app screens, product flows) and design in Figma, on brand and accessible. For engineers in Claude Code / Cowork.",
@@ -72,12 +72,12 @@ const BUNDLES = [
     ],
   },
   {
-    name: "kuat-studio",
+    name: "ee-design-system-studio",
     displayName: "EE Design System: Studio (Kuat)",
     description:
       "Equal Experts (EE) brand — create and review EE slide decks, presentations and visual assets (icons, infographics, illustrations, photography). Part of the EE design system (Kuat). On brand, no setup required.",
     skills: ["create-presentation", "review-presentation", "create-imagery"],
-    assets: true, // bundle the slides asset pack (master + manifest + logo + fonts); kuat-build gets none
+    assets: true, // bundle the slides asset pack (master + manifest + logo + fonts); ee-design-system-build gets none
 
     commands: [
       { file: "presentation.md", description: "Create an EE slide deck", skill: "create-presentation", verb: "create" },

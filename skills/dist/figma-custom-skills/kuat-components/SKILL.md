@@ -1,6 +1,6 @@
 ---
 name: kuat-components
-description: EE design system (Kuat) components — how to pick and configure Equal Experts components — resolution order (blocks, custom components, shadcn primitives, custom build), tricky choices (Card vs ContentCard, Badge vs StatusBadge/Tag/CounterBadge), slots and state coverage. Use whenever a Figma design, Figma Make build or code needs an EE component instead of inventing one. Load with the tokens and patterns skills.
+description: "EE design system (Kuat) components — how to pick and configure Equal Experts components: resolution order (blocks, custom components, shadcn primitives, custom build), tricky choices (Card vs ContentCard, Badge vs StatusBadge/Tag/CounterBadge), slots and state coverage. Use whenever a Figma design, Figma Make build or code needs an EE component instead of inventing one. Load with the tokens and patterns skills."
 ---
 
 # EE design system components (Kuat)
@@ -9,7 +9,17 @@ In the EE design system (Kuat), never draw a hand-made lookalike of something th
 default (a raw framework primitive's default styling) is correct without checking for a themed
 Kuat override first. This skill is the selection logic; the actual component instances, variants,
 and their bound tokens live in the Figma library or the code component package — discover them via
-`search_design_system` / Code Connect, don't recreate them from memory.
+`assistant_component_search` (for Figma components) or Code Connect (for code), don't recreate
+them from memory.
+
+## Figma AI tool mapping for component discovery
+
+| Need | Tool | Notes |
+|---|---|---|
+| Find a component by name or role | `assistant_component_search` | Pass enabled library keys; returns asset IDs, names, guidelines |
+| Find a local file component | `assistant_local_component_search` | Include `lk-local` in library keys |
+| Search for a variable to bind after choosing a component | `search_variables` | See kuat-tokens |
+| Search for a text/paint style | `search_styles` | See kuat-tokens |
 
 ## Resolution priority — check in this order, every time
 
@@ -26,7 +36,7 @@ and their bound tokens live in the Figma library or the code component package �
    variables. Use these for anything that's genuinely a standard control, and rely on the theming
    layer rather than restyling by hand.
 4. **Custom build** — only when none of the above fit, the pattern is genuinely unique to this one
-   build, and you've confirmed via `search_design_system` that nothing existing can be adapted.
+   build, and you've confirmed via `assistant_component_search` that nothing existing can be adapted.
    Custom-built pieces still bind tokens per kuat-tokens; "custom" means custom composition, not
    licence to hardcode values.
 
@@ -38,10 +48,10 @@ already exists for that exact need (see the two named traps below).
 
 - **Generic "card" → the custom content-container component, not the primitive's default card.**
   A primitive UI library's default `Card` often ships with its own unthemed corner radius that
-  conflicts with this system's static-content radius rule (see kuat-tokens). Resolve a generic,
-  non-interactive content container (optional media, category label, title, body, footer) to the
-  design system's own content-card component, not the primitive default — search for it by name
-  before falling back to the primitive.
+  conflicts with this system's static-content radius rule (`semantic/rounded-none` — see
+  kuat-tokens). Resolve a generic, non-interactive content container (optional media, category
+  label, title, body, footer) to the design system's own content-card component, not the primitive
+  default — search `assistant_component_search` for it by name before falling back to the primitive.
 - **Status/count indicators → pick the specific component for the job, not one generic "badge."**
   A single-value, non-interactive per-item status (success/warning/error/info/neutral, one per
   item) is a **status indicator** component. A categorisation label a user can toggle or dismiss,
@@ -100,7 +110,7 @@ assumed later.
 - **Never detach an instance** to work around a missing property or variant — flag the gap (a
   needed variant that doesn't exist) rather than routing around the library by detaching.
 - When a block or component is themed for a specific client's design system rather than Kuat,
-  discover that system's own components live (via `search_design_system` against the active
+  discover that system's own components live (via `assistant_component_search` against the active
   library) rather than carrying over Kuat's own resolution priority or component names — the
   *process* in this skill transfers to other systems; the specific Kuat component names do not.
 
@@ -126,6 +136,6 @@ vX.Y.Z · <date>`, in the deliverable footer or the review's References section.
 - **kuat-patterns** — which components a given page pattern expects, in context.
 - **kuat-composition** — hierarchy and density judgment that decides how a component is sized and
   placed, not just which one to use.
-- **kuat-create** — the orchestrator; load this skill alongside it for any build task.
+- **ee-figma-create** — the orchestrator; load this skill alongside it for any build task.
 
-<!-- kuat-skill-bundle: kuat-components v1.0.0 rules-ref:a9880de24f6d built:2026-09-29 -->
+<!-- kuat-skill-bundle: kuat-components v1.0.0 rules-ref:afbf8985ba4a built:2026-09-29 -->

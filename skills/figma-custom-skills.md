@@ -6,7 +6,7 @@ access and no shell, so `{RULES_DIR}` runtime resolution — which every other b
 still relies on — cannot work there. These six skills inline everything Figma AI needs instead.
 
 Source: `skills/kuat-tokens/`, `skills/kuat-composition/`, `skills/kuat-patterns/`,
-`skills/kuat-components/`, `skills/kuat-create-figma/`, `skills/kuat-review-figma/`.
+`skills/kuat-components/`, `skills/ee-figma-create/`, `skills/ee-figma-review/`.
 Built output: `skills/dist/figma-custom-skills/<name>/SKILL.md` (regenerate with
 `node skills/scripts/bundle-skills.mjs`).
 
@@ -14,18 +14,18 @@ Built output: `skills/dist/figma-custom-skills/<name>/SKILL.md` (regenerate with
 
 | Skill | Contains | Built size |
 |-------|----------|------------|
-| `kuat-create` | Orchestrator — workflow, intake, gates; tells the agent which sibling to load at each step | ~7.2K |
+| `ee-figma-create` | Orchestrator — workflow, intake, gates; tells the agent which sibling to load at each step | ~7.2K |
 | `kuat-tokens` | Semantic token tiers, binding rules by property type (Plugin API calls), fallback policy | ~11.5K |
 | `kuat-composition` | Focal hierarchy, density by content type, scale contrast, restraint, the observer gate | ~11.2K |
 | `kuat-patterns` | Product UI page patterns (dashboard, browse & filter, forms, sign-in, detail page, section hub, feedback, docs) + marketing pages | ~11.7K |
 | `kuat-components` | Resolution priority, named resolution traps, slot patterns, state coverage, instance rules | ~8.8K |
-| `kuat-review` | Review/audit workflow — binding audit, brand/accessibility/craft checks, observer gate, report format | ~6.5K |
+| `ee-figma-review` | Review/audit workflow — binding audit, brand/accessibility/craft checks, observer gate, report format | ~6.5K |
 
 Total: ~57K characters across six skills, each well inside Figma's 65,536-character-per-skill
 limit (validated at build time — the bundler throws if any body exceeds it, or if any body still
 contains a `{RULES_DIR}`/`{RULES_ROOT}` placeholder).
 
-Skills on this surface cannot call each other automatically — `kuat-create` explicitly tells the
+Skills on this surface cannot call each other automatically — `ee-figma-create` explicitly tells the
 agent which sibling skill to load at each workflow step; loading is per-turn and manual.
 
 ## Why this replaces the workflow-based split
@@ -60,8 +60,11 @@ resolve against. This release inlines that content directly into six domain skil
 3. Read `name`, `description`, and `body` for each skill straight out of the frontmatter and body
    of `skills/dist/figma-custom-skills/<name>/SKILL.md` — no further editing needed, they're
    upload-ready.
-4. Install all six. `kuat-create` is the entry point but expects its siblings to be installed
+4. Install all six. `ee-figma-create` is the entry point but expects its siblings to be installed
    alongside it, not embedded in it.
+5. Upgrading from the first release? Remove the old `kuat-create` and `kuat-review` skills first — they
+   are now `ee-figma-create` and `ee-figma-review`, and an old copy would clash with the legacy
+   Claude Projects skills of the same name.
 
 ## Regenerating after a reference change
 
@@ -69,6 +72,5 @@ Content here is hand-authored from `reference/design-language/`, `reference/medi
 shared workflow files under `skills/_shared/` and `skills/install/make-kit-guidelines/craft.md` —
 it is not currently auto-generated from those files by the bundler (unlike the legacy `{RULES_DIR}`
 bundles, which just link out to them). When a reference file changes in a way that affects one of
-these six skills, update the matching `skills/<name>/SKILL.md` (or `kuat-create-figma` /
-`kuat-review-figma`) source by hand, then re-run `node skills/scripts/bundle-skills.mjs` and
+these six skills, update the matching `skills/<name>/SKILL.md` source by hand, then re-run `node skills/scripts/bundle-skills.mjs` and
 re-install the changed skill(s) via `edit_custom_skill`.

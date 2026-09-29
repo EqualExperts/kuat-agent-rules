@@ -1,6 +1,6 @@
 ---
 name: kuat-review
-description: EE design system (Kuat) — review Equal Experts branded work against the EE design system and brand rules — slides, web UI, marketing, graphics or photography, for brand, accessibility or product UX. Use when auditing or checking whether something is on-brand for Equal Experts. Always loads the latest EE rules before reviewing.
+description: "EE design system (Kuat) — review Equal Experts branded work against the EE design system and brand rules: slides, web UI, marketing, graphics or photography, for brand, accessibility or product UX. Use when auditing or checking whether something is on-brand for Equal Experts. Always loads the latest EE rules before reviewing."
 ---
 
 # Equal Experts brand review
@@ -309,4 +309,4 @@ Ask the user to select one format before producing findings. Default to `full_re
 - Rules standards: `{RULES_DIR}` — [kuat-agent-docs](https://github.com/equalexperts/kuat-agent-docs)
 - Bundle manifest: compare `RULES_REF` to `dist/manifest.json` → `rules.builtAtRef`
 
-<!-- kuat-skill-bundle: kuat-review v1.0.0 rules-ref:a9880de24f6d built:2026-09-29 -->
+<!-- kuat-skill-bundle: kuat-review v1.0.0 rules-ref:afbf8985ba4a built:2026-09-29 -->
