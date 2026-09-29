@@ -40,6 +40,7 @@ Custom components unique to the design system:
 - `Tag` - Categorisation pill (nine colours, zero-to-many per item, toggle or dismiss interaction)
 - `TagGroup` - Accessibility wrapper for a set of Tags (group role, label, dismissal announcements)
 - `CounterBadge` - Numeric count pill ("99+" overflow, overlays icons/avatars)
+- `ContentCard` - Static, non-interactive content container (badge + category + title, optional media/body/footer) — resolve here for a generic "card," not shadcn's `Card`
 - Other components not available in shadcn
 
 **Use when:** The component doesn't exist in shadcn but is needed across multiple applications.
@@ -47,8 +48,9 @@ Custom components unique to the design system:
 ### shadcn Components
 
 Standard UI components installed via CLI:
-- Button, Dialog, Dropdown, Card, etc.
+- Button, Dialog, Dropdown, etc.
 - Themed automatically via kuat-core CSS variables
+- **Exception: `Card`.** There is no themed Kuat override for shadcn's `Card` (it defaults to `rounded-xl`, which conflicts with Kuat's static-content radius rule). Use the Kuat Component `ContentCard` instead — see [component-registry.md](./component-registry.md).
 
 **Use when:**
 - The component exists in shadcn

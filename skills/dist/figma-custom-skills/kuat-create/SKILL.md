@@ -1,11 +1,11 @@
 ---
 name: kuat-create
-description: Orchestrator for building Equal Experts / Kuat design work in Figma, Figma Make, or Figma prototypes — screens, components, views, or full flows, from ideation through a gated, design-system-compliant build. Use for any request that creates or updates design work for Equal Experts/Kuat inside a Figma surface. Steps through intake, composition, token/component resolution, and quality gates, and tells you which sibling skill to load for each rule set. Not for reviewing existing work (kuat-review) or code outside Figma.
+description: EE design system (Kuat) in Figma — start here to build Equal Experts design work in Figma, Figma Make or a Figma prototype — screens, components, views or full flows. Use for any request to create or update EE design work in a Figma surface. Runs intake, composition, token and component choices, and quality gates, and says which sibling skill to load. Not for reviewing existing work or code outside Figma.
 ---
 
-# Kuat create
+# EE design system: create in Figma (Kuat)
 
-Build design work that is **considered, not just compliant**. Two failure modes to design out, in
+Build design work with the EE design system (Kuat) that is **considered, not just compliant**. Two failure modes to design out, in
 order: a screen that ignores the design system (wrong tokens, lookalike components), and a screen
 that satisfies the design system but reads as generic anyway — correct and flat. This skill
 sequences the work; the sibling skills below hold the actual rule content. Load each sibling skill
@@ -116,4 +116,4 @@ Two passes, in order, neither optional:
   step above where it's needed.
 - **kuat-review** — for checking existing work instead of building new work.
 
-<!-- kuat-skill-bundle: kuat-create v1.0.0 rules-ref:5812d78c12ab built:2026-08-14 -->
+<!-- kuat-skill-bundle: kuat-create v1.0.0 rules-ref:a9880de24f6d built:2026-09-29 -->

@@ -1,6 +1,6 @@
 ---
 name: review-presentation
-description: Review an Equal Experts slide deck or presentation for brand and content compliance — audit slides (deck file, PDF export, screenshots, or Figma) against EE layout, typography, photography, and voice rules, AND against the genuine brand assets. Use when checking existing decks. Produces cited findings, not a redesign.
+description: Equal Experts (EE) brand — review an EE slide deck against EE brand guidelines and the EE design system (Kuat) — layout, typography, photography, voice and genuine brand assets. Use when checking a deck file, PDF, screenshots or Figma slides for Equal Experts brand compliance. Produces cited findings, not a redesign.
 ---
 
 # Review EE presentations

@@ -1,6 +1,6 @@
 ---
 name: review-web-app
-description: Review Equal Experts web application UI for brand, accessibility, and product-UX compliance — audit a form, dashboard, app screen, or product flow against EE rules. Use when checking existing product UI (code, Figma, screenshots, URLs). Produces findings, not a redesign. Not for marketing pages or slides.
+description: EE design system (Kuat) — review Equal Experts web app UI against the EE design system — brand, accessibility and product UX. Use when asked to review, audit or check a form, dashboard, app screen or flow (code, Figma, screenshots or URL) for EE design system or Equal Experts brand compliance. Produces findings, not a redesign. Not for marketing pages or slides.
 ---
 
 # Review EE web app UI

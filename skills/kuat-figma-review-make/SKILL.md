@@ -1,11 +1,11 @@
 ---
 name: kuat-figma-review-make
-description: Review Figma Make output — the generated app and its code — for genuine Kuat system usage, brand and accessibility compliance, and composition quality. Use when asked to review, audit, or check something built in Figma Make. Verifies the code imports real @equal-experts/kuat-react components and kuat-core tokens rather than lookalikes. Produces findings with severities, not fixes. Not for Figma Design files (kuat-figma-review-design), code outside Make (review-web-app), or building (kuat-figma-make).
+description: EE design system (Kuat) in Figma Make — review Figma Make output (the app and its code) against the EE design system. Checks it uses the real EE component library (`@equal-experts/kuat-react`) and tokens (`kuat-core`), plus brand, accessibility and composition quality. Use when asked to review, audit or check something built in Figma Make for Equal Experts. Produces findings with severities, not fixes. Not for Figma Design files (kuat-figma-review-design), code outside Make (review-web-app) or building (kuat-figma-make).
 ---
 
-# Kuat Figma Make review
+# EE design system: Figma Make review (Kuat)
 
-Make output is **code**, so review the code, not the preview. The defining failure mode on this
+Make output is **code**, so review the code, not the preview, against the EE design system (Kuat). The defining failure mode on this
 surface is the plausible lookalike: generated JSX that renders a convincing Kuat button while
 importing nothing from `@equal-experts/kuat-react` — visually right today, drifting tomorrow, and
 carrying none of the package's accessibility behaviour. Pixels can't tell you that; imports can.

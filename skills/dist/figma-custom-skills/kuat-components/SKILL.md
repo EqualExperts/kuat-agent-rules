@@ -1,11 +1,11 @@
 ---
 name: kuat-components
-description: Component selection and usage rules for Equal Experts / Kuat design work — resolution priority (blocks vs custom components vs shadcn primitives vs custom build), which component to reach for in ambiguous cases (Card vs ContentCard, Badge vs StatusBadge/Tag/CounterBadge), slot patterns, and state coverage. Use whenever a Figma design, Figma Make generation, or code build needs to pick or configure a component instance rather than invent a new one. Load alongside kuat-tokens (binding once chosen) and kuat-patterns (which components a given page pattern expects).
+description: EE design system (Kuat) components — how to pick and configure Equal Experts components — resolution order (blocks, custom components, shadcn primitives, custom build), tricky choices (Card vs ContentCard, Badge vs StatusBadge/Tag/CounterBadge), slots and state coverage. Use whenever a Figma design, Figma Make build or code needs an EE component instead of inventing one. Load with the tokens and patterns skills.
 ---
 
-# Kuat components
+# EE design system components (Kuat)
 
-Never draw a hand-made lookalike of something the library already has, and never assume a generic
+In the EE design system (Kuat), never draw a hand-made lookalike of something the library already has, and never assume a generic
 default (a raw framework primitive's default styling) is correct without checking for a themed
 Kuat override first. This skill is the selection logic; the actual component instances, variants,
 and their bound tokens live in the Figma library or the code component package — discover them via
@@ -128,4 +128,4 @@ vX.Y.Z · <date>`, in the deliverable footer or the review's References section.
   placed, not just which one to use.
 - **kuat-create** — the orchestrator; load this skill alongside it for any build task.
 
-<!-- kuat-skill-bundle: kuat-components v1.0.0 rules-ref:5812d78c12ab built:2026-08-14 -->
+<!-- kuat-skill-bundle: kuat-components v1.0.0 rules-ref:a9880de24f6d built:2026-09-29 -->

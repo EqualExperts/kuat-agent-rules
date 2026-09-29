@@ -1,11 +1,11 @@
 ---
 name: kuat-figma-make
-description: Generate Equal Experts product UI in Figma Make backed by the real Kuat system — the @equal-experts/kuat-react package via the Kuat Make kit, real semantic tokens, and composition-quality gates. Use for any prompt-to-build work in a Figma Make file (new screens, apps, or edits to Make output). Ensures generated code imports real Kuat components instead of hand-rolled lookalikes. Not for Figma Design files (kuat-figma-design), reviewing Make output (kuat-figma-review-make), or code outside Make (create-web-app).
+description: EE design system (Kuat) in Figma Make — generate Equal Experts product UI in Figma Make with the real EE component library (`@equal-experts/kuat-react` via the Kuat Make kit), real EE design tokens and composition checks. Use for any prompt-to-build work in a Figma Make file that should follow the EE design system. Makes sure code imports real EE components, not lookalikes. Not for Figma Design files (kuat-figma-design), reviewing Make output (kuat-figma-review-make) or code outside Make (create-web-app).
 ---
 
-# Kuat Figma Make build
+# EE design system: Figma Make build (Kuat)
 
-Figma Make generates **working React code** — so "on brand" here means the generated code imports
+Figma Make generates **working React code** — so "on the EE design system (Kuat)" here means the generated code imports
 the real `@equal-experts/kuat-react` components and kuat-core tokens, not that the output merely
 looks Kuat-ish. A pixel-plausible lookalike component is a defect: it drifts from the real system
 the day either changes, and it ships none of the package's accessibility work.

@@ -33,6 +33,20 @@ own skills are invoked. Re-confirm here if that skill wasn't run for some reason
       key) or confirmed absent — before building.
 - [ ] Don't stop once the obvious elements resolve. A partially-resolved list is not a finished
       discovery pass.
+- [ ] **Slot patterns.** For any composition with multiple regions (a content-card's optional
+      media/category/title/body/footer, a page-shell's sidebar → primary nav → secondary nav →
+      account footer, a form field's label → control → helper/error text), identify which slots the
+      scenario actually needs and fill only those — an empty slot is correct when the scenario has
+      nothing for it, not a placeholder, and inventing a slot the component doesn't define is a
+      resolution error, not a customisation.
+- [ ] **State coverage.** Before treating a component instance or screen as finished, confirm the
+      states the scenario needs are represented, not just the populated/default state: empty (any
+      list/table/dashboard that can legitimately have nothing in it), loading (anything arriving
+      asynchronously — skeleton/spinner, not a flash of empty state), error (anything that can fail
+      to load, plus form validation), disabled (any control that can be legitimately unavailable),
+      and focus/hover/active (every interactive component). A build that only shows the populated
+      state for a data-driven surface is incomplete — flag missing states explicitly rather than
+      letting them be silently assumed later.
 
 ## Step 2 — Token binding
 

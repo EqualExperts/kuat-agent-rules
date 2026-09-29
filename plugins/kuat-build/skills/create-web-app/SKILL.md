@@ -1,11 +1,11 @@
 ---
 name: create-web-app
-description: Build or modify Equal Experts web application UI — forms, dashboards, app screens, navigation, settings, tables, product flows. Use when creating product UI (React/Vue/HTML) that should follow EE brand, design tokens, accessibility, and the Kuat component system. Not for marketing pages (use web-marketing reference) or slides.
+description: EE design system (Kuat) — build Equal Experts web app UI in code — forms, dashboards, app screens, navigation, settings, tables and product flows (React/HTML). Use when someone asks for UI that follows the EE design system, Equal Experts brand, EE design tokens or EE components, or mentions Kuat or kuat-react. Covers brand, accessibility and component usage. Not for marketing pages or slides.
 ---
 
 # Create EE web app UI
 
-Build on-brand, accessible Equal Experts **product** UI. Reuse existing Kuat/shadcn components before writing custom code, use semantic tokens (never raw hex), and follow the patterns below — don't invent layouts.
+Build on-brand, accessible Equal Experts **product** UI with the EE design system (Kuat). Reuse existing Kuat/shadcn components before writing custom code, use semantic tokens (never raw hex), and follow the patterns below — don't invent layouts.
 
 This skill **links** to the passive reference library; load only the slices you need, when you need them. Standards live in [`/reference`](${CLAUDE_PLUGIN_ROOT}/reference/README.md) — never paste reference content inline.
 

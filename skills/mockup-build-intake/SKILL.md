@@ -1,12 +1,12 @@
 ---
 name: mockup-build-intake
-description: Run before building a design mockup with the Claude Design inline-mockup tool (show_widget / visualize). Confirms design-system context (EE/Kuat vs. a different client), resolves the fidelity level's compliance bar, and — for Kuat work — pulls real token values and component visual specs live from kuat-agent-rules rather than generic Claude Design tokens, so the mockup is as spec-accurate as the fidelity level requires instead of only directionally similar.
+description: EE design system (Kuat) — pre-flight before building an inline mockup in Claude (show_widget / visualize). Confirms whether the work uses the EE design system or another client's system, sets the fidelity bar, and pulls real EE design tokens and component specs instead of generic defaults. Use before any quick Equal Experts UI mockup, wireframe or visual in chat.
 ---
 
 # Inline-mockup build intake (Claude Design)
 
 The Claude Design tool renders through its own generic design tokens (surface/text/border roles) —
-it has no native concept of Kuat's tokens or components. Left alone, a mockup built with it is only
+it has no native concept of the tokens or components in the EE design system (Kuat). Left alone, a mockup built with it is only
 ever directionally similar to Kuat, never spec-accurate, because nothing forces it to use Kuat's real
 values. This skill is what makes a Kuat-targeted Claude Design mockup actually resolve against the
 real design system, at whatever fidelity the brief calls for.

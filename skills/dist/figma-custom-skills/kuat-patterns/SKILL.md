@@ -1,11 +1,11 @@
 ---
 name: kuat-patterns
-description: Per-medium page and scenario patterns for Equal Experts / Kuat design work — product UI (dashboards, forms, sign-in, detail pages, browse-and-filter, documentation), marketing pages, and their layout shells, components, and density defaults. Use when building or reviewing a specific page type or scenario in Figma, Figma Make, or code, to pick the right layout shell and know which components and density that scenario expects. Load alongside kuat-composition (the density/hierarchy principles these patterns specialise) and kuat-components (the components named per pattern).
+description: EE design system (Kuat) patterns — page and scenario patterns for Equal Experts product UI (dashboards, forms, sign-in, detail pages, browse-and-filter, docs) and marketing pages, with layout shells, components and density defaults. Use when building or reviewing a specific page type in Figma, Figma Make or code with the EE design system. Load with the composition and components skills.
 ---
 
-# Kuat patterns
+# EE design system patterns (Kuat)
 
-Each pattern below states: the layout shell to start from, the density default, which components
+Each EE design system (Kuat) pattern below states: the layout shell to start from, the density default, which components
 it expects, and the most common mistake for that scenario. These are starting points to adapt to
 the actual brief, not templates to fill in unmodified — see kuat-composition for when a genuinely
 divergent layout is the right call.
@@ -160,4 +160,4 @@ vX.Y.Z · <date>`, in the deliverable footer or the review's References section.
 - **kuat-tokens** — token binding once the pattern and shell are chosen.
 - **kuat-create** — the orchestrator; load this skill alongside it for any build or review task.
 
-<!-- kuat-skill-bundle: kuat-patterns v1.0.0 rules-ref:5812d78c12ab built:2026-08-14 -->
+<!-- kuat-skill-bundle: kuat-patterns v1.0.0 rules-ref:a9880de24f6d built:2026-09-29 -->

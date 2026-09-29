@@ -1,11 +1,11 @@
 ---
 name: kuat-tokens
-description: Token binding rules for Equal Experts / Kuat design work in Figma — which semantic token or variable to use for colour, spacing, radius, and typography, and which Plugin API call binds it. Use whenever a design, component, or screen is being built or edited against the Kuat design system and needs correct variable/style bindings rather than hardcoded values. Not for composition/layout judgment (kuat-composition), per-medium page patterns (kuat-patterns), or component selection (kuat-components) — load those alongside this skill, not instead of it.
+description: EE design system (Kuat) tokens in Figma — which Equal Experts semantic token or variable to use for colour, spacing, radius and typography, and which Plugin API call binds it. Use whenever a design is built or edited with the EE design system and needs real variable and style bindings, not hardcoded values. Load alongside the composition, patterns and components skills, not instead of them.
 ---
 
-# Kuat tokens
+# EE design system tokens (Kuat)
 
-Kuat's design values live as **variables and text styles in the Kuat2 Figma library**, not as
+The EE design system (Kuat) keeps its design values as **variables and text styles in the Kuat2 Figma library**, not as
 numbers in this skill. This skill is the decision framework for which named token to search for
 and bind, and which Plugin API call binds it — not a table of hex codes or pixel values. Hardcoded
 numbers drift out of sync with the library the moment it updates; a bound variable does not.
