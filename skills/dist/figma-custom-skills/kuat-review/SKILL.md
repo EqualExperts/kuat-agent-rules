@@ -1,9 +1,9 @@
 ---
 name: kuat-review
-description: Review existing Equal Experts / Kuat design or Figma Make output — screens, components, or a whole file — for design-system compliance, accessibility, and composition quality. Use when asked to review, audit, or check design work that already exists in Figma or Figma Make. Produces findings with severities, not a redesign — route fixes back through kuat-create. Load alongside kuat-tokens, kuat-composition, kuat-patterns, and kuat-components, whose rules this skill checks against.
+description: EE design system (Kuat) in Figma — review existing Equal Experts design or Figma Make output (screens, components or a whole file) against the EE design system — compliance, accessibility and composition quality. Use when asked to review, audit or check design work in Figma or Figma Make. Produces findings with severities, not a redesign. Load alongside the EE tokens, composition, patterns and components skills.
 ---
 
-# Kuat review
+# EE design system: review in Figma (Kuat)
 
 Review the design **as built**, not as it looks in a screenshot: a screen can render correctly
 today with every value hardcoded and every component detached, and rot the moment the library
@@ -26,7 +26,7 @@ Ask, in one grouped message, before producing anything:
   UX findings **provisional** and list assumptions under Open questions. Never invent user
   research or flows that weren't provided.
 - **The target** — file/frame/node scope, or the Figma Make project in scope.
-- **Which design system governs** — Equal Experts/Kuat, or a different client's own system? If not
+- **Which design system governs** — Equal Experts (the EE design system, Kuat), or a different client's own system? If not
   Kuat, review against that system's own library and variables — carry over no Kuat defaults.
 - **What the design is for** (page type / scenario), so density and pattern findings judge it
   against the right content type (see kuat-patterns).
@@ -113,4 +113,4 @@ Include the version stamp: `Kuat review skill vX.Y.Z · <date>`.
   this skill checks against; load alongside it.
 - **kuat-create** — routes fixes for anything this skill finds.
 
-<!-- kuat-skill-bundle: kuat-review v1.0.0 rules-ref:5812d78c12ab built:2026-08-14 -->
+<!-- kuat-skill-bundle: kuat-review v1.0.0 rules-ref:a9880de24f6d built:2026-09-29 -->

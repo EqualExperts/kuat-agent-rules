@@ -1,11 +1,11 @@
 ---
 name: kuat-create
-description: Create EE-branded slides, web UI, marketing content, graphics, or copy using kuat-agent-docs rules. Use when building or generating new Equal Experts branded artifacts. Always resolves up-to-date rules before creating.
+description: EE design system (Kuat) — create Equal Experts branded slides, web UI, marketing content, graphics or copy with the EE design system and brand rules. Use when building anything new that should be on-brand for Equal Experts. Always loads the latest EE rules before creating.
 ---
 
 # Equal Experts brand create
 
-Produce new EE-branded artifacts following upstream rules and existing patterns.
+Produce new EE-branded artifacts with the EE design system (Kuat), following upstream rules and existing patterns.
 
 ## Step 0 — Resolve rules (mandatory)
 

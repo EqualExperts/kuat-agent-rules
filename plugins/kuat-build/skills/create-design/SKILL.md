@@ -1,6 +1,6 @@
 ---
 name: create-design
-description: Use when a request needs new visual design concepts or mockups — screens, components, or layouts — before any code or Figma work starts. Determines (1) whether to produce a single design or multiple concept directions, (2) the fidelity level and how strictly Kuat design-system compliance applies at that fidelity, and (3) whether the output route is Figma or Claude Design (inline mockup). Hands off to kuat-figma-design or mockup-build-intake accordingly. Not for code implementation (see create-web-app) or slides/imagery (see create-presentation, create-imagery).
+description: EE design system (Kuat) — start new design concepts or mockups for Equal Experts screens, components or layouts, before code or Figma work. Use when someone asks to design, sketch or mock up something with the EE design system or Equal Experts brand. Decides single vs multiple concepts, fidelity, how strictly EE design system rules apply, and whether to go to Figma or an inline mockup. Hands off to kuat-figma-design or mockup-build-intake. Not for code (create-web-app) or slides/imagery (create-presentation, create-imagery).
 ---
 
 # Create a design (mockup / concept)
@@ -11,7 +11,7 @@ gets a clear brief instead of guessing.
 
 ## Step 0 — Design-system context (ask once, pass it downstream)
 
-Is this Equal Experts / Kuat work, or work for a different client with its own design system? Ask if
+Is this Equal Experts work on the EE design system (Kuat), or work for a different client with its own design system? Ask if
 not already stated. Carry the answer into whichever skill you hand off to in Step 4 — don't ask again.
 
 - **If Kuat:** [reference/media-types/web-product/design.md](${CLAUDE_PLUGIN_ROOT}/reference/media-types/web-product/design.md) and the Kuat2 file are in scope.

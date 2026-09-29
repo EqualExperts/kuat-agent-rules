@@ -1,6 +1,6 @@
 ---
 name: create-presentation
-description: Create Equal Experts branded slide decks and presentations — pitch decks, knowledge-sharing talks, case studies, reports. Builds from the genuine EE master template (inheriting real layouts, the left bracket, the official logo, and Lexend) — never improvises a lookalike. Use when building or editing EE slides. Not for web UI or standalone marketing pages.
+description: Equal Experts (EE) brand — create EE slide decks and presentations — pitch decks, talks, case studies, reports. Part of the EE design system (Kuat). Builds from the genuine EE master template (real layouts, left bracket, official logo, Lexend), never a lookalike. Use when building or editing EE-branded or on-brand Equal Experts slides. Not for web UI or marketing pages.
 ---
 
 # Create EE presentations

@@ -1,9 +1,9 @@
 ---
 name: kuat-figma-review-design
-description: Review an existing Figma design — screens, components, or a whole file — for design-system compliance, accessibility, and composition quality. Use when asked to review, audit, or check design work that lives in a Figma Design file (URL, file key, or selected frames). Produces findings with severities, not a redesign. Not for reviewing code (review-web-app), Figma Make output (kuat-figma-review-make), or building/fixing designs (kuat-figma-design).
+description: EE design system (Kuat) in Figma — review an existing Figma design (screens, components or a whole file) against the EE design system — component and variable use, accessibility and composition quality. Use when asked to review, audit or check Figma work for Equal Experts design system or brand compliance (URL, file key or selected frames). Produces findings with severities, not a redesign. Not for code (review-web-app), Figma Make (kuat-figma-review-make) or building (kuat-figma-design).
 ---
 
-# Kuat Figma design review
+# EE design system: Figma design review (Kuat)
 
 Review the design **as built in the file**, not as it looks in a screenshot: a screen can render
 correctly today with every value hardcoded and every component detached, and rot the moment the
@@ -19,7 +19,7 @@ Run the shared intake — [../_shared/intake.md](../_shared/intake.md) — inclu
 (never assume `brand_compliance` for "review this"). Plus:
 
 - The target: file URL/key and which frames/pages are in scope.
-- Which design system governs: Equal Experts/Kuat, or the client's own? If not Kuat, review
+- Which design system governs: Equal Experts (the EE design system, Kuat), or the client's own? If not Kuat, review
   against that system's own library and variables — no Kuat defaults.
 - What the design is for (page type / scenario), so density and pattern findings judge it against
   the right content type.

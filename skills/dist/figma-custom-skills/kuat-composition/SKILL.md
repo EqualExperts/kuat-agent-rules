@@ -1,11 +1,11 @@
 ---
 name: kuat-composition
-description: Composition and craft rules for Equal Experts / Kuat design work — focal hierarchy, density defaults by content type, scale contrast, whitespace as a decision, restraint, and the observer-gate tests that catch a compliant-but-generic screen. Use for any Figma design, review, or Figma Make generation that needs layout and hierarchy judgment, not just correct tokens. Load alongside kuat-tokens (the values these principles spend) and kuat-patterns (how each medium specializes them).
+description: EE design system (Kuat) composition — layout and craft rules for Equal Experts design — focal hierarchy, density by content type, scale contrast, whitespace, restraint, and checks that catch a compliant but generic screen. Use for any EE Figma design, review or Figma Make build that needs layout and hierarchy judgment, not just correct tokens. Load with the tokens and patterns skills.
 ---
 
-# Kuat composition
+# EE design system composition (Kuat)
 
-Correct tokens, real components, and accessible contrast are **necessary but not sufficient**. A
+In the EE design system (Kuat), correct tokens, real components, and accessible contrast are **necessary but not sufficient**. A
 screen can pass every token and component check and still read as generic — flat, interchangeable,
 doing nothing that a competitor's product couldn't do with a colour swap. This skill states what
 "considered" means, so it can be checked rather than felt, and gives the adversarial gate that
@@ -173,4 +173,4 @@ vX.Y.Z · <date>`, in the deliverable footer or the review's References section.
 - **kuat-components** — which component carries a given piece of hierarchy.
 - **kuat-create** — the orchestrator; load this skill alongside it for any build or review task.
 
-<!-- kuat-skill-bundle: kuat-composition v1.0.0 rules-ref:5812d78c12ab built:2026-08-14 -->
+<!-- kuat-skill-bundle: kuat-composition v1.0.0 rules-ref:a9880de24f6d built:2026-09-29 -->

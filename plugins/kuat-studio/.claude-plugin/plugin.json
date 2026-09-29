@@ -1,8 +1,8 @@
 {
   "name": "kuat-studio",
-  "displayName": "Kuat Studio",
+  "displayName": "EE Design System: Studio (Kuat)",
   "version": "1.0.0",
-  "description": "Create and review Equal Experts branded slide decks, presentations, and visual assets (icons, infographics, illustrations, photography) — on brand, no setup required.",
+  "description": "Equal Experts (EE) brand — create and review EE slide decks, presentations and visual assets (icons, infographics, illustrations, photography). Part of the EE design system (Kuat). On brand, no setup required.",
   "author": {
     "name": "Equal Experts",
     "url": "https://www.equalexperts.com"

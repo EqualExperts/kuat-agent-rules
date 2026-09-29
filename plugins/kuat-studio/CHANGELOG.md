@@ -1,8 +1,8 @@
-# Changelog — Kuat Studio (`kuat-studio`)
+# Changelog — EE Design System: Studio (Kuat) (`kuat-studio`)
 
 All notable changes to this plugin are recorded here. Drives release notes.
 
-## 1.0.0 — 2026-08-10
+## 1.0.0 — 2026-09-29
 
 - Initial release. Skills: `create-presentation`, `review-presentation`, `create-imagery`.
-- Bundled `reference/` snapshot at `1076a8030d85`.
+- Bundled `reference/` snapshot at `a9880de24f6d`.

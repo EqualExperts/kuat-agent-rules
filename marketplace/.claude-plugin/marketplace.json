@@ -5,15 +5,15 @@
     "name": "Equal Experts",
     "url": "https://www.equalexperts.com"
   },
-  "description": "Equal Experts brand & design-system plugins (Kuat). beta + stable channels.",
+  "description": "EE design system (Kuat) — Equal Experts brand and design-system plugins. Beta and stable channels.",
   "metadata": {
     "note": "PLACEHOLDER repo coords — confirm before publishing. Plugin payloads are built and committed in EqualExperts/kuat-agent-rules under plugins/<name>/ and pulled via git-subdir. Channels differ by ref: 'stable' (release tag) vs 'beta' (pre-release branch). Version comes from each ref's plugin.json — do NOT set version on the entries (same string on two refs => /plugin update skips)."
   },
   "plugins": [
     {
       "name": "kuat-build",
-      "displayName": "Kuat Build (stable)",
-      "description": "EE web app UI — build & review. For engineers in Claude Code / Cowork.",
+      "displayName": "EE Design System: Build (Kuat) — stable",
+      "description": "EE design system (Kuat) — build and review Equal Experts web app UI and Figma design. For engineers in Claude Code / Cowork.",
       "source": {
         "source": "git-subdir",
         "url": "https://github.com/EqualExperts/kuat-agent-rules.git",
@@ -23,8 +23,8 @@
     },
     {
       "name": "kuat-studio",
-      "displayName": "Kuat Studio (stable)",
-      "description": "EE slide decks, presentations & imagery — create & review.",
+      "displayName": "EE Design System: Studio (Kuat) — stable",
+      "description": "Equal Experts (EE) brand — create and review EE slide decks, presentations and imagery. Part of the EE design system (Kuat).",
       "source": {
         "source": "git-subdir",
         "url": "https://github.com/EqualExperts/kuat-agent-rules.git",
@@ -34,8 +34,8 @@
     },
     {
       "name": "kuat-build-beta",
-      "displayName": "Kuat Build (beta)",
-      "description": "Beta channel of kuat-build for the pilot cohort.",
+      "displayName": "EE Design System: Build (Kuat) — beta",
+      "description": "Beta channel of EE Design System: Build (Kuat) for the pilot cohort.",
       "source": {
         "source": "git-subdir",
         "url": "https://github.com/EqualExperts/kuat-agent-rules.git",
@@ -45,8 +45,8 @@
     },
     {
       "name": "kuat-studio-beta",
-      "displayName": "Kuat Studio (beta)",
-      "description": "Beta channel of kuat-studio for the pilot cohort.",
+      "displayName": "EE Design System: Studio (Kuat) — beta",
+      "description": "Beta channel of EE Design System: Studio (Kuat) for the pilot cohort.",
       "source": {
         "source": "git-subdir",
         "url": "https://github.com/EqualExperts/kuat-agent-rules.git",

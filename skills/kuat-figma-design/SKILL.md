@@ -1,11 +1,11 @@
 ---
 name: kuat-figma-design
-description: Design screens, components, or views in a Figma Design file — from ideation through composition to a gated, design-system-compliant build. Use for any request that creates or updates design work inside Figma (via figma-generate-design or use_figma), whether Equal Experts/Kuat or another client's system. Steps the agent through craft (focal hierarchy, density, scale contrast) as well as correct component, variable, and text-style usage. Not for prototype wiring (kuat-figma-prototype), reviewing existing designs (kuat-figma-review-design), Figma Make generation (kuat-figma-make), inline mockups (create-design → mockup-build-intake), or code (create-web-app).
+description: EE design system (Kuat) in Figma — design screens, components or views in a Figma Design file, from idea to a gated, design-system-compliant build. Use when someone asks to design or update work in Figma with the EE design system, the Equal Experts Figma library, EE components or variables. Also works for another client's system. Covers craft (hierarchy, density, scale) and correct component, variable and text-style use. Not for prototypes (kuat-figma-prototype), reviews (kuat-figma-review-design), Figma Make (kuat-figma-make), inline mockups (create-design) or code (create-web-app).
 ---
 
-# Kuat Figma design
+# EE design system: Figma design (Kuat)
 
-Build design work in Figma that is **considered, not just compliant**. Two failure modes to design
+Build design work in Figma, on the EE design system (Kuat), that is **considered, not just compliant**. Two failure modes to design
 out, in order: a screen that ignores the design system (wrong tokens, lookalike components), and a
 screen that satisfies the design system but reads as generic — correct and flat. The steps below
 gate both.

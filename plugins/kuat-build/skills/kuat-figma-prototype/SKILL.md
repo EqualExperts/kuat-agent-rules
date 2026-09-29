@@ -1,9 +1,9 @@
 ---
 name: kuat-figma-prototype
-description: Turn Figma screens into a clickable prototype that demonstrates a user flow end to end — define the flow, audit that every step has a screen and state, wire connections with sensible triggers and restrained animation, and gate the flow for coherence. Use when a request asks for a prototype, clickable flow, walkthrough, or "make it interactive" in Figma. Not for designing the screens themselves (kuat-figma-design — invoked from here when screens are missing), reviewing designs (kuat-figma-review-design), or Figma Make (kuat-figma-make).
+description: EE design system (Kuat) in Figma — turn Figma screens into a clickable prototype of a user flow. Defines the flow, checks every step has a screen and state, wires connections with sensible triggers and restrained animation, then checks the flow hangs together. Use when asked for a prototype, clickable flow, walkthrough or "make it interactive" in Figma for Equal Experts work. Not for designing screens (kuat-figma-design), reviews (kuat-figma-review-design) or Figma Make (kuat-figma-make).
 ---
 
-# Kuat Figma prototype
+# EE design system: Figma prototype (Kuat)
 
 A prototype is an **argument about a flow**, not a pile of wired frames. Flow first: decide what
 journey the prototype demonstrates, prove every step of that journey has a screen, then wire it.
@@ -13,7 +13,7 @@ click-throughs that demo nothing.
 ## Step 0 — Design-system context
 
 Same hard stop as [kuat-figma-design](${CLAUDE_PLUGIN_ROOT}/skills/kuat-figma-design/SKILL.md) Step 0: confirm Equal
-Experts/Kuat vs. another client's system, and the target file, before anything else. If the
+Experts (the EE design system, Kuat) vs. another client's system, and the target file, before anything else. If the
 screens were just built via that skill, reuse its context.
 
 ## Step 1 — Define the flow
