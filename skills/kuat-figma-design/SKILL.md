@@ -1,6 +1,6 @@
 ---
 name: kuat-figma-design
-description: EE design system (Kuat) in Figma — design screens, components or views in a Figma Design file, from idea to a gated, design-system-compliant build. Use when someone asks to design or update work in Figma with the EE design system, the Equal Experts Figma library, EE components or variables. Also works for another client's system. Covers craft (hierarchy, density, scale) and correct component, variable and text-style use. Not for prototypes (kuat-figma-prototype), reviews (kuat-figma-review-design), Figma Make (kuat-figma-make), inline mockups (create-design) or code (create-web-app).
+description: "EE design system (Kuat) in Figma — design screens, components or views in a Figma Design file, from idea to a gated, design-system-compliant build. Use when someone asks to design or update work in Figma with the EE design system, the Equal Experts Figma library, EE components or variables. Also works for another client's system. Covers craft (hierarchy, density, scale) and correct component, variable and text-style use. Not for prototypes (kuat-figma-prototype), reviews (kuat-figma-review-design), Figma Make (kuat-figma-make), inline mockups (create-design) or code (create-web-app)."
 ---
 
 # EE design system: Figma design (Kuat)

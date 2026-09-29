@@ -1,6 +1,6 @@
 ---
 name: kuat-create
-description: EE design system (Kuat) — create Equal Experts branded slides, web UI, marketing content, graphics or copy with the EE design system and brand rules. Use when building anything new that should be on-brand for Equal Experts. Always loads the latest EE rules before creating.
+description: "EE design system (Kuat) — create Equal Experts branded slides, web UI, marketing content, graphics or copy with the EE design system and brand rules. Use when building anything new that should be on-brand for Equal Experts. Always loads the latest EE rules before creating."
 ---
 
 # Equal Experts brand create
@@ -233,4 +233,4 @@ Run the activity skill's delivery checklist before handoff (e.g. the slides chec
 - Rules standards: `{RULES_DIR}` — [kuat-agent-docs](https://github.com/equalexperts/kuat-agent-docs)
 - Bundle manifest: compare `RULES_REF` to `dist/manifest.json` → `rules.builtAtRef`
 
-<!-- kuat-skill-bundle: kuat-create v1.0.0 rules-ref:e13d75cfdaf9 built:2026-09-29 -->
+<!-- kuat-skill-bundle: kuat-create v1.0.0 rules-ref:68ebef7b0971 built:2026-09-29 -->

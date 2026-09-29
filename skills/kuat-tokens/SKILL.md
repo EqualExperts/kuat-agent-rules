@@ -1,6 +1,6 @@
 ---
 name: kuat-tokens
-description: EE design system (Kuat) tokens in Figma — which Equal Experts semantic token or variable to use for colour, spacing, radius and typography, and which Plugin API call binds it. Use whenever a design is built or edited with the EE design system and needs real variable and style bindings, not hardcoded values. Load alongside the composition, patterns and components skills, not instead of them.
+description: "EE design system (Kuat) tokens in Figma — which Equal Experts semantic token or variable to use for colour, spacing, radius and typography, and which Plugin API call binds it. Use whenever a design is built or edited with the EE design system and needs real variable and style bindings, not hardcoded values. Load alongside the composition, patterns and components skills, not instead of them."
 ---
 
 # EE design system tokens (Kuat)

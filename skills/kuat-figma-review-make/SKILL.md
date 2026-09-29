@@ -1,6 +1,6 @@
 ---
 name: kuat-figma-review-make
-description: EE design system (Kuat) in Figma Make — review Figma Make output (the app and its code) against the EE design system. Checks it uses the real EE component library (`@equal-experts/kuat-react`) and tokens (`kuat-core`), plus brand, accessibility and composition quality. Use when asked to review, audit or check something built in Figma Make for Equal Experts. Produces findings with severities, not fixes. Not for Figma Design files (kuat-figma-review-design), code outside Make (review-web-app) or building (kuat-figma-make).
+description: "EE design system (Kuat) in Figma Make — review Figma Make output (the app and its code) against the EE design system. Checks it uses the real EE component library (`@equal-experts/kuat-react`) and tokens (`kuat-core`), plus brand, accessibility and composition quality. Use when asked to review, audit or check something built in Figma Make for Equal Experts. Produces findings with severities, not fixes. Not for Figma Design files (kuat-figma-review-design), code outside Make (review-web-app) or building (kuat-figma-make)."
 ---
 
 # EE design system: Figma Make review (Kuat)

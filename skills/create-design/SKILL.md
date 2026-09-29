@@ -1,6 +1,6 @@
 ---
 name: create-design
-description: EE design system (Kuat) — start new design concepts or mockups for Equal Experts screens, components or layouts, before code or Figma work. Use when someone asks to design, sketch or mock up something with the EE design system or Equal Experts brand. Decides single vs multiple concepts, fidelity, how strictly EE design system rules apply, and whether to go to Figma or an inline mockup. Hands off to kuat-figma-design or mockup-build-intake. Not for code (create-web-app) or slides/imagery (create-presentation, create-imagery).
+description: "EE design system (Kuat) — start new design concepts or mockups for Equal Experts screens, components or layouts, before code or Figma work. Use when someone asks to design, sketch or mock up something with the EE design system or Equal Experts brand. Decides single vs multiple concepts, fidelity, how strictly EE design system rules apply, and whether to go to Figma or an inline mockup. Hands off to kuat-figma-design or mockup-build-intake. Not for code (create-web-app) or slides/imagery (create-presentation, create-imagery)."
 ---
 
 # Create a design (mockup / concept)

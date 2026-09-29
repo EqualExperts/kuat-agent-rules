@@ -1,6 +1,6 @@
 ---
 name: kuat-components
-description: EE design system (Kuat) components — how to pick and configure Equal Experts components — resolution order (blocks, custom components, shadcn primitives, custom build), tricky choices (Card vs ContentCard, Badge vs StatusBadge/Tag/CounterBadge), slots and state coverage. Use whenever a Figma design, Figma Make build or code needs an EE component instead of inventing one. Load with the tokens and patterns skills.
+description: "EE design system (Kuat) components — how to pick and configure Equal Experts components: resolution order (blocks, custom components, shadcn primitives, custom build), tricky choices (Card vs ContentCard, Badge vs StatusBadge/Tag/CounterBadge), slots and state coverage. Use whenever a Figma design, Figma Make build or code needs an EE component instead of inventing one. Load with the tokens and patterns skills."
 ---
 
 # EE design system components (Kuat)

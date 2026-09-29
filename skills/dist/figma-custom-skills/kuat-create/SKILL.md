@@ -1,6 +1,6 @@
 ---
 name: kuat-create
-description: EE design system (Kuat) in Figma — start here to build Equal Experts design work in Figma, Figma Make or a Figma prototype — screens, components, views or full flows. Use for any request to create or update EE design work in a Figma surface. Runs intake, composition, token and component choices, and quality gates, and says which sibling skill to load. Not for reviewing existing work or code outside Figma.
+description: "EE design system (Kuat) in Figma — start here to build Equal Experts design work in Figma, Figma Make or a Figma prototype: screens, components, views or full flows. Use for any request to create or update EE design work in a Figma surface. Runs intake, composition, token and component choices, and quality gates, and says which sibling skill to load. Not for reviewing existing work or code outside Figma."
 ---
 
 # EE design system: create in Figma (Kuat)
@@ -116,4 +116,4 @@ Two passes, in order, neither optional:
   step above where it's needed.
 - **kuat-review** — for checking existing work instead of building new work.
 
-<!-- kuat-skill-bundle: kuat-create v1.0.0 rules-ref:e13d75cfdaf9 built:2026-09-29 -->
+<!-- kuat-skill-bundle: kuat-create v1.0.0 rules-ref:68ebef7b0971 built:2026-09-29 -->

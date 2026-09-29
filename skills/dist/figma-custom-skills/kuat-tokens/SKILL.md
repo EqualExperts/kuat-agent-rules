@@ -1,6 +1,6 @@
 ---
 name: kuat-tokens
-description: EE design system (Kuat) tokens in Figma — which Equal Experts semantic token or variable to use for colour, spacing, radius and typography, and which Plugin API call binds it. Use whenever a design is built or edited with the EE design system and needs real variable and style bindings, not hardcoded values. Load alongside the composition, patterns and components skills, not instead of them.
+description: "EE design system (Kuat) tokens in Figma — which Equal Experts semantic token or variable to use for colour, spacing, radius and typography, and which Plugin API call binds it. Use whenever a design is built or edited with the EE design system and needs real variable and style bindings, not hardcoded values. Load alongside the composition, patterns and components skills, not instead of them."
 ---
 
 # EE design system tokens (Kuat)
@@ -181,4 +181,4 @@ version it used — a small footer note or a line in the handoff, e.g. `Kuat tok
 - **kuat-patterns** — per-medium defaults that combine tokens, composition, and components.
 - **kuat-create** — the orchestrator; load this skill alongside it for any build task.
 
-<!-- kuat-skill-bundle: kuat-tokens v1.0.0 rules-ref:e13d75cfdaf9 built:2026-09-29 -->
+<!-- kuat-skill-bundle: kuat-tokens v1.0.0 rules-ref:68ebef7b0971 built:2026-09-29 -->

@@ -1,6 +1,6 @@
 ---
 name: create-web-app
-description: EE design system (Kuat) — build Equal Experts web app UI in code — forms, dashboards, app screens, navigation, settings, tables and product flows (React/HTML). Use when someone asks for UI that follows the EE design system, Equal Experts brand, EE design tokens or EE components, or mentions Kuat or kuat-react. Covers brand, accessibility and component usage. Not for marketing pages or slides.
+description: "EE design system (Kuat) — build Equal Experts web app UI in code: forms, dashboards, app screens, navigation, settings, tables and product flows (React/HTML). Use when someone asks for UI that follows the EE design system, Equal Experts brand, EE design tokens or EE components, or mentions Kuat or kuat-react. Covers brand, accessibility and component usage. Not for marketing pages or slides."
 ---
 
 # Create EE web app UI

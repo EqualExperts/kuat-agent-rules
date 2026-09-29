@@ -1,6 +1,6 @@
 ---
 name: kuat-figma-review-design
-description: EE design system (Kuat) in Figma — review an existing Figma design (screens, components or a whole file) against the EE design system — component and variable use, accessibility and composition quality. Use when asked to review, audit or check Figma work for Equal Experts design system or brand compliance (URL, file key or selected frames). Produces findings with severities, not a redesign. Not for code (review-web-app), Figma Make (kuat-figma-review-make) or building (kuat-figma-design).
+description: "EE design system (Kuat) in Figma — review an existing Figma design (screens, components or a whole file) against the EE design system: component and variable use, accessibility and composition quality. Use when asked to review, audit or check Figma work for Equal Experts design system or brand compliance (URL, file key or selected frames). Produces findings with severities, not a redesign. Not for code (review-web-app), Figma Make (kuat-figma-review-make) or building (kuat-figma-design)."
 ---
 
 # EE design system: Figma design review (Kuat)

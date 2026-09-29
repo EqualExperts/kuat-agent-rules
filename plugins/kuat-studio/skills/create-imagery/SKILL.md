@@ -1,6 +1,6 @@
 ---
 name: create-imagery
-description: Equal Experts (EE) brand — create or select EE visual assets — icons, infographics, illustrations, diagrams and photography briefs. Part of the EE design system (Kuat). Use when imagery must follow EE brand, colour and photography guidelines. Includes a light quality and accessibility check. Not for full slide decks or web UI.
+description: "Equal Experts (EE) brand — create or select EE visual assets: icons, infographics, illustrations, diagrams and photography briefs. Part of the EE design system (Kuat). Use when imagery must follow EE brand, colour and photography guidelines. Includes a light quality and accessibility check. Not for full slide decks or web UI."
 ---
 
 # Create EE imagery
