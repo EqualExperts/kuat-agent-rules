@@ -116,4 +116,4 @@ Two passes, in order, neither optional:
   step above where it's needed.
 - **kuat-review** — for checking existing work instead of building new work.
 
-<!-- kuat-skill-bundle: kuat-create v1.0.0 rules-ref:5812d78c12ab built:2026-08-14 -->
+<!-- kuat-skill-bundle: kuat-create v1.0.0 rules-ref:d87e1c6cbacb built:2026-08-14 -->

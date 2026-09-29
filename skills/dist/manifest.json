@@ -1,50 +1,50 @@
 {
   "version": "1.0.0",
-  "builtAt": "2026-08-14T14:33:16.261Z",
+  "builtAt": "2026-08-14T14:56:45.825Z",
   "rules": {
     "repo": "equalexperts/kuat-agent-docs",
     "loadingPath": "reference/README.md",
-    "builtAtRef": "5812d78c12ab819b9b1a11a9936693bb836594f6"
+    "builtAtRef": "d87e1c6cbacb3637df82264b8e50d04c03767be4"
   },
   "skills": {
     "kuat-review": {
       "file": "kuat-review/SKILL.md",
-      "sha256": "ca3c15658da7269b84ea146428e1aa6d18707f5e0efbfb6e2ee9df4531ac5e5f"
+      "sha256": "0b1b14602f992d98920849a19849ea769ada2ea03bc7b684be34e44c752dd1f7"
     },
     "kuat-create": {
       "file": "kuat-create/SKILL.md",
-      "sha256": "dd7ea54477168761347bb28a0bbeb3d714156f7115c383a0e9d31a9099bd28a4"
+      "sha256": "290193c761cace67a9cdcc11ee797c003d8f3ea1f1f674346b14d0d5d6b58edf"
     }
   },
   "figmaCustomSkills": {
     "kuat-create": {
       "file": "figma-custom-skills/kuat-create/SKILL.md",
-      "sha256": "495df6c0666ff41232b9f360b18e68136ca83736d05f9d353ae79e07fd8ddad2",
+      "sha256": "8f6324a8ef76436cce20c85a21f53c7773e4a7c05b8d5b9e59baba78a13e5c38",
       "chars": 7231
     },
     "kuat-tokens": {
       "file": "figma-custom-skills/kuat-tokens/SKILL.md",
-      "sha256": "17fa0aa7c8990e03e3e302f923c31942f4875444293a7103356adfdc365a1b12",
-      "chars": 11496
+      "sha256": "08072b9199d6602d5ccc6b10f8ed791ffe34066021194cfd70c22ab0a0edfc7b",
+      "chars": 13099
     },
     "kuat-composition": {
       "file": "figma-custom-skills/kuat-composition/SKILL.md",
-      "sha256": "4cd2b5db0ae28a9095816f2b85b0814f9ba406e3c4f98656c97366539265ec13",
+      "sha256": "cf681e4af9338560741a394139922c7e51af2468405ae988c996641a9b1a84ec",
       "chars": 11215
     },
     "kuat-patterns": {
       "file": "figma-custom-skills/kuat-patterns/SKILL.md",
-      "sha256": "61bf85fb5feacc7ab7c2b402e9859d2bdad2d724ebfa8e966dbe4be28a1704d8",
+      "sha256": "550ba0e80ea96cb2cefc9c8633d768ca3af6c9500a05086653589501f7b2283e",
       "chars": 11669
     },
     "kuat-components": {
       "file": "figma-custom-skills/kuat-components/SKILL.md",
-      "sha256": "5d43ff17f6670c621b16326984169505cf4defbbc7038a60260079b71dc99448",
-      "chars": 8831
+      "sha256": "f724ff1bb57d1e3f73d17b756ffeecb70b7cb4b5240e4ede1db2731e74c028d8",
+      "chars": 9438
     },
     "kuat-review": {
       "file": "figma-custom-skills/kuat-review/SKILL.md",
-      "sha256": "5e2f50f0d511eaf46dbe909f8a0325ef588047dc7071486fd86f66d38a29d50a",
+      "sha256": "f08ac30dfc0941fbfda9815f38bc243100e3fa3f0fcbac29d34ba2770eafdb59",
       "chars": 6548
     }
   },
