@@ -158,6 +158,6 @@ vX.Y.Z · <date>`, in the deliverable footer or the review's References section.
 - **kuat-components** — which named component fills each pattern's slots (metric card, table,
   status indicator, etc.).
 - **kuat-tokens** — token binding once the pattern and shell are chosen.
-- **kuat-create** — the orchestrator; load this skill alongside it for any build or review task.
+- **ee-figma-create** — the orchestrator; load this skill alongside it for any build or review task.
 
-<!-- kuat-skill-bundle: kuat-patterns v1.0.0 rules-ref:68ebef7b0971 built:2026-09-29 -->
+<!-- kuat-skill-bundle: kuat-patterns v1.0.0 rules-ref:5a4f168e0fb1 built:2026-09-29 -->

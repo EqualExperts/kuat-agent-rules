@@ -1,5 +1,5 @@
 ---
-name: kuat-create
+name: ee-figma-create
 description: "EE design system (Kuat) in Figma — start here to build Equal Experts design work in Figma, Figma Make or a Figma prototype: screens, components, views or full flows. Use for any request to create or update EE design work in a Figma surface. Runs intake, composition, token and component choices, and quality gates, and says which sibling skill to load. Not for reviewing existing work or code outside Figma."
 ---
 
@@ -18,7 +18,7 @@ in yourself as this workflow reaches the matching step.
 | **kuat-composition** | Focal hierarchy, density, scale contrast, restraint, the observer gate |
 | **kuat-patterns** | The layout shell and expected components for the page type in hand |
 | **kuat-components** | Resolution priority, which specific component to use, slots, states |
-| **kuat-review** | After building, or when asked to check existing work instead of build |
+| **ee-figma-review** | After building, or when asked to check existing work instead of build |
 
 Figma's own generation and editing tools (design/prototype/make generation, the plugin-execution
 tool) don't know which design system is in scope and must never be assumed to default to Kuat —
@@ -100,7 +100,7 @@ Two passes, in order, neither optional:
   data available to design an empty state against).
 - Stamp the deliverable: `Kuat create skill vX.Y.Z · <date>`.
 - If asked to check this work later, or to review something someone else built, that's
-  **kuat-review**, not this skill — route there instead of re-running this workflow defensively on
+  **ee-figma-review**, not this skill — route there instead of re-running this workflow defensively on
   your own output.
 
 ## Conflict & ambiguity
@@ -114,6 +114,6 @@ Two passes, in order, neither optional:
 
 - **kuat-tokens**, **kuat-composition**, **kuat-patterns**, **kuat-components** — load each at the
   step above where it's needed.
-- **kuat-review** — for checking existing work instead of building new work.
+- **ee-figma-review** — for checking existing work instead of building new work.
 
-<!-- kuat-skill-bundle: kuat-create v1.0.0 -->
+<!-- kuat-skill-bundle: ee-figma-create v1.0.0 -->

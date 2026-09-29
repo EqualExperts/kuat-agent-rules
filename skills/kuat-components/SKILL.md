@@ -136,6 +136,6 @@ vX.Y.Z · <date>`, in the deliverable footer or the review's References section.
 - **kuat-patterns** — which components a given page pattern expects, in context.
 - **kuat-composition** — hierarchy and density judgment that decides how a component is sized and
   placed, not just which one to use.
-- **kuat-create** — the orchestrator; load this skill alongside it for any build task.
+- **ee-figma-create** — the orchestrator; load this skill alongside it for any build task.
 
 <!-- kuat-skill-bundle: kuat-components v1.0.0 -->

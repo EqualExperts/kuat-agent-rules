@@ -23,8 +23,8 @@ This directory is staged in `kuat-agent-docs` for testing; it may be extracted t
 > `kuat-figma-review-design`, `kuat-figma-make`, `kuat-figma-review-make` below still reference
 > `{RULES_DIR}` in their bundled bodies, which Figma AI's native custom-skills runtime (no network,
 > no shell) cannot resolve — see [figma-custom-skills.md](./figma-custom-skills.md) for the
-> replacement domain-split release (`kuat-create`, `kuat-tokens`, `kuat-composition`,
-> `kuat-patterns`, `kuat-components`, `kuat-review` — fully self-contained). These five rows remain
+> replacement domain-split release (`ee-figma-create`, `kuat-tokens`, `kuat-composition`,
+> `kuat-patterns`, `kuat-components`, `ee-figma-review` — fully self-contained). These five rows remain
 > valid for filesystem/connector-backed Figma agent setups that *can* resolve `{RULES_DIR}`; they
 > are not deprecated for that use case, only for Figma's native custom-skills upload path.
 

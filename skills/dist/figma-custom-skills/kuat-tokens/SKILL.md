@@ -179,6 +179,6 @@ version it used — a small footer note or a line in the handoff, e.g. `Kuat tok
   composition decision this skill's spacing section defers to).
 - **kuat-components** — which component to use in the first place, before token-binding it.
 - **kuat-patterns** — per-medium defaults that combine tokens, composition, and components.
-- **kuat-create** — the orchestrator; load this skill alongside it for any build task.
+- **ee-figma-create** — the orchestrator; load this skill alongside it for any build task.
 
-<!-- kuat-skill-bundle: kuat-tokens v1.0.0 rules-ref:68ebef7b0971 built:2026-09-29 -->
+<!-- kuat-skill-bundle: kuat-tokens v1.0.0 rules-ref:5a4f168e0fb1 built:2026-09-29 -->

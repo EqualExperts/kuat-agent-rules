@@ -1,5 +1,5 @@
 ---
-name: kuat-review
+name: ee-figma-review
 description: "EE design system (Kuat) in Figma — review existing Equal Experts design or Figma Make output (screens, components or a whole file) against the EE design system: compliance, accessibility and composition quality. Use when asked to review, audit or check design work in Figma or Figma Make. Produces findings with severities, not a redesign. Load alongside the EE tokens, composition, patterns and components skills."
 ---
 
@@ -10,7 +10,7 @@ today with every value hardcoded and every component detached, and rot the momen
 updates. Inspect bindings, not just pixels — then judge the composition, because a token-perfect
 screen can still be generic.
 
-This skill produces findings only — it never fixes or rebuilds. Route fixes to **kuat-create**
+This skill produces findings only — it never fixes or rebuilds. Route fixes to **ee-figma-create**
 (with kuat-tokens / kuat-composition / kuat-patterns / kuat-components loaded alongside it).
 
 ## Step 1 — Intake
@@ -111,6 +111,6 @@ Include the version stamp: `Kuat review skill vX.Y.Z · <date>`.
 
 - **kuat-tokens**, **kuat-composition**, **kuat-patterns**, **kuat-components** — the rule sets
   this skill checks against; load alongside it.
-- **kuat-create** — routes fixes for anything this skill finds.
+- **ee-figma-create** — routes fixes for anything this skill finds.
 
-<!-- kuat-skill-bundle: kuat-review v1.0.0 rules-ref:68ebef7b0971 built:2026-09-29 -->
+<!-- kuat-skill-bundle: ee-figma-review v1.0.0 -->

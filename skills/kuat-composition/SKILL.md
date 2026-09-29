@@ -171,6 +171,6 @@ vX.Y.Z · <date>`, in the deliverable footer or the review's References section.
 - **kuat-tokens** — the spacing/type-scale values these principles spend; load together.
 - **kuat-patterns** — per-medium specialisation of density and focal-hierarchy rules.
 - **kuat-components** — which component carries a given piece of hierarchy.
-- **kuat-create** — the orchestrator; load this skill alongside it for any build or review task.
+- **ee-figma-create** — the orchestrator; load this skill alongside it for any build or review task.
 
 <!-- kuat-skill-bundle: kuat-composition v1.0.0 -->

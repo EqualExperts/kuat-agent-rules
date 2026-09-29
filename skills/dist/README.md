@@ -13,12 +13,12 @@ Fully self-contained — no `{RULES_DIR}`, no network access required. Install a
 
 | Artifact | Loads for |
 |----------|-----------|
-| [figma-custom-skills/kuat-create/SKILL.md](./figma-custom-skills/kuat-create/SKILL.md) | Orchestrator — start here, load siblings per step, see `skills/kuat-create-figma/SKILL.md` for source |
+| [figma-custom-skills/ee-figma-create/SKILL.md](./figma-custom-skills/ee-figma-create/SKILL.md) | Orchestrator — start here, load siblings per step, see `skills/ee-figma-create/SKILL.md` for source |
 | [figma-custom-skills/kuat-tokens/SKILL.md](./figma-custom-skills/kuat-tokens/SKILL.md) | tokens rules, see `skills/kuat-tokens/SKILL.md` for source |
 | [figma-custom-skills/kuat-composition/SKILL.md](./figma-custom-skills/kuat-composition/SKILL.md) | composition rules, see `skills/kuat-composition/SKILL.md` for source |
 | [figma-custom-skills/kuat-patterns/SKILL.md](./figma-custom-skills/kuat-patterns/SKILL.md) | patterns rules, see `skills/kuat-patterns/SKILL.md` for source |
 | [figma-custom-skills/kuat-components/SKILL.md](./figma-custom-skills/kuat-components/SKILL.md) | components rules, see `skills/kuat-components/SKILL.md` for source |
-| [figma-custom-skills/kuat-review/SKILL.md](./figma-custom-skills/kuat-review/SKILL.md) | Reviewing existing Figma/Figma Make work, see `skills/kuat-review-figma/SKILL.md` for source |
+| [figma-custom-skills/ee-figma-review/SKILL.md](./figma-custom-skills/ee-figma-review/SKILL.md) | Reviewing existing Figma/Figma Make work, see `skills/ee-figma-review/SKILL.md` for source |
 
 ## Other consumption surfaces
 
@@ -37,4 +37,4 @@ Not emitted by default (still `{RULES_DIR}`-dependent); set
 Rules standards for the legacy group remain in the `reference/` library — not embedded in those
 bundles. The `figma-custom-skills/` group inlines everything it needs instead, by design.
 
-Built against rules ref: `68ebef7b0971cbc8b5531e110d5324d171b24240`
+Built against rules ref: `5a4f168e0fb125b9d4dbf36d7ba414854a38a58c`
